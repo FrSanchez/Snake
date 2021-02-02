@@ -1,0 +1,738 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4D395629584143F3BA20429D /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				091A178ED3AF3DB3E5588672 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 485BF6EC7AAA4278B3E55B02 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				1AA33B7111CA4F23D501CA39 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				B34C0764417447E1B5E316B3 /* PBXTargetDependency */,
+				AA1E14053F064E9BA33580ED /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		3567189E76D24144ACB57514 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep_context.cc */ = {isa = PBXBuildFile; fileRef = 17D424E094F44E95848C79F5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep_context.cc */; };
+		74E14463EE084EFC8F068443 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 06F941ED6B4C42B9BD4ACA8C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */; };
+		7F8D91CA840C464F8DA9CA90 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep.cc */ = {isa = PBXBuildFile; fileRef = 04631046E03A4467B90E9CDA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep.cc */; };
+		DBAAC9131FB944E99159F341 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/advancing_front.cc */ = {isa = PBXBuildFile; fileRef = 159B448C69A8495285A23A04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/advancing_front.cc */; };
+		ED1E54715C3C4E8E93AE98BD /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/common/shapes.cc */ = {isa = PBXBuildFile; fileRef = 0E1D9BC88B47411BB3482419 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/common/shapes.cc */; };
+		F3492DF8626D48DC9663086B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/cdt.cc */ = {isa = PBXBuildFile; fileRef = 6A54973C0114454C8F6327CB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/cdt.cc */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		562DD3FD25194F77899EB945 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		919D1E99C5D64923B8F674B8 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		946EAEFCB75D4C49B7C55D30 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		E4E6D487B2FE4E508F7945AD /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		561E53C6C81B482684D3D473 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5049229FBC64B908C4BF7CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
+			remoteInfo = ZERO_CHECK;
+		};
+		6AF442AF77B34430B2AE8051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5049229FBC64B908C4BF7CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
+			remoteInfo = ZERO_CHECK;
+		};
+		975A90D4EB3747DC81258141 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5049229FBC64B908C4BF7CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0462483A4AC42FF916654B7;
+			remoteInfo = ext_poly2tri;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04631046E03A4467B90E9CDA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = sweep.cc; path = sweep/sweep.cc; sourceTree = SOURCE_ROOT; };
+		06F941ED6B4C42B9BD4ACA8C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		0E1D9BC88B47411BB3482419 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/common/shapes.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = shapes.cc; path = common/shapes.cc; sourceTree = SOURCE_ROOT; };
+		159B448C69A8495285A23A04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/advancing_front.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = advancing_front.cc; path = sweep/advancing_front.cc; sourceTree = SOURCE_ROOT; };
+		17D424E094F44E95848C79F5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep_context.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = sweep_context.cc; path = sweep/sweep_context.cc; sourceTree = SOURCE_ROOT; };
+		6A54973C0114454C8F6327CB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/cdt.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = cdt.cc; path = sweep/cdt.cc; sourceTree = SOURCE_ROOT; };
+		C2723D2072634E5C849136D4 /* ext_poly2tri */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_poly2tri.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7ABD5872C164D38B0B27254 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D29C49E574D04EC493434882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A88E22243A943D89D92CDB4 = {
+			isa = PBXGroup;
+			children = (
+				6B886DB62DC04B3F946D95F8 /* External */,
+				C394B6F31FE2463090494CD7 /* ALL_BUILD */,
+				9F518DDB72134677AE07923F /* Products */,
+				DE4E256956EA4096A7D91159 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		117BD91590C1428987BEB630 /* ext_poly2tri */ = {
+			isa = PBXGroup;
+			children = (
+				991BF19EA7ED4EBA8E776CBC /* Source Files */,
+				06F941ED6B4C42B9BD4ACA8C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */,
+			);
+			name = ext_poly2tri;
+			sourceTree = "<group>";
+		};
+		2973BB9E99B14EC6ACF7DA2A /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		6B886DB62DC04B3F946D95F8 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				117BD91590C1428987BEB630 /* ext_poly2tri */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		991BF19EA7ED4EBA8E776CBC /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E1D9BC88B47411BB3482419 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/common/shapes.cc */,
+				159B448C69A8495285A23A04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/advancing_front.cc */,
+				6A54973C0114454C8F6327CB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/cdt.cc */,
+				04631046E03A4467B90E9CDA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep.cc */,
+				17D424E094F44E95848C79F5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep_context.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		9F518DDB72134677AE07923F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2723D2072634E5C849136D4 /* ext_poly2tri */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C394B6F31FE2463090494CD7 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				2973BB9E99B14EC6ACF7DA2A /* CMake Rules */,
+				E7ABD5872C164D38B0B27254 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		DE4E256956EA4096A7D91159 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0462483A4AC42FF916654B7 /* ext_poly2tri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF7C70FDCFE046C698AFA7BF /* Build configuration list for PBXNativeTarget "ext_poly2tri" */;
+			buildPhases = (
+				022776EE078A48E49E46AFC9 /* Sources */,
+				D29C49E574D04EC493434882 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1E7AC97BC0B46359696DA1B /* PBXTargetDependency */,
+			);
+			name = ext_poly2tri;
+			productName = ext_poly2tri;
+			productReference = C2723D2072634E5C849136D4 /* ext_poly2tri */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5049229FBC64B908C4BF7CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = E8E200DC8DE547C5875C1EBF /* Build configuration list for PBXProject "poly2tri" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				562DD3FD25194F77899EB945 /* Debug */,
+				946EAEFCB75D4C49B7C55D30 /* Release */,
+				919D1E99C5D64923B8F674B8 /* MinSizeRel */,
+				E4E6D487B2FE4E508F7945AD /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 0A88E22243A943D89D92CDB4;
+			projectDirPath = ../../../../cocos2d/external/poly2tri;
+			projectRoot = "";
+			targets = (
+				ADA9B91E10D4402DB7005F14 /* ALL_BUILD */,
+				8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */,
+				D0462483A4AC42FF916654B7 /* ext_poly2tri */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		091A178ED3AF3DB3E5588672 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+"/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeFiles/ZERO_CHECK"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  make -f /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  make -f /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  make -f /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  make -f /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		1AA33B7111CA4F23D501CA39 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+"/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/CMakeFiles/ALL_BUILD"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		022776EE078A48E49E46AFC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED1E54715C3C4E8E93AE98BD /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/common/shapes.cc */,
+				DBAAC9131FB944E99159F341 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/advancing_front.cc */,
+				F3492DF8626D48DC9663086B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/cdt.cc */,
+				7F8D91CA840C464F8DA9CA90 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep.cc */,
+				3567189E76D24144ACB57514 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/sweep/sweep_context.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA1E14053F064E9BA33580ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 6AF442AF77B34430B2AE8051 /* PBXContainerItemProxy */;
+		};
+		B1E7AC97BC0B46359696DA1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 561E53C6C81B482684D3D473 /* PBXContainerItemProxy */;
+		};
+		B34C0764417447E1B5E316B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0462483A4AC42FF916654B7 /* ext_poly2tri */;
+			targetProxy = 975A90D4EB3747DC81258141 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18F8A43972F0401C8B1F3D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		1A1397177EC04986A3CF55AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		1F79845573EB4700BB926D2C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		278DA11E47664D60803484BF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/build";
+			};
+			name = RelWithDebInfo;
+		};
+		2BBCDA2A9B154BDE899C8B5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/..");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_poly2tri;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2D3943A0D8A64A739A6C0611 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3BAC3B7793C141529E1ACEEC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		597A62A842AD446C82871637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/build";
+			};
+			name = Debug;
+		};
+		5F25678331BD4C2997A001DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		6840DE9A04784247A9507F86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/..");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_poly2tri;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		825237E125DA48B3BF59DD2E /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/..");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_poly2tri;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		8C0C125D7AF9405891B3B75C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/poly2tri/..");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_poly2tri;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9FDEE91F435A4037AC10E20D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/build";
+			};
+			name = Release;
+		};
+		A3F7A83B98EA4BF1A7DFF7A5 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri/build";
+			};
+			name = MinSizeRel;
+		};
+		E33E402EC2C54B439E33214B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		F76EDA7867A342CEAE2AF6BA /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/poly2tri";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		485BF6EC7AAA4278B3E55B02 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A1397177EC04986A3CF55AA /* Debug */,
+				18F8A43972F0401C8B1F3D40 /* Release */,
+				2D3943A0D8A64A739A6C0611 /* MinSizeRel */,
+				F76EDA7867A342CEAE2AF6BA /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4D395629584143F3BA20429D /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F25678331BD4C2997A001DB /* Debug */,
+				E33E402EC2C54B439E33214B /* Release */,
+				1F79845573EB4700BB926D2C /* MinSizeRel */,
+				3BAC3B7793C141529E1ACEEC /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BF7C70FDCFE046C698AFA7BF /* Build configuration list for PBXNativeTarget "ext_poly2tri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BBCDA2A9B154BDE899C8B5F /* Debug */,
+				6840DE9A04784247A9507F86 /* Release */,
+				825237E125DA48B3BF59DD2E /* MinSizeRel */,
+				8C0C125D7AF9405891B3B75C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E8E200DC8DE547C5875C1EBF /* Build configuration list for PBXProject "poly2tri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				597A62A842AD446C82871637 /* Debug */,
+				9FDEE91F435A4037AC10E20D /* Release */,
+				A3F7A83B98EA4BF1A7DFF7A5 /* MinSizeRel */,
+				278DA11E47664D60803484BF /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D5049229FBC64B908C4BF7CE /* Project object */;
+}
