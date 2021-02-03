@@ -19,7 +19,12 @@ Scene* SceneMenu::createScene()
 
 void SceneMenu::startGame()
 {
-    auto audioId = AudioEngine::play2d("audio/select_001.ogg");
+    if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
+        AudioEngine::stop(_audioID);
+        _audioID = AudioEngine::INVALID_AUDIO_ID;
+    }
+    
+    auto audioId = AudioEngine::play2d("select_001.ogg", false, 1.0f);
     if (audioId == AudioEngine::INVALID_AUDIO_ID) {
         log("Failed to play select_001.ogg");
     }
@@ -106,6 +111,12 @@ bool SceneMenu::init()
         return true;
     };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+    
+    _audioID = AudioEngine::play2d("Bonkers-for-Arcades.mp3", true, 0.7f);
+    
+    if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
+        log("Can't play background music");
+    }
     
     return true;
 }

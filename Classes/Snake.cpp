@@ -37,9 +37,20 @@ int Snake::getLength()
     return body.size();
 }
 
+void Snake::setLayer(TMXLayer* value)
+{
+    layer = value;
+}
+
 bool Snake::advance()
 {
     Point head = body.at(0) + direction;
+    auto gid = layer->getTileGIDAt(Vec2(head.x, head.y));
+    if (gid != 5) {
+        log("head: %f %f, gid %d", head.x, head.y, gid);
+        // only tile 5 is a valid empty spot
+        return false;
+    }
     Point temp = head;
     Point old;
     auto total = body.size();
@@ -52,10 +63,6 @@ bool Snake::advance()
                return false;
            }
        }
-    if (head.x <= 0 || head.y <= 0 || head.x > width || head.y > height)
-    {
-        return false;
-    }
     return true;
 }
 

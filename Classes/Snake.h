@@ -21,12 +21,16 @@ public:
     int getLength();
     cocos2d::Vec2 getPosAt(int);
     void grow();
+    int getWidth() { return width; }
+    int getHeight() { return height; }
+    void setLayer(cocos2d::TMXLayer*);
     
 private:
     std::vector<cocos2d::Point> body;
     cocos2d::Vec2 direction;
     int width;
     int height;
+    cocos2d::TMXLayer* layer;
 };
 
 #endif /* Snake_hpp */

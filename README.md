@@ -7,3 +7,11 @@ Right now only macOS has been enabled
 cd mac-build
 open snake-mobile.xcodeproj
 ```
+
+# Game Assets:
+* Snake: https://opengameart.org/content/snake-graphics
+* Sounds: https://soundimage.org/attribution-info/
+
+More sounds:
+* https://freesound.org/people/MEAXX/sounds/218069/
+* https://freesound.org/people/likeclockwork/sounds/168313/

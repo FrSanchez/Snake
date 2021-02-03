@@ -16,6 +16,7 @@ private:
     float _extent = 20;
     float _magnitude = 0;
     cocos2d::Size _direction = cocos2d::Size(0.8, -1);
+    int _audioID;
     
 public:
     static cocos2d::Scene* createScene();

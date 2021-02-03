@@ -28,10 +28,7 @@
 
 // #define USE_AUDIO_ENGINE 1
 
-#if USE_AUDIO_ENGINE
 #include "audio/include/AudioEngine.h"
-using namespace cocos2d::experimental;
-#endif
 
 USING_NS_CC;
 
@@ -43,9 +40,8 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate() 
 {
-#if USE_AUDIO_ENGINE
+    AudioEngine::uncacheAll();
     AudioEngine::end();
-#endif
 }
 
 // if you want a different context, modify the value of glContextAttrs
@@ -74,7 +70,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
         glview = GLViewImpl::create(APP_NAME);
 #else
-        glview = cocos2d::GLViewImpl::createWithRect(APP_NAME, Rect(0,0,1136,640));
+        glview = cocos2d::GLViewImpl::createWithRect(APP_NAME, Rect(0,0,960,640));
 //        glview->setFrameZoomFactor(.5f);
 #endif
         director->setOpenGLView(glview);
@@ -85,6 +81,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
+    
+    auto spritecache = SpriteFrameCache::getInstance();
+    spritecache->addSpriteFramesWithFile("Textures.plist");
 
     auto scene = SceneMenu::createScene();
     director->runWithScene(scene);

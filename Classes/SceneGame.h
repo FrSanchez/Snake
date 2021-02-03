@@ -20,14 +20,15 @@ public:
 
     virtual bool init();
     
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
+    void closeScene(cocos2d::Ref* pSender);
+    void update(float delta);
     
     // implement the "static create()" method manually
     CREATE_FUNC(SceneGame);
     
 private:
-    Snake snake = Snake(boardSize.width, boardSize.height);
+    Snake snake = Snake(0,0);
+    cocos2d::Size tileSize;
     cocos2d::Sprite* apple;
     Node* headSprite = nullptr;
     std::vector<cocos2d::Sprite *> body;
@@ -35,6 +36,11 @@ private:
     int lastFood = 0;
     float snakeSpeed = 0.5f;
     cocos2d::Vec2 corner;
+    int _audioId;
+    cocos2d::Label* scoreLabel;
+    cocos2d::Label* posLabel;
+    int score = 0;
+    cocos2d::TMXLayer* layer;
 
     void updateTimer(float dt);
     
