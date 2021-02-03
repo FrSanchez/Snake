@@ -1,0 +1,9 @@
+.DS_Store
+mac-build/bin
+mac-build/build
+mac-build/lib
+mac-build/snake-mobile.build/
+*.build/
+xcuserdata/
+xcshareddata/
+project.pbxproj
