@@ -9,7 +9,7 @@
 /* Begin PBXAggregateTarget section */
 		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = E80EF1D0E0E3438EB43532E9 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 90AF72AE7B42434380BF2884 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				3EEF6315255E5BE0BBC00363 /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,12 +20,12 @@
 		};
 		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 0BD23D4641114620BA27346C /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = DA4E0FF16C9D490082EE4812 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				E7FF97C7BF71BDF7B990E151 /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				7E20E6DB11974A1D908F5A52 /* PBXTargetDependency */,
+				396E5C95E07B42CF8F580011 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -33,28 +33,28 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildStyle section */
-		288BB9AF98DC4E0CA5344CB4 /* RelWithDebInfo */ = {
+		07A7402517AA4A2DA3246C22 /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		45AFE4CC6ED1471EA203D547 /* Debug */ = {
+		135E635E872341B488D09076 /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
-		4A30F050C6E44969AB006279 /* MinSizeRel */ = {
+		1A92082FF09F4A1B89715B31 /* MinSizeRel */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = MinSizeRel;
 		};
-		A5DFA906FE3342B8917A0D89 /* Release */ = {
+		E9192BAF8BE94407A24FF61F /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -64,7 +64,7 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		7DBB5394E6D74B9EBBE84E6A /* PBXContainerItemProxy */ = {
+		8522081244884981AE1FB709 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8B30A4373BE740C9B3908C06 /* Project object */;
 			proxyType = 1;
@@ -74,47 +74,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A594B95FF4B646D9B12256E8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/openssl/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E10EE9C89CD245D3801BBFE8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/openssl/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		18DD99864A6E47A0B4E5A3A3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		654E916A900F417AB3BAE196 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				B6EEE6A27B814A29A6683A8D /* CMake Rules */,
-				A594B95FF4B646D9B12256E8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/openssl/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		6FA221581DBF403CBC67DBD4 /* Frameworks */ = {
+		B4EB3942B586440D87AE9568 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B6EEE6A27B814A29A6683A8D /* CMake Rules */ = {
+		B5F1599D907A4140AAC7B553 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		BE306F5196414A0E85C8AFFE = {
+		CBBC2054C03043209E2E0804 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				654E916A900F417AB3BAE196 /* ALL_BUILD */,
-				18DD99864A6E47A0B4E5A3A3 /* Products */,
-				6FA221581DBF403CBC67DBD4 /* Frameworks */,
 			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF923B217B204A1C8A379B9B = {
+			isa = PBXGroup;
+			children = (
+				F016AF1795084FA38EF5CA6D /* ALL_BUILD */,
+				CBBC2054C03043209E2E0804 /* Products */,
+				B4EB3942B586440D87AE9568 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F016AF1795084FA38EF5CA6D /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				B5F1599D907A4140AAC7B553 /* CMake Rules */,
+				E10EE9C89CD245D3801BBFE8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/openssl/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,18 +126,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = 8244F43F72D44CFB8FCBB84F /* Build configuration list for PBXProject "openssl" */;
+			buildConfigurationList = 537763D386A74F26A93F5798 /* Build configuration list for PBXProject "openssl" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				45AFE4CC6ED1471EA203D547 /* Debug */,
-				A5DFA906FE3342B8917A0D89 /* Release */,
-				4A30F050C6E44969AB006279 /* MinSizeRel */,
-				288BB9AF98DC4E0CA5344CB4 /* RelWithDebInfo */,
+				135E635E872341B488D09076 /* Debug */,
+				E9192BAF8BE94407A24FF61F /* Release */,
+				1A92082FF09F4A1B89715B31 /* MinSizeRel */,
+				07A7402517AA4A2DA3246C22 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = BE306F5196414A0E85C8AFFE;
+			mainGroup = EF923B217B204A1C8A379B9B;
 			projectDirPath = ../../../../cocos2d/external/openssl;
 			projectRoot = "";
 			targets = (
@@ -247,107 +247,15 @@ fi
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7E20E6DB11974A1D908F5A52 /* PBXTargetDependency */ = {
+		396E5C95E07B42CF8F580011 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 7DBB5394E6D74B9EBBE84E6A /* PBXContainerItemProxy */;
+			targetProxy = 8522081244884981AE1FB709 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0209CEEB695D479C8E4FFCF1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		27631121D315474594F22352 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		44AD0E8A75FB44208E3CC1CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Release;
-		};
-		61778B1C4DD64AD89AA6F489 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		6796F23606E746A0B327B613 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
-			};
-			name = RelWithDebInfo;
-		};
-		79FD42E55B9B40CEAC4AEC6D /* MinSizeRel */ = {
+		1DED893A96D94632A44C5F6A /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -367,31 +275,47 @@ fi
 			};
 			name = MinSizeRel;
 		};
-		85BBC1D02FB541CE84F71D3D /* Release */ = {
+		53EE4FF80D894523BA44B016 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = Debug;
 		};
-		893536D204EE4647A1F73BD6 /* MinSizeRel */ = {
+		570047A24D194825A9C27BB4 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = MinSizeRel;
+			name = RelWithDebInfo;
 		};
-		91092066777C48E28A804208 /* RelWithDebInfo */ = {
+		66EFCDD9586E475CA26DC0D0 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -411,7 +335,7 @@ fi
 			};
 			name = RelWithDebInfo;
 		};
-		C70E84B8942A4EE2B6BA64B5 /* Debug */ = {
+		785C087D1E98476DBDC71EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -429,21 +353,9 @@ fi
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Debug;
+			name = Release;
 		};
-		EAE422EE396E4E4FAC2C87F7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
-			};
-			name = Debug;
-		};
-		FF8293FCBEA04C6CB103E842 /* Release */ = {
+		9D5437E73E9B4D41AA90AC8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -462,39 +374,127 @@ fi
 				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = Release;
+		};
+		9F2F1E863768491E98E48275 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+			};
+			name = MinSizeRel;
+		};
+		A248A0991DA0420AB5DE43FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+			};
+			name = Release;
+		};
+		B0443ACF1E364ED293126A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+			};
+			name = Debug;
+		};
+		C6727F301CF647F8B825E6F0 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		DB96E6EB5496402F981FE70E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl/build";
+			};
+			name = RelWithDebInfo;
+		};
+		E8674E73352542ACB5111F8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/openssl";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BD23D4641114620BA27346C /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		537763D386A74F26A93F5798 /* Build configuration list for PBXProject "openssl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C70E84B8942A4EE2B6BA64B5 /* Debug */,
-				44AD0E8A75FB44208E3CC1CB /* Release */,
-				27631121D315474594F22352 /* MinSizeRel */,
-				91092066777C48E28A804208 /* RelWithDebInfo */,
+				B0443ACF1E364ED293126A9D /* Debug */,
+				A248A0991DA0420AB5DE43FC /* Release */,
+				9F2F1E863768491E98E48275 /* MinSizeRel */,
+				DB96E6EB5496402F981FE70E /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8244F43F72D44CFB8FCBB84F /* Build configuration list for PBXProject "openssl" */ = {
+		90AF72AE7B42434380BF2884 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAE422EE396E4E4FAC2C87F7 /* Debug */,
-				85BBC1D02FB541CE84F71D3D /* Release */,
-				893536D204EE4647A1F73BD6 /* MinSizeRel */,
-				6796F23606E746A0B327B613 /* RelWithDebInfo */,
+				E8674E73352542ACB5111F8D /* Debug */,
+				9D5437E73E9B4D41AA90AC8A /* Release */,
+				1DED893A96D94632A44C5F6A /* MinSizeRel */,
+				570047A24D194825A9C27BB4 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E80EF1D0E0E3438EB43532E9 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		DA4E0FF16C9D490082EE4812 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0209CEEB695D479C8E4FFCF1 /* Debug */,
-				FF8293FCBEA04C6CB103E842 /* Release */,
-				79FD42E55B9B40CEAC4AEC6D /* MinSizeRel */,
-				61778B1C4DD64AD89AA6F489 /* RelWithDebInfo */,
+				53EE4FF80D894523BA44B016 /* Debug */,
+				785C087D1E98476DBDC71EC5 /* Release */,
+				C6727F301CF647F8B825E6F0 /* MinSizeRel */,
+				66EFCDD9586E475CA26DC0D0 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

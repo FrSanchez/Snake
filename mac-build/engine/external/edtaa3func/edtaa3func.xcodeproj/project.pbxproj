@@ -9,7 +9,7 @@
 /* Begin PBXAggregateTarget section */
 		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 3A9F728529224DBD9B0A44AB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 364C8EDAD6F9416E9943A5FF /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				463C1CAB2B3B046C266530AC /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,13 +20,13 @@
 		};
 		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = A246727FB9A643EFBB33C1FE /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 9E352DD312DA475F9927DCA7 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				3D410A30980CBBCB9573F46D /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				DD8C0C2B5C87415084ADA536 /* PBXTargetDependency */,
-				F01FBBC885EC411E8C02D317 /* PBXTargetDependency */,
+				D6621EB80DD14E7189D46FD2 /* PBXTargetDependency */,
+				B06F70A25C864805BE8B3432 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,33 +34,33 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		085C23AB059B48868FA29C9A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */ = {isa = PBXBuildFile; fileRef = 0AF68D6C0EC143A9A46566C5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */; };
-		3A9A55C667204D2E95276028 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 1DECB72AFC2B46E88D285FC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */; };
+		3BA3D2FA3790415883D5336B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */ = {isa = PBXBuildFile; fileRef = E7534E76009F43DD92677E04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */; };
+		945AD5096F2D437EBCCBD1ED /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = A60738A392D0485E82639AA5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		54EA4592243643ACB5992228 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		8812D443F0FB4A708B6E6499 /* Release */ = {
+		5EFBB0BEDC3240359108BDF2 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
-		9883DFD20246431D9B2F7A72 /* MinSizeRel */ = {
+		8B014C18801046528B10D83F /* MinSizeRel */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = MinSizeRel;
 		};
-		99E1444D80C74FFD88DE49FA /* RelWithDebInfo */ = {
+		AF30A6B58FEB403B980E3C75 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		C419C1C633634A1680631706 /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -70,38 +70,38 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		3B89E5C47FAE4BE38D8C398B /* PBXContainerItemProxy */ = {
+		68EB9122383C4EAAB0BF5B94 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21E3A83249D84C5B8DD67E8E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
 			remoteInfo = ZERO_CHECK;
 		};
-		A8F77838A40C45B79092EEBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21E3A83249D84C5B8DD67E8E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
-			remoteInfo = ZERO_CHECK;
-		};
-		B421637E3FA448E68E40C9B4 /* PBXContainerItemProxy */ = {
+		7851E7F8D6294BF294F390FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21E3A83249D84C5B8DD67E8E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CF759E5B492543C699212303;
 			remoteInfo = ext_edtaa3func;
 		};
+		8D7A6F4F761943E3BE293691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E3A83249D84C5B8DD67E8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
+			remoteInfo = ZERO_CHECK;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AF68D6C0EC143A9A46566C5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = edtaa3func.cpp; path = edtaa3func.cpp; sourceTree = SOURCE_ROOT; };
-		1DECB72AFC2B46E88D285FC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		3BA50B2038674B0CB04EB0AB /* ext_edtaa3func */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_edtaa3func.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D28FFF9463CA4C9FB75B2401 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		73A27ADCE19C41ADA09BA676 /* ext_edtaa3func */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_edtaa3func.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60738A392D0485E82639AA5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E7534E76009F43DD92677E04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = edtaa3func.cpp; path = edtaa3func.cpp; sourceTree = SOURCE_ROOT; };
+		F5D17A3136C14F378F3A6F4D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2F09F5CF297344878893FD1E /* Frameworks */ = {
+		0058750CA03443CCADD6906E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,70 +111,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		26364070BF2C426B90EE7331 /* Frameworks */ = {
+		29694753CA004D589C3540F8 = {
+			isa = PBXGroup;
+			children = (
+				DD4F46DF609A497D8D5AA371 /* External */,
+				A196C83D49054A78AD876E7B /* ALL_BUILD */,
+				C25EA08F030546C786065AC1 /* Products */,
+				74CFC7F9448149E2B2B50E96 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4CB1EECC4AC8442BBC861979 /* ext_edtaa3func */ = {
+			isa = PBXGroup;
+			children = (
+				EF54224AC1E947948E68DB7F /* Source Files */,
+				A60738A392D0485E82639AA5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */,
+			);
+			name = ext_edtaa3func;
+			sourceTree = "<group>";
+		};
+		74CFC7F9448149E2B2B50E96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		38C24D2C1DC94CEABC806DC4 /* CMake Rules */ = {
+		A196C83D49054A78AD876E7B /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				BDF0BB3C587247A28428EC38 /* CMake Rules */,
+				F5D17A3136C14F378F3A6F4D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		BDF0BB3C587247A28428EC38 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		B2273C5F7A6F4E56B5B51B4C /* ALL_BUILD */ = {
+		C25EA08F030546C786065AC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38C24D2C1DC94CEABC806DC4 /* CMake Rules */,
-				D28FFF9463CA4C9FB75B2401 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		BD6338B8C8C7446CA5DDCB75 /* ext_edtaa3func */ = {
-			isa = PBXGroup;
-			children = (
-				CF0688E7C18B4C3CBE73B289 /* Source Files */,
-				1DECB72AFC2B46E88D285FC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/CMakeLists.txt */,
-			);
-			name = ext_edtaa3func;
-			sourceTree = "<group>";
-		};
-		CF0688E7C18B4C3CBE73B289 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				0AF68D6C0EC143A9A46566C5 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		D37183CCD8564EA3BC61093A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3BA50B2038674B0CB04EB0AB /* ext_edtaa3func */,
+				73A27ADCE19C41ADA09BA676 /* ext_edtaa3func */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E7600BAF6760447F9CFE9F2E = {
+		DD4F46DF609A497D8D5AA371 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				E89172D4042B4B209DACED8E /* External */,
-				B2273C5F7A6F4E56B5B51B4C /* ALL_BUILD */,
-				D37183CCD8564EA3BC61093A /* Products */,
-				26364070BF2C426B90EE7331 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		E89172D4042B4B209DACED8E /* External */ = {
-			isa = PBXGroup;
-			children = (
-				BD6338B8C8C7446CA5DDCB75 /* ext_edtaa3func */,
+				4CB1EECC4AC8442BBC861979 /* ext_edtaa3func */,
 			);
 			name = External;
+			sourceTree = "<group>";
+		};
+		EF54224AC1E947948E68DB7F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7534E76009F43DD92677E04 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */,
+			);
+			name = "Source Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,19 +182,19 @@
 /* Begin PBXNativeTarget section */
 		CF759E5B492543C699212303 /* ext_edtaa3func */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D5C0C00B42741EB82E28F31 /* Build configuration list for PBXNativeTarget "ext_edtaa3func" */;
+			buildConfigurationList = B9A96C51A37C4DB093A0C506 /* Build configuration list for PBXNativeTarget "ext_edtaa3func" */;
 			buildPhases = (
-				DABAFAA29C0A473DB11951B4 /* Sources */,
-				2F09F5CF297344878893FD1E /* Frameworks */,
+				78E78613FA494A4181451D54 /* Sources */,
+				0058750CA03443CCADD6906E /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FCE471C0EFF249B5AE7457D8 /* PBXTargetDependency */,
+				BA60BEF46C7A416C9699AE93 /* PBXTargetDependency */,
 			);
 			name = ext_edtaa3func;
 			productName = ext_edtaa3func;
-			productReference = 3BA50B2038674B0CB04EB0AB /* ext_edtaa3func */;
+			productReference = 73A27ADCE19C41ADA09BA676 /* ext_edtaa3func */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -206,18 +206,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = 11039E5CBA4E41FA8493DFD2 /* Build configuration list for PBXProject "edtaa3func" */;
+			buildConfigurationList = 531E8C8ABB85419BAA898660 /* Build configuration list for PBXProject "edtaa3func" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				54EA4592243643ACB5992228 /* Debug */,
-				8812D443F0FB4A708B6E6499 /* Release */,
-				9883DFD20246431D9B2F7A72 /* MinSizeRel */,
-				99E1444D80C74FFD88DE49FA /* RelWithDebInfo */,
+				AF30A6B58FEB403B980E3C75 /* Debug */,
+				5EFBB0BEDC3240359108BDF2 /* Release */,
+				8B014C18801046528B10D83F /* MinSizeRel */,
+				C419C1C633634A1680631706 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = E7600BAF6760447F9CFE9F2E;
+			mainGroup = 29694753CA004D589C3540F8;
 			projectDirPath = ../../../../cocos2d/external/edtaa3func;
 			projectRoot = "";
 			targets = (
@@ -328,36 +328,76 @@ exit 0";
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DABAFAA29C0A473DB11951B4 /* Sources */ = {
+		78E78613FA494A4181451D54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085C23AB059B48868FA29C9A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */,
+				3BA3D2FA3790415883D5336B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/edtaa3func.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DD8C0C2B5C87415084ADA536 /* PBXTargetDependency */ = {
+		B06F70A25C864805BE8B3432 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 3B89E5C47FAE4BE38D8C398B /* PBXContainerItemProxy */;
+			targetProxy = 68EB9122383C4EAAB0BF5B94 /* PBXContainerItemProxy */;
 		};
-		F01FBBC885EC411E8C02D317 /* PBXTargetDependency */ = {
+		BA60BEF46C7A416C9699AE93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 8D7A6F4F761943E3BE293691 /* PBXContainerItemProxy */;
+		};
+		D6621EB80DD14E7189D46FD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CF759E5B492543C699212303 /* ext_edtaa3func */;
-			targetProxy = B421637E3FA448E68E40C9B4 /* PBXContainerItemProxy */;
-		};
-		FCE471C0EFF249B5AE7457D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = A8F77838A40C45B79092EEBB /* PBXContainerItemProxy */;
+			targetProxy = 7851E7F8D6294BF294F390FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03E65E31CFC649C281B053BC /* Debug */ = {
+		04CC43DFEDFA4E0A8D7D96EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		2D599C8616714D768F1808FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		3227EA47E3DC41BAA80A9652 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -377,47 +417,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		0701F584AB5B4DBD8E265080 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		139DF9A2344D4060B99FAAF2 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		1E1F324DD1924D3CBFC45421 /* Release */ = {
+		338D07A021AA455CB01EBB1E /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -435,9 +435,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = RelWithDebInfo;
 		};
-		32ACE3EBDC4940A88B805BAB /* RelWithDebInfo */ = {
+		3CC07A4F622243C78C97B101 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -449,85 +449,7 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		3770F4F947DB45CCA6271D25 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		4CA9D5F6F4C541D7B4E6D1A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/.");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_edtaa3func;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Release;
-		};
-		564C5210988946FA96D65B71 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		6869FA06157843BCAB047FAE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func/build";
-			};
-			name = Release;
-		};
-		AEFE7CE8306B45E8ACD1E834 /* RelWithDebInfo */ = {
+		50DCC46FEEB0464D92B4670F /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -553,7 +475,79 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		B5520AB8B6CB4390ACC50AFF /* Debug */ = {
+		5383B868AF644B7AA6D2FF2B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func/build";
+			};
+			name = MinSizeRel;
+		};
+		6DA0AC7875764A9B8E409F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		80F20A958F954D58AAA5AD7D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		893348BF9F8D4D0692D994EB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8F675077611A481DBC28CF14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -579,7 +573,33 @@ exit 0";
 			};
 			name = Debug;
 		};
-		EC6750367D1F41E28F51E421 /* MinSizeRel */ = {
+		98568E3ACA6A4B0D8552CE17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/edtaa3func/.");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_edtaa3func;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B021336A653F474F889AE383 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -605,7 +625,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		F66F929BFC494ED49A1A1E9B /* Debug */ = {
+		B5D6EBD2777C420F8FBEBDF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -614,30 +634,22 @@ exit 0";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func/build";
-			};
-			name = Debug;
-		};
-		F7E683B7AFAA4FBBA8C71A0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
 			};
 			name = Release;
 		};
-		FBC02B03D28F45828C756DE3 /* Debug */ = {
+		CB1020C152644E76A90E4BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func/build";
+			};
+			name = Debug;
+		};
+		E97216322BCC488EB83CF8D5 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -654,64 +666,52 @@ exit 0";
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		FE493702DB224999901636E2 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/edtaa3func/build";
 			};
 			name = MinSizeRel;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11039E5CBA4E41FA8493DFD2 /* Build configuration list for PBXProject "edtaa3func" */ = {
+		364C8EDAD6F9416E9943A5FF /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F66F929BFC494ED49A1A1E9B /* Debug */,
-				6869FA06157843BCAB047FAE /* Release */,
-				FE493702DB224999901636E2 /* MinSizeRel */,
-				32ACE3EBDC4940A88B805BAB /* RelWithDebInfo */,
+				2D599C8616714D768F1808FB /* Debug */,
+				04CC43DFEDFA4E0A8D7D96EF /* Release */,
+				E97216322BCC488EB83CF8D5 /* MinSizeRel */,
+				893348BF9F8D4D0692D994EB /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3A9F728529224DBD9B0A44AB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		531E8C8ABB85419BAA898660 /* Build configuration list for PBXProject "edtaa3func" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FBC02B03D28F45828C756DE3 /* Debug */,
-				F7E683B7AFAA4FBBA8C71A0C /* Release */,
-				139DF9A2344D4060B99FAAF2 /* MinSizeRel */,
-				0701F584AB5B4DBD8E265080 /* RelWithDebInfo */,
+				CB1020C152644E76A90E4BFB /* Debug */,
+				B5D6EBD2777C420F8FBEBDF7 /* Release */,
+				5383B868AF644B7AA6D2FF2B /* MinSizeRel */,
+				3CC07A4F622243C78C97B101 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5D5C0C00B42741EB82E28F31 /* Build configuration list for PBXNativeTarget "ext_edtaa3func" */ = {
+		9E352DD312DA475F9927DCA7 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5520AB8B6CB4390ACC50AFF /* Debug */,
-				4CA9D5F6F4C541D7B4E6D1A2 /* Release */,
-				EC6750367D1F41E28F51E421 /* MinSizeRel */,
-				AEFE7CE8306B45E8ACD1E834 /* RelWithDebInfo */,
+				3227EA47E3DC41BAA80A9652 /* Debug */,
+				6DA0AC7875764A9B8E409F2D /* Release */,
+				80F20A958F954D58AAA5AD7D /* MinSizeRel */,
+				338D07A021AA455CB01EBB1E /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A246727FB9A643EFBB33C1FE /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		B9A96C51A37C4DB093A0C506 /* Build configuration list for PBXNativeTarget "ext_edtaa3func" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				03E65E31CFC649C281B053BC /* Debug */,
-				1E1F324DD1924D3CBFC45421 /* Release */,
-				564C5210988946FA96D65B71 /* MinSizeRel */,
-				3770F4F947DB45CCA6271D25 /* RelWithDebInfo */,
+				8F675077611A481DBC28CF14 /* Debug */,
+				98568E3ACA6A4B0D8552CE17 /* Release */,
+				B021336A653F474F889AE383 /* MinSizeRel */,
+				50DCC46FEEB0464D92B4670F /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

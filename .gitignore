@@ -8,5 +8,7 @@ xcuserdata/
 xcshareddata/
 project.pbxproj
 Resources/.DS_Store
-mac-build/engine/
-ios-build/
+ios-build/bin
+ios-build/build
+ios-build/lib
+ios-build/snake-mobile.build/

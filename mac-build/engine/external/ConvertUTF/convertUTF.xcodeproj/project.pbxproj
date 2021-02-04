@@ -9,7 +9,7 @@
 /* Begin PBXAggregateTarget section */
 		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 5EE7B9329E3B408B83A2951A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = AE65ACBD392F4FED8AEAAD0D /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				45865710684A5C5258ADCA82 /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,13 +20,13 @@
 		};
 		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 606057CE21F542B687B3A184 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = A6576655B2984AC2B8615255 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				517AC01C249D6F109F9009F9 /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				EFF634155EEA409E8BA15A1D /* PBXTargetDependency */,
-				93CEE84A020C4D13A2E63E14 /* PBXTargetDependency */,
+				A9195F7E663644C09725CB2E /* PBXTargetDependency */,
+				6D824DB6D82348EBA170A1D8 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,58 +34,58 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		84B033739FE94AB08FCCB87F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */ = {isa = PBXBuildFile; fileRef = F23F72576DDD4F2E93CD256F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */; };
-		8A969535431849769E9C8731 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */ = {isa = PBXBuildFile; fileRef = C2A5CC8D001A4084B27519EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */; };
-		AAD03E7B221F422F95EF5A77 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 6C15461747904538919D2C43 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */; };
+		19D10CB4F57746C98EBFBCDF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */ = {isa = PBXBuildFile; fileRef = A3287F3DC4174356A7A2FA3E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */; };
+		6C053D60DE964B4BBB63D8F2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */ = {isa = PBXBuildFile; fileRef = 851D4946F36B4248A25B2552 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */; };
+		C08673ED58B24AC9ACFCC17F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 819493A301514277A7DCADF9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		4B19559502214AC58460A772 /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		98EF533BA95F4F29B38369AC /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-		A7777EC76F21446E9E9D55DA /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		C4E942ADD4FE4809B861D970 /* MinSizeRel */ = {
+		267BA42DBF524BA1BCBA8719 /* MinSizeRel */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = MinSizeRel;
 		};
+		74E65912B1204F50A40FFD84 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		C1C2B6A0CF7246C0AE04D1F5 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		D57E67499ABC49C3900DA359 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		0CE0B45682524EB8AD37E467 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7474C53F4BF945B4BBE1DCE8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D6EADF4CD214B5492A9F7D4;
-			remoteInfo = ext_convertUTF;
-		};
-		1D9C1B6D48D140A18BCCF60A /* PBXContainerItemProxy */ = {
+		01AFC1D5B873470EBECC21D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7474C53F4BF945B4BBE1DCE8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
 			remoteInfo = ZERO_CHECK;
 		};
-		72563414F397441A8CB14ED3 /* PBXContainerItemProxy */ = {
+		CE16704278F148C887BB625E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7474C53F4BF945B4BBE1DCE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D6EADF4CD214B5492A9F7D4;
+			remoteInfo = ext_convertUTF;
+		};
+		CFA81A9CC7644CC99E27A6EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7474C53F4BF945B4BBE1DCE8 /* Project object */;
 			proxyType = 1;
@@ -95,15 +95,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		636B336DACF84F4E81A76B55 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		6C15461747904538919D2C43 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		A3C706D9E2DB4C2184E8B037 /* ext_convertUTF */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_convertUTF.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2A5CC8D001A4084B27519EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = ConvertUTF.c; path = ConvertUTF.c; sourceTree = SOURCE_ROOT; };
-		F23F72576DDD4F2E93CD256F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ConvertUTFWrapper.cpp; path = ConvertUTFWrapper.cpp; sourceTree = SOURCE_ROOT; };
+		0B3823568E994EF090905E45 /* ext_convertUTF */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_convertUTF.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E32E53E2A694B61ADF73A79 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		819493A301514277A7DCADF9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		851D4946F36B4248A25B2552 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = ConvertUTF.c; path = ConvertUTF.c; sourceTree = SOURCE_ROOT; };
+		A3287F3DC4174356A7A2FA3E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ConvertUTFWrapper.cpp; path = ConvertUTFWrapper.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5D1457266C6341488F18583D /* Frameworks */ = {
+		7A49795008524F16AE15212A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -113,71 +113,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		030651E1C47D42738A5EFD40 /* Products */ = {
+		1667A6A32B63450582BCAB2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3C706D9E2DB4C2184E8B037 /* ext_convertUTF */,
+				0B3823568E994EF090905E45 /* ext_convertUTF */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1CBB836AAF6642659F818535 /* ext_convertUTF */ = {
+		1CF262F8F8604585AEE3720F /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				DFE3F1742CF24B6FAFAC4993 /* Source Files */,
-				6C15461747904538919D2C43 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */,
-			);
-			name = ext_convertUTF;
-			sourceTree = "<group>";
-		};
-		29D4A79977BD43E4AE4B6A94 = {
-			isa = PBXGroup;
-			children = (
-				9359BD3DF3494F319CA0FC55 /* External */,
-				9D7A8F16A8FA4758A5754690 /* ALL_BUILD */,
-				030651E1C47D42738A5EFD40 /* Products */,
-				C5A3EEBA06E6480186DBDCC5 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		9359BD3DF3494F319CA0FC55 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				1CBB836AAF6642659F818535 /* ext_convertUTF */,
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
-		9D7A8F16A8FA4758A5754690 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				B9647E44E999484BB6566112 /* CMake Rules */,
-				636B336DACF84F4E81A76B55 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */,
+				D4AF0A7B3C9841488EF0CC77 /* CMake Rules */,
+				7E32E53E2A694B61ADF73A79 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		B9647E44E999484BB6566112 /* CMake Rules */ = {
+		4686B7D5E5E246D3841BB48F /* External */ = {
 			isa = PBXGroup;
 			children = (
+				930769F168D3478CB56DC7E8 /* ext_convertUTF */,
 			);
-			name = "CMake Rules";
+			name = External;
 			sourceTree = "<group>";
 		};
-		C5A3EEBA06E6480186DBDCC5 /* Frameworks */ = {
+		472089B32493478DAA0A2AB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DFE3F1742CF24B6FAFAC4993 /* Source Files */ = {
+		58A3079BB7F94C79B53AB00B /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				C2A5CC8D001A4084B27519EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */,
-				F23F72576DDD4F2E93CD256F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */,
+				851D4946F36B4248A25B2552 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */,
+				A3287F3DC4174356A7A2FA3E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */,
 			);
 			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		930769F168D3478CB56DC7E8 /* ext_convertUTF */ = {
+			isa = PBXGroup;
+			children = (
+				58A3079BB7F94C79B53AB00B /* Source Files */,
+				819493A301514277A7DCADF9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/CMakeLists.txt */,
+			);
+			name = ext_convertUTF;
+			sourceTree = "<group>";
+		};
+		BA02D366ED6E495BB6146E73 = {
+			isa = PBXGroup;
+			children = (
+				4686B7D5E5E246D3841BB48F /* External */,
+				1CF262F8F8604585AEE3720F /* ALL_BUILD */,
+				1667A6A32B63450582BCAB2F /* Products */,
+				472089B32493478DAA0A2AB5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D4AF0A7B3C9841488EF0CC77 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,19 +185,19 @@
 /* Begin PBXNativeTarget section */
 		7D6EADF4CD214B5492A9F7D4 /* ext_convertUTF */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA13E94A4CA14332A9646157 /* Build configuration list for PBXNativeTarget "ext_convertUTF" */;
+			buildConfigurationList = 61476166F9754E2FBA54C2A5 /* Build configuration list for PBXNativeTarget "ext_convertUTF" */;
 			buildPhases = (
-				AA92FA2A9B1143979D212775 /* Sources */,
-				5D1457266C6341488F18583D /* Frameworks */,
+				2BF1664250BF4A2997605F3C /* Sources */,
+				7A49795008524F16AE15212A /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F88202FE565045C1AA5FB746 /* PBXTargetDependency */,
+				D2677E2BA12841868C7AD1DF /* PBXTargetDependency */,
 			);
 			name = ext_convertUTF;
 			productName = ext_convertUTF;
-			productReference = A3C706D9E2DB4C2184E8B037 /* ext_convertUTF */;
+			productReference = 0B3823568E994EF090905E45 /* ext_convertUTF */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -209,18 +209,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = 6CCCD9BC206A4336AD8A6115 /* Build configuration list for PBXProject "convertUTF" */;
+			buildConfigurationList = D117BD5F985B4F3084295A47 /* Build configuration list for PBXProject "convertUTF" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				A7777EC76F21446E9E9D55DA /* Debug */,
-				98EF533BA95F4F29B38369AC /* Release */,
-				C4E942ADD4FE4809B861D970 /* MinSizeRel */,
-				4B19559502214AC58460A772 /* RelWithDebInfo */,
+				D57E67499ABC49C3900DA359 /* Debug */,
+				74E65912B1204F50A40FFD84 /* Release */,
+				267BA42DBF524BA1BCBA8719 /* MinSizeRel */,
+				C1C2B6A0CF7246C0AE04D1F5 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 29D4A79977BD43E4AE4B6A94;
+			mainGroup = BA02D366ED6E495BB6146E73;
 			projectDirPath = ../../../../cocos2d/external/ConvertUTF;
 			projectRoot = "";
 			targets = (
@@ -331,37 +331,49 @@ exit 0";
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA92FA2A9B1143979D212775 /* Sources */ = {
+		2BF1664250BF4A2997605F3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A969535431849769E9C8731 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */,
-				84B033739FE94AB08FCCB87F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */,
+				6C053D60DE964B4BBB63D8F2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTF.c */,
+				19D10CB4F57746C98EBFBCDF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/ConvertUTFWrapper.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		93CEE84A020C4D13A2E63E14 /* PBXTargetDependency */ = {
+		6D824DB6D82348EBA170A1D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 01AFC1D5B873470EBECC21D6 /* PBXContainerItemProxy */;
+		};
+		A9195F7E663644C09725CB2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7D6EADF4CD214B5492A9F7D4 /* ext_convertUTF */;
-			targetProxy = 0CE0B45682524EB8AD37E467 /* PBXContainerItemProxy */;
+			targetProxy = CE16704278F148C887BB625E /* PBXContainerItemProxy */;
 		};
-		EFF634155EEA409E8BA15A1D /* PBXTargetDependency */ = {
+		D2677E2BA12841868C7AD1DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 1D9C1B6D48D140A18BCCF60A /* PBXContainerItemProxy */;
-		};
-		F88202FE565045C1AA5FB746 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 72563414F397441A8CB14ED3 /* PBXContainerItemProxy */;
+			targetProxy = CFA81A9CC7644CC99E27A6EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05DA66FE77014950A2FE3E7B /* Release */ = {
+		0C7229335AC94FB48CB97273 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
+			};
+			name = MinSizeRel;
+		};
+		176517C94D12472F8A026915 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -381,7 +393,39 @@ exit 0";
 			};
 			name = Release;
 		};
-		1A7A54260BEF4812BD8AB63B /* RelWithDebInfo */ = {
+		22409FF4FB314978B4CE2600 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3F53EBD1BB3545A4A2112BF1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
+			};
+			name = RelWithDebInfo;
+		};
+		67E231E29DDA4BB3827D0F70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -399,135 +443,21 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = Debug;
 		};
-		272FDA0D5C2A492F9DB9B17E /* Release */ = {
+		68BBAAD6A3D24EB99682002D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
 			};
 			name = Release;
 		};
-		4F61CE6F8BA148A5A6D33CC6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		7C6EFA8B4C9A4C1EAF55C4DB /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/RelWithDebInfo";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/.");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "       -DNDEBUG '-std=gnu99' ";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_convertUTF;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		9E7D30E2152A4A318EF8E805 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
-			};
-			name = Debug;
-		};
-		9F674B0924BD45A58FEE2F4D /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		A8B7256A8DED45FAA1E4002C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Debug";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/.");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "   '-std=gnu99' ";
-				OTHER_CPLUSPLUSFLAGS = "   '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_convertUTF;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		BEB539BD195A4B20BE50AF1F /* MinSizeRel */ = {
+		6C570CA156E84155ABC7D32A /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -547,71 +477,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		C2CE3C1D3C644EDBA2CF7AA5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		D42C2CC7026844AC8F2F9160 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		DA96F6740EFC445EAEC33F40 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
-			};
-			name = RelWithDebInfo;
-		};
-		E0C1F1B3E4F0423AAE4BBA20 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
-			};
-			name = MinSizeRel;
-		};
-		E4B71F5658C44CCF8837929D /* Release */ = {
+		78DB35763A3F4D9689A755A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -638,7 +504,66 @@ exit 0";
 			};
 			name = Release;
 		};
-		F7D2184082204EC7845589CB /* MinSizeRel */ = {
+		90E16048ABD94BB0B8CEE43A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B56FACE203B1426DAB63B59E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/.");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "   '-std=gnu99' ";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_convertUTF;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		C3CACB30A14F49FDA3DDDCDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
+			};
+			name = Debug;
+		};
+		E5C775D903D04336B22AC79C /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -665,61 +590,136 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		FE6C72D0B0DD4AA885234C49 /* Release */ = {
+		ECF87E55B3034A7A98BA7DB6 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/ConvertUTF/.");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG '-std=gnu99' ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_convertUTF;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = RelWithDebInfo;
+		};
+		EEEB47A890234F80B8123E8E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		F10177DB0FF0460590FCD7D3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		F3F63A0EE9964E87BF000456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/ConvertUTF";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5EE7B9329E3B408B83A2951A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		61476166F9754E2FBA54C2A5 /* Build configuration list for PBXNativeTarget "ext_convertUTF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F61CE6F8BA148A5A6D33CC6 /* Debug */,
-				272FDA0D5C2A492F9DB9B17E /* Release */,
-				BEB539BD195A4B20BE50AF1F /* MinSizeRel */,
-				1A7A54260BEF4812BD8AB63B /* RelWithDebInfo */,
+				B56FACE203B1426DAB63B59E /* Debug */,
+				78DB35763A3F4D9689A755A6 /* Release */,
+				E5C775D903D04336B22AC79C /* MinSizeRel */,
+				ECF87E55B3034A7A98BA7DB6 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		606057CE21F542B687B3A184 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		A6576655B2984AC2B8615255 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C2CE3C1D3C644EDBA2CF7AA5 /* Debug */,
-				05DA66FE77014950A2FE3E7B /* Release */,
-				9F674B0924BD45A58FEE2F4D /* MinSizeRel */,
-				D42C2CC7026844AC8F2F9160 /* RelWithDebInfo */,
+				F3F63A0EE9964E87BF000456 /* Debug */,
+				176517C94D12472F8A026915 /* Release */,
+				22409FF4FB314978B4CE2600 /* MinSizeRel */,
+				F10177DB0FF0460590FCD7D3 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6CCCD9BC206A4336AD8A6115 /* Build configuration list for PBXProject "convertUTF" */ = {
+		AE65ACBD392F4FED8AEAAD0D /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E7D30E2152A4A318EF8E805 /* Debug */,
-				FE6C72D0B0DD4AA885234C49 /* Release */,
-				E0C1F1B3E4F0423AAE4BBA20 /* MinSizeRel */,
-				DA96F6740EFC445EAEC33F40 /* RelWithDebInfo */,
+				67E231E29DDA4BB3827D0F70 /* Debug */,
+				90E16048ABD94BB0B8CEE43A /* Release */,
+				6C570CA156E84155ABC7D32A /* MinSizeRel */,
+				EEEB47A890234F80B8123E8E /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DA13E94A4CA14332A9646157 /* Build configuration list for PBXNativeTarget "ext_convertUTF" */ = {
+		D117BD5F985B4F3084295A47 /* Build configuration list for PBXProject "convertUTF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A8B7256A8DED45FAA1E4002C /* Debug */,
-				E4B71F5658C44CCF8837929D /* Release */,
-				F7D2184082204EC7845589CB /* MinSizeRel */,
-				7C6EFA8B4C9A4C1EAF55C4DB /* RelWithDebInfo */,
+				C3CACB30A14F49FDA3DDDCDE /* Debug */,
+				68BBAAD6A3D24EB99682002D /* Release */,
+				0C7229335AC94FB48CB97273 /* MinSizeRel */,
+				3F53EBD1BB3545A4A2112BF1 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

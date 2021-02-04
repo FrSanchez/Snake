@@ -9,7 +9,7 @@
 /* Begin PBXAggregateTarget section */
 		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = A3624862CB1843558F6FBB55 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 02D76A08261B4668A40ADC1F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				9F624915CC74C3F49AC43587 /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,13 +20,13 @@
 		};
 		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 367088B847514A0487A51736 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 2775F7CAF41442F0AF0B4999 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				0B00125340825406953D3E45 /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				9644CBC708DD45D5B15F458C /* PBXTargetDependency */,
-				5BB887DBCE3D447EB7F1B8C5 /* PBXTargetDependency */,
+				CA8748FCFF1442BC9BC215B4 /* PBXTargetDependency */,
+				8BE6BF47EA4846F8A9AF65A0 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,33 +34,33 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		58C6D838FD994CA59CFB9129 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */ = {isa = PBXBuildFile; fileRef = 958D6F90E26C4F6990E59C82 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */; };
-		BB87485CD36A4408B504BECE /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 338D9AB653924CAFB82D63AA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */; };
+		9AA9BC9320F74E38918C5916 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D1566C4FF2724A15BE6F31DB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */; };
+		9FFE8D65936D4F00AB3AC8AF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */ = {isa = PBXBuildFile; fileRef = 90ABB7E975B447D9A4A5FFDB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		09B144E488A7454884C4B4A1 /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		709BFD7AE9BA446893361EB5 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		A605AFB252C742F59869B8A1 /* Release */ = {
+		0E12410F514F44F29BB99897 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
-		FDF56BFBC6AD4B60BF1CDC61 /* Debug */ = {
+		4B41B44CB8B34F93BAB755C5 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		5F903DAAA67B4CA689B9CB50 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		922D711B839E4A9EAAAEAE5C /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -70,21 +70,21 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		1B2E82FC81B44AF086A6273F /* PBXContainerItemProxy */ = {
+		B116C022BFBC4DB5B8E12F21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E42A0FC81DA7488A92CC6943 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
 			remoteInfo = ZERO_CHECK;
 		};
-		274D535268024DFCB873C9C5 /* PBXContainerItemProxy */ = {
+		FB02D32123F44155B4FBA750 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E42A0FC81DA7488A92CC6943 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
 			remoteInfo = ZERO_CHECK;
 		};
-		C018ED486FEE4B2595135A11 /* PBXContainerItemProxy */ = {
+		FB58A37310CE48DDA55B9688 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E42A0FC81DA7488A92CC6943 /* Project object */;
 			proxyType = 1;
@@ -94,14 +94,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C90C8460C1F4D9BA952F811 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		338D9AB653924CAFB82D63AA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		870C68CDD9E444E0A621CD21 /* ext_clipper */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_clipper.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		958D6F90E26C4F6990E59C82 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = clipper.cpp; path = clipper.cpp; sourceTree = SOURCE_ROOT; };
+		04604A69C5994EDFA3ED29B9 /* ext_clipper */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_clipper.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90ABB7E975B447D9A4A5FFDB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = clipper.cpp; path = clipper.cpp; sourceTree = SOURCE_ROOT; };
+		95CA885F86F14438969594AA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		D1566C4FF2724A15BE6F31DB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		633AF8FF80E04E379981D2F2 /* Frameworks */ = {
+		49CA08A80A2943658CD118A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,70 +111,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		129D06293006461C814C6244 /* External */ = {
+		2344AEBF4164472EAF908066 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				7662043E9C12420791146231 /* ext_clipper */,
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
-		7662043E9C12420791146231 /* ext_clipper */ = {
-			isa = PBXGroup;
-			children = (
-				B4C7CE4708914BB5A4CC7BF3 /* Source Files */,
-				338D9AB653924CAFB82D63AA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */,
-			);
-			name = ext_clipper;
-			sourceTree = "<group>";
-		};
-		A2C196AFF9D54259A0BA32D2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				870C68CDD9E444E0A621CD21 /* ext_clipper */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A54D22B529C14F0DB9F2D37C /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				EA15100ED2074726B903FB83 /* CMake Rules */,
-				0C90C8460C1F4D9BA952F811 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		B4C7CE4708914BB5A4CC7BF3 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				958D6F90E26C4F6990E59C82 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */,
+				90ABB7E975B447D9A4A5FFDB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		D9769B6FAE6B403E9A55B996 = {
+		29844ADB5EE445D3A4A69E59 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				129D06293006461C814C6244 /* External */,
-				A54D22B529C14F0DB9F2D37C /* ALL_BUILD */,
-				A2C196AFF9D54259A0BA32D2 /* Products */,
-				DC54C0F54A5748A183F44EA9 /* Frameworks */,
+				04604A69C5994EDFA3ED29B9 /* ext_clipper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EC0E9300AFC41A1A5948B93 = {
+			isa = PBXGroup;
+			children = (
+				84513A533E7142A2A88A2EB4 /* External */,
+				B0E7CFF892C84A70BDCACC8C /* ALL_BUILD */,
+				29844ADB5EE445D3A4A69E59 /* Products */,
+				FB7307F35FED4F0692C683B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		DC54C0F54A5748A183F44EA9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EA15100ED2074726B903FB83 /* CMake Rules */ = {
+		716C6BA92DA2478686E52A03 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		84513A533E7142A2A88A2EB4 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				94E8E64F9541418ABFABCF94 /* ext_clipper */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		94E8E64F9541418ABFABCF94 /* ext_clipper */ = {
+			isa = PBXGroup;
+			children = (
+				2344AEBF4164472EAF908066 /* Source Files */,
+				D1566C4FF2724A15BE6F31DB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */,
+			);
+			name = ext_clipper;
+			sourceTree = "<group>";
+		};
+		B0E7CFF892C84A70BDCACC8C /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				716C6BA92DA2478686E52A03 /* CMake Rules */,
+				95CA885F86F14438969594AA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		FB7307F35FED4F0692C683B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,19 +182,19 @@
 /* Begin PBXNativeTarget section */
 		02742BCFE8D44407BD59A2DD /* ext_clipper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6088A5F22FCA4A998F0D942E /* Build configuration list for PBXNativeTarget "ext_clipper" */;
+			buildConfigurationList = 57C6D40D912548F3AA741AFB /* Build configuration list for PBXNativeTarget "ext_clipper" */;
 			buildPhases = (
-				3B3B41A682684091B752FC77 /* Sources */,
-				633AF8FF80E04E379981D2F2 /* Frameworks */,
+				56EA1D615B374934A5E73CF0 /* Sources */,
+				49CA08A80A2943658CD118A3 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AF684FBBFE7642D69BCA162D /* PBXTargetDependency */,
+				810005BE4C464BE094B1F96F /* PBXTargetDependency */,
 			);
 			name = ext_clipper;
 			productName = ext_clipper;
-			productReference = 870C68CDD9E444E0A621CD21 /* ext_clipper */;
+			productReference = 04604A69C5994EDFA3ED29B9 /* ext_clipper */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -206,18 +206,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = 9E41DF7708D048F5BA588A32 /* Build configuration list for PBXProject "clipper" */;
+			buildConfigurationList = AA4162D0A57E488580DF4F80 /* Build configuration list for PBXProject "clipper" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				FDF56BFBC6AD4B60BF1CDC61 /* Debug */,
-				A605AFB252C742F59869B8A1 /* Release */,
-				709BFD7AE9BA446893361EB5 /* MinSizeRel */,
-				09B144E488A7454884C4B4A1 /* RelWithDebInfo */,
+				922D711B839E4A9EAAAEAE5C /* Debug */,
+				0E12410F514F44F29BB99897 /* Release */,
+				5F903DAAA67B4CA689B9CB50 /* MinSizeRel */,
+				4B41B44CB8B34F93BAB755C5 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = D9769B6FAE6B403E9A55B996;
+			mainGroup = 3EC0E9300AFC41A1A5948B93;
 			projectDirPath = ../../../../cocos2d/external/clipper;
 			projectRoot = "";
 			targets = (
@@ -328,36 +328,36 @@ fi
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3B3B41A682684091B752FC77 /* Sources */ = {
+		56EA1D615B374934A5E73CF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58C6D838FD994CA59CFB9129 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */,
+				9FFE8D65936D4F00AB3AC8AF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/clipper.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5BB887DBCE3D447EB7F1B8C5 /* PBXTargetDependency */ = {
+		810005BE4C464BE094B1F96F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = FB02D32123F44155B4FBA750 /* PBXContainerItemProxy */;
+		};
+		8BE6BF47EA4846F8A9AF65A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = B116C022BFBC4DB5B8E12F21 /* PBXContainerItemProxy */;
+		};
+		CA8748FCFF1442BC9BC215B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02742BCFE8D44407BD59A2DD /* ext_clipper */;
-			targetProxy = C018ED486FEE4B2595135A11 /* PBXContainerItemProxy */;
-		};
-		9644CBC708DD45D5B15F458C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 1B2E82FC81B44AF086A6273F /* PBXContainerItemProxy */;
-		};
-		AF684FBBFE7642D69BCA162D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 274D535268024DFCB873C9C5 /* PBXContainerItemProxy */;
+			targetProxy = FB58A37310CE48DDA55B9688 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		01F519445C30418E8BF4EDF7 /* Release */ = {
+		021C9DA93F5C48CA8479F09C /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -367,9 +367,9 @@ fi
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper/build";
 			};
-			name = Release;
+			name = MinSizeRel;
 		};
-		0ACA0D7C7B0F432DBFC98DF9 /* RelWithDebInfo */ = {
+		0D1034D92E324575A7B3504E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -387,73 +387,9 @@ fi
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = RelWithDebInfo;
-		};
-		13302701FBC842F28304E810 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper/build";
-			};
-			name = Debug;
-		};
-		1AF6EC7DF53A4319B476DA2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/.");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_clipper;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
 			name = Release;
 		};
-		2BAC026095F74DCF9F44E114 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Debug";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/.");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "   '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_clipper;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		3D10476FA6FD4576A994A41D /* RelWithDebInfo */ = {
+		197932FA34A04626A2C0F5BE /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -473,39 +409,7 @@ fi
 			};
 			name = RelWithDebInfo;
 		};
-		533452BB0DB14575920CD6EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		69B5F26FB12D4FC690A9B52C /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper/build";
-			};
-			name = MinSizeRel;
-		};
-		71636E06C0F44C799BEDAE94 /* RelWithDebInfo */ = {
+		2EB3ADC626244F53860D1DE4 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -531,7 +435,33 @@ fi
 			};
 			name = RelWithDebInfo;
 		};
-		753DB1125E9744E787DDF6B1 /* Release */ = {
+		37D8C0A27BF445DCB5465E9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/.");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "   '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_clipper;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		4F5DEA5CD8154BCB8C563B58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -543,35 +473,15 @@ fi
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = ("");
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
+				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = Debug;
 		};
-		A8E9663274AE4951A4657090 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		AF13FF509D0A44A4B70E8671 /* RelWithDebInfo */ = {
+		6B9F35711E804AD69158EC42 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -583,7 +493,7 @@ fi
 			};
 			name = RelWithDebInfo;
 		};
-		B9B17D0BE202448BA37841E9 /* Release */ = {
+		8959894CD1B64E389DEDD679 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -601,9 +511,75 @@ fi
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
+			name = RelWithDebInfo;
+		};
+		8FD9DE13B3CF415584A8898F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		AD35294705C94201A29E8E26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
 			name = Release;
 		};
-		BF6255247C8042C0BEDBD18A /* MinSizeRel */ = {
+		ADC6CE3DC2164F4D93497521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/clipper/.");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_clipper;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B1A27C420FB944BE8F544CBB /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -623,7 +599,19 @@ fi
 			};
 			name = MinSizeRel;
 		};
-		CCD94BEDBE574A99830F4C29 /* MinSizeRel */ = {
+		C1DBBFB0DD6C41C98094A0F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper/build";
+			};
+			name = Debug;
+		};
+		C93301C3CF2C436880CE62ED /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -649,7 +637,7 @@ fi
 			};
 			name = MinSizeRel;
 		};
-		D2DBBA9E3B1E4D06BC93D52A /* Debug */ = {
+		CB3F59040B4E4321B317FA3C /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -661,57 +649,69 @@ fi
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = ("");
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
+				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Debug;
+			name = MinSizeRel;
+		};
+		D54788F2FF294E79A1ACC702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/clipper/build";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		367088B847514A0487A51736 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		02D76A08261B4668A40ADC1F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				533452BB0DB14575920CD6EB /* Debug */,
-				753DB1125E9744E787DDF6B1 /* Release */,
-				A8E9663274AE4951A4657090 /* MinSizeRel */,
-				3D10476FA6FD4576A994A41D /* RelWithDebInfo */,
+				4F5DEA5CD8154BCB8C563B58 /* Debug */,
+				0D1034D92E324575A7B3504E /* Release */,
+				B1A27C420FB944BE8F544CBB /* MinSizeRel */,
+				8959894CD1B64E389DEDD679 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6088A5F22FCA4A998F0D942E /* Build configuration list for PBXNativeTarget "ext_clipper" */ = {
+		2775F7CAF41442F0AF0B4999 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BAC026095F74DCF9F44E114 /* Debug */,
-				1AF6EC7DF53A4319B476DA2E /* Release */,
-				CCD94BEDBE574A99830F4C29 /* MinSizeRel */,
-				71636E06C0F44C799BEDAE94 /* RelWithDebInfo */,
+				8FD9DE13B3CF415584A8898F /* Debug */,
+				AD35294705C94201A29E8E26 /* Release */,
+				CB3F59040B4E4321B317FA3C /* MinSizeRel */,
+				197932FA34A04626A2C0F5BE /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		9E41DF7708D048F5BA588A32 /* Build configuration list for PBXProject "clipper" */ = {
+		57C6D40D912548F3AA741AFB /* Build configuration list for PBXNativeTarget "ext_clipper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13302701FBC842F28304E810 /* Debug */,
-				01F519445C30418E8BF4EDF7 /* Release */,
-				69B5F26FB12D4FC690A9B52C /* MinSizeRel */,
-				AF13FF509D0A44A4B70E8671 /* RelWithDebInfo */,
+				37D8C0A27BF445DCB5465E9B /* Debug */,
+				ADC6CE3DC2164F4D93497521 /* Release */,
+				C93301C3CF2C436880CE62ED /* MinSizeRel */,
+				2EB3ADC626244F53860D1DE4 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A3624862CB1843558F6FBB55 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		AA4162D0A57E488580DF4F80 /* Build configuration list for PBXProject "clipper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2DBBA9E3B1E4D06BC93D52A /* Debug */,
-				B9B17D0BE202448BA37841E9 /* Release */,
-				BF6255247C8042C0BEDBD18A /* MinSizeRel */,
-				0ACA0D7C7B0F432DBFC98DF9 /* RelWithDebInfo */,
+				C1DBBFB0DD6C41C98094A0F3 /* Debug */,
+				D54788F2FF294E79A1ACC702 /* Release */,
+				021C9DA93F5C48CA8479F09C /* MinSizeRel */,
+				6B9F35711E804AD69158EC42 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

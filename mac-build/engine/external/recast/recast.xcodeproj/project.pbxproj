@@ -9,7 +9,7 @@
 /* Begin PBXAggregateTarget section */
 		8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 58845E563AC54E109B1A5FDE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 35AFD34276D74B8182782B45 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
 				4641CDF1B232DC48AC7D6D37 /* Generate CMakeFiles/ZERO_CHECK */,
 			);
@@ -20,13 +20,13 @@
 		};
 		ADA9B91E10D4402DB7005F14 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 99D46E820C944CC1ABE9CFF8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 20246E75E60843E0A752BDE2 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
 				18DD3305AF5030AC4D5CE401 /* Generate CMakeFiles/ALL_BUILD */,
 			);
 			dependencies = (
-				ECECC1FDA7D248C989177BD6 /* PBXTargetDependency */,
-				6DFD9A3D5FCD4B65AB3E7033 /* PBXTargetDependency */,
+				8048547C832F410EBF95ED23 /* PBXTargetDependency */,
+				F923DCEB52574FF2A4C25AE3 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,49 +34,49 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0266A9E827754D15A6D4E0D3 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */ = {isa = PBXBuildFile; fileRef = 0B9E8E0E4D7E44909A9228E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */; };
-		278229507C3240679A653F52 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */ = {isa = PBXBuildFile; fileRef = BE665319F0244E36957A0AA9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */; };
-		3634E137503A4DAE85E529B4 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */ = {isa = PBXBuildFile; fileRef = 43175C1C2AF845B79F491D54 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */; };
-		397239ABE7094E8E88CB486C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */ = {isa = PBXBuildFile; fileRef = 095523B16618468CAE8C78E7 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */; };
-		44ECFBEC8B5840EA9C11BFCA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */ = {isa = PBXBuildFile; fileRef = 390C0D32457B4E2A9195075B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */; };
-		46460ED80C274D27A1D035F3 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */ = {isa = PBXBuildFile; fileRef = 096A8BA5EEE341B2990810A0 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */; };
-		56B1CEF32AC1472095037801 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */ = {isa = PBXBuildFile; fileRef = 55F326A870FA47C2A76870EA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */; };
-		92BC6615200442DF8FB59E8D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */ = {isa = PBXBuildFile; fileRef = 1D53E37631214BFEA6514357 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */; };
-		998F06A1EE5A454287DCEC42 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = BC81A171BE66466FAEF2EDB8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */; };
-		9C7EF4EFDAB440ADB0EAF63F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */ = {isa = PBXBuildFile; fileRef = 2A4014C1F78E4C52B97A8DC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */; };
-		A5B3E9C7800A451D9436BD8D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */ = {isa = PBXBuildFile; fileRef = 36359206393449D6B89F8B80 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */; };
-		ACB9F41F35484AAD897A1610 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */ = {isa = PBXBuildFile; fileRef = F80F6C32BC0249B4BA5A632F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */; };
-		C340BEAD436E40B39A0A83E1 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */ = {isa = PBXBuildFile; fileRef = D01809207B944AA69565338F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */; };
-		C3570D7B28604E52A5868759 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */ = {isa = PBXBuildFile; fileRef = 1485465774B54B77B34C2859 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */; };
-		C6751E253D204AFAA2C35F11 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */ = {isa = PBXBuildFile; fileRef = 07B30724ECC64825AD8E56D9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */; };
-		D522867202CB46988CC88755 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */ = {isa = PBXBuildFile; fileRef = C308B9BBC77B4CF3B1EAEBEB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */; };
-		D84FC7BD718B4181ABDA45FC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */ = {isa = PBXBuildFile; fileRef = E54AD8C2A9294E38BDEE90E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */; };
-		DE0FF4883DE548738C5E8124 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */ = {isa = PBXBuildFile; fileRef = 332D17F59EC34F31AD38DD66 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */; };
+		012302EB36BD47A4A1250F45 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */ = {isa = PBXBuildFile; fileRef = EF3488141A6B42E6860F028D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */; };
+		04269CFFDAB14D029DE89E74 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */ = {isa = PBXBuildFile; fileRef = C4B7217477344D4A9EF402BC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */; };
+		12E2A2279C0D478AB12E6FDB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */ = {isa = PBXBuildFile; fileRef = 1E3F20A442CB4A68B82298FF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */; };
+		1D031BFE14CF47A493101A6D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */ = {isa = PBXBuildFile; fileRef = E02ACE436B8D4A2CA03FF885 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */; };
+		32FF955B08894202812AFCF4 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */ = {isa = PBXBuildFile; fileRef = 2404116AF84B4D8B97C7D26C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */; };
+		6F76415795DA49778A2E709A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */ = {isa = PBXBuildFile; fileRef = 611520EAC00043249C628436 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */; };
+		723D68D7C00F4CF295BC8F72 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */ = {isa = PBXBuildFile; fileRef = 87F8BE72FC6E47E39B805190 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */; };
+		7D524BBCD50B4EF5863AD026 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */ = {isa = PBXBuildFile; fileRef = 381598B6A13744FE87A6A2D1 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */; };
+		8239B23C8E3F4C15B4A0D50E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */ = {isa = PBXBuildFile; fileRef = 9E4F8CD862BD40028D6DBE7D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */; };
+		9B0726C23EF8426EAB4F4A8E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */ = {isa = PBXBuildFile; fileRef = 486864AF6BEF415A9C809442 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */; };
+		A43FC28100B942FCAEFC8349 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */ = {isa = PBXBuildFile; fileRef = C560CBD664E940719CAD516B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */; };
+		AED4BC8C399442F997EE1881 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */ = {isa = PBXBuildFile; fileRef = D6A1251E18AF4746926A67EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */; };
+		B21BF7BD0C3345DD9DEE2927 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */ = {isa = PBXBuildFile; fileRef = 71D52A34AEA84E60AD718466 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */; };
+		C96310F6A34D4D2EA9086486 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */ = {isa = PBXBuildFile; fileRef = CE193799D45E4BB0AE502335 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */; };
+		CFB69A84EB844E519762AE79 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */ = {isa = PBXBuildFile; fileRef = 6FE1BCB2A1AF47F0AE338BE9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */; };
+		D090E78D1E4E4480BDF0D5D8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */ = {isa = PBXBuildFile; fileRef = E4F1436B807F4B898E2C3B58 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */; };
+		DDB002D0CD2C499599C9BBDC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 5288D6505FBB4D5E8A66536C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */; };
+		E7C500071CD242C2A91E3FDE /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */ = {isa = PBXBuildFile; fileRef = 736A50D0F45746B1B79963D6 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		12623928D9B14E75A87BB02E /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		138A4970A8744E059B75522C /* MinSizeRel */ = {
+		22B2AADF84B94163BE201F3D /* MinSizeRel */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = MinSizeRel;
 		};
-		45003171183142B8A382F039 /* RelWithDebInfo */ = {
+		9DFFC052088648A9B8898750 /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		74D705F1A6F742BC88847AE4 /* Release */ = {
+		B4CBFF055C33451E8600658E /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		F3ABFFD983E3413A89B91C07 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -86,21 +86,21 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		56184178AC754F9787D64881 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0DF39BAEDAFA4588AE09148A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
-			remoteInfo = ZERO_CHECK;
-		};
-		8D0469B44B1E4F269805E065 /* PBXContainerItemProxy */ = {
+		242F6C5B1DE54197A2409BAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DF39BAEDAFA4588AE09148A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8C2DD6E42CDE404E88B36FA3;
 			remoteInfo = ext_recast;
 		};
-		DA79E7A7CA46461F926713CD /* PBXContainerItemProxy */ = {
+		5ECAE34C436E4B64BC6C0E18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DF39BAEDAFA4588AE09148A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B2B0E9DCEE34BA8BC6B22B8;
+			remoteInfo = ZERO_CHECK;
+		};
+		8A6CFD3119E74980A02ED167 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DF39BAEDAFA4588AE09148A /* Project object */;
 			proxyType = 1;
@@ -110,30 +110,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07B30724ECC64825AD8E56D9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNode.cpp; path = Detour/DetourNode.cpp; sourceTree = SOURCE_ROOT; };
-		095523B16618468CAE8C78E7 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourTileCache.cpp; path = DetourTileCache/DetourTileCache.cpp; sourceTree = SOURCE_ROOT; };
-		096A8BA5EEE341B2990810A0 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourCommon.cpp; path = Detour/DetourCommon.cpp; sourceTree = SOURCE_ROOT; };
-		0B9E8E0E4D7E44909A9228E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourDebugDraw.cpp; path = DebugUtils/DetourDebugDraw.cpp; sourceTree = SOURCE_ROOT; };
-		107DC658CD8F412690E0FF1A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		1485465774B54B77B34C2859 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourLocalBoundary.cpp; path = DetourCrowd/DetourLocalBoundary.cpp; sourceTree = SOURCE_ROOT; };
-		1D53E37631214BFEA6514357 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourObstacleAvoidance.cpp; path = DetourCrowd/DetourObstacleAvoidance.cpp; sourceTree = SOURCE_ROOT; };
-		2A4014C1F78E4C52B97A8DC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMesh.cpp; path = Detour/DetourNavMesh.cpp; sourceTree = SOURCE_ROOT; };
-		332D17F59EC34F31AD38DD66 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMeshQuery.cpp; path = Detour/DetourNavMeshQuery.cpp; sourceTree = SOURCE_ROOT; };
-		36359206393449D6B89F8B80 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourCrowd.cpp; path = DetourCrowd/DetourCrowd.cpp; sourceTree = SOURCE_ROOT; };
-		390C0D32457B4E2A9195075B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourPathQueue.cpp; path = DetourCrowd/DetourPathQueue.cpp; sourceTree = SOURCE_ROOT; };
-		43175C1C2AF845B79F491D54 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DebugDraw.cpp; path = DebugUtils/DebugDraw.cpp; sourceTree = SOURCE_ROOT; };
-		55F326A870FA47C2A76870EA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourPathCorridor.cpp; path = DetourCrowd/DetourPathCorridor.cpp; sourceTree = SOURCE_ROOT; };
-		BC81A171BE66466FAEF2EDB8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		BE665319F0244E36957A0AA9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourProximityGrid.cpp; path = DetourCrowd/DetourProximityGrid.cpp; sourceTree = SOURCE_ROOT; };
-		C308B9BBC77B4CF3B1EAEBEB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourTileCacheBuilder.cpp; path = DetourTileCache/DetourTileCacheBuilder.cpp; sourceTree = SOURCE_ROOT; };
-		C47F6E8EA01743D5847ED259 /* ext_recast */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_recast.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D01809207B944AA69565338F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMeshBuilder.cpp; path = Detour/DetourNavMeshBuilder.cpp; sourceTree = SOURCE_ROOT; };
-		E54AD8C2A9294E38BDEE90E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = fastlz.c; path = fastlz/fastlz.c; sourceTree = SOURCE_ROOT; };
-		F80F6C32BC0249B4BA5A632F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourAlloc.cpp; path = Detour/DetourAlloc.cpp; sourceTree = SOURCE_ROOT; };
+		1E3F20A442CB4A68B82298FF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DebugDraw.cpp; path = DebugUtils/DebugDraw.cpp; sourceTree = SOURCE_ROOT; };
+		2404116AF84B4D8B97C7D26C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = fastlz.c; path = fastlz/fastlz.c; sourceTree = SOURCE_ROOT; };
+		381598B6A13744FE87A6A2D1 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourCrowd.cpp; path = DetourCrowd/DetourCrowd.cpp; sourceTree = SOURCE_ROOT; };
+		486864AF6BEF415A9C809442 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourDebugDraw.cpp; path = DebugUtils/DetourDebugDraw.cpp; sourceTree = SOURCE_ROOT; };
+		5288D6505FBB4D5E8A66536C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		5C99C9BB4AF346CF83FAA44A /* ext_recast */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libext_recast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EEAED648BEC444FB225BB2C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		611520EAC00043249C628436 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourCommon.cpp; path = Detour/DetourCommon.cpp; sourceTree = SOURCE_ROOT; };
+		6FE1BCB2A1AF47F0AE338BE9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourLocalBoundary.cpp; path = DetourCrowd/DetourLocalBoundary.cpp; sourceTree = SOURCE_ROOT; };
+		71D52A34AEA84E60AD718466 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourAlloc.cpp; path = Detour/DetourAlloc.cpp; sourceTree = SOURCE_ROOT; };
+		736A50D0F45746B1B79963D6 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourTileCache.cpp; path = DetourTileCache/DetourTileCache.cpp; sourceTree = SOURCE_ROOT; };
+		87F8BE72FC6E47E39B805190 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourPathCorridor.cpp; path = DetourCrowd/DetourPathCorridor.cpp; sourceTree = SOURCE_ROOT; };
+		9E4F8CD862BD40028D6DBE7D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMeshQuery.cpp; path = Detour/DetourNavMeshQuery.cpp; sourceTree = SOURCE_ROOT; };
+		C4B7217477344D4A9EF402BC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNode.cpp; path = Detour/DetourNode.cpp; sourceTree = SOURCE_ROOT; };
+		C560CBD664E940719CAD516B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMesh.cpp; path = Detour/DetourNavMesh.cpp; sourceTree = SOURCE_ROOT; };
+		CE193799D45E4BB0AE502335 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourProximityGrid.cpp; path = DetourCrowd/DetourProximityGrid.cpp; sourceTree = SOURCE_ROOT; };
+		D6A1251E18AF4746926A67EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourNavMeshBuilder.cpp; path = Detour/DetourNavMeshBuilder.cpp; sourceTree = SOURCE_ROOT; };
+		E02ACE436B8D4A2CA03FF885 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourObstacleAvoidance.cpp; path = DetourCrowd/DetourObstacleAvoidance.cpp; sourceTree = SOURCE_ROOT; };
+		E4F1436B807F4B898E2C3B58 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourPathQueue.cpp; path = DetourCrowd/DetourPathQueue.cpp; sourceTree = SOURCE_ROOT; };
+		EF3488141A6B42E6860F028D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourTileCacheBuilder.cpp; path = DetourTileCache/DetourTileCacheBuilder.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		106EB5995D6147BBA9BFC533 /* Frameworks */ = {
+		C27963A031CF41628E3950E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,86 +143,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C574DBC39634E4DB51CC103 /* CMake Rules */ = {
+		107691C76CB8467BA69072A5 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		2DC1996CDC4B43F0B13ED26F /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				43175C1C2AF845B79F491D54 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */,
-				0B9E8E0E4D7E44909A9228E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */,
-				F80F6C32BC0249B4BA5A632F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */,
-				096A8BA5EEE341B2990810A0 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */,
-				2A4014C1F78E4C52B97A8DC2 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */,
-				D01809207B944AA69565338F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */,
-				332D17F59EC34F31AD38DD66 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */,
-				07B30724ECC64825AD8E56D9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */,
-				36359206393449D6B89F8B80 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */,
-				1485465774B54B77B34C2859 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */,
-				1D53E37631214BFEA6514357 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */,
-				55F326A870FA47C2A76870EA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */,
-				390C0D32457B4E2A9195075B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */,
-				BE665319F0244E36957A0AA9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */,
-				095523B16618468CAE8C78E7 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */,
-				C308B9BBC77B4CF3B1EAEBEB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */,
-				E54AD8C2A9294E38BDEE90E9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */,
+				1E3F20A442CB4A68B82298FF /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */,
+				486864AF6BEF415A9C809442 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */,
+				71D52A34AEA84E60AD718466 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */,
+				611520EAC00043249C628436 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */,
+				C560CBD664E940719CAD516B /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */,
+				D6A1251E18AF4746926A67EB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */,
+				9E4F8CD862BD40028D6DBE7D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */,
+				C4B7217477344D4A9EF402BC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */,
+				381598B6A13744FE87A6A2D1 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */,
+				6FE1BCB2A1AF47F0AE338BE9 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */,
+				E02ACE436B8D4A2CA03FF885 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */,
+				87F8BE72FC6E47E39B805190 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */,
+				E4F1436B807F4B898E2C3B58 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */,
+				CE193799D45E4BB0AE502335 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */,
+				736A50D0F45746B1B79963D6 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */,
+				EF3488141A6B42E6860F028D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */,
+				2404116AF84B4D8B97C7D26C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		32B95C8E963F49328FEFCB3E /* Frameworks */ = {
+		2249C9DFDB7A41AC8C0E9108 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C99C9BB4AF346CF83FAA44A /* ext_recast */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B4150272C3E475EAACDD177 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				C7407C9CBB124BC9A3E6F625 /* CMake Rules */,
+				5EEAED648BEC444FB225BB2C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		8716AD97D9F34C4E92AD215D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E3479D66F98F43A78E2723A4 /* ext_recast */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		A60562DC46A64C01B5436503 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9C0018518E784F519173DDD6 /* External */ = {
+		B460775BB1854BC290B4A21C = {
 			isa = PBXGroup;
 			children = (
-				DB7F095C841C41F09FA8BF94 /* ext_recast */,
+				8716AD97D9F34C4E92AD215D /* External */,
+				7B4150272C3E475EAACDD177 /* ALL_BUILD */,
+				2249C9DFDB7A41AC8C0E9108 /* Products */,
+				A60562DC46A64C01B5436503 /* Frameworks */,
 			);
-			name = External;
 			sourceTree = "<group>";
 		};
-		A18F9BA4486D4D018066BC58 /* Products */ = {
+		C7407C9CBB124BC9A3E6F625 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
-				C47F6E8EA01743D5847ED259 /* ext_recast */,
 			);
-			name = Products;
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		D7562CC5C0854E76A208256B /* ALL_BUILD */ = {
+		E3479D66F98F43A78E2723A4 /* ext_recast */ = {
 			isa = PBXGroup;
 			children = (
-				0C574DBC39634E4DB51CC103 /* CMake Rules */,
-				107DC658CD8F412690E0FF1A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		DB7F095C841C41F09FA8BF94 /* ext_recast */ = {
-			isa = PBXGroup;
-			children = (
-				2DC1996CDC4B43F0B13ED26F /* Source Files */,
-				BC81A171BE66466FAEF2EDB8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */,
+				107691C76CB8467BA69072A5 /* Source Files */,
+				5288D6505FBB4D5E8A66536C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/CMakeLists.txt */,
 			);
 			name = ext_recast;
-			sourceTree = "<group>";
-		};
-		F46CEA065DD244878C2F9CDB = {
-			isa = PBXGroup;
-			children = (
-				9C0018518E784F519173DDD6 /* External */,
-				D7562CC5C0854E76A208256B /* ALL_BUILD */,
-				A18F9BA4486D4D018066BC58 /* Products */,
-				32B95C8E963F49328FEFCB3E /* Frameworks */,
-			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,19 +230,19 @@
 /* Begin PBXNativeTarget section */
 		8C2DD6E42CDE404E88B36FA3 /* ext_recast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC7DB8BB3DA84CF8A712EC25 /* Build configuration list for PBXNativeTarget "ext_recast" */;
+			buildConfigurationList = 8228B633F4FE4AD1B80632D7 /* Build configuration list for PBXNativeTarget "ext_recast" */;
 			buildPhases = (
-				3DF1AE8285AF424FB27FBC81 /* Sources */,
-				106EB5995D6147BBA9BFC533 /* Frameworks */,
+				C8C6D8ED87C84A908747B8C6 /* Sources */,
+				C27963A031CF41628E3950E5 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C1EBFCB4396042D49D9AE15D /* PBXTargetDependency */,
+				BEE9DB9221B14981A489017E /* PBXTargetDependency */,
 			);
 			name = ext_recast;
 			productName = ext_recast;
-			productReference = C47F6E8EA01743D5847ED259 /* ext_recast */;
+			productReference = 5C99C9BB4AF346CF83FAA44A /* ext_recast */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -254,18 +254,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1240;
 			};
-			buildConfigurationList = E33BA2D53142460E8C2E3D04 /* Build configuration list for PBXProject "recast" */;
+			buildConfigurationList = 6BC735C2B85B47399A5EB426 /* Build configuration list for PBXProject "recast" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				12623928D9B14E75A87BB02E /* Debug */,
-				74D705F1A6F742BC88847AE4 /* Release */,
-				138A4970A8744E059B75522C /* MinSizeRel */,
-				45003171183142B8A382F039 /* RelWithDebInfo */,
+				B4CBFF055C33451E8600658E /* Debug */,
+				F3ABFFD983E3413A89B91C07 /* Release */,
+				22B2AADF84B94163BE201F3D /* MinSizeRel */,
+				9DFFC052088648A9B8898750 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = F46CEA065DD244878C2F9CDB;
+			mainGroup = B460775BB1854BC290B4A21C;
 			projectDirPath = ../../../../cocos2d/external/recast;
 			projectRoot = "";
 			targets = (
@@ -376,52 +376,52 @@ exit 0";
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3DF1AE8285AF424FB27FBC81 /* Sources */ = {
+		C8C6D8ED87C84A908747B8C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3634E137503A4DAE85E529B4 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */,
-				0266A9E827754D15A6D4E0D3 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */,
-				ACB9F41F35484AAD897A1610 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */,
-				46460ED80C274D27A1D035F3 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */,
-				9C7EF4EFDAB440ADB0EAF63F /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */,
-				C340BEAD436E40B39A0A83E1 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */,
-				DE0FF4883DE548738C5E8124 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */,
-				C6751E253D204AFAA2C35F11 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */,
-				A5B3E9C7800A451D9436BD8D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */,
-				C3570D7B28604E52A5868759 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */,
-				92BC6615200442DF8FB59E8D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */,
-				56B1CEF32AC1472095037801 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */,
-				44ECFBEC8B5840EA9C11BFCA /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */,
-				278229507C3240679A653F52 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */,
-				397239ABE7094E8E88CB486C /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */,
-				D522867202CB46988CC88755 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */,
-				D84FC7BD718B4181ABDA45FC /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */,
+				12E2A2279C0D478AB12E6FDB /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DebugDraw.cpp */,
+				9B0726C23EF8426EAB4F4A8E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DebugUtils/DetourDebugDraw.cpp */,
+				B21BF7BD0C3345DD9DEE2927 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourAlloc.cpp */,
+				6F76415795DA49778A2E709A /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourCommon.cpp */,
+				A43FC28100B942FCAEFC8349 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMesh.cpp */,
+				AED4BC8C399442F997EE1881 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshBuilder.cpp */,
+				8239B23C8E3F4C15B4A0D50E /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNavMeshQuery.cpp */,
+				04269CFFDAB14D029DE89E74 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/Detour/DetourNode.cpp */,
+				7D524BBCD50B4EF5863AD026 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourCrowd.cpp */,
+				CFB69A84EB844E519762AE79 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp */,
+				1D031BFE14CF47A493101A6D /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourObstacleAvoidance.cpp */,
+				723D68D7C00F4CF295BC8F72 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathCorridor.cpp */,
+				D090E78D1E4E4480BDF0D5D8 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourPathQueue.cpp */,
+				C96310F6A34D4D2EA9086486 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourCrowd/DetourProximityGrid.cpp */,
+				E7C500071CD242C2A91E3FDE /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCache.cpp */,
+				012302EB36BD47A4A1250F45 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/DetourTileCache/DetourTileCacheBuilder.cpp */,
+				32FF955B08894202812AFCF4 /* /Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/fastlz/fastlz.c */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6DFD9A3D5FCD4B65AB3E7033 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = 56184178AC754F9787D64881 /* PBXContainerItemProxy */;
-		};
-		C1EBFCB4396042D49D9AE15D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
-			targetProxy = DA79E7A7CA46461F926713CD /* PBXContainerItemProxy */;
-		};
-		ECECC1FDA7D248C989177BD6 /* PBXTargetDependency */ = {
+		8048547C832F410EBF95ED23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8C2DD6E42CDE404E88B36FA3 /* ext_recast */;
-			targetProxy = 8D0469B44B1E4F269805E065 /* PBXContainerItemProxy */;
+			targetProxy = 242F6C5B1DE54197A2409BAB /* PBXContainerItemProxy */;
+		};
+		BEE9DB9221B14981A489017E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 8A6CFD3119E74980A02ED167 /* PBXContainerItemProxy */;
+		};
+		F923DCEB52574FF2A4C25AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B2B0E9DCEE34BA8BC6B22B8 /* ZERO_CHECK */;
+			targetProxy = 5ECAE34C436E4B64BC6C0E18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		017096616B4C4199B5E5B538 /* MinSizeRel */ = {
+		23660708ADF040EA942337BF /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -433,7 +433,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		07BEE2B72BB14A619C3A1D24 /* Release */ = {
+		34BEF9ECF4E34F50B4415976 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -451,36 +451,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Release;
+			name = RelWithDebInfo;
 		};
-		1D7F6C2AB5E94526AE726FE3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/..");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "    -DNDEBUG '-std=gnu99' ";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
-				OTHER_LIBTOOLFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ext_recast;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Release;
-		};
-		2E8B54C39FFD422398F75C8F /* Debug */ = {
+		5FDBA99A58EB4C45B1CBADD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -507,7 +480,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		35BBF01064224C5793FADE40 /* MinSizeRel */ = {
+		61EF5378C2DC4C8DB3BD8ABD /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -527,43 +500,23 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		3F7FD41FDC95465EBE688EED /* Debug */ = {
+		694B4F0B32DD4C34A782A23E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = ("");
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("$(inherited)");
-			};
-			name = Debug;
-		};
-		61B1A8FCF67E4432B77E3300 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/RelWithDebInfo";
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/Release";
 				EXECUTABLE_PREFIX = lib;
 				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/..");
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "       -DNDEBUG '-std=gnu99' ";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++11' ";
+				OTHER_CFLAGS = "    -DNDEBUG '-std=gnu99' ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++11' ";
 				OTHER_LIBTOOLFLAGS = ("");
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ext_recast;
@@ -572,9 +525,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = Release;
 		};
-		89FEF29701E84C88A139C4E1 /* Release */ = {
+		790C54B9DB52427CBB33902A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -584,9 +537,9 @@ exit 0";
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast/build";
 			};
-			name = Release;
+			name = Debug;
 		};
-		A3216902A164498D90E9CA31 /* MinSizeRel */ = {
+		96E627ACA2C8457892AFFCDE /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -613,7 +566,31 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		B2D2327FD7904187802E992B /* RelWithDebInfo */ = {
+		9FB812354CB14F9CA0E9D6BE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast/build";
+			};
+			name = RelWithDebInfo;
+		};
+		A4EE3DF0D0FE4D8FA5A671EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast/build";
+			};
+			name = Release;
+		};
+		B7B84690C5324B588D98402F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -631,9 +608,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = Debug;
 		};
-		B6674C1AB7C14A33893A8B84 /* RelWithDebInfo */ = {
+		BA56AA43CE624366B5F17EBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -651,21 +628,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = RelWithDebInfo;
-		};
-		B686F984784C4686BB6A6C89 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast/build";
-			};
 			name = Debug;
 		};
-		B732454A43E64D369C83E506 /* MinSizeRel */ = {
+		C2595F0FF0344D38B40ED328 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -683,21 +648,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = MinSizeRel;
+			name = Release;
 		};
-		CFEF6EA6DF4B4F72B3937989 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk;
-				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast/build";
-			};
-			name = RelWithDebInfo;
-		};
-		D77CEE73B5BE45108DD2D410 /* Release */ = {
+		CAFB59557D5443AB96B20483 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -717,7 +670,7 @@ exit 0";
 			};
 			name = Release;
 		};
-		E5BCD60784DF45749A4D8C49 /* Debug */ = {
+		E853975B3D594F6EA73F590F /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -735,51 +688,98 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("$(inherited)");
 			};
-			name = Debug;
+			name = RelWithDebInfo;
+		};
+		F1F8692D623A452085E52685 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		F300F44F51124835817BC7E3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/francisco.sanchez/Development/games/snake-mobile/cocos2d/external/recast/..");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG '-std=gnu99' ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ext_recast;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/mac-build/engine/external/recast";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58845E563AC54E109B1A5FDE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		20246E75E60843E0A752BDE2 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3F7FD41FDC95465EBE688EED /* Debug */,
-				07BEE2B72BB14A619C3A1D24 /* Release */,
-				B732454A43E64D369C83E506 /* MinSizeRel */,
-				B2D2327FD7904187802E992B /* RelWithDebInfo */,
+				BA56AA43CE624366B5F17EBC /* Debug */,
+				CAFB59557D5443AB96B20483 /* Release */,
+				61EF5378C2DC4C8DB3BD8ABD /* MinSizeRel */,
+				E853975B3D594F6EA73F590F /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		99D46E820C944CC1ABE9CFF8 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		35AFD34276D74B8182782B45 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5BCD60784DF45749A4D8C49 /* Debug */,
-				D77CEE73B5BE45108DD2D410 /* Release */,
-				35BBF01064224C5793FADE40 /* MinSizeRel */,
-				B6674C1AB7C14A33893A8B84 /* RelWithDebInfo */,
+				B7B84690C5324B588D98402F /* Debug */,
+				C2595F0FF0344D38B40ED328 /* Release */,
+				F1F8692D623A452085E52685 /* MinSizeRel */,
+				34BEF9ECF4E34F50B4415976 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E33BA2D53142460E8C2E3D04 /* Build configuration list for PBXProject "recast" */ = {
+		6BC735C2B85B47399A5EB426 /* Build configuration list for PBXProject "recast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B686F984784C4686BB6A6C89 /* Debug */,
-				89FEF29701E84C88A139C4E1 /* Release */,
-				017096616B4C4199B5E5B538 /* MinSizeRel */,
-				CFEF6EA6DF4B4F72B3937989 /* RelWithDebInfo */,
+				790C54B9DB52427CBB33902A /* Debug */,
+				A4EE3DF0D0FE4D8FA5A671EE /* Release */,
+				23660708ADF040EA942337BF /* MinSizeRel */,
+				9FB812354CB14F9CA0E9D6BE /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		FC7DB8BB3DA84CF8A712EC25 /* Build configuration list for PBXNativeTarget "ext_recast" */ = {
+		8228B633F4FE4AD1B80632D7 /* Build configuration list for PBXNativeTarget "ext_recast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E8B54C39FFD422398F75C8F /* Debug */,
-				1D7F6C2AB5E94526AE726FE3 /* Release */,
-				A3216902A164498D90E9CA31 /* MinSizeRel */,
-				61B1A8FCF67E4432B77E3300 /* RelWithDebInfo */,
+				5FDBA99A58EB4C45B1CBADD7 /* Debug */,
+				694B4F0B32DD4C34A782A23E /* Release */,
+				96E627ACA2C8457892AFFCDE /* MinSizeRel */,
+				F300F44F51124835817BC7E3 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
