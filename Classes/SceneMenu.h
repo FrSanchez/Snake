@@ -29,7 +29,7 @@ public:
     void startGame();
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-    
+
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);
 

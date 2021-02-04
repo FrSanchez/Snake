@@ -81,6 +81,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
+    glview->setDesignResolutionSize(960, 640,ResolutionPolicy::SHOW_ALL);
+    
     
     auto spritecache = SpriteFrameCache::getInstance();
     spritecache->addSpriteFramesWithFile("Textures.plist");
@@ -95,6 +97,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
+    AudioEngine::pauseAll();
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
@@ -103,6 +106,7 @@ void AppDelegate::applicationDidEnterBackground() {
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
+    AudioEngine::resumeAll();
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

@@ -70,7 +70,7 @@ bool SceneGame::init()
     apple->setVisible(false);
     this->addChild(apple, 0);
 
-    scoreLabel = Label::createWithTTF("SCORE: 0", "Arcade.ttf", 48);
+    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 48);
     scoreLabel->setPosition(Vec2(size.width / 2 - tileSize.width * 2, size.height - scoreLabel->getContentSize().height / 2));
     scoreLabel->setTextColor( Color4B::RED );
     scoreLabel->enableOutline(Color4B::YELLOW,1);
@@ -80,12 +80,23 @@ bool SceneGame::init()
     initBody();
     
     // creating a keyboard event listener
-    auto listener = EventListenerKeyboard::create();
-    listener->onKeyPressed = CC_CALLBACK_2(SceneGame::onKeyPressed, this);
-    listener->onKeyReleased = CC_CALLBACK_2(SceneGame::onKeyReleased, this);
+    auto kbdLstnr = EventListenerKeyboard::create();
+    kbdLstnr->onKeyPressed = CC_CALLBACK_2(SceneGame::onKeyPressed, this);
+    kbdLstnr->onKeyReleased = CC_CALLBACK_2(SceneGame::onKeyReleased, this);
 
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(kbdLstnr, this);
     
+    
+    // Register Touch Event
+    auto touchLsnr = EventListenerTouchOneByOne::create();
+    touchLsnr->setSwallowTouches(true);
+
+    touchLsnr->onTouchBegan = CC_CALLBACK_2(SceneGame::onTouchBegan, this);
+    touchLsnr->onTouchMoved = CC_CALLBACK_2(SceneGame::onTouchMoved, this);
+    touchLsnr->onTouchEnded = CC_CALLBACK_2(SceneGame::onTouchEnded, this);
+
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchLsnr, this);
+
     this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
     lastFood = arc4random() % 10 + 1;
 
@@ -96,6 +107,33 @@ bool SceneGame::init()
     }
 
     return true;
+}
+
+
+bool SceneGame::onTouchBegan(Touch* touch, Event* event)
+{
+    CCLOG("SceneGame::onTouchBegan id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
+    
+    auto size = Director::getInstance()->getVisibleSize();
+    if (touch->getLocation().x < size.width / 2) {
+        // left
+        snake.turnLeft();
+    } else {
+        // right
+        snake.turnRight();
+    }
+}
+
+bool SceneGame::onTouchMoved(Touch* touch, Event* event)
+{
+    CCLOG("Paddle::onTouchMoved id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
+}
+
+bool SceneGame::onTouchEnded(Touch* touch, Event* event)
+{
+    auto p0 = touch->getStartLocation();
+    auto pf = touch->getDelta();
+    CCLOG("SceneGame::onTouchEnded id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
 }
 
 

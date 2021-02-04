@@ -23,6 +23,10 @@ public:
     void closeScene(cocos2d::Ref* pSender);
     void update(float delta);
     
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    bool onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+    bool onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(SceneGame);
     

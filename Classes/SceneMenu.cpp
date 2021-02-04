@@ -50,7 +50,7 @@ bool SceneMenu::init()
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
     
-    auto label = Label::createWithTTF("Play", "Arcade.ttf", 180);
+    auto label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     auto black = Color4B( Color4B::BLACK);
