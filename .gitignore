@@ -8,3 +8,5 @@ xcuserdata/
 xcshareddata/
 project.pbxproj
 Resources/.DS_Store
+mac-build/engine/
+ios-build/

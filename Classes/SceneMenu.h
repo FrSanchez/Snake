@@ -15,8 +15,10 @@ class SceneMenu : public cocos2d::Scene
 private:
     float _extent = 20;
     float _magnitude = 0;
-    cocos2d::Size _direction = cocos2d::Size(0.8, -1);
     int _audioID;
+    cocos2d::Vec2 _direction = cocos2d::Vec2(0.8, -1);
+    cocos2d::Label* label;
+    float _dt;
     
 public:
     static cocos2d::Scene* createScene();

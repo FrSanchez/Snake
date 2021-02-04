@@ -60,7 +60,7 @@ bool SceneGame::init()
     corner = Vec2(offsetX, offsetY);
     
     
-    apple = Sprite::createWithSpriteFrameName("apple");
+    apple = Sprite::createWithSpriteFrameName("fruit.png");
     apple->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     if (apple == nullptr)
     {
@@ -158,7 +158,7 @@ void SceneGame::eat()
     lastFood = arc4random() % 10 + 1;
     food = Vec2::ZERO;
     snake.grow();
-    auto sprite = Sprite::create("circles.png", Rect(32,32,32,32));
+    auto sprite = Sprite::createWithSpriteFrameName("body.png");
     sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     auto i = snake.getLength() - 1;
     sprite->setPosition((snake.getPosAt(i) * tileSize.width) + corner);
@@ -240,12 +240,15 @@ void SceneGame::addFood()
 
 void SceneGame::initBody()
 {
-    headSprite = Sprite::create("circles.png", Rect(32,0,32,32));
-    headSprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     auto total = snake.getLength();
        for(auto i=0; i < total; i++)
        {
-           auto sprite = Sprite::create("circles.png", Rect(32,32,32,32));
+           Sprite* sprite;
+           if (i == 0) {
+               sprite = Sprite::createWithSpriteFrameName("head.png");
+           } else {
+               sprite = Sprite::createWithSpriteFrameName("body.png");
+           }
            sprite->setPosition(snake.getPosAt(i) * tileSize.width);
            sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
            body.push_back(sprite);

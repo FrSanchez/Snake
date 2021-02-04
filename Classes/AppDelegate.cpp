@@ -24,7 +24,6 @@
 
 #include "AppDelegate.h"
 #include "SceneMenu.h"
-#include "HelloWorldScene.h"
 
 // #define USE_AUDIO_ENGINE 1
 
@@ -85,7 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     
     auto spritecache = SpriteFrameCache::getInstance();
-    spritecache->addSpriteFramesWithFile("Textures.plist");
+    spritecache->addSpriteFramesWithFile("sprites.plist");
 
     auto scene = SceneMenu::createScene();
     director->runWithScene(scene);

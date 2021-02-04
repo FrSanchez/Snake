@@ -50,20 +50,25 @@ bool SceneMenu::init()
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
     
-    auto label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
+    label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     auto black = Color4B( Color4B::BLACK);
     auto grey = Color4B(128, 128, 128, 128);
     auto blue = Color4B(88, 157, 214, 255);
     label->setTextColor(blue);
+    label->enableShadow(grey);
     this->addChild(label);
     
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           [=](Ref *pSender)  { Director::getInstance()->end();
-        } );
+    auto normal = Sprite::createWithSpriteFrameName("CloseNormal.png");
+    auto select = Sprite::createWithSpriteFrameName("CloseSelected.png");
+    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();});
+    
+//    auto closeItem = MenuItemImage::create(
+//                                           "CloseNormal.png",
+//                                           "CloseSelected.png",
+//                                           [=](Ref *pSender)  { Director::getInstance()->end();
+//        } );
 
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
@@ -84,19 +89,20 @@ bool SceneMenu::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
     
-    float t = 2.0f;
-    auto func = CallFunc::create([&]() {
-        _magnitude = 0.1 * _extent;
-        Size offset = _direction;
-        offset.width *= _magnitude;
-        offset.height *= _magnitude;
-        grey.a = (uint8_t) (128 * 0.1);
-        label->enableShadow(grey, offset, 50);
-    });
-    auto delay = DelayTime::create(0.1);
-    auto seq = Sequence::create(func, delay, nullptr);
-//    label->runAction(RepeatForever::create(seq));
-    
+    _dt = 0;
+    schedule([&](float time){
+        _dt += time;
+        if (_dt > 1.0) {
+            _dt -= 1.0;
+        }
+        _magnitude = _dt * _extent;
+        auto offset = _direction;
+        offset.x *= _magnitude;
+        offset.y *= _magnitude;
+        grey.a = (uint8_t) (128.0 * _dt);
+        label->enableShadow(grey, Size(offset.x, offset.y), 50);
+    }, "shadow");
+        
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
         log("Key with keycode %d pressed", keyCode);
