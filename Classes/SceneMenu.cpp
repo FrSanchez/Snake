@@ -17,6 +17,54 @@ Scene* SceneMenu::createScene()
     return SceneMenu::create();
 }
 
+void SceneMenu::setScore(int score)
+{
+    auto score_str = StringUtils::format("SCORE: %d", score);
+    auto label = getChildByTag<Label*>(0xf0);
+    if (label) {
+        label->setString(score_str);
+    } else {
+        auto size = Director::getInstance()->getVisibleSize();
+        auto label = Label::createWithTTF(score_str, "fonts/Arcade.ttf", 64);
+        label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+        label->setPosition(Vec2( 64, size.height - label->getContentSize().height));
+        label->setAlignment(TextHAlignment::LEFT);
+        auto black = Color4B( Color4B::BLACK);
+        auto grey = Color4B(128, 128, 128, 128);
+        auto blue = Color4B(88, 157, 214, 255);
+        label->setTextColor(blue);
+        addChild(label, 1, 0xf0);
+    }
+    if (score > highScore) {
+        UserDefault::getInstance()->setIntegerForKey("score", score);
+        loadHighScore();
+    }
+}
+
+void SceneMenu::loadHighScore()
+{
+    highScore = UserDefault::getInstance()->getIntegerForKey("score", -1);
+    auto score_str = StringUtils::format("HIGH SCORE: %d", highScore);
+    auto label = getChildByTag<Label*>(0xf1);
+    if (label) {
+        label->setString(score_str);
+    } else {
+        if (highScore > 0)
+        {
+            auto size = Director::getInstance()->getVisibleSize();
+            auto label = Label::createWithTTF(score_str, "fonts/Arcade.ttf", 64);
+            label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_RIGHT);
+            label->setPosition(Vec2(size.width - 64, label->getContentSize().height));
+            label->setAlignment(TextHAlignment::RIGHT);
+            auto black = Color4B( Color4B::BLACK);
+            auto grey = Color4B(128, 128, 128, 128);
+            auto blue = Color4B(88, 157, 214, 255);
+            label->setTextColor(blue);
+            addChild(label, 1, 0xf1);
+        }
+    }
+}
+
 void SceneMenu::startGame()
 {
     if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
@@ -57,18 +105,15 @@ bool SceneMenu::init()
     auto grey = Color4B(128, 128, 128, 128);
     auto blue = Color4B(88, 157, 214, 255);
     label->setTextColor(blue);
-    label->enableShadow(grey);
     this->addChild(label);
     
     auto normal = Sprite::createWithSpriteFrameName("CloseNormal.png");
     auto select = Sprite::createWithSpriteFrameName("CloseSelected.png");
-    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();});
-    
-//    auto closeItem = MenuItemImage::create(
-//                                           "CloseNormal.png",
-//                                           "CloseSelected.png",
-//                                           [=](Ref *pSender)  { Director::getInstance()->end();
-//        } );
+    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    exit(0);
+#endif
+    });
 
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
@@ -123,6 +168,9 @@ bool SceneMenu::init()
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
     }
+    
+    setScore(0);
+    loadHighScore();
     
     return true;
 }

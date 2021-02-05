@@ -19,6 +19,7 @@ private:
     cocos2d::Vec2 _direction = cocos2d::Vec2(0.8, -1);
     cocos2d::Label* label;
     float _dt;
+    int highScore = -1;
     
 public:
     static cocos2d::Scene* createScene();
@@ -31,6 +32,9 @@ public:
     void startGame();
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+    
+    void setScore(int);
+    void loadHighScore();
 
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);

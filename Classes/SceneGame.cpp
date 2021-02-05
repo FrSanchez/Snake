@@ -71,7 +71,8 @@ bool SceneGame::init()
     this->addChild(apple, 0);
 
     scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 48);
-    scoreLabel->setPosition(Vec2(size.width / 2 - tileSize.width * 2, size.height - scoreLabel->getContentSize().height / 2));
+    scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height / 2));
+    scoreLabel->setAlignment(TextHAlignment::CENTER);
     scoreLabel->setTextColor( Color4B::RED );
     scoreLabel->enableOutline(Color4B::YELLOW,1);
     scoreLabel->enableShadow(Color4B::GREEN);
@@ -86,6 +87,19 @@ bool SceneGame::init()
 
     _eventDispatcher->addEventListenerWithSceneGraphPriority(kbdLstnr, this);
     
+    leftButton = Sprite::createWithSpriteFrameName("shadedDark24.png");
+    leftButton->setVisible(false);
+    leftButton->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    addChild(leftButton);
+    rightButton = Sprite::createWithSpriteFrameName("shadedDark25.png");
+    rightButton->setVisible(false);
+    rightButton->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    addChild(rightButton);
+    
+    if (leftButton == nullptr || rightButton == nullptr) {
+        log("Error loading left or right buttons");
+        return false;
+    }
     
     // Register Touch Event
     auto touchLsnr = EventListenerTouchOneByOne::create();
@@ -98,7 +112,7 @@ bool SceneGame::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchLsnr, this);
 
     this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
-    lastFood = arc4random() % 10 + 1;
+    lastFood = arc4random() % 10 + 5;
 
     _audioId = AudioEngine::play2d("Arcade-Puzzler.mp3", true, 0.7f);
     
@@ -109,19 +123,39 @@ bool SceneGame::init()
     return true;
 }
 
+void SceneGame::labelCallback(Label* label)
+{
+    label->setVisible(false);
+}
+
 
 bool SceneGame::onTouchBegan(Touch* touch, Event* event)
 {
     CCLOG("SceneGame::onTouchBegan id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
     
+    auto f = CallFunc::create([=]() {
+        
+    });
+    
+    Sprite* button;
     auto size = Director::getInstance()->getVisibleSize();
     if (touch->getLocation().x < size.width / 2) {
         // left
         snake.turnLeft();
+        button = leftButton;
     } else {
         // right
         snake.turnRight();
+        button = rightButton;
     }
+    button->setVisible(true);
+    auto action = Sequence::create(Place::create(touch->getLocation()),
+                                   FadeOut::create(0.5f),
+                                   Place::create(Vec2(-tileSize.width,-tileSize.height)),
+                                   FadeIn::create(0.1f),
+                                   nullptr);
+    button->runAction(action);
+
 }
 
 bool SceneGame::onTouchMoved(Touch* touch, Event* event)
@@ -154,7 +188,19 @@ void SceneGame::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 
 void SceneGame::eat()
 {
-    apple->setVisible(false);
+//    apple->setVisible(false);
+    auto action = Spawn::createWithTwoActions(ScaleTo::create(0.5f, 0.5f, 0.5f),
+                                              MoveTo::create(0.5f, scoreLabel->getPosition()));
+    auto seq = Sequence::create(action,
+                                CallFunc::create([&]() {
+        auto score_str = StringUtils::format("SCORE: %d", score);
+        scoreLabel->setString(score_str);
+    }),
+                                Hide::create(),
+                                ScaleTo::create(0.1f, 1.0f, 1.0f),
+                                MoveTo::create(0.1f, Vec2(-64, -64)),
+                                Show::create(), nullptr);
+    apple->runAction(seq);
     lastFood = arc4random() % 10 + 1;
     food = Vec2::ZERO;
     snake.grow();
@@ -166,8 +212,6 @@ void SceneGame::eat()
     this->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
     score++;
-    auto score_str = StringUtils::format("SCORE: %d", score);
-    scoreLabel->setString(score_str);
     AudioEngine::play2d("munch.wav", false, 1.0f);
 }
 
@@ -233,9 +277,13 @@ void SceneGame::addFood()
     } while(gid != 5);
     
     auto fadeIn = FadeIn::create(0.5f);
+    apple->stopAllActions();
     apple->setPosition((food * tileSize.width) + corner);
+    apple->setScale(0.1f);
     apple->setVisible(true);
-    apple->runAction(fadeIn);
+    apple->runAction(
+                     Spawn::createWithTwoActions(ScaleTo::create(0.5f, 1, 1), fadeIn)
+                     );
 }
 
 void SceneGame::initBody()
@@ -259,7 +307,8 @@ void SceneGame::initBody()
 void SceneGame::closeScene(Ref* pSender)
 {
 
-    auto scene = SceneMenu::createScene();
+    SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
+    scene->setScore(score);
     auto fade = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(fade);
 }

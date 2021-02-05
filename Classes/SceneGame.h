@@ -27,6 +27,7 @@ public:
     bool onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     bool onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
+    void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
     CREATE_FUNC(SceneGame);
     
@@ -45,6 +46,8 @@ private:
     cocos2d::Label* posLabel;
     int score = 0;
     cocos2d::TMXLayer* layer;
+    cocos2d::Sprite* leftButton;
+    cocos2d::Sprite* rightButton;
 
     void updateTimer(float dt);
     
