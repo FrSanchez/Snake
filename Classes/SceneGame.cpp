@@ -95,8 +95,13 @@ bool SceneGame::init()
     }
     
     auto dpad = new DPad();
-    dpad->setPosition(Vec2(size.width / 2, offsetY));
-    dpad->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+    dpad->setPosition(Vec2(240, 64));
+    dpad->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    auto sz = dpad->getContentSize();
+    log("dpad size: %f x %f", sz.width, sz.height);
+    float x, y;
+    dpad->getPosition(&x , &y);
+    log("dpad pos: %f, %f", x, y);
     dpad->setCallback(CC_CALLBACK_1(SceneGame::onDpad, this));
     addChild(dpad);
 
@@ -105,6 +110,12 @@ bool SceneGame::init()
 
 void SceneGame::onDpad(int dir)
 {
+    if (dir == 1) {
+        snake.turnUp();
+    }
+    if (dir == 2) {
+        snake.turnDown();
+    }
     if (dir == 4) {
         snake.turnLeft();
     }
@@ -132,27 +143,20 @@ void SceneGame::onSwipe(SwipeGestureRecognizer* recognizer)
         switch (direction)
         {
             case SwipeGestureRecognizer::SwipeStatus::SWIPE_UP:
-                text = "Swipe up";
+                snake.turnUp();
                 break;
-                
             case SwipeGestureRecognizer::SwipeStatus::SWIPE_RIGHT:
-                text = "Swipe right";
                 snake.turnRight();
                 break;
-                
             case SwipeGestureRecognizer::SwipeStatus::SWIPE_DOWN:
-                text = "Swipe down";
+                snake.turnDown();
                 break;
-                
             case SwipeGestureRecognizer::SwipeStatus::SWIPE_LEFT:
-                text = "Swipe left";
                 snake.turnLeft();
                 break;
-            
             default:
                 break;
         }
-        cocos2d::log("%s", text.c_str());
     }
 }
 

@@ -18,6 +18,8 @@ public:
     bool advance();
     void turnLeft();
     void turnRight();
+    void turnUp();
+    void turnDown();
     int getLength();
     cocos2d::Vec2 getPosAt(int);
     void grow();

@@ -344,6 +344,7 @@
 		8931C68FF49A487FA4DFD7FF /* DetourObstacleAvoidance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97AB6641EE104A1890595DD5 /* DetourObstacleAvoidance.cpp */; };
 		8A0A27D0D08845BBA0EA359B /* CCPUForceField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39BB915478AC465197D6714F /* CCPUForceField.cpp */; };
 		8BB5A22B97A34D5E9557EFEC /* TextReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB6C7A0EAC442CE89BB07D1 /* TextReader.cpp */; };
+		8C17AC2425D1AA12004366A3 /* ScoreLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C17AC1225D1AA0A004366A3 /* ScoreLabel.cpp */; };
 		8C1A120925CC7E96001E2F8A /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1A11CB25CC7658001E2F8A /* sprites.png */; };
 		8C1A121925CC7E98001E2F8A /* sprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1A11CC25CC7658001E2F8A /* sprites.plist */; };
 		8C3CBB5233AC48739F1F1030 /* CCDownloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CF7D2E9AD1B47E2BF9E13EC /* CCDownloader.cpp */; };
@@ -1361,7 +1362,7 @@
 		42F68B364DD54488A8E1FF2D /* CCControlColourPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CCControlColourPicker.cpp; path = cocos2d/extensions/GUI/CCControlExtension/CCControlColourPicker.cpp; sourceTree = SOURCE_ROOT; };
 		43502A5E4F4C4E87A48E09D2 /* CCLight.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CCLight.cpp; path = cocos2d/cocos/2d/CCLight.cpp; sourceTree = SOURCE_ROOT; };
 		43599F2F6CD940F1923E6E9B /* CCTerrain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CCTerrain.h; path = cocos2d/cocos/3d/CCTerrain.h; sourceTree = SOURCE_ROOT; };
-		438839F6956D4CA0B3DA295F /* Icon.icns */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = Icon.icns; path = proj.ios_mac/mac/Icon.icns; sourceTree = SOURCE_ROOT; };
+		438839F6956D4CA0B3DA295F /* Icon.icns */ = {isa = PBXFileReference; explicitFileType = image.icns; fileEncoding = 4; name = Icon.icns; path = proj.ios_mac/mac/Icon.icns; sourceTree = SOURCE_ROOT; };
 		439C22C6F9644FE8AF2B8547 /* CCPULinearForceAffector.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CCPULinearForceAffector.h; path = cocos2d/extensions/Particle3D/PU/CCPULinearForceAffector.h; sourceTree = SOURCE_ROOT; };
 		43DAAFAD65924E90B1685196 /* CCFontAtlas.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CCFontAtlas.cpp; path = cocos2d/cocos/2d/CCFontAtlas.cpp; sourceTree = SOURCE_ROOT; };
 		4402DD2EFE184D1AB9608E09 /* CCPUPointEmitter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CCPUPointEmitter.h; path = cocos2d/extensions/Particle3D/PU/CCPUPointEmitter.h; sourceTree = SOURCE_ROOT; };
@@ -1714,6 +1715,8 @@
 		8B3BCB5F21A440EEA7DA5374 /* CCFontFreeType.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CCFontFreeType.cpp; path = cocos2d/cocos/2d/CCFontFreeType.cpp; sourceTree = SOURCE_ROOT; };
 		8B9AEDC839C840CC86575AA8 /* DetourLocalBoundary.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DetourLocalBoundary.cpp; path = cocos2d/external/recast/DetourCrowd/DetourLocalBoundary.cpp; sourceTree = SOURCE_ROOT; };
 		8BF9070816A74758876CC9C2 /* LayoutReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LayoutReader.h; path = "cocos2d/cocos/editor-support/cocostudio/WidgetReader/LayoutReader/LayoutReader.h"; sourceTree = SOURCE_ROOT; };
+		8C17AC1225D1AA0A004366A3 /* ScoreLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ScoreLabel.cpp; path = Classes/ScoreLabel.cpp; sourceTree = "<group>"; };
+		8C17AC1325D1AA0A004366A3 /* ScoreLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScoreLabel.h; path = Classes/ScoreLabel.h; sourceTree = "<group>"; };
 		8C1A11CB25CC7658001E2F8A /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sprites.png; path = Resources/sprites.png; sourceTree = SOURCE_ROOT; };
 		8C1A11CC25CC7658001E2F8A /* sprites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sprites.plist; path = Resources/sprites.plist; sourceTree = SOURCE_ROOT; };
 		8C2727DCA2714147B052D95F /* Buffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Buffer.h; path = cocos2d/cocos/renderer/backend/Buffer.h; sourceTree = SOURCE_ROOT; };
@@ -2365,6 +2368,8 @@
 				DF2028BFFEDD4EA598B03BEE /* SceneMenu.h */,
 				398834761D034FA2BB22B36C /* Snake.cpp */,
 				4ABE6AAB2ACA45499ED6042C /* Snake.h */,
+				8C17AC1225D1AA0A004366A3 /* ScoreLabel.cpp */,
+				8C17AC1325D1AA0A004366A3 /* ScoreLabel.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -4735,6 +4740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E871504A54E04CDA92E1937B /* AppDelegate.cpp in Sources */,
+				8C17AC2425D1AA12004366A3 /* ScoreLabel.cpp in Sources */,
 				BA8D33DDA30C41FB811D0EAE /* SceneGame.cpp in Sources */,
 				AEE10055582546A3A807BFA5 /* SceneMenu.cpp in Sources */,
 				223DE715C8C1475A89E03AA9 /* Snake.cpp in Sources */,

@@ -11,6 +11,8 @@ USING_NS_CC;
 
 DPad::DPad()
 {
+    auto bg = cocos2d::LayerColor::create(Color4B(53, 53, 53, 255));
+//    addChild(bg);
     auto upNormal = Sprite::createWithSpriteFrameName("UpNormal.png");
     auto upSelect =  Sprite::createWithSpriteFrameName("UpSelected.png");
     auto downNormal =  Sprite::createWithSpriteFrameName("DownNormal.png");
@@ -34,10 +36,10 @@ DPad::DPad()
     setContentSize( Size(20 + upNormal->getContentSize().width + leftNormal->getContentSize().width + rightNormal->getContentSize().width, 20 +  upNormal->getContentSize().height + downNormal->getContentSize().height));
 
     menu->setPosition(Vec2(_contentSize.width, _contentSize.height));
-    leftItem->setPosition(-leftItem->getContentSize().width, 0);
-    rightItem->setPosition(rightItem->getContentSize().width, 0);
+    leftItem->setPosition(-leftItem->getContentSize().width - 20, 0);
+    rightItem->setPosition(rightItem->getContentSize().width + 20, 0);
     upItem->setPosition(0, upItem->getContentSize().height);
-    downItem->setPosition(0, -downItem->getContentSize().height);
+    downItem->setPosition(0, -downItem->getContentSize().height );
     
     addChild(menu, 10 ,1 );
     autorelease();
@@ -52,10 +54,10 @@ void DPad::setPosition(const cocos2d::Vec2 &position)
     auto dn = menu->getChildByTag<MenuItemSprite* >(2);
     auto lf = menu->getChildByTag<MenuItemSprite* >(4);
     auto rt = menu->getChildByTag<MenuItemSprite* >(8);
-    auto lfPos = Vec2(_position.x - lf->getContentSize().width, _position.y);
-    auto rtPos = Vec2(_position.x + rt->getContentSize().width, _position.y);
-    auto upPos = Vec2(_position.x, position.y + up->getContentSize().height);
-    auto dnPos = Vec2(_position.x, position.y - dn->getContentSize().height);
+//    auto lfPos = Vec2(_position.x - lf->getContentSize().width, _position.y);
+//    auto rtPos = Vec2(_position.x + rt->getContentSize().width, _position.y);
+//    auto upPos = Vec2(_position.x, position.y + up->getContentSize().height);
+//    auto dnPos = Vec2(_position.x, position.y - dn->getContentSize().height);
     
     float x, y;
     lf->getPosition(&x, &y);

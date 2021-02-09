@@ -71,24 +71,57 @@ Vec2 Snake::getPosAt(int at)
     return body.at(at);
 }
 
-void Snake::turnLeft()
-{
-    if (direction.x == 0) {
-        direction.x = -direction.y;
-        direction.y = 0;
-    } else {
-        direction.y = direction.x;
-        direction.x = 0;
-    }
-}
+//void Snake::turnLeft()
+//{
+//    if (direction.x == 0) {
+//        direction.x = -direction.y;
+//        direction.y = 0;
+//    } else {
+//        direction.y = direction.x;
+//        direction.x = 0;
+//    }
+//}
+//
+//void Snake::turnRight()
+//{
+//    if (direction.x == 0) {
+//        direction.x = direction.y;
+//        direction.y = 0;
+//    } else {
+//        direction.y = - direction.x;
+//        direction.x = 0;
+//    }
+//}
+
 
 void Snake::turnRight()
 {
     if (direction.x == 0) {
-        direction.x = direction.y;
         direction.y = 0;
-    } else {
-        direction.y = - direction.x;
+        direction.x = 1;
+    }
+}
+
+void Snake::turnLeft()
+{
+    if (direction.x == 0) {
+        direction.y = 0;
+        direction.x = -1;
+    }
+}
+
+void Snake::turnUp()
+{
+    if (direction.y == 0) {
         direction.x = 0;
+        direction.y = 1;
+    }
+}
+
+void Snake::turnDown()
+{
+    if (direction.y == 0) {
+        direction.x = 0;
+        direction.y = -1;
     }
 }
