@@ -39,7 +39,7 @@ bool SceneGame::init()
     auto map = TMXTiledMap::create("snake.tmx");
     addChild(map, 0, 1);
     map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
-    map->setPosition(Vec2(0.5 * size.width, size.height));
+    map->setPosition(Vec2(0.5 * size.width, size.height - 96));
     layer = map->getLayer("layer0");
     auto s = layer->getLayerSize();
     tileSize = map->getTileSize();
@@ -67,8 +67,8 @@ bool SceneGame::init()
     apple->setVisible(false);
     this->addChild(apple, 0);
 
-    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 48, Size::ZERO, TextHAlignment::CENTER);
-    scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height / 2));
+    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
+    scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
     scoreLabel->setTextColor( Color4B::RED );
     scoreLabel->enableOutline(Color4B::YELLOW,1);
     scoreLabel->enableShadow(Color4B::GREEN);
@@ -95,13 +95,8 @@ bool SceneGame::init()
     }
     
     auto dpad = new DPad();
-    dpad->setPosition(Vec2(240, 64));
+    dpad->setPosition(Vec2(240, 32));
     dpad->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    auto sz = dpad->getContentSize();
-    log("dpad size: %f x %f", sz.width, sz.height);
-    float x, y;
-    dpad->getPosition(&x , &y);
-    log("dpad pos: %f, %f", x, y);
     dpad->setCallback(CC_CALLBACK_1(SceneGame::onDpad, this));
     addChild(dpad);
 

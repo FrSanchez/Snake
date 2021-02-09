@@ -39,7 +39,7 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate() 
 {
-    AudioEngine::uncacheAll();
+//    AudioEngine::uncacheAll();
     AudioEngine::end();
 }
 
@@ -69,18 +69,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #if CC_TARGET_PLATFORM == CC_PLATFORM_IOS
         glview = GLViewImpl::create(APP_NAME);
 #else
-        glview = cocos2d::GLViewImpl::createWithRect(APP_NAME, Rect(0,0,640,960));
+        glview = cocos2d::GLViewImpl::createWithRect(APP_NAME, Rect(0,0,640,1137));
 //        glview->setFrameZoomFactor(.5f);
 #endif
         director->setOpenGLView(glview);
     }
 
     // turn on display FPS
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-    glview->setDesignResolutionSize(640, 960,ResolutionPolicy::SHOW_ALL);
+    glview->setDesignResolutionSize(640, 1137,ResolutionPolicy::SHOW_ALL);
     
     
     auto spritecache = SpriteFrameCache::getInstance();
