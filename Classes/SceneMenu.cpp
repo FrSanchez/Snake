@@ -7,6 +7,7 @@
 
 #include "SceneMenu.h"
 #include "SceneGame.h"
+#include "ScoreLabel.h"
 #include "audio/include/AudioEngine.h"
 
 
@@ -21,22 +22,13 @@ void SceneMenu::setScore(int score)
 {
     auto score_str = StringUtils::format("SCORE: %d", score);
     auto label = getChildByTag<Label*>(0xf0);
-    if (label) {
-        label->setString(score_str);
-    } else {
-        auto size = Director::getInstance()->getVisibleSize();
-        auto label = Label::createWithTTF(score_str, "fonts/Arcade.ttf", 64);
-        label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-        label->setPosition(Vec2( 64, size.height - label->getContentSize().height));
-        label->setAlignment(TextHAlignment::LEFT);
-        auto black = Color4B( Color4B::BLACK);
-        auto grey = Color4B(128, 128, 128, 128);
-        auto blue = Color4B(88, 157, 214, 255);
-        label->setTextColor(blue);
-        addChild(label, 1, 0xf0);
+    if (!label) {
+        addChild(label = ScoreLabel::create(), 1, 0xf0);
     }
+    label->setString(score_str);
     if (score > highScore) {
         UserDefault::getInstance()->setIntegerForKey("score", score);
+        UserDefault::getInstance()->flush();
         loadHighScore();
     }
 }
@@ -44,25 +36,14 @@ void SceneMenu::setScore(int score)
 void SceneMenu::loadHighScore()
 {
     highScore = UserDefault::getInstance()->getIntegerForKey("score", -1);
+    if (highScore <= 0)
+        return;
     auto score_str = StringUtils::format("HIGH SCORE: %d", highScore);
     auto label = getChildByTag<Label*>(0xf1);
-    if (label) {
-        label->setString(score_str);
-    } else {
-        if (highScore > 0)
-        {
-            auto size = Director::getInstance()->getVisibleSize();
-            auto label = Label::createWithTTF(score_str, "fonts/Arcade.ttf", 64);
-            label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_RIGHT);
-            label->setPosition(Vec2(size.width - 64, label->getContentSize().height));
-            label->setAlignment(TextHAlignment::RIGHT);
-            auto black = Color4B( Color4B::BLACK);
-            auto grey = Color4B(128, 128, 128, 128);
-            auto blue = Color4B(88, 157, 214, 255);
-            label->setTextColor(blue);
-            addChild(label, 1, 0xf1);
-        }
+    if (!label) {
+        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
     }
+    label->setString(score_str);
 }
 
 void SceneMenu::startGame()
@@ -72,10 +53,7 @@ void SceneMenu::startGame()
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
     
-    auto audioId = AudioEngine::play2d("select_001.ogg", false, 1.0f);
-    if (audioId == AudioEngine::INVALID_AUDIO_ID) {
-        log("Failed to play select_001.ogg");
-    }
+    
     auto scene = SceneGame::createScene();
     auto fade = TransitionFade::create(2, scene);
     Director::getInstance()->replaceScene(fade);

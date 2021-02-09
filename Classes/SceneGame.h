@@ -10,6 +10,15 @@
 
 #include "cocos2d.h"
 #include "Snake.h"
+// Gestures
+#include "Gestures/GestureRecognizer.h"
+#include "Gestures/PinchGestureRecognizer.h"
+#include "Gestures/TapGestureRecognizer.h"
+#include "Gestures/SwipeGestureRecognizer.h"
+#include "Gestures/LongPressGestureRecognizer.h"
+#include "Gestures/PanGestureRecognizer.h"
+
+#include <string>
 
 static cocos2d::Size boardSize = cocos2d::Size(40, 30);
 
@@ -22,10 +31,6 @@ public:
     
     void closeScene(cocos2d::Ref* pSender);
     void update(float delta);
-    
-    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
-    bool onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
-    bool onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
@@ -46,8 +51,6 @@ private:
     cocos2d::Label* posLabel;
     int score = 0;
     cocos2d::TMXLayer* layer;
-    cocos2d::Sprite* leftButton;
-    cocos2d::Sprite* rightButton;
 
     void updateTimer(float dt);
     
@@ -58,6 +61,9 @@ private:
     void addFood();
     void eat();
     void collide();
+    void enableSwipe();
+    void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
+    void onDpad(int);
 };
 
 #endif /* SceneGame_hpp */

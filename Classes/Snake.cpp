@@ -34,7 +34,7 @@ void Snake::grow()
 
 int Snake::getLength()
 {
-    return body.size();
+    return (int) body.size();
 }
 
 void Snake::setLayer(TMXLayer* value)
@@ -46,7 +46,7 @@ bool Snake::advance()
 {
     Point head = body.at(0) + direction;
     auto gid = layer->getTileGIDAt(Vec2(head.x, head.y));
-    if (gid != 5) {
+    if (gid != 4) {
         log("head: %f %f, gid %d", head.x, head.y, gid);
         // only tile 5 is a valid empty spot
         return false;

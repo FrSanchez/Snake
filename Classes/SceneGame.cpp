@@ -7,7 +7,9 @@
 
 #include "SceneGame.h"
 #include "SceneMenu.h"
+#include "DPad.h"
 #include "audio/include/AudioEngine.h"
+#include "Gestures/GestureRecognizerUtils.h"
 
 USING_NS_CC;
 
@@ -34,10 +36,10 @@ bool SceneGame::init()
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto map = TMXTiledMap::create("ground.tmx");
+    auto map = TMXTiledMap::create("snake.tmx");
     addChild(map, 0, 1);
-    map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    map->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
+    map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+    map->setPosition(Vec2(0.5 * size.width, size.height));
     layer = map->getLayer("layer0");
     auto s = layer->getLayerSize();
     tileSize = map->getTileSize();
@@ -56,23 +58,17 @@ bool SceneGame::init()
     snake.setLayer(layer);
 
     float offsetX = map->getPosition().x - map->getContentSize().width / 2;
-    float offsetY = map->getPosition().y - map->getContentSize().height / 2;
+    float offsetY = map->getPosition().y - map->getContentSize().height ;
     corner = Vec2(offsetX, offsetY);
     
     
     apple = Sprite::createWithSpriteFrameName("fruit.png");
     apple->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-    if (apple == nullptr)
-    {
-        log("Error loading circles.png");
-        return false;
-    }
     apple->setVisible(false);
     this->addChild(apple, 0);
 
-    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 48);
+    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 48, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height / 2));
-    scoreLabel->setAlignment(TextHAlignment::CENTER);
     scoreLabel->setTextColor( Color4B::RED );
     scoreLabel->enableOutline(Color4B::YELLOW,1);
     scoreLabel->enableShadow(Color4B::GREEN);
@@ -86,30 +82,8 @@ bool SceneGame::init()
     kbdLstnr->onKeyReleased = CC_CALLBACK_2(SceneGame::onKeyReleased, this);
 
     _eventDispatcher->addEventListenerWithSceneGraphPriority(kbdLstnr, this);
-    
-    leftButton = Sprite::createWithSpriteFrameName("shadedDark24.png");
-    leftButton->setVisible(false);
-    leftButton->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    addChild(leftButton);
-    rightButton = Sprite::createWithSpriteFrameName("shadedDark25.png");
-    rightButton->setVisible(false);
-    rightButton->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    addChild(rightButton);
-    
-    if (leftButton == nullptr || rightButton == nullptr) {
-        log("Error loading left or right buttons");
-        return false;
-    }
-    
-    // Register Touch Event
-    auto touchLsnr = EventListenerTouchOneByOne::create();
-    touchLsnr->setSwallowTouches(true);
-
-    touchLsnr->onTouchBegan = CC_CALLBACK_2(SceneGame::onTouchBegan, this);
-    touchLsnr->onTouchMoved = CC_CALLBACK_2(SceneGame::onTouchMoved, this);
-    touchLsnr->onTouchEnded = CC_CALLBACK_2(SceneGame::onTouchEnded, this);
-
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchLsnr, this);
+            
+    enableSwipe();
 
     this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
     lastFood = arc4random() % 10 + 5;
@@ -119,57 +93,73 @@ bool SceneGame::init()
     if(_audioId != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
     }
+    
+    auto dpad = new DPad();
+    dpad->setPosition(Vec2(size.width / 2, offsetY));
+    dpad->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+    dpad->setCallback(CC_CALLBACK_1(SceneGame::onDpad, this));
+    addChild(dpad);
 
     return true;
+}
+
+void SceneGame::onDpad(int dir)
+{
+    if (dir == 4) {
+        snake.turnLeft();
+    }
+    if (dir == 8) {
+        snake.turnRight();
+    }
+}
+
+void SceneGame::enableSwipe()
+{
+    auto swipe = SwipeGestureRecognizer::create();
+    swipe->onSwipe = CC_CALLBACK_1(SceneGame::onSwipe, this);
+    addChild(swipe);
+}
+
+
+void SceneGame::onSwipe(SwipeGestureRecognizer* recognizer)
+{
+    auto stato = recognizer->getStatus();
+    
+    if (stato == GestureStatus::RECOGNIZED)
+    {
+        auto direction = recognizer->getSwipeDirection();
+        std::string text;
+        switch (direction)
+        {
+            case SwipeGestureRecognizer::SwipeStatus::SWIPE_UP:
+                text = "Swipe up";
+                break;
+                
+            case SwipeGestureRecognizer::SwipeStatus::SWIPE_RIGHT:
+                text = "Swipe right";
+                snake.turnRight();
+                break;
+                
+            case SwipeGestureRecognizer::SwipeStatus::SWIPE_DOWN:
+                text = "Swipe down";
+                break;
+                
+            case SwipeGestureRecognizer::SwipeStatus::SWIPE_LEFT:
+                text = "Swipe left";
+                snake.turnLeft();
+                break;
+            
+            default:
+                break;
+        }
+        cocos2d::log("%s", text.c_str());
+    }
 }
 
 void SceneGame::labelCallback(Label* label)
 {
     label->setVisible(false);
 }
-
-
-bool SceneGame::onTouchBegan(Touch* touch, Event* event)
-{
-    CCLOG("SceneGame::onTouchBegan id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
-    
-    auto f = CallFunc::create([=]() {
-        
-    });
-    
-    Sprite* button;
-    auto size = Director::getInstance()->getVisibleSize();
-    if (touch->getLocation().x < size.width / 2) {
-        // left
-        snake.turnLeft();
-        button = leftButton;
-    } else {
-        // right
-        snake.turnRight();
-        button = rightButton;
-    }
-    button->setVisible(true);
-    auto action = Sequence::create(Place::create(touch->getLocation()),
-                                   FadeOut::create(0.5f),
-                                   Place::create(Vec2(-tileSize.width,-tileSize.height)),
-                                   FadeIn::create(0.1f),
-                                   nullptr);
-    button->runAction(action);
-
-}
-
-bool SceneGame::onTouchMoved(Touch* touch, Event* event)
-{
-    CCLOG("Paddle::onTouchMoved id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
-}
-
-bool SceneGame::onTouchEnded(Touch* touch, Event* event)
-{
-    auto p0 = touch->getStartLocation();
-    auto pf = touch->getDelta();
-    CCLOG("SceneGame::onTouchEnded id = %d, x = %f, y = %f", touch->getID(), touch->getLocation().x, touch->getLocation().y);
-}
-
 
 // Implementation of the keyboard event callback function prototype
 void SceneGame::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
@@ -274,7 +264,7 @@ void SceneGame::addFood()
     do {
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
         gid = layer->getTileGIDAt(food);
-    } while(gid != 5);
+    } while(gid != 4);
     
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
@@ -306,7 +296,6 @@ void SceneGame::initBody()
 
 void SceneGame::closeScene(Ref* pSender)
 {
-
     SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
     scene->setScore(score);
     auto fade = TransitionFade::create(1, scene);
