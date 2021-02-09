@@ -60,12 +60,28 @@ list(APPEND GAME_SOURCE
      Classes/SceneGame.cpp
      Classes/Snake.cpp
      Classes/SceneMenu.cpp
+     Classes/ScoreLabel.cpp
+     Classes/Gestures/GestureRecognizer.cpp
+     Classes/Gestures/PinchGestureRecognizer.cpp 
+     Classes/Gestures/GestureRecognizerUtils.cpp
+     Classes/Gestures/SwipeGestureRecognizer.cpp
+     Classes/Gestures/LongPressGestureRecognizer.cpp
+     Classes/Gestures/TapGestureRecognizer.cpp
+     Classes/Gestures/PanGestureRecognizer.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/SceneGame.h
      Classes/Snake.h
      Classes/SceneMenu.h
+     Classes/ScoreLabel.h
+     Classes/Gestures/GestureRecognizer.h
+     Classes/Gestures/PinchGestureRecognizer.h
+     Classes/Gestures/GestureRecognizerUtils.h 
+     Classes/Gestures/SwipeGestureRecognizer.h
+     Classes/Gestures/LongPressGestureRecognizer.h  
+     Classes/Gestures/TapGestureRecognizer.h
+     Classes/Gestures/PanGestureRecognizer.h
      )
 
 if(ANDROID)
