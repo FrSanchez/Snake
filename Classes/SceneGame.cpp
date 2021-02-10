@@ -272,8 +272,14 @@ Vec2 SceneGame::calcViewPointCenter()
     auto y = winSize.height - 96;;
 
     auto dx = _map->getContentSize().width / 2 - headPos.x;
+    x += dx;
+    if (x < 0) { x = 0; }
+    auto maxX =  _map->getContentSize().width / 2;
+    if (x > maxX) {
+        x = maxX;
+    }
     
-    return Vec2(x + dx, y);
+    return Vec2(x , y);
 }
 
 
