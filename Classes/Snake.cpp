@@ -45,10 +45,10 @@ void Snake::setLayer(TMXLayer* value)
 bool Snake::advance()
 {
     Point head = body.at(0) + direction;
-    auto gid = layer->getTileGIDAt(Vec2(head.x, head.y));
+    Vec2 headPos = Vec2(head.x, height - head.y);
+    auto gid = layer->getTileGIDAt(headPos);
     if (gid != 4) {
-        log("head: %f %f, gid %d", head.x, head.y, gid);
-        // only tile 5 is a valid empty spot
+        CCLOG("(CRASH) Headpos: %.1f %.1f gid: %d", headPos.x, headPos.y, gid);
         return false;
     }
     Point temp = head;

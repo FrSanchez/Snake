@@ -48,30 +48,6 @@ DPad::DPad()
 void DPad::setPosition(const cocos2d::Vec2 &position)
 {
     Node::setPosition(position);
-    auto menu = getChildByTag<Menu*>(1);
-//    menu->setPosition(position);
-    auto up = menu->getChildByTag<MenuItemSprite* >(1);
-    auto dn = menu->getChildByTag<MenuItemSprite* >(2);
-    auto lf = menu->getChildByTag<MenuItemSprite* >(4);
-    auto rt = menu->getChildByTag<MenuItemSprite* >(8);
-//    auto lfPos = Vec2(_position.x - lf->getContentSize().width, _position.y);
-//    auto rtPos = Vec2(_position.x + rt->getContentSize().width, _position.y);
-//    auto upPos = Vec2(_position.x, position.y + up->getContentSize().height);
-//    auto dnPos = Vec2(_position.x, position.y - dn->getContentSize().height);
-    
-    float x, y;
-    lf->getPosition(&x, &y);
-    log("left pos: %f %f", x, y);
-    
-    up->getPosition(&x, &y);
-    log("up pos: %f %f", x, y);
-    
-    log("My position %f %f", _position.x, _position.y);
-
-//    lf->setPosition(lfPos);
-//    rt->setPosition(rtPos);
-//    up->setPosition(upPos);
-//    dn->setPosition(dnPos);
 }
 
 void DPad::dpadCallback(Ref* sender)

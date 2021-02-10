@@ -36,7 +36,7 @@ bool SceneGame::init()
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    _map = TMXTiledMap::create("level1.tmx");
+    _map = TMXTiledMap::create("level2.tmx");
     addChild(_map, 0, 1);
     _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
     _map->setPosition(Vec2(0.5 * size.width, size.height - 96));
@@ -65,7 +65,12 @@ bool SceneGame::init()
     apple = Sprite::createWithSpriteFrameName("fruit.png");
     apple->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     apple->setVisible(false);
-    _map->addChild(apple, 0);
+    _map->addChild(apple, 10);
+    
+    auto pos = Label::createWithTTF("0, 0", "fonts/arial.ttf", 32);
+    pos->setPosition(Vec2(0, 0));
+    pos->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    addChild(pos, 10, 0x10);
 
     scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
@@ -177,18 +182,14 @@ void SceneGame::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 
 void SceneGame::eat()
 {
-//    apple->setVisible(false);
     auto action = Spawn::createWithTwoActions(ScaleTo::create(0.5f, 0.5f, 0.5f),
                                               MoveTo::create(0.5f, scoreLabel->getPosition()));
     auto seq = Sequence::create(action,
                                 CallFunc::create([&]() {
         auto score_str = StringUtils::format("SCORE: %d", score);
         scoreLabel->setString(score_str);
-    }),
-                                Hide::create(),
-                                ScaleTo::create(0.1f, 1.0f, 1.0f),
-                                MoveTo::create(0.1f, Vec2(-64, -64)),
-                                Show::create(), nullptr);
+        apple->setVisible(false);
+    }), nullptr);
     apple->runAction(seq);
     lastFood = arc4random() % 10 + 1;
     food = Vec2::ZERO;
@@ -241,22 +242,38 @@ void SceneGame::updateTimer(float dt)
         collide();
         return;
     }
+    Vec2 headPos = snake.getPosAt(0);
+    headPos.y = _map->getMapSize().height - headPos.y;
+    auto gid = _map->getLayer("layer0")->getTileGIDAt(headPos);
     for(auto i = 0; i < snake.getLength(); i++) {
-        auto moveTo = MoveTo::create(snakeSpeed, (snake.getPosAt(i) * tileSize.width));
+        auto moveTo = MoveTo::create(snakeSpeed, Vec2(0, -tileSize.height) + (snake.getPosAt(i) * tileSize.width));
         body.at(i)->runAction(moveTo);
     }
     if (lastFood <= 0 && food == Vec2::ZERO) {
         addFood();
     }
+    auto label = getChildByTag<Label*>(0x10);
+    if (label != nullptr) {
+        auto posStr = StringUtils::format("%.1f,%.1f", headPos.x, headPos.y);
+        label->setString(posStr);
+    }
     auto pos = snake.getPosAt(0);
-    setViewPointCenter( (snake.getPosAt(0) * tileSize.width));
+    auto moveBy = calcViewPointCenter();
+    _map->runAction(MoveTo::create(snakeSpeed, moveBy));
 
     this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
 
-void SceneGame::setViewPointCenter(cocos2d::Vec2 position)
+Vec2 SceneGame::calcViewPointCenter()
 {
+    auto winSize = Director::getInstance()->getWinSize();
+    auto headPos = Vec2(snake.getPosAt(0).x * tileSize.width , snake.getPosAt(0).y * tileSize.height);
+    auto x = winSize.width / 2;
+    auto y = winSize.height - 96;;
 
+    auto dx = _map->getContentSize().width / 2 - headPos.x;
+    
+    return Vec2(x + dx, y);
 }
 
 
@@ -266,11 +283,13 @@ void SceneGame::addFood()
     do {
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
         gid = layer->getTileGIDAt(food);
-    } while(gid != 4);
+    } while(gid != 4 && food != snake.getPosAt(0));
+    
+    CCLOG("Food: %.1f %.1f", food.x, food.y);
     
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
-    apple->setPosition((food * tileSize.width) );
+    apple->setPosition(Vec2(food.x * tileSize.width, (food.y - 1) * tileSize.height) );
     apple->setScale(0.1f);
     apple->setVisible(true);
     apple->runAction(

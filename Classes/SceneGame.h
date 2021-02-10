@@ -64,7 +64,7 @@ private:
     void enableSwipe();
     void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
     void onDpad(int);
-    void setViewPointCenter(cocos2d::Vec2);
+    cocos2d::Vec2 calcViewPointCenter();
 };
 
 #endif /* SceneGame_hpp */
