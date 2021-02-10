@@ -28,7 +28,6 @@ void SceneMenu::setScore(int score)
     label->setString(score_str);
     if (score > highScore) {
         UserDefault::getInstance()->setIntegerForKey("score", score);
-        UserDefault::getInstance()->flush();
         loadHighScore();
     }
 }
@@ -147,9 +146,9 @@ bool SceneMenu::init()
         log("Can't play background music");
     }
     
-    setScore(0);
     loadHighScore();
-    
+    setScore(0);
+
     return true;
 }
 

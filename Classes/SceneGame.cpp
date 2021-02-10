@@ -36,16 +36,16 @@ bool SceneGame::init()
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    auto map = TMXTiledMap::create("snake.tmx");
-    addChild(map, 0, 1);
-    map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
-    map->setPosition(Vec2(0.5 * size.width, size.height - 96));
-    layer = map->getLayer("layer0");
+    _map = TMXTiledMap::create("level1.tmx");
+    addChild(_map, 0, 1);
+    _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
+    _map->setPosition(Vec2(0.5 * size.width, size.height - 96));
+    layer = _map->getLayer("layer0");
     auto s = layer->getLayerSize();
-    tileSize = map->getTileSize();
+    tileSize = _map->getTileSize();
     
     SpriteBatchNode* child = nullptr;
-    auto& children = map->getChildren();
+    auto& children = _map->getChildren();
     
     for(const auto &node : children) {
         child = static_cast<SpriteBatchNode*>(node);
@@ -57,15 +57,15 @@ bool SceneGame::init()
     snake = Snake(s.width, s.height);
     snake.setLayer(layer);
 
-    float offsetX = map->getPosition().x - map->getContentSize().width / 2;
-    float offsetY = map->getPosition().y - map->getContentSize().height ;
+    float offsetX = _map->getPosition().x - _map->getContentSize().width / 2;
+    float offsetY = _map->getPosition().y - _map->getContentSize().height ;
     corner = Vec2(offsetX, offsetY);
     
     
     apple = Sprite::createWithSpriteFrameName("fruit.png");
     apple->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     apple->setVisible(false);
-    this->addChild(apple, 0);
+    _map->addChild(apple, 0);
 
     scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
@@ -196,16 +196,12 @@ void SceneGame::eat()
     auto sprite = Sprite::createWithSpriteFrameName("body.png");
     sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     auto i = snake.getLength() - 1;
-    sprite->setPosition((snake.getPosAt(i) * tileSize.width) + corner);
+    sprite->setPosition((snake.getPosAt(i) * tileSize.width) );
     body.push_back(sprite);
-    this->addChild(sprite, 0);
+    _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
     score++;
     AudioEngine::play2d("munch.wav", false, 1.0f);
-}
-
-void SceneGame::update(float delta) {
-    log("update %f", delta);
 }
 
 void SceneGame::collide()
@@ -246,16 +242,23 @@ void SceneGame::updateTimer(float dt)
         return;
     }
     for(auto i = 0; i < snake.getLength(); i++) {
-        auto moveTo = MoveTo::create(snakeSpeed, corner + (snake.getPosAt(i) * tileSize.width));
+        auto moveTo = MoveTo::create(snakeSpeed, (snake.getPosAt(i) * tileSize.width));
         body.at(i)->runAction(moveTo);
     }
     if (lastFood <= 0 && food == Vec2::ZERO) {
         addFood();
     }
     auto pos = snake.getPosAt(0);
-    log("lastFood %d speed: %.3f", lastFood, snakeSpeed);
+    setViewPointCenter( (snake.getPosAt(0) * tileSize.width));
+
     this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
+
+void SceneGame::setViewPointCenter(cocos2d::Vec2 position)
+{
+
+}
+
 
 void SceneGame::addFood()
 {
@@ -267,7 +270,7 @@ void SceneGame::addFood()
     
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
-    apple->setPosition((food * tileSize.width) + corner);
+    apple->setPosition((food * tileSize.width) );
     apple->setScale(0.1f);
     apple->setVisible(true);
     apple->runAction(
@@ -289,7 +292,7 @@ void SceneGame::initBody()
            sprite->setPosition(snake.getPosAt(i) * tileSize.width);
            sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
            body.push_back(sprite);
-           this->addChild(sprite, 0);
+           _map->addChild(sprite, 0);
        }
 }
 

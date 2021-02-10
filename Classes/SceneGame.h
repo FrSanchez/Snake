@@ -30,8 +30,7 @@ public:
     virtual bool init();
     
     void closeScene(cocos2d::Ref* pSender);
-    void update(float delta);
-    
+
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
     CREATE_FUNC(SceneGame);
@@ -51,6 +50,7 @@ private:
     cocos2d::Label* posLabel;
     int score = 0;
     cocos2d::TMXLayer* layer;
+    cocos2d::TMXTiledMap* _map;
 
     void updateTimer(float dt);
     
@@ -64,6 +64,7 @@ private:
     void enableSwipe();
     void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
     void onDpad(int);
+    void setViewPointCenter(cocos2d::Vec2);
 };
 
 #endif /* SceneGame_hpp */
