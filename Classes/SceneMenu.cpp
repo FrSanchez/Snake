@@ -77,16 +77,16 @@ bool SceneMenu::init()
     auto files = findLevels();
     _file = 0;
 
-    auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 82);
-    numLabel->setPosition(size.width / 2, size.height / 2 - 128);
-    addChild(numLabel);
+    auto numLabel = Label::createWithTTF("1000", "fonts/Arcade.ttf", 82);
+    auto numItem = MenuItemLabel::create(numLabel, nullptr);
     numLabel->setTextColor(Color4B::BLUE);
+    numLabel->setAlignment(TextHAlignment::CENTER);
     auto downNormal = Sprite::createWithSpriteFrameName("LeftNormal");
     auto downSelected = Sprite::createWithSpriteFrameName("LeftSelected");
     auto downItem = MenuItemSprite::create(downNormal, downSelected, [=](Ref *pSender) { _file--;
         if (_file < 0)
         {
-            _file = files.size() - 1;
+            _file = 1000;
         }
         numLabel->setString(StringUtils::format("%ld", _file+1));
     });
@@ -99,11 +99,15 @@ bool SceneMenu::init()
         }
         numLabel->setString(StringUtils::format("%ld", _file+1));
     });
-    auto menuChoose = Menu::create(downItem, upItem, nullptr);
+    auto menuChoose = Menu::create(downItem, numItem, upItem, nullptr);
+    downItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    numItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    upItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    downItem->setPosition(Vec2(-101, 0));
+    numItem->setPosition(Vec2::ZERO);
+    upItem->setPosition(Vec2(101, 0));
     addChild(menuChoose);
     menuChoose->setPosition(Vec2(size.width / 2, size.height / 2 - 210));
-    menuChoose->alignItemsHorizontally();
-
 
     label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
