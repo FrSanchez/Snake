@@ -84,8 +84,8 @@ bool SceneMenu::init()
     label->setTextColor(blue);
     this->addChild(label);
     
-    auto normal = Sprite::createWithSpriteFrameName("CloseNormal.png");
-    auto select = Sprite::createWithSpriteFrameName("CloseSelected.png");
+    auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
+    auto select = Sprite::createWithSpriteFrameName("CloseSelected");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);

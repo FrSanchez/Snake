@@ -13,14 +13,14 @@ DPad::DPad()
 {
     auto bg = cocos2d::LayerColor::create(Color4B(53, 53, 53, 255));
 //    addChild(bg);
-    auto upNormal = Sprite::createWithSpriteFrameName("UpNormal.png");
-    auto upSelect =  Sprite::createWithSpriteFrameName("UpSelected.png");
-    auto downNormal =  Sprite::createWithSpriteFrameName("DownNormal.png");
-    auto downSelect =  Sprite::createWithSpriteFrameName("DownSelected.png");
-    auto leftNormal =  Sprite::createWithSpriteFrameName("LeftNormal.png");
-    auto leftSelect =  Sprite::createWithSpriteFrameName("LeftSelected.png");
-    auto rightNormal =  Sprite::createWithSpriteFrameName("RightNormal.png");
-    auto rightSelect =  Sprite::createWithSpriteFrameName("RightSelected.png");
+    auto upNormal = Sprite::createWithSpriteFrameName("UpNormal");
+    auto upSelect =  Sprite::createWithSpriteFrameName("UpSelected");
+    auto downNormal =  Sprite::createWithSpriteFrameName("DownNormal");
+    auto downSelect =  Sprite::createWithSpriteFrameName("DownSelected");
+    auto leftNormal =  Sprite::createWithSpriteFrameName("LeftNormal");
+    auto leftSelect =  Sprite::createWithSpriteFrameName("LeftSelected");
+    auto rightNormal =  Sprite::createWithSpriteFrameName("RightNormal");
+    auto rightSelect =  Sprite::createWithSpriteFrameName("RightSelected");
                                                        
     auto upItem = MenuItemSprite::create(upNormal, upSelect, CC_CALLBACK_1(DPad::dpadCallback, this));
     upItem->setTag(1);

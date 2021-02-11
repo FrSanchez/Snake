@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>CloseNormal.png</key>
+            <key>CloseNormal</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -15,11 +15,11 @@
                 <key>spriteSourceSize</key>
                 <string>{40,40}</string>
                 <key>textureRect</key>
-                <string>{{160,0},{40,40}}</string>
+                <string>{{50,178},{40,40}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>CloseSelected.png</key>
+            <key>CloseSelected</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -30,11 +30,11 @@
                 <key>spriteSourceSize</key>
                 <string>{40,40}</string>
                 <key>textureRect</key>
-                <string>{{200,0},{40,40}}</string>
+                <string>{{45,138},{40,40}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>DownNormal.png</key>
+            <key>DownNormal</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -45,11 +45,11 @@
                 <key>spriteSourceSize</key>
                 <string>{49,46}</string>
                 <key>textureRect</key>
-                <string>{{155,40},{49,46}}</string>
+                <string>{{44,92},{49,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>DownSelected.png</key>
+            <key>DownSelected</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -60,11 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{50,46}</string>
                 <key>textureRect</key>
-                <string>{{0,76},{50,46}}</string>
+                <string>{{0,207},{50,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>LeftNormal.png</key>
+            <key>LeftNormal</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -75,11 +75,11 @@
                 <key>spriteSourceSize</key>
                 <string>{45,51}</string>
                 <key>textureRect</key>
-                <string>{{104,32},{45,51}}</string>
+                <string>{{0,156},{45,51}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>LeftSelected.png</key>
+            <key>LeftSelected</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -90,11 +90,11 @@
                 <key>spriteSourceSize</key>
                 <string>{46,52}</string>
                 <key>textureRect</key>
-                <string>{{50,76},{46,52}}</string>
+                <string>{{0,0},{46,52}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>RightNormal.png</key>
+            <key>RightNormal</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -105,11 +105,11 @@
                 <key>spriteSourceSize</key>
                 <string>{44,52}</string>
                 <key>textureRect</key>
-                <string>{{0,32},{44,52}}</string>
+                <string>{{0,104},{44,52}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>RightSelected.png</key>
+            <key>RightSelected</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -120,11 +120,11 @@
                 <key>spriteSourceSize</key>
                 <string>{44,52}</string>
                 <key>textureRect</key>
-                <string>{{52,32},{44,52}}</string>
+                <string>{{0,52},{44,52}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>UpNormal.png</key>
+            <key>UpNormal</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -135,11 +135,11 @@
                 <key>spriteSourceSize</key>
                 <string>{50,46}</string>
                 <key>textureRect</key>
-                <string>{{102,77},{50,46}}</string>
+                <string>{{46,0},{50,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>UpSelected.png</key>
+            <key>UpSelected</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -150,41 +150,11 @@
                 <key>spriteSourceSize</key>
                 <string>{49,46}</string>
                 <key>textureRect</key>
-                <string>{{204,40},{49,46}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>body.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{32,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{32,32}</string>
-                <key>textureRect</key>
-                <string>{{32,0},{32,32}}</string>
+                <string>{{46,46},{49,46}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>fruit.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{-1,0}</string>
-                <key>spriteSize</key>
-                <string>{30,32}</string>
-                <key>spriteSourceSize</key>
-                <string>{32,32}</string>
-                <key>textureRect</key>
-                <string>{{0,0},{30,32}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>grass-dark.png</key>
+            <key>body</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -195,11 +165,11 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{64,0},{32,32}}</string>
+                <string>{{32,253},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>grass-light.png</key>
+            <key>fruit</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -210,11 +180,11 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{96,0},{32,32}}</string>
+                <string>{{0,253},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>head.png</key>
+            <key>head</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -225,7 +195,7 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{128,0},{32,32}}</string>
+                <string>{{50,218},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -241,9 +211,9 @@
             <key>realTextureFileName</key>
             <string>sprites.png</string>
             <key>size</key>
-            <string>{250,123}</string>
+            <string>{96,285}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c9f9a43206cb7a2ecbb1de9acf262cee:af4c20c9e6ddcfb9bd9dd938acd7873d:db71e206b3c010bfb176561963c50b15$</string>
+            <string>$TexturePacker:SmartUpdate:74974d783b3608944ef9eea066c04fc7:52be976bece3db80a4b27a06650f4d09:db71e206b3c010bfb176561963c50b15$</string>
             <key>textureFileName</key>
             <string>sprites.png</string>
         </dict>

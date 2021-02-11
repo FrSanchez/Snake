@@ -43,8 +43,7 @@ private:
     std::vector<cocos2d::Sprite *> body;
     cocos2d::Vec2 food = cocos2d::Vec2::ZERO;
     int lastFood = 0;
-    float snakeSpeed = 0.5f;
-    cocos2d::Vec2 corner;
+    float snakeSpeed = 0.3f;
     int _audioId;
     cocos2d::Label* scoreLabel;
     cocos2d::Label* posLabel;
@@ -58,7 +57,7 @@ private:
     
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-    void addFood();
+    void addFood(float dt);
     void eat();
     void collide();
     void enableSwipe();

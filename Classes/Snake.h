@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 
+#define SPACE_BLOCK 2
+
 class Snake
 {
 public:

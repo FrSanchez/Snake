@@ -14,9 +14,9 @@ Snake::Snake(int w, int l)
     width = w;
     height = l;
     
-    int oX = w / 2;
-    int oY = l * 2/3;
-
+    int oX = 1;
+    int oY = l / 2;
+    
     body.clear();
     body.push_back(Vec2(oX, oY++));
     body.push_back(Vec2(oX, oY++));
@@ -45,9 +45,9 @@ void Snake::setLayer(TMXLayer* value)
 bool Snake::advance()
 {
     Point head = body.at(0) + direction;
-    Vec2 headPos = Vec2(head.x, height - head.y);
+    Vec2 headPos = head; //Vec2(head.x, height - head.y);
     auto gid = layer->getTileGIDAt(headPos);
-    if (gid != 4) {
+    if (gid != SPACE_BLOCK) {
         CCLOG("(CRASH) Headpos: %.1f %.1f gid: %d", headPos.x, headPos.y, gid);
         return false;
     }
@@ -110,7 +110,7 @@ void Snake::turnLeft()
     }
 }
 
-void Snake::turnUp()
+void Snake::turnDown()
 {
     if (direction.y == 0) {
         direction.x = 0;
@@ -118,7 +118,7 @@ void Snake::turnUp()
     }
 }
 
-void Snake::turnDown()
+void Snake::turnUp()
 {
     if (direction.y == 0) {
         direction.x = 0;

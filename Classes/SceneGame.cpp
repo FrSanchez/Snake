@@ -38,8 +38,8 @@ bool SceneGame::init()
     
     _map = TMXTiledMap::create("level2.tmx");
     addChild(_map, 0, 1);
-    _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE_TOP);
-    _map->setPosition(Vec2(0.5 * size.width, size.height - 96));
+    _map->setPosition(Vec2(size.width / 2, size.height / 2 ));
+    _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     layer = _map->getLayer("layer0");
     auto s = layer->getLayerSize();
     tileSize = _map->getTileSize();
@@ -57,19 +57,14 @@ bool SceneGame::init()
     snake = Snake(s.width, s.height);
     snake.setLayer(layer);
 
-    float offsetX = _map->getPosition().x - _map->getContentSize().width / 2;
-    float offsetY = _map->getPosition().y - _map->getContentSize().height ;
-    corner = Vec2(offsetX, offsetY);
-    
-    
-    apple = Sprite::createWithSpriteFrameName("fruit.png");
-    apple->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    apple = Sprite::createWithSpriteFrameName("fruit");
     apple->setVisible(false);
+    apple->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     _map->addChild(apple, 10);
     
     auto pos = Label::createWithTTF("0, 0", "fonts/arial.ttf", 32);
+    pos->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     pos->setPosition(Vec2(0, 0));
-    pos->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     addChild(pos, 10, 0x10);
 
     scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
@@ -90,8 +85,9 @@ bool SceneGame::init()
             
     enableSwipe();
 
-    this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
-    lastFood = arc4random() % 10 + 5;
+    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+    lastFood = arc4random() % 5 + 1;
+    scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
 
     _audioId = AudioEngine::play2d("Arcade-Puzzler.mp3", true, 0.7f);
     
@@ -104,6 +100,13 @@ bool SceneGame::init()
     dpad->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     dpad->setCallback(CC_CALLBACK_1(SceneGame::onDpad, this));
     addChild(dpad);
+    
+    auto _locator = Sprite::createWithSpriteFrameName("UpSelected");
+    _locator->setVisible(false);
+    _locator->setColor(Color3B::GREEN);
+    _locator->setPosition(size.width / 2, size.height / 2);
+    _locator->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    addChild(_locator, 1, 0x20);
 
     return true;
 }
@@ -194,19 +197,21 @@ void SceneGame::eat()
     lastFood = arc4random() % 10 + 1;
     food = Vec2::ZERO;
     snake.grow();
-    auto sprite = Sprite::createWithSpriteFrameName("body.png");
-    sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    auto sprite = Sprite::createWithSpriteFrameName("body");
+    sprite->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     auto i = snake.getLength() - 1;
-    sprite->setPosition((snake.getPosAt(i) * tileSize.width) );
+    sprite->setPosition(Vec2(snake.getPosAt(i).x, snake.getHeight() - snake.getPosAt(i).y) * tileSize.width);
     body.push_back(sprite);
     _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
     score++;
     AudioEngine::play2d("munch.wav", false, 1.0f);
+    scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
 }
 
 void SceneGame::collide()
 {
+    unscheduleAllCallbacks();
     auto total = body.size();
        for(auto i=1; i < total; i++)
     {
@@ -233,8 +238,6 @@ void SceneGame::collide()
 
 void SceneGame::updateTimer(float dt)
 {
-    if (lastFood)
-        lastFood--;
     if (snake.getPosAt(0) == food) {
         eat();
     }
@@ -246,61 +249,71 @@ void SceneGame::updateTimer(float dt)
     headPos.y = _map->getMapSize().height - headPos.y;
     auto gid = _map->getLayer("layer0")->getTileGIDAt(headPos);
     for(auto i = 0; i < snake.getLength(); i++) {
-        auto moveTo = MoveTo::create(snakeSpeed, Vec2(0, -tileSize.height) + (snake.getPosAt(i) * tileSize.width));
+        auto moveTo = MoveTo::create(snakeSpeed, Vec2(snake.getPosAt(i).x, snake.getHeight() - snake.getPosAt(i).y) * tileSize.width);
         body.at(i)->runAction(moveTo);
-    }
-    if (lastFood <= 0 && food == Vec2::ZERO) {
-        addFood();
     }
     auto label = getChildByTag<Label*>(0x10);
     if (label != nullptr) {
-        auto posStr = StringUtils::format("%.1f,%.1f", headPos.x, headPos.y);
+        auto posStr = StringUtils::format("%.1f,%.1f : %d", headPos.x, headPos.y, layer->getTileGIDAt(headPos));
         label->setString(posStr);
     }
     auto pos = snake.getPosAt(0);
     auto moveBy = calcViewPointCenter();
     _map->runAction(MoveTo::create(snakeSpeed, moveBy));
+    auto _locator = getChildByTag<Sprite*>(0x20);
+    auto angle = -Vec2::angle(snake.getPosAt(0), food);
+    _locator->runAction( RotateTo::create(snakeSpeed, CC_RADIANS_TO_DEGREES(angle)) );
+    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 
-    this->schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
 
 Vec2 SceneGame::calcViewPointCenter()
 {
     auto winSize = Director::getInstance()->getWinSize();
+    auto cSz = _map->getContentSize();
     auto headPos = Vec2(snake.getPosAt(0).x * tileSize.width , snake.getPosAt(0).y * tileSize.height);
     auto x = winSize.width / 2;
-    auto y = winSize.height - 96;;
+    auto y = winSize.height / 2 - 48;;
 
-    auto dx = _map->getContentSize().width / 2 - headPos.x;
-    x += dx;
-    if (x < 0) { x = 0; }
-    auto maxX =  _map->getContentSize().width / 2;
-    if (x > maxX) {
-        x = maxX;
-    }
+    auto dx = cSz.width / 2 - headPos.x;
+    auto lmt = cSz.width/2 - winSize.width/2;
+    if (dx < -lmt) { dx = -lmt; };
+    if (dx > lmt) { dx = lmt; }
+    x+= dx;
     
     return Vec2(x , y);
 }
 
 
-void SceneGame::addFood()
+void SceneGame::addFood(float dt)
 {
     uint32_t gid;
     do {
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
         gid = layer->getTileGIDAt(food);
-    } while(gid != 4 && food != snake.getPosAt(0));
-    
-    CCLOG("Food: %.1f %.1f", food.x, food.y);
+    } while(gid != SPACE_BLOCK && food != snake.getPosAt(0));
+
+    auto angle = -Vec2::angle(snake.getPosAt(0), food);
+    CCLOG("Food: %.1f %.1f angle: %.2f", food.x, food.y, angle);
     
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
-    apple->setPosition(Vec2(food.x * tileSize.width, (food.y - 1) * tileSize.height) );
+    apple->setPosition(Vec2(food.x * tileSize.width, (snake.getHeight() - food.y) * tileSize.height) );
     apple->setScale(0.1f);
     apple->setVisible(true);
     apple->runAction(
                      Spawn::createWithTwoActions(ScaleTo::create(0.5f, 1, 1), fadeIn)
                      );
+    auto _locator = getChildByTag<Sprite*>(0x20);
+    
+    _locator->setVisible(true);
+    _locator->setRotation(CC_RADIANS_TO_DEGREES(angle));
+    
+    auto seq = Sequence::create(Blink::create(2,10),
+                                CallFunc::create([&, _locator]() {
+        _locator->setVisible(false);
+    }), nullptr);
+    _locator->runAction(seq);
 }
 
 void SceneGame::initBody()
@@ -310,12 +323,13 @@ void SceneGame::initBody()
        {
            Sprite* sprite;
            if (i == 0) {
-               sprite = Sprite::createWithSpriteFrameName("head.png");
+               sprite = Sprite::createWithSpriteFrameName("head");
            } else {
-               sprite = Sprite::createWithSpriteFrameName("body.png");
+               sprite = Sprite::createWithSpriteFrameName("body");
            }
-           sprite->setPosition(snake.getPosAt(i) * tileSize.width);
-           sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+           auto spritePos = Vec2(snake.getPosAt(0).x, snake.getHeight() - snake.getPosAt(0).y) * tileSize.width;
+           sprite->setPosition(spritePos);
+           sprite->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
            body.push_back(sprite);
            _map->addChild(sprite, 0);
        }
