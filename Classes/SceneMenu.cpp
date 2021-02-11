@@ -86,7 +86,7 @@ bool SceneMenu::init()
     auto downItem = MenuItemSprite::create(downNormal, downSelected, [=](Ref *pSender) { _file--;
         if (_file < 0)
         {
-            _file = 1000;
+            _file = files.size();
         }
         numLabel->setString(StringUtils::format("%ld", _file+1));
     });
