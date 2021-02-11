@@ -48,7 +48,7 @@ bool SceneGame::init(std::string levelFile)
     
     _map = TMXTiledMap::create(levelFile);
     addChild(_map, 0, 1);
-    _map->setPosition(Vec2(size.width / 2, size.height / 2 ));
+    _map->setPosition(Vec2(size.width / 2, size.height / 2 + 96));
     _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     layer = _map->getLayer("layer0");
     auto s = layer->getLayerSize();

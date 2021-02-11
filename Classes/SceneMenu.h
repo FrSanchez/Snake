@@ -25,7 +25,6 @@ private:
     long _file;
     std::vector<std::string> findLevels();
 
-
 public:
     static cocos2d::Scene* createScene();
 

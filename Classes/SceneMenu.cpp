@@ -8,6 +8,7 @@
 #include "SceneMenu.h"
 #include "SceneGame.h"
 #include "ScoreLabel.h"
+#include "Chooser.h"
 #include "audio/include/AudioEngine.h"
 
 
@@ -68,46 +69,15 @@ bool SceneMenu::init()
     }
     
     auto size = Director::getInstance()->getVisibleSize();;
-    
+    auto files = findLevels();
+
     auto bg = Sprite::create("background.png");
     bg->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
     
-    auto files = findLevels();
-    _file = 0;
+    auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 96);
 
-    auto numLabel = Label::createWithTTF("1000", "fonts/Arcade.ttf", 82);
-    auto numItem = MenuItemLabel::create(numLabel, nullptr);
-    numLabel->setTextColor(Color4B::BLUE);
-    numLabel->setAlignment(TextHAlignment::CENTER);
-    auto downNormal = Sprite::createWithSpriteFrameName("LeftNormal");
-    auto downSelected = Sprite::createWithSpriteFrameName("LeftSelected");
-    auto downItem = MenuItemSprite::create(downNormal, downSelected, [=](Ref *pSender) { _file--;
-        if (_file < 0)
-        {
-            _file = files.size();
-        }
-        numLabel->setString(StringUtils::format("%ld", _file+1));
-    });
-    auto upNormal = Sprite::createWithSpriteFrameName("RightNormal");
-    auto upSelected = Sprite::createWithSpriteFrameName("RightSelected");
-    auto upItem = MenuItemSprite::create(upNormal, upSelected, [=](Ref *pSender) { _file++;
-        if (_file >= files.size())
-        {
-            _file = 0;
-        }
-        numLabel->setString(StringUtils::format("%ld", _file+1));
-    });
-    auto menuChoose = Menu::create(downItem, numItem, upItem, nullptr);
-    downItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    numItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    upItem->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    downItem->setPosition(Vec2(-101, 0));
-    numItem->setPosition(Vec2::ZERO);
-    upItem->setPosition(Vec2(101, 0));
-    addChild(menuChoose);
-    menuChoose->setPosition(Vec2(size.width / 2, size.height / 2 - 210));
 
     label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
@@ -116,10 +86,12 @@ bool SceneMenu::init()
     auto grey = Color4B(128, 128, 128, 128);
     auto blue = Color4B(88, 157, 214, 255);
     label->setTextColor(blue);
-//    this->addChild(label);
+    
+    _file = 0;
+    auto chooser = Chooser::create();
     
     auto playItem = MenuItemLabel::create(label, [=](Ref *pSender){
-        startGame(files.at(_file));
+        startGame(files.at(chooser->getValue() - 1));
     });
     auto menuPlay = Menu::create(playItem, NULL);
     addChild(menuPlay);
@@ -176,6 +148,12 @@ bool SceneMenu::init()
     
     loadHighScore();
     setScore(0);
+    
+    chooser->setValue(1);
+    chooser->setMinValue(1);
+    chooser->setMaxValue(files.size());
+    chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
+    addChild(chooser);
 
     return true;
 }
