@@ -45,15 +45,14 @@ void SceneMenu::loadHighScore()
     label->setString(score_str);
 }
 
-void SceneMenu::startGame()
+void SceneMenu::startGame(std::string level)
 {
     if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
         AudioEngine::stop(_audioID);
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
     
-    
-    auto scene = SceneGame::createScene();
+    auto scene = SceneGame::createWithFile(level);
     auto fade = TransitionFade::create(2, scene);
     Director::getInstance()->replaceScene(fade);
 }
@@ -75,14 +74,53 @@ bool SceneMenu::init()
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
     
+    auto files = findLevels();
+    _file = 0;
+
+    auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 82);
+    numLabel->setPosition(size.width / 2, size.height / 2 - 128);
+    addChild(numLabel);
+    numLabel->setTextColor(Color4B::BLUE);
+    auto downNormal = Sprite::createWithSpriteFrameName("LeftNormal");
+    auto downSelected = Sprite::createWithSpriteFrameName("LeftSelected");
+    auto downItem = MenuItemSprite::create(downNormal, downSelected, [=](Ref *pSender) { _file--;
+        if (_file < 0)
+        {
+            _file = files.size() - 1;
+        }
+        numLabel->setString(StringUtils::format("%ld", _file+1));
+    });
+    auto upNormal = Sprite::createWithSpriteFrameName("RightNormal");
+    auto upSelected = Sprite::createWithSpriteFrameName("RightSelected");
+    auto upItem = MenuItemSprite::create(upNormal, upSelected, [=](Ref *pSender) { _file++;
+        if (_file >= files.size())
+        {
+            _file = 0;
+        }
+        numLabel->setString(StringUtils::format("%ld", _file+1));
+    });
+    auto menuChoose = Menu::create(downItem, upItem, nullptr);
+    addChild(menuChoose);
+    menuChoose->setPosition(Vec2(size.width / 2, size.height / 2 - 210));
+    menuChoose->alignItemsHorizontally();
+
+
     label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
+    label->setPosition(Vec2::ZERO);
     auto black = Color4B( Color4B::BLACK);
     auto grey = Color4B(128, 128, 128, 128);
     auto blue = Color4B(88, 157, 214, 255);
     label->setTextColor(blue);
-    this->addChild(label);
+//    this->addChild(label);
+    
+    auto playItem = MenuItemLabel::create(label, [=](Ref *pSender){
+        startGame(files.at(_file));
+    });
+    auto menuPlay = Menu::create(playItem, NULL);
+    addChild(menuPlay);
+    menuPlay->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
+
     
     auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
     auto select = Sprite::createWithSpriteFrameName("CloseSelected");
@@ -101,8 +139,9 @@ bool SceneMenu::init()
     }
     else
     {
-        float x = size.width - closeItem->getContentSize().width/2;
-        float y = closeItem->getContentSize().height/2;
+        closeItem->setScale(2.0f);
+        float x = size.width - closeItem->getContentSize().width ;
+        float y = closeItem->getContentSize().height;
         closeItem->setPosition(Vec2(x,y));
     }
 
@@ -125,21 +164,6 @@ bool SceneMenu::init()
         label->enableShadow(grey, Size(offset.x, offset.y), 50);
     }, "shadow");
         
-    auto keyboardListener = EventListenerKeyboard::create();
-    keyboardListener->onKeyPressed = [=](EventKeyboard::KeyCode keyCode, Event* event) {
-        log("Key with keycode %d pressed", keyCode);
-        startGame();
-    };
-
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-    
-    auto touchListener = EventListenerTouchOneByOne::create();
-    touchListener->onTouchBegan = [=](Touch* touch, Event* event){
-        startGame();
-        return true;
-    };
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
-    
     _audioID = AudioEngine::play2d("Bonkers-for-Arcades.mp3", true, 0.7f);
     
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
@@ -152,11 +176,21 @@ bool SceneMenu::init()
     return true;
 }
 
-// Implementation of the keyboard event callback function prototype
-void SceneMenu::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+std::vector<std::string> SceneMenu::findLevels()
 {
-}
-
-void SceneMenu::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
-{
+    auto sharedFileUtils = FileUtils::getInstance();
+    int level = 0;
+    std::vector<std::string> files;
+    bool isExist = false;
+    do {
+        level++;
+        auto levelFile = StringUtils::format("level%d.tmx", level);
+        isExist = sharedFileUtils->isFileExist(levelFile);
+        CCLOG("Looking for %s: %s", levelFile.c_str(), isExist ? "true": "false");
+        if (isExist) {
+            files.push_back(levelFile);
+        }
+    } while(isExist);
+    CCLOG("Max level: %d", level - 1);
+    return files;
 }

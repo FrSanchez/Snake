@@ -20,7 +20,12 @@ private:
     cocos2d::Label* label;
     float _dt;
     int highScore = -1;
-    
+
+    std::string _levelFile;
+    long _file;
+    std::vector<std::string> findLevels();
+
+
 public:
     static cocos2d::Scene* createScene();
 
@@ -29,9 +34,7 @@ public:
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
 
-    void startGame();
-    void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-    void onKeyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+    void startGame(std::string level);
     
     void setScore(int);
     void loadHighScore();

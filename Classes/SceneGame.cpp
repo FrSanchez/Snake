@@ -13,14 +13,24 @@
 
 USING_NS_CC;
 
-Scene* SceneGame::createScene()
+Scene* SceneGame::createWithFile(std::string levelFile)
 {
-    return SceneGame::create();
+    SceneGame *pRet = new(std::nothrow) SceneGame();
+    if (pRet && pRet->init(levelFile))
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = nullptr;
+        return nullptr;
+    }
 }
 
-
 // on "init" you need to initialize your instance
-bool SceneGame::init()
+bool SceneGame::init(std::string levelFile)
 {
     //////////////////////////////
     // 1. super init first
@@ -36,7 +46,7 @@ bool SceneGame::init()
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    _map = TMXTiledMap::create("level2.tmx");
+    _map = TMXTiledMap::create(levelFile);
     addChild(_map, 0, 1);
     _map->setPosition(Vec2(size.width / 2, size.height / 2 ));
     _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);

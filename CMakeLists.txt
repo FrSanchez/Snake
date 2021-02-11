@@ -31,7 +31,7 @@ project(${APP_NAME})
 
 if(XCODE)
     if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)
-        SET (CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 8.0)
+        SET (CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 9.0)
     endif()
 endif()
 
@@ -57,6 +57,7 @@ endif()
 # add cross-platforms source files and header files
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
+     Classes/Dpad.cpp
      Classes/SceneGame.cpp
      Classes/Snake.cpp
      Classes/SceneMenu.cpp
@@ -71,6 +72,7 @@ list(APPEND GAME_SOURCE
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
+     Classes/DPad.h
      Classes/SceneGame.h
      Classes/Snake.h
      Classes/SceneMenu.h

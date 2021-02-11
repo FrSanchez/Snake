@@ -25,15 +25,13 @@ static cocos2d::Size boardSize = cocos2d::Size(40, 30);
 class SceneGame : public cocos2d::Scene
 {
 public:
-    static cocos2d::Scene* createScene();
-
-    virtual bool init();
+    virtual bool init(std::string);
     
     void closeScene(cocos2d::Ref* pSender);
 
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
-    CREATE_FUNC(SceneGame);
+    static cocos2d::Scene* createWithFile(std::string);
     
 private:
     Snake snake = Snake(0,0);

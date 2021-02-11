@@ -18,7 +18,7 @@ Label* ScoreLabel::create()
 Label* ScoreLabel::createHS()
 {
     auto size = Director::getInstance()->getVisibleSize();
-    auto label = ScoreLabel::_create(Vec2(size.width - 64, 64), Vec2::ANCHOR_MIDDLE_RIGHT, TextHAlignment::RIGHT, "HIGH SCORE: 0");
+    auto label = ScoreLabel::_create(Vec2(size.width - 64, 96), Vec2::ANCHOR_MIDDLE_RIGHT, TextHAlignment::RIGHT, "HIGH SCORE: 0");
     return label;
 }
 
