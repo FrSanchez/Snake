@@ -63,6 +63,7 @@ list(APPEND GAME_SOURCE
      Classes/Snake.cpp
      Classes/SceneMenu.cpp
      Classes/ScoreLabel.cpp
+     Classes/Score.cpp
      Classes/Gestures/GestureRecognizer.cpp
      Classes/Gestures/PinchGestureRecognizer.cpp 
      Classes/Gestures/GestureRecognizerUtils.cpp
@@ -79,6 +80,7 @@ list(APPEND GAME_HEADER
      Classes/Snake.h
      Classes/SceneMenu.h
      Classes/ScoreLabel.h
+     Classes/Score.h
      Classes/Gestures/GestureRecognizer.h
      Classes/Gestures/PinchGestureRecognizer.h
      Classes/Gestures/GestureRecognizerUtils.h 

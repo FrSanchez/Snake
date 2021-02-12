@@ -13,19 +13,20 @@
 class CC_DLL Chooser : public cocos2d::Node
 {  
 private:
-    long _maxValue;
-    long _minValue;
-    long _value;
+    int _maxValue;
+    int _minValue;
+    int _value;
     void upDownCallback(cocos2d::Ref* pSender);
     bool init();
-    
+    std::function<void(int value)> _callback = nullptr;
+
 public:
     
     CREATE_FUNC(Chooser);
     long getValue() { return _value; }
-    void setMaxValue(long value) { _maxValue = value; }
-    void setMinValue(long value) { _minValue = value; }
-    void setValue(long value) { _value = value; }
+    void setMaxValue(int value) { _maxValue = value; }
+    void setMinValue(int value) { _minValue = value; }
+    void setValue(int value) { _value = value; }
 };
 
 #endif /* Chooser_hpp */

@@ -20,7 +20,7 @@ public:
     void setCallback(const padCallback& callback);
     void setPosition(const cocos2d::Vec2 &position);
     
-protected:
+private:
     padCallback _callback = nullptr;
 };
 

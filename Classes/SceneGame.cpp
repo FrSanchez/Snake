@@ -13,10 +13,10 @@
 
 USING_NS_CC;
 
-Scene* SceneGame::createWithFile(std::string levelFile)
+Scene* SceneGame::createWithFile(int level, std::string levelFile)
 {
     SceneGame *pRet = new(std::nothrow) SceneGame();
-    if (pRet && pRet->init(levelFile))
+    if (pRet && pRet->init(level, levelFile))
     {
         pRet->autorelease();
         return pRet;
@@ -30,7 +30,7 @@ Scene* SceneGame::createWithFile(std::string levelFile)
 }
 
 // on "init" you need to initialize your instance
-bool SceneGame::init(std::string levelFile)
+bool SceneGame::init(int level, std::string levelFile)
 {
     //////////////////////////////
     // 1. super init first
@@ -38,6 +38,9 @@ bool SceneGame::init(std::string levelFile)
     {
         return false;
     }
+    
+    _level = level;
+    
     
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
     srand(time(NULL));
