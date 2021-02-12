@@ -40,7 +40,7 @@ bool SceneGame::init(int level, std::string levelFile)
     }
     
     _level = level;
-    
+    _score.setLevel(_level);
     
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
     srand(time(NULL));
@@ -97,6 +97,8 @@ bool SceneGame::init(int level, std::string levelFile)
     _eventDispatcher->addEventListenerWithSceneGraphPriority(kbdLstnr, this);
             
     enableSwipe();
+
+    schedule(CC_SCHEDULE_SELECTOR(SceneGame::scoreByLiving), 0.100f);
 
     schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
     lastFood = arc4random() % 5 + 1;
@@ -202,7 +204,8 @@ void SceneGame::eat()
                                               MoveTo::create(0.5f, scoreLabel->getPosition()));
     auto seq = Sequence::create(action,
                                 CallFunc::create([&]() {
-        auto score_str = StringUtils::format("SCORE: %d", score);
+        auto score = _score.getScore(_level);
+        auto score_str = StringUtils::format("SCORE: %.1f", score);
         scoreLabel->setString(score_str);
         apple->setVisible(false);
     }), nullptr);
@@ -217,7 +220,7 @@ void SceneGame::eat()
     body.push_back(sprite);
     _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
-    score++;
+    _score.addScore(_level, 1.0);
     AudioEngine::play2d("munch.wav", false, 1.0f);
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
 }
@@ -225,6 +228,7 @@ void SceneGame::eat()
 void SceneGame::collide()
 {
     unscheduleAllCallbacks();
+    _score.flush();
     auto total = body.size();
        for(auto i=1; i < total; i++)
     {
@@ -277,7 +281,14 @@ void SceneGame::updateTimer(float dt)
     auto angle = -Vec2::angle(snake.getPosAt(0), food);
     _locator->runAction( RotateTo::create(snakeSpeed, CC_RADIANS_TO_DEGREES(angle)) );
     schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+}
 
+void SceneGame::scoreByLiving(float dt)
+{
+    _score.addScore(_level, dt / 10.0);
+    auto score = _score.getScore(_level);
+    auto score_str = StringUtils::format("SCORE: %.1f", score);
+    scoreLabel->setString(score_str);
 }
 
 Vec2 SceneGame::calcViewPointCenter()
@@ -351,7 +362,6 @@ void SceneGame::initBody()
 void SceneGame::closeScene(Ref* pSender)
 {
     SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
-    scene->setScore(score);
     auto fade = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(fade);
 }

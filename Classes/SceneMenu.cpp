@@ -46,14 +46,14 @@ void SceneMenu::loadHighScore()
     label->setString(score_str);
 }
 
-void SceneMenu::startGame(std::string level)
+void SceneMenu::startGame(int level, std::string levelFile)
 {
     if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
         AudioEngine::stop(_audioID);
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
     
-    auto scene = SceneGame::createWithFile(level);
+    auto scene = SceneGame::createWithFile(level, levelFile);
     auto fade = TransitionFade::create(2, scene);
     Director::getInstance()->replaceScene(fade);
 }
@@ -91,18 +91,19 @@ bool SceneMenu::init()
     auto chooser = Chooser::create();
     
     auto playItem = MenuItemLabel::create(label, [=](Ref *pSender){
-        startGame(files.at(chooser->getValue() - 1));
+        auto level = chooser->getValue();
+        startGame(level, files.at(level - 1));
     });
     auto menuPlay = Menu::create(playItem, NULL);
     addChild(menuPlay);
     menuPlay->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
 
-    
     auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
     auto select = Sprite::createWithSpriteFrameName("CloseSelected");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
+//    this->~SceneMenu();
+//    exit(0);
 #endif
     });
 
@@ -145,18 +146,31 @@ bool SceneMenu::init()
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
     }
-    
-    loadHighScore();
-    setScore(0);
-    
+        
     chooser->setValue(1);
     chooser->setMinValue(1);
-    chooser->setMaxValue(files.size());
+    chooser->setMaxValue((int) files.size());
     chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
+    chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
     addChild(chooser);
+    _score.setMaxLevel((int) files.size());
+    _score.loadAllLevels();
+    onValueChange(1);
 
     return true;
 }
+
+void SceneMenu::onValueChange(int value)
+{
+    float score = _score.getMaxScore(value);
+    auto score_str = StringUtils::format("HIGH SCORE: %.1f", score);
+    auto label = getChildByTag<Label*>(0xf1);
+    if (!label) {
+        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
+    }
+    label->setString(score_str);
+}
+
 
 std::vector<std::string> SceneMenu::findLevels()
 {

@@ -21,12 +21,13 @@ private:
     std::function<void(int value)> _callback = nullptr;
 
 public:
-    
     CREATE_FUNC(Chooser);
-    long getValue() { return _value; }
-    void setMaxValue(int value) { _maxValue = value; }
+    ~Chooser();
+    int getValue() { return _value; }
+    void setMaxValue(int value);
     void setMinValue(int value) { _minValue = value; }
     void setValue(int value) { _value = value; }
+    void setOnValueChangeCallback(const std::function<void(int value)>& callback ) { _callback = callback; }
 };
 
 #endif /* Chooser_hpp */
