@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 #include "Snake.h"
+#include "Score.h"
+
 // Gestures
 #include "Gestures/GestureRecognizer.h"
 #include "Gestures/PinchGestureRecognizer.h"
@@ -25,13 +27,13 @@ static cocos2d::Size boardSize = cocos2d::Size(40, 30);
 class SceneGame : public cocos2d::Scene
 {
 public:
-    virtual bool init(std::string);
+    virtual bool init(int, std::string);
     
     void closeScene(cocos2d::Ref* pSender);
 
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
-    static cocos2d::Scene* createWithFile(std::string);
+    static cocos2d::Scene* createWithFile(int, std::string);
     
 private:
     Snake snake = Snake(0,0);
@@ -48,6 +50,8 @@ private:
     int score = 0;
     cocos2d::TMXLayer* layer;
     cocos2d::TMXTiledMap* _map;
+    int _level = 0;
+    Score _score;
 
     void updateTimer(float dt);
     

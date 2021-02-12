@@ -56,4 +56,7 @@ void Chooser::upDownCallback(cocos2d::Ref* pSender)
     }
     Label* numLabel =  static_cast<Label*>(item->getUserData());
     numLabel->setString(StringUtils::format("%ld", _value));
+    if (_callback != nullptr) {
+        _callback(_value);
+    }
 }
