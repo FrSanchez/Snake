@@ -38,9 +38,6 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
 
     void startGame(int level, std::string levelFile);
-    
-    void setScore(int);
-    void loadHighScore();
 
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);

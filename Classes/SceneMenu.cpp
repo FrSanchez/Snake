@@ -19,33 +19,6 @@ Scene* SceneMenu::createScene()
     return SceneMenu::create();
 }
 
-void SceneMenu::setScore(int score)
-{
-    auto score_str = StringUtils::format("SCORE: %d", score);
-    auto label = getChildByTag<Label*>(0xf0);
-    if (!label) {
-        addChild(label = ScoreLabel::create(), 1, 0xf0);
-    }
-    label->setString(score_str);
-    if (score > highScore) {
-        UserDefault::getInstance()->setIntegerForKey("score", score);
-        loadHighScore();
-    }
-}
-
-void SceneMenu::loadHighScore()
-{
-    highScore = UserDefault::getInstance()->getIntegerForKey("score", -1);
-    if (highScore <= 0)
-        return;
-    auto score_str = StringUtils::format("HIGH SCORE: %d", highScore);
-    auto label = getChildByTag<Label*>(0xf1);
-    if (!label) {
-        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
-    }
-    label->setString(score_str);
-}
-
 void SceneMenu::startGame(int level, std::string levelFile)
 {
     if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
@@ -149,7 +122,7 @@ bool SceneMenu::init()
         
     chooser->setValue(1);
     chooser->setMinValue(1);
-    chooser->setMaxValue((int) files.size());
+    chooser->setMaxValue(MIN(_score.getMaxLevel(), (int) files.size()));
     chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
     chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
     addChild(chooser);

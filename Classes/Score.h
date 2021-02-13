@@ -27,6 +27,7 @@ public:
     void setScoreByLevel(int level, float score);
     float getScore(int level);
     float getMaxScore(int level);
+    int getMaxLevel() { return _maxLevel; }
     void addScore(int level, float delta);
     void loadLevel(int level);
     void loadAllLevels();

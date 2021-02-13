@@ -105,5 +105,7 @@ void Score::setMaxLevel(int maxLevel)
     if (maxLevel > _maxLevel)
     {
         _maxLevel = maxLevel;
+        UserDefault::getInstance()->setIntegerForKey("maxLevel", _maxLevel);
+        UserDefault::getInstance()->flush();
     }
 }
