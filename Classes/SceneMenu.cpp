@@ -10,50 +10,26 @@
 #include "ScoreLabel.h"
 #include "Chooser.h"
 #include "audio/include/AudioEngine.h"
-
+#include "extensions/cocos-ext.h"
+#include "ui/CocosGUI.h"
+#include "ModalMessageBox.h"
 
 USING_NS_CC;
+using namespace cocos2d::ui;
 
 Scene* SceneMenu::createScene()
 {
     return SceneMenu::create();
 }
 
-void SceneMenu::setScore(int score)
-{
-    auto score_str = StringUtils::format("SCORE: %d", score);
-    auto label = getChildByTag<Label*>(0xf0);
-    if (!label) {
-        addChild(label = ScoreLabel::create(), 1, 0xf0);
-    }
-    label->setString(score_str);
-    if (score > highScore) {
-        UserDefault::getInstance()->setIntegerForKey("score", score);
-        loadHighScore();
-    }
-}
-
-void SceneMenu::loadHighScore()
-{
-    highScore = UserDefault::getInstance()->getIntegerForKey("score", -1);
-    if (highScore <= 0)
-        return;
-    auto score_str = StringUtils::format("HIGH SCORE: %d", highScore);
-    auto label = getChildByTag<Label*>(0xf1);
-    if (!label) {
-        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
-    }
-    label->setString(score_str);
-}
-
-void SceneMenu::startGame(std::string level)
+void SceneMenu::startGame(int level, std::string levelFile)
 {
     if (_audioID != AudioEngine::INVALID_AUDIO_ID) {
         AudioEngine::stop(_audioID);
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
     
-    auto scene = SceneGame::createWithFile(level);
+    auto scene = SceneGame::createWithFile(level, levelFile);
     auto fade = TransitionFade::create(2, scene);
     Director::getInstance()->replaceScene(fade);
 }
@@ -91,18 +67,34 @@ bool SceneMenu::init()
     auto chooser = Chooser::create();
     
     auto playItem = MenuItemLabel::create(label, [=](Ref *pSender){
-        startGame(files.at(chooser->getValue() - 1));
+        auto level = chooser->getValue();
+        startGame(level, files.at(level - 1));
     });
     auto menuPlay = Menu::create(playItem, NULL);
     addChild(menuPlay);
     menuPlay->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
-
     
+    auto button = Button::create();
+    button->setPosition(Vec2(64, 64));
+    button->setName("print");
+    addChild(button);
+    
+    auto print = Sprite::createWithSpriteFrameName("print");
+    auto printItem = MenuItemSprite::create(print, print, [=](Ref* pSender){
+        resetScores();
+    });
+    auto menuPrint = Menu::create(printItem, NULL);
+    addChild(menuPrint);
+    menuPrint->setPosition(Vec2(64, 64));
+    
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+
     auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
     auto select = Sprite::createWithSpriteFrameName("CloseSelected");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
+//    this->~SceneMenu();
+//    exit(0);
 #endif
     });
 
@@ -125,7 +117,7 @@ bool SceneMenu::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-    
+#endif
     _dt = 0;
     schedule([&](float time){
         _dt += time;
@@ -145,18 +137,45 @@ bool SceneMenu::init()
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
     }
-    
-    loadHighScore();
-    setScore(0);
-    
+        
     chooser->setValue(1);
     chooser->setMinValue(1);
-    chooser->setMaxValue(files.size());
+    chooser->setMaxValue(MIN(_score.getMaxLevel(), (int) files.size()));
     chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
+    chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
     addChild(chooser);
+    _score.loadAllLevels();
+    onValueChange(1);
 
     return true;
 }
+
+void SceneMenu::resetScores()
+{
+    auto alert = ModalMessageBox::create();
+    alert->setString("All the scores and achievements will reset to zero!");
+    alert->setTag(0x123);
+    alert->addButton("OK", 30, [=](Ref* pSender) {
+        alert->ClosePopup();
+        _score.reset();
+    });
+    alert->addButton("Cancel", 30,  [=](Ref* pSender) {
+        alert->ClosePopup();
+    });
+    addChild(alert);
+}
+
+void SceneMenu::onValueChange(int value)
+{
+    float score = _score.getMaxScore(value);
+    auto score_str = StringUtils::format("HIGH SCORE: %.1f", score);
+    auto label = getChildByTag<Label*>(0xf1);
+    if (!label) {
+        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
+    }
+    label->setString(score_str);
+}
+
 
 std::vector<std::string> SceneMenu::findLevels()
 {
