@@ -8,6 +8,7 @@
 #ifndef SceneMenu_hpp
 #define SceneMenu_hpp
 
+#include "Score.h"
 #include "cocos2d.h"
 
 class SceneMenu : public cocos2d::Scene
@@ -24,6 +25,10 @@ private:
     std::string _levelFile;
     long _file;
     std::vector<std::string> findLevels();
+    Score _score;
+    
+    void onValueChange(int);
+    void resetScores();
 
 public:
     static cocos2d::Scene* createScene();
@@ -33,10 +38,7 @@ public:
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
 
-    void startGame(std::string level);
-    
-    void setScore(int);
-    void loadHighScore();
+    void startGame(int level, std::string levelFile);
 
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);

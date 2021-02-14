@@ -55,8 +55,18 @@ void Chooser::upDownCallback(cocos2d::Ref* pSender)
         _value = _minValue;
     }
     Label* numLabel =  static_cast<Label*>(item->getUserData());
-    numLabel->setString(StringUtils::format("%ld", _value));
+    numLabel->setString(StringUtils::format("%d", _value));
     if (_callback != nullptr) {
         _callback(_value);
     }
+}
+
+void Chooser::setMaxValue(int value)
+{
+    _maxValue = value;
+}
+
+Chooser::~Chooser()
+{
+    
 }

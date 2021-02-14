@@ -47,13 +47,13 @@ private:
     int _audioId;
     cocos2d::Label* scoreLabel;
     cocos2d::Label* posLabel;
-    int score = 0;
     cocos2d::TMXLayer* layer;
     cocos2d::TMXTiledMap* _map;
     int _level = 0;
     Score _score;
 
     void updateTimer(float dt);
+    void scoreByLiving(float dt);
     
     void initBody();
     
