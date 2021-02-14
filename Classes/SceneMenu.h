@@ -28,6 +28,7 @@ private:
     Score _score;
     
     void onValueChange(int);
+    void resetScores();
 
 public:
     static cocos2d::Scene* createScene();

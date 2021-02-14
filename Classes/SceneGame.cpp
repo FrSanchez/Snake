@@ -51,7 +51,7 @@ bool SceneGame::init(int level, std::string levelFile)
     
     _map = TMXTiledMap::create(levelFile);
     addChild(_map, 0, 1);
-    _map->setPosition(Vec2(size.width / 2, size.height  ));
+    _map->setPosition(Vec2(size.width / 2, size.height / 2 ));
     _map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     layer = _map->getLayer("layer0");
     auto s = layer->getLayerSize();
@@ -279,7 +279,7 @@ void SceneGame::updateTimer(float dt)
     _map->runAction(MoveTo::create(snakeSpeed, moveBy));
     auto _locator = getChildByTag<Sprite*>(0x20);
     auto angle = -Vec2::angle(snake.getPosAt(0), food);
-    _locator->runAction( RotateTo::create(snakeSpeed, CC_RADIANS_TO_DEGREES(angle)) );
+    _locator->runAction( RotateTo::create(snakeSpeed, 180 - CC_RADIANS_TO_DEGREES(angle)) );
     schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
 
@@ -297,7 +297,7 @@ Vec2 SceneGame::calcViewPointCenter()
     auto cSz = _map->getContentSize();
     auto headPos = Vec2(snake.getPosAt(0).x * tileSize.width , snake.getPosAt(0).y * tileSize.height);
     auto x = winSize.width / 2;
-    auto y = winSize.height / 2 - 48;;
+    auto y = winSize.height / 2 + 64;;
 
     auto dx = cSz.width / 2 - headPos.x;
     auto lmt = cSz.width/2 - winSize.width/2;

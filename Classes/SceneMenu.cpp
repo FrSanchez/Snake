@@ -10,9 +10,12 @@
 #include "ScoreLabel.h"
 #include "Chooser.h"
 #include "audio/include/AudioEngine.h"
-
+#include "extensions/cocos-ext.h"
+#include "ui/CocosGUI.h"
+#include "ModalMessageBox.h"
 
 USING_NS_CC;
+using namespace cocos2d::ui;
 
 Scene* SceneMenu::createScene()
 {
@@ -70,6 +73,21 @@ bool SceneMenu::init()
     auto menuPlay = Menu::create(playItem, NULL);
     addChild(menuPlay);
     menuPlay->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
+    
+    auto button = Button::create();
+    button->setPosition(Vec2(64, 64));
+    button->setName("print");
+    addChild(button);
+    
+    auto print = Sprite::createWithSpriteFrameName("print");
+    auto printItem = MenuItemSprite::create(print, print, [=](Ref* pSender){
+        resetScores();
+    });
+    auto menuPrint = Menu::create(printItem, NULL);
+    addChild(menuPrint);
+    menuPrint->setPosition(Vec2(64, 64));
+    
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 
     auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
     auto select = Sprite::createWithSpriteFrameName("CloseSelected");
@@ -99,7 +117,7 @@ bool SceneMenu::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-    
+#endif
     _dt = 0;
     schedule([&](float time){
         _dt += time;
@@ -126,11 +144,25 @@ bool SceneMenu::init()
     chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
     chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
     addChild(chooser);
-    _score.setMaxLevel((int) files.size());
     _score.loadAllLevels();
     onValueChange(1);
 
     return true;
+}
+
+void SceneMenu::resetScores()
+{
+    auto alert = ModalMessageBox::create();
+    alert->setString("All the scores and achievements will reset to zero!");
+    alert->setTag(0x123);
+    alert->addButton("OK", 30, [=](Ref* pSender) {
+        alert->ClosePopup();
+        _score.reset();
+    });
+    alert->addButton("Cancel", 30,  [=](Ref* pSender) {
+        alert->ClosePopup();
+    });
+    addChild(alert);
 }
 
 void SceneMenu::onValueChange(int value)

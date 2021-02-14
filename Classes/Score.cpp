@@ -17,6 +17,17 @@ Score::Score()
     CCLOG("maxLevel: %d", _maxLevel);
 }
 
+void Score::reset()
+{
+    for(int i = 1; i <= _maxLevel; i++) {
+        std::string key = StringUtils::format("level%d", i);
+        UserDefault::getInstance()->deleteValueForKey(key.c_str());
+    }
+    _maxLevel = 1;
+    UserDefault::getInstance()->setIntegerForKey("maxLevel", _maxLevel);
+    UserDefault::getInstance()->flush();
+}
+
 void Score::loadLevel(int level)
 {
     std::string key = StringUtils::format("level%d", level);

@@ -31,6 +31,7 @@ public:
     void addScore(int level, float delta);
     void loadLevel(int level);
     void loadAllLevels();
+    void reset();
 };
 
 #endif /* Score_hpp */
