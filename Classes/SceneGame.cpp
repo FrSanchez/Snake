@@ -8,6 +8,7 @@
 #include "SceneGame.h"
 #include "SceneMenu.h"
 #include "DPad.h"
+#include "LevelOpened.h"
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
 
@@ -45,7 +46,7 @@ bool SceneGame::init(int level, std::string levelFile)
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
     srand(time(NULL));
 #endif
-    
+        
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
@@ -83,9 +84,11 @@ bool SceneGame::init(int level, std::string levelFile)
     scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
     scoreLabel->setTextColor( Color4B::RED );
-    scoreLabel->enableOutline(Color4B::YELLOW,1);
+    scoreLabel->enableOutline(Color4B::YELLOW,3);
     scoreLabel->enableShadow(Color4B::GREEN);
     addChild(scoreLabel, 10);
+    
+    addChild(LevelOpened::create(level + 1));
         
     initBody();
     
@@ -223,6 +226,22 @@ void SceneGame::eat()
     _score.addScore(_level, 1.0);
     AudioEngine::play2d("munch.wav", false, 1.0f);
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
+    checkForOpenLevel();
+}
+
+void SceneGame::checkForOpenLevel()
+{
+    _foodEaten++;
+    if (_foodEaten == 8 + _level * 2) {
+        // TODO: Set this in its own method
+        int nextLevel = _level + 1;
+        if (nextLevel >= _score.getMaxLevel()) {
+            auto label = static_cast<LevelOpened*>(getChildByTag(LEVEL_OPENED_TAG));
+            label->display();
+            _score.setMaxLevel(nextLevel);
+
+        }
+    }
 }
 
 void SceneGame::collide()
@@ -277,10 +296,10 @@ void SceneGame::updateTimer(float dt)
     auto pos = snake.getPosAt(0);
     auto moveBy = calcViewPointCenter();
     _map->runAction(MoveTo::create(snakeSpeed, moveBy));
-    auto _locator = getChildByTag<Sprite*>(0x20);
-    auto angle = -Vec2::angle(snake.getPosAt(0), food);
-    _locator->runAction( RotateTo::create(snakeSpeed, 180 - CC_RADIANS_TO_DEGREES(angle)) );
-    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+//    auto _locator = getChildByTag<Sprite*>(0x20);
+//    auto angle = -Vec2::angle(snake.getPosAt(0), food);
+//    _locator->runAction( RotateTo::create(snakeSpeed, 180 - CC_RADIANS_TO_DEGREES(angle)) );
+//    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
 
 void SceneGame::scoreByLiving(float dt)
@@ -331,7 +350,7 @@ void SceneGame::addFood(float dt)
     auto _locator = getChildByTag<Sprite*>(0x20);
     
     _locator->setVisible(true);
-    _locator->setRotation(CC_RADIANS_TO_DEGREES(angle));
+    _locator->setRotation(CC_RADIANS_TO_DEGREES(angle) + 180);
     
     auto seq = Sequence::create(Blink::create(2,10),
                                 CallFunc::create([&, _locator]() {

@@ -51,6 +51,7 @@ private:
     cocos2d::TMXTiledMap* _map;
     int _level = 0;
     Score _score;
+    int _foodEaten = 0;
 
     void updateTimer(float dt);
     void scoreByLiving(float dt);
@@ -66,6 +67,7 @@ private:
     void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
     void onDpad(int);
     cocos2d::Vec2 calcViewPointCenter();
+    void checkForOpenLevel();
 };
 
 #endif /* SceneGame_hpp */

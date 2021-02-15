@@ -26,8 +26,8 @@ bool ModalMessageBox::init()
     
     auto label = Label::createWithTTF("", "fonts/arial.ttf", 30);
     label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setTextColor(Color4B::WHITE);
-    label->enableOutline(Color4B::GRAY, 1);
+    label->setTextColor(Color4B::GRAY);
+    label->enableOutline(Color4B::BLACK, 1);
     label->setTag(0x11);
     label->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y + 50));
     auto cover = Sprite::create("background.png");
@@ -47,8 +47,8 @@ void ModalMessageBox::addButton(const std::string& text, float fontSize, const c
     
     auto label = Label::createWithTTF(text, "fonts/arial.ttf", fontSize);
     label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setTextColor(Color4B::WHITE);
-    label->enableOutline(Color4B::GRAY, 1);
+    label->setTextColor(Color4B::GRAY);
+    label->enableOutline(Color4B::BLACK, 1);
     
     auto item = MenuItemLabel::create(label, callback);
     item->setTag((int)menu->getChildrenCount());
