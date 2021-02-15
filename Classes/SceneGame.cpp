@@ -124,7 +124,7 @@ bool SceneGame::init(int level, std::string levelFile)
     _locator->setColor(Color3B::GREEN);
     _locator->setPosition(size.width / 2, size.height / 2);
     _locator->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    addChild(_locator, 1, 0x20);
+    _map->addChild(_locator, 1, 0x20);
 
     return true;
 }
@@ -239,7 +239,6 @@ void SceneGame::checkForOpenLevel()
             auto label = static_cast<LevelOpened*>(getChildByTag(LEVEL_OPENED_TAG));
             label->display();
             _score.setMaxLevel(nextLevel);
-
         }
     }
 }
@@ -296,10 +295,8 @@ void SceneGame::updateTimer(float dt)
     auto pos = snake.getPosAt(0);
     auto moveBy = calcViewPointCenter();
     _map->runAction(MoveTo::create(snakeSpeed, moveBy));
-//    auto _locator = getChildByTag<Sprite*>(0x20);
-//    auto angle = -Vec2::angle(snake.getPosAt(0), food);
-//    _locator->runAction( RotateTo::create(snakeSpeed, 180 - CC_RADIANS_TO_DEGREES(angle)) );
-//    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+
+    schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
 }
 
 void SceneGame::scoreByLiving(float dt)
@@ -336,9 +333,6 @@ void SceneGame::addFood(float dt)
         gid = layer->getTileGIDAt(food);
     } while(gid != SPACE_BLOCK && food != snake.getPosAt(0));
 
-    auto angle = -Vec2::angle(snake.getPosAt(0), food);
-    CCLOG("Food: %.1f %.1f angle: %.2f", food.x, food.y, angle);
-    
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
     apple->setPosition(Vec2(food.x * tileSize.width, (snake.getHeight() - food.y) * tileSize.height) );
@@ -347,11 +341,24 @@ void SceneGame::addFood(float dt)
     apple->runAction(
                      Spawn::createWithTwoActions(ScaleTo::create(0.5f, 1, 1), fadeIn)
                      );
-    auto _locator = getChildByTag<Sprite*>(0x20);
-    
+    showFoodLocator(apple->getPosition());
+}
+
+void SceneGame::showFoodLocator(Vec2 foodPos)
+{
+    auto size = Director::getInstance()->getVisibleSize();
+    if (_map->getContentSize().width <= size.width)
+        return;
+    auto _locator = _map->getChildByTag<Sprite*>(0x20);
+
     _locator->setVisible(true);
-    _locator->setRotation(CC_RADIANS_TO_DEGREES(angle) + 180);
-    
+    _locator->setPosition(body.at(0)->getPosition().x, foodPos.y);
+    if (_locator->getPosition().x < foodPos.x) {
+        _locator->setSpriteFrame("right");
+    } else {
+        _locator->setSpriteFrame("left");
+    }
+
     auto seq = Sequence::create(Blink::create(2,10),
                                 CallFunc::create([&, _locator]() {
         _locator->setVisible(false);

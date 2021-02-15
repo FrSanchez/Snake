@@ -13,7 +13,7 @@ LevelOpened::LevelOpened()
 {
     auto size = Director::getInstance()->getVisibleSize();
     _pos0 = Vec2(size.width/2, size.height/2);
-    _posEnd = Vec2(size.width/2, size.height + 64);
+    _posEnd = Vec2(size.width/2, size.height / 2 + 240);
     setVisible(false);
     setTag(LEVEL_OPENED_TAG);
     setAnchorPoint(Vec2::ANCHOR_MIDDLE);
@@ -27,7 +27,7 @@ void LevelOpened::display()
 {
     setVisible(true);
     setPosition(_pos0);
-    auto action = Spawn::createWithTwoActions(Blink::create(1, 10), MoveTo::create(1, _posEnd));
+    auto action = Spawn::createWithTwoActions(Blink::create(1, 4), MoveTo::create(1, _posEnd));
     auto seq = Sequence::create(action, Hide::create(), nullptr);
     runAction(seq);
 }
@@ -35,6 +35,15 @@ void LevelOpened::display()
 Label* LevelOpened::create(int level)
 {
     auto score_str = StringUtils::format("LEVEL %d OPENED", level );
-    return Label::createWithTTF(score_str, "fonts/Arcade.ttf", 64);
+    auto ret = new (std::nothrow) LevelOpened();
+
+    if (ret && ret->initWithTTF(score_str, "fonts/Arcade.ttf", 64))
+    {
+        ret->autorelease();
+        return ret;
+    }
+
+    CC_SAFE_DELETE(ret);
+    return nullptr;
 }
 

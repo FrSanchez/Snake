@@ -29,7 +29,6 @@ Label* ScoreLabel::_create(Vec2 pos, Vec2 anchorPoint, TextHAlignment alignment,
     auto label = Label::createWithTTF(text, "fonts/Arcade.ttf", 64, Size::ZERO, alignment);
     label->setAnchorPoint(anchorPoint);
     label->setPosition(pos);
-    auto blue = Color4B(88, 157, 214, 255);
-    label->setTextColor(blue);
+    label->setTextColor(Color4B::WHITE);
     return label;
 }

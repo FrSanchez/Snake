@@ -68,6 +68,7 @@ private:
     void onDpad(int);
     cocos2d::Vec2 calcViewPointCenter();
     void checkForOpenLevel();
+    void showFoodLocator(cocos2d::Vec2 foodPosition);
 };
 
 #endif /* SceneGame_hpp */

@@ -61,7 +61,7 @@ bool SceneMenu::init()
     auto black = Color4B( Color4B::BLACK);
     auto grey = Color4B(128, 128, 128, 128);
     auto blue = Color4B(88, 157, 214, 255);
-    label->setTextColor(blue);
+    label->setTextColor(Color4B::WHITE);
     
     _file = 0;
     auto chooser = Chooser::create();
