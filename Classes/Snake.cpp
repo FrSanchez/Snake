@@ -66,6 +66,16 @@ bool Snake::advance()
     return true;
 }
 
+bool Snake::isOccupying(cocos2d::Vec2 position)
+{
+    for(int i = 0 ; i < body.size(); i++) {
+        if (position == body.at(i)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 Vec2 Snake::getPosAt(int at)
 {
     return body.at(at);

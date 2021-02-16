@@ -9,6 +9,7 @@
 #include "SceneMenu.h"
 #include "DPad.h"
 #include "LevelOpened.h"
+#include "TimerSprite.h"
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
 
@@ -66,7 +67,7 @@ bool SceneGame::init(int level, std::string levelFile)
         child->getTexture()->setAntiAliasTexParameters();
     }
     
-    layer->setOpacity(128);
+//    layer->setOpacity(128);
     
     snake = Snake(s.width, s.height);
     snake.setLayer(layer);
@@ -121,14 +122,27 @@ bool SceneGame::init(int level, std::string levelFile)
     
     auto _locator = Sprite::createWithSpriteFrameName("UpSelected");
     _locator->setVisible(false);
-    _locator->setColor(Color3B::GREEN);
     _locator->setPosition(size.width / 2, size.height / 2);
     _locator->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _map->addChild(_locator, 1, 0x20);
 
     snakeSpeed = 0.35 - (level * 0.02);
     
+    auto timer = TimerSprite::create();
+    timer->setPosition(size.width - 64, size.height - 64);
+    timer->setScale(0.7);
+    timer->setTag(TIMER_TAG);
+    timer->setOnTimerEndCallback(CC_CALLBACK_0(SceneGame::onTimerEnd, this));
+    addChild(timer);
+    
     return true;
+}
+
+void SceneGame::onTimerEnd()
+{
+    food = Vec2::ZERO;
+    scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
+    apple->setVisible(false);
 }
 
 void SceneGame::onDpad(int dir)
@@ -229,6 +243,10 @@ void SceneGame::eat()
     AudioEngine::play2d("munch.wav", false, 1.0f);
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
     checkForOpenLevel();
+    
+    auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
+    timer->stop();
+
 }
 
 void SceneGame::checkForOpenLevel()
@@ -333,7 +351,13 @@ void SceneGame::addFood(float dt)
     do {
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
         gid = layer->getTileGIDAt(food);
-    } while(gid != SPACE_BLOCK && food != snake.getPosAt(0));
+    } while(gid != SPACE_BLOCK && !snake.isOccupying(food));
+
+    auto head = snake.getPosAt(0);
+    auto dist = MAX(4,  food.distance(head) );
+    auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
+    timer->activate(dist);
+    CCLOG("Distance to food %f", dist);
 
     auto fadeIn = FadeIn::create(0.5f);
     apple->stopAllActions();
@@ -346,15 +370,27 @@ void SceneGame::addFood(float dt)
     showFoodLocator(apple->getPosition());
 }
 
+float SceneGame::getAngleDegrees(cocos2d::Vec2 from, cocos2d::Vec2 to)
+{
+    float deltaX = from.x-to.x;
+    float deltaY = from.x-to.y;
+    float radians = atan2(deltaY, deltaX); //Math.atan2(deltaY, deltaX)
+    float degrees = MATH_RAD_TO_DEG(radians); //(radians * 180) / Math.PI - 90; // rotate
+    while (degrees >= 360) degrees -= 360;
+    while (degrees < 0) degrees += 360;
+    return degrees;
+}
+
 void SceneGame::showFoodLocator(Vec2 foodPos)
 {
     auto size = Director::getInstance()->getVisibleSize();
     if (_map->getContentSize().width <= size.width)
         return;
     auto _locator = _map->getChildByTag<Sprite*>(0x20);
-
+    
+    auto p2 = body.at(0)->getPosition();
     _locator->setVisible(true);
-    _locator->setPosition(body.at(0)->getPosition().x, foodPos.y);
+    _locator->setPosition(p2.x, foodPos.y);
     if (_locator->getPosition().x < foodPos.x) {
         _locator->setSpriteFrame("right");
     } else {

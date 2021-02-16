@@ -69,6 +69,8 @@ private:
     cocos2d::Vec2 calcViewPointCenter();
     void checkForOpenLevel();
     void showFoodLocator(cocos2d::Vec2 foodPosition);
+    void onTimerEnd();
+    float getAngleDegrees(cocos2d::Vec2 from, cocos2d::Vec2 to);
 };
 
 #endif /* SceneGame_hpp */

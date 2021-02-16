@@ -87,13 +87,12 @@ bool SceneMenu::init()
     addChild(menuPrint);
     menuPrint->setPosition(Vec2(64, 64));
     
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
 
-    auto normal = Sprite::createWithSpriteFrameName("CloseNormal");
-    auto select = Sprite::createWithSpriteFrameName("CloseSelected");
+
+    auto normal = Sprite::createWithSpriteFrameName("exit");
+    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//    this->~SceneMenu();
 //    exit(0);
 #endif
     });
@@ -117,7 +116,7 @@ bool SceneMenu::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-#endif
+
     _dt = 0;
     schedule([&](float time){
         _dt += time;

@@ -28,6 +28,7 @@ public:
     int getWidth() { return width; }
     int getHeight() { return height; }
     void setLayer(cocos2d::TMXLayer*);
+    bool isOccupying(cocos2d::Vec2 position);
     
 private:
     std::vector<cocos2d::Point> body;

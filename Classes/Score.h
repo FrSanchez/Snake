@@ -13,7 +13,12 @@
 class Score
 {
 private:
-    std::map<int, float> _scoreByLevel;
+    typedef struct _sd {
+        int points;
+        float accuracy;
+        int stars;
+    } ScoreData;
+    std::map<int, int> _scoreByLevel;
     std::map<int, float> _maxByLevel;
     int _level;
     int _maxLevel;
