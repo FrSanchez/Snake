@@ -32,5 +32,6 @@ Label* ScoreLabel::_create(Vec2 pos, Vec2 anchorPoint, TextHAlignment alignment,
     label->setAnchorPoint(anchorPoint);
     label->setPosition(pos);
     label->setTextColor(Color4B::WHITE);
+    label->enableOutline(Color4B::BLACK);
     return label;
 }

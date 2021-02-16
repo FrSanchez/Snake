@@ -264,7 +264,6 @@ void SceneGame::checkForOpenLevel()
 void SceneGame::collide()
 {
     unscheduleAllCallbacks();
-    _score.flush();
     auto total = body.size();
        for(auto i=1; i < total; i++)
     {
@@ -430,10 +429,10 @@ void SceneGame::initBody()
 
 void SceneGame::closeScene(Ref* pSender)
 {
-    SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
     float target = getFoodTarget();
     _score.setAccuracy(_level, (float)(_foodEaten * 100.0 / target));
     _score.flush();
+    SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
     auto fade = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(fade);
 }
