@@ -9,16 +9,19 @@
 
 USING_NS_CC;
 
-Label* ScoreLabel::create()
-{
-    auto size = Director::getInstance()->getVisibleSize();
-    return ScoreLabel::_create(Vec2( 64, size.height - 64), Vec2::ANCHOR_MIDDLE_LEFT, TextHAlignment::LEFT, "SCORE: 0");
-}
-
 Label* ScoreLabel::createHS()
 {
     auto size = Director::getInstance()->getVisibleSize();
-    auto label = ScoreLabel::_create(Vec2(64, size.height - 64), Vec2::ANCHOR_MIDDLE_LEFT, TextHAlignment::LEFT, "HIGH SCORE: 0");
+    auto label = ScoreLabel::_create(Vec2(64, size.height - 64), Vec2::ANCHOR_MIDDLE_LEFT, TextHAlignment::LEFT, "SCORE: 0");
+    label->setTag(LABEL_HIGH_SCORE);
+    return label;
+}
+
+Label* ScoreLabel::createPct()
+{
+    auto size = Director::getInstance()->getVisibleSize();
+    auto label = ScoreLabel::_create(Vec2(64, size.height - 128), Vec2::ANCHOR_MIDDLE_LEFT, TextHAlignment::LEFT, "FOOD: 0%");
+    label->setTag(LABEL_PERCENTAGE);
     return label;
 }
 

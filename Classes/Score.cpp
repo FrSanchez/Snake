@@ -7,6 +7,7 @@
 
 #include "Score.h"
 #include "cocos2d.h"
+#include <string.h>
 
 USING_NS_CC;
 
@@ -31,8 +32,10 @@ void Score::reset()
 void Score::loadLevel(int level)
 {
     std::string key = StringUtils::format("level%d", level);
-    _maxByLevel[level] = UserDefault::getInstance()->getFloatForKey(key.c_str(), 0);
-    _scoreByLevel[level] = 0;
+    Data data = UserDefault::getInstance()->getDataForKey(key.c_str());
+    if (data.getSize() > 0) {
+        memcpy(&_scoreByLevel[_level], data.getBytes(), data.getSize());
+    }
 }
 
 void Score::loadAllLevels()
@@ -43,27 +46,35 @@ void Score::loadAllLevels()
     }
 }
 
-void Score::setScore(float score)
+void Score::setScore(int score)
 {
     setScoreByLevel(_level, score);
 }
 
-void Score::addScore(int level, float delta)
+void Score::addScore(int level, int delta)
 {
     float score = getScore(level);
     score += delta;
     setScoreByLevel(level, score);
 }
 
-void Score::setScoreByLevel(int level, float score)
+void Score::setScoreByLevel(int level, int score)
 {
     _level = level;
     if (level > _maxLevel) {
         _maxLevel = level;
     }
-    _scoreByLevel[level] = score;
-    if (score > _maxByLevel[level]) {
-        _maxByLevel[level] = score;
+    _scoreByLevel[level].points = score;
+    if (score > _scoreByLevel[level].max)
+    {
+        _scoreByLevel[level].max = score;
+    }
+}
+
+void Score::setAccuracy(int level, float value)
+{
+    if (value > _scoreByLevel[level].accuracy) {
+        _scoreByLevel[level].accuracy = value;
     }
 }
 
@@ -72,12 +83,14 @@ void Score::flush()
     std::string log = "";
    
     auto key = StringUtils::format("level%d", _level);
-    float score = 0;
-    if (_maxByLevel.find(_level) != _maxByLevel.end()) {
-        score = _maxByLevel[_level];
+    int score = 0;
+    if (_scoreByLevel.find(_level) != _scoreByLevel.end()) {
+        score = _scoreByLevel[_level].max;
     }
-    log += StringUtils::format("level %d: %.1f ", _level, score);
-    UserDefault::getInstance()->setFloatForKey(key.c_str(), score);
+    Data data;
+    data.copy((unsigned char*) &_scoreByLevel[_level], sizeof(ScoreData));
+
+    UserDefault::getInstance()->setDataForKey(key.c_str(), data);
 
     CCLOG("%s", log.c_str());
     CCLOG("UserDefault flush");
@@ -93,21 +106,21 @@ void Score::setLevel(int level)
     loadLevel(level);
 }
 
-float Score::getScore(int level)
+int Score::getScore(int level)
 {
     if (_scoreByLevel.find(level) != _scoreByLevel.end()) {
-        return _scoreByLevel[level];
+        return _scoreByLevel[level].points;
     }
-    _scoreByLevel[level] = 0;
+    _scoreByLevel[level].points = 0;
     return 0;
 }
 
-float Score::getMaxScore(int level)
+int Score::getMaxScore(int level)
 {
-    if (_maxByLevel.find(level) != _maxByLevel.end()) {
-        return _maxByLevel[level];
+    if (_scoreByLevel.find(level) != _scoreByLevel.end()) {
+        return _scoreByLevel[level].max;
     }
-    _maxByLevel[level] = 0;
+    _scoreByLevel[level].max = 0;
     return 0;
 }
 
@@ -119,4 +132,15 @@ void Score::setMaxLevel(int maxLevel)
         UserDefault::getInstance()->setIntegerForKey("maxLevel", _maxLevel);
         UserDefault::getInstance()->flush();
     }
+}
+
+float Score::getAccuracy(int level)
+{
+    return getScoreData(level).accuracy;
+}
+
+Score::ScoreData Score::getScoreData(int level)
+{
+    setMaxLevel(_maxLevel);
+    return _scoreByLevel[level];
 }

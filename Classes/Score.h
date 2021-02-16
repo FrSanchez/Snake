@@ -14,12 +14,12 @@ class Score
 {
 private:
     typedef struct _sd {
-        int points;
-        float accuracy;
-        int stars;
+        int points = 0;
+        float accuracy = 0;
+        int stars = 0;
+        int max = 0;
     } ScoreData;
-    std::map<int, int> _scoreByLevel;
-    std::map<int, float> _maxByLevel;
+    std::map<int, ScoreData> _scoreByLevel;
     int _level;
     int _maxLevel;
 
@@ -28,12 +28,15 @@ public:
     void flush();
     void setLevel(int level);
     void setMaxLevel(int maxLevel);
-    void setScore(float score);
-    void setScoreByLevel(int level, float score);
-    float getScore(int level);
-    float getMaxScore(int level);
+    void setScore(int score);
+    void setScoreByLevel(int level, int score);
+    void setAccuracy(int level, float value);
+    float getAccuracy(int level);
+    ScoreData getScoreData(int level);
+    int getScore(int level);
+    int getMaxScore(int level);
     int getMaxLevel() { return _maxLevel; }
-    void addScore(int level, float delta);
+    void addScore(int level, int delta);
     void loadLevel(int level);
     void loadAllLevels();
     void reset();

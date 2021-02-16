@@ -164,17 +164,24 @@ void SceneMenu::resetScores()
     addChild(alert);
 }
 
-void SceneMenu::onValueChange(int value)
+void SceneMenu::onValueChange(int level)
 {
-    float score = _score.getMaxScore(value);
-    auto score_str = StringUtils::format("HIGH SCORE: %.0f", score);
-    auto label = getChildByTag<Label*>(0xf1);
+    int score = _score.getMaxScore(level);
+    auto score_str = StringUtils::format("SCORE: %d", score);
+    auto label = getChildByTag<Label*>(LABEL_HIGH_SCORE);
     if (!label) {
-        addChild(label = ScoreLabel::createHS(), 1, 0xf1);
+        addChild(label = ScoreLabel::createHS());
     }
     label->setString(score_str);
+    
+    auto accuracy = _score.getAccuracy(level);
+    label = getChildByTag<Label*>(LABEL_PERCENTAGE);
+    auto pecent_str = StringUtils::format("FOOD: %.0f%%", accuracy);
+    if (!label) {
+        addChild(label = ScoreLabel::createPct());
+    }
+    label->setString(pecent_str);
 }
-
 
 std::vector<std::string> SceneMenu::findLevels()
 {

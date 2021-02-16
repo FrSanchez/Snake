@@ -52,6 +52,7 @@ private:
     int _level = 0;
     Score _score;
     int _foodEaten = 0;
+    int _foodAdded = 0;
 
     void updateTimer(float dt);
     void scoreByLiving(float dt);
@@ -71,6 +72,7 @@ private:
     void showFoodLocator(cocos2d::Vec2 foodPosition);
     void onTimerEnd();
     float getAngleDegrees(cocos2d::Vec2 from, cocos2d::Vec2 to);
+    float getFoodTarget();
 };
 
 #endif /* SceneGame_hpp */

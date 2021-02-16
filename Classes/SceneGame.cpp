@@ -130,7 +130,6 @@ bool SceneGame::init(int level, std::string levelFile)
     
     auto timer = TimerSprite::create();
     timer->setPosition(size.width - 64, size.height - 64);
-    timer->setScale(0.7);
     timer->setTag(TIMER_TAG);
     timer->setOnTimerEndCallback(CC_CALLBACK_0(SceneGame::onTimerEnd, this));
     addChild(timer);
@@ -224,7 +223,7 @@ void SceneGame::eat()
     auto seq = Sequence::create(action,
                                 CallFunc::create([&]() {
         auto score = _score.getScore(_level);
-        auto score_str = StringUtils::format("SCORE: %.0f", score );
+        auto score_str = StringUtils::format("SCORE: %d", score );
         scoreLabel->setString(score_str);
         apple->setVisible(false);
     }), nullptr);
@@ -239,7 +238,7 @@ void SceneGame::eat()
     body.push_back(sprite);
     _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
-    _score.addScore(_level, 10.0);
+    _score.addScore(_level, 10);
     AudioEngine::play2d("munch.wav", false, 1.0f);
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
     checkForOpenLevel();
@@ -252,8 +251,7 @@ void SceneGame::eat()
 void SceneGame::checkForOpenLevel()
 {
     _foodEaten++;
-    if (_foodEaten == 8 + _level * 2) {
-        // TODO: Set this in its own method
+    if (_foodEaten == getFoodTarget()) {
         int nextLevel = _level + 1;
         if (nextLevel >= _score.getMaxLevel()) {
             auto label = static_cast<LevelOpened*>(getChildByTag(LEVEL_OPENED_TAG));
@@ -321,10 +319,15 @@ void SceneGame::updateTimer(float dt)
 
 void SceneGame::scoreByLiving(float dt)
 {
-    _score.addScore(_level, dt );
-    auto score = _score.getScore(_level);
-    auto score_str = StringUtils::format("SCORE: %.0f", score );
-    scoreLabel->setString(score_str);
+    static float accum = 0;
+    accum += dt;
+    if (accum > 1) {
+        accum-=1;
+        _score.addScore(_level, 1 );
+        auto score = _score.getScore(_level);
+        auto score_str = StringUtils::format("SCORE: %d", score );
+        scoreLabel->setString(score_str);
+    }
 }
 
 Vec2 SceneGame::calcViewPointCenter()
@@ -352,6 +355,8 @@ void SceneGame::addFood(float dt)
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
         gid = layer->getTileGIDAt(food);
     } while(gid != SPACE_BLOCK && !snake.isOccupying(food));
+
+    _foodAdded++;
 
     auto head = snake.getPosAt(0);
     auto dist = MAX(4,  food.distance(head) );
@@ -426,6 +431,14 @@ void SceneGame::initBody()
 void SceneGame::closeScene(Ref* pSender)
 {
     SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
+    float target = getFoodTarget();
+    _score.setAccuracy(_level, (float)(_foodEaten * 100.0 / target));
+    _score.flush();
     auto fade = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(fade);
+}
+
+float SceneGame::getFoodTarget()
+{
+    return 8 + _level * 2;
 }
