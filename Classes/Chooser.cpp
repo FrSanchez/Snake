@@ -12,7 +12,8 @@ USING_NS_CC;
 bool Chooser::init()
 {
     auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 96);
-    numLabel->setTextColor(Color4B::BLUE);
+    numLabel->setTextColor(Color4B::WHITE);
+    numLabel->enableOutline(Color4B::GRAY, 5);
     numLabel->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
     
     auto downNormal = Sprite::createWithSpriteFrameName("LeftNormal");

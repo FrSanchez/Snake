@@ -126,6 +126,8 @@ bool SceneGame::init(int level, std::string levelFile)
     _locator->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _map->addChild(_locator, 1, 0x20);
 
+    snakeSpeed = 0.35 - (level * 0.02);
+    
     return true;
 }
 
@@ -208,7 +210,7 @@ void SceneGame::eat()
     auto seq = Sequence::create(action,
                                 CallFunc::create([&]() {
         auto score = _score.getScore(_level);
-        auto score_str = StringUtils::format("SCORE: %.1f", score);
+        auto score_str = StringUtils::format("SCORE: %.0f", score );
         scoreLabel->setString(score_str);
         apple->setVisible(false);
     }), nullptr);
@@ -223,7 +225,7 @@ void SceneGame::eat()
     body.push_back(sprite);
     _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
-    _score.addScore(_level, 1.0);
+    _score.addScore(_level, 10.0);
     AudioEngine::play2d("munch.wav", false, 1.0f);
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
     checkForOpenLevel();
@@ -301,9 +303,9 @@ void SceneGame::updateTimer(float dt)
 
 void SceneGame::scoreByLiving(float dt)
 {
-    _score.addScore(_level, dt / 10.0);
+    _score.addScore(_level, dt );
     auto score = _score.getScore(_level);
-    auto score_str = StringUtils::format("SCORE: %.1f", score);
+    auto score_str = StringUtils::format("SCORE: %.0f", score );
     scoreLabel->setString(score_str);
 }
 

@@ -31,7 +31,7 @@ bool ModalMessageBox::init()
     label->setTag(0x11);
     label->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y + 50));
     auto cover = Sprite::create("background.png");
-    label->setDimensions(cover->getContentSize().width - 30, 0);
+    label->setDimensions(cover->getContentSize().width - 200, 0);
 
     addChild(menu, 1);
     addChild(label, 1);

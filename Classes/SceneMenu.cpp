@@ -168,7 +168,7 @@ void SceneMenu::resetScores()
 void SceneMenu::onValueChange(int value)
 {
     float score = _score.getMaxScore(value);
-    auto score_str = StringUtils::format("HIGH SCORE: %.1f", score);
+    auto score_str = StringUtils::format("HIGH SCORE: %.0f", score);
     auto label = getChildByTag<Label*>(0xf1);
     if (!label) {
         addChild(label = ScoreLabel::createHS(), 1, 0xf1);
