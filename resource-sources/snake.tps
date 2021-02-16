@@ -82,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png8</enum>
+        <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -102,7 +102,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Polygon</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -187,22 +187,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">CloseNormal.png</key>
-            <key type="filename">CloseSelected.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>10,10,20,20</rect>
-                <key>scale9Paddings</key>
-                <rect>10,10,20,20</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">DownNormal.png</key>
             <key type="filename">UpSelected.png</key>
             <struct type="IndividualSpriteSettings">
@@ -314,6 +298,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">exit.png</key>
+            <key type="filename">exit_pressed.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,27,50,54</rect>
+                <key>scale9Paddings</key>
+                <rect>25,27,50,54</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">left.png</key>
             <key type="filename">right.png</key>
             <struct type="IndividualSpriteSettings">
@@ -327,6 +327,21 @@
                 <rect>9,9,18,17</rect>
                 <key>scale9Paddings</key>
                 <rect>9,9,18,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">star.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,33,33</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,33,33</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -344,12 +359,13 @@
             <filename>UpSelected.png</filename>
             <filename>fruit.png</filename>
             <filename>head.png</filename>
-            <filename>CloseNormal.png</filename>
-            <filename>CloseSelected.png</filename>
             <filename>print.png</filename>
             <filename>left.png</filename>
             <filename>right.png</filename>
             <filename>clock.png</filename>
+            <filename>exit.png</filename>
+            <filename>exit_pressed.png</filename>
+            <filename>star.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
