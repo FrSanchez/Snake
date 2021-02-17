@@ -36,6 +36,7 @@ void Score::loadLevel(int level)
     if (data.getSize() > 0) {
         memcpy(&_scoreByLevel[_level], data.getBytes(), data.getSize());
     }
+    _scoreByLevel[_level].points = 0;
 }
 
 void Score::loadAllLevels()
