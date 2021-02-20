@@ -17,6 +17,11 @@
 USING_NS_CC;
 using namespace cocos2d::ui;
 
+SceneMenu::SceneMenu()
+{
+    downloader.reset(new network::Downloader());
+}
+
 Scene* SceneMenu::createScene()
 {
     return SceneMenu::create();
@@ -136,18 +141,47 @@ bool SceneMenu::init()
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
     }
-        
+    
+    _score.setMaxLevel((int)files.size());
     chooser->setValue(1);
     chooser->setMinValue(1);
     chooser->setMaxValue(MIN(_score.getMaxLevel(), (int) files.size()));
+    
     chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
     chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
     addChild(chooser);
     _score.loadAllLevels();
     onValueChange(1);
+    
+    downloadLevel();
 
     return true;
 }
+
+void SceneMenu::downloadLevel()
+{
+    // This shows how to download a file from any url and store it locally
+    return;
+    
+    auto name = "level10.tmx";
+    auto url = "https://raw.githubusercontent.com/FrSanchez/snake/main/Resources/level10.tmx";
+    char path[256];
+    sprintf(path, "%slevel10.tmx", FileUtils::getInstance()->getWritablePath().c_str());
+    downloader->createDownloadFileTask(url, path, name);
+    downloader->onFileTaskSuccess = ([] (const network::DownloadTask& task) {
+        log("downloader task success: %s", task.identifier.c_str());
+        log("storage path %s", task.storagePath.c_str());
+    });
+    downloader->onTaskError = ([] (const network::DownloadTask& task, int errorCode, int errorCodeInternal, const std::string& errorStr) {
+        log("downloader task failed : %s, identifier(%s) error code(%d), internal error code(%d) desc(%s)"
+            , task.requestURL.c_str()
+            , task.identifier.c_str()
+            , errorCode
+            , errorCodeInternal
+            , errorStr.c_str());
+    });
+}
+
 
 void SceneMenu::resetScores()
 {
@@ -193,7 +227,6 @@ std::vector<std::string> SceneMenu::findLevels()
         level++;
         auto levelFile = StringUtils::format("level%d.tmx", level);
         isExist = sharedFileUtils->isFileExist(levelFile);
-        CCLOG("Looking for %s: %s", levelFile.c_str(), isExist ? "true": "false");
         if (isExist) {
             files.push_back(levelFile);
         }

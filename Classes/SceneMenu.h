@@ -10,6 +10,7 @@
 
 #include "Score.h"
 #include "cocos2d.h"
+#include "network/CCDownloader.h"
 
 class SceneMenu : public cocos2d::Scene
 {
@@ -27,10 +28,13 @@ private:
     std::vector<std::string> findLevels();
     Score _score;
     
+    std::unique_ptr<cocos2d::network::Downloader> downloader;
+    
     void onValueChange(int);
     void resetScores();
 
 public:
+    SceneMenu();
     static cocos2d::Scene* createScene();
 
     virtual bool init();
@@ -42,6 +46,8 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);
+    
+    void downloadLevel();
 
 };
 #endif /* SceneMenu_hpp */

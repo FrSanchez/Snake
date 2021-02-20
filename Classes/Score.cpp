@@ -34,9 +34,10 @@ void Score::loadLevel(int level)
     std::string key = StringUtils::format("level%d", level);
     Data data = UserDefault::getInstance()->getDataForKey(key.c_str());
     if (data.getSize() > 0) {
-        memcpy(&_scoreByLevel[_level], data.getBytes(), data.getSize());
+        memcpy(&_scoreByLevel[level], data.getBytes(), data.getSize());
     }
-    _scoreByLevel[_level].points = 0;
+    _scoreByLevel[level].points = 0;
+    CCLOG("loading %s, max: %d, accuracy: %f", key.c_str(), _scoreByLevel[level].max, _scoreByLevel[level].accuracy);
 }
 
 void Score::loadAllLevels()
@@ -74,6 +75,7 @@ void Score::setScoreByLevel(int level, int score)
 
 void Score::setAccuracy(int level, float value)
 {
+    setLevel(_level);
     if (value > _scoreByLevel[level].accuracy) {
         _scoreByLevel[level].accuracy = value;
     }
@@ -93,7 +95,7 @@ void Score::flush()
 
     UserDefault::getInstance()->setDataForKey(key.c_str(), data);
 
-    CCLOG("%s", log.c_str());
+    CCLOG("Flushing %s, max: %d, accuracy: %f", key.c_str(), _scoreByLevel[_level].max, _scoreByLevel[_level].accuracy);
     CCLOG("UserDefault flush");
     UserDefault::getInstance()->flush();
 }

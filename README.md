@@ -2,9 +2,9 @@
 Traditional game of snake for cocos2dx
 
 # Compiling
-Right now only macOS has been enabled
+Only ios-build is known to work
 ```
-cd mac-build
+cd ios-build
 open snake-mobile.xcodeproj
 ```
 

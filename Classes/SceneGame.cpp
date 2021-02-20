@@ -67,8 +67,6 @@ bool SceneGame::init(int level, std::string levelFile)
         child->getTexture()->setAntiAliasTexParameters();
     }
     
-//    layer->setOpacity(128);
-    
     snake = Snake(s.width, s.height);
     snake.setLayer(layer);
 
@@ -76,6 +74,11 @@ bool SceneGame::init(int level, std::string levelFile)
     apple->setVisible(false);
     apple->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     _map->addChild(apple, 10);
+    
+    auto levelstr = StringUtils::format("Level %d", level);
+    auto label = Label::createWithTTF(levelstr.c_str(), "fonts/Arcade.ttf", 64);
+    label->setPosition(Vec2(size.width/2, size.height - 32));
+    addChild(label);
     
     auto pos = Label::createWithTTF("0, 0", "fonts/arial.ttf", 32);
     pos->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
@@ -126,14 +129,14 @@ bool SceneGame::init(int level, std::string levelFile)
     _locator->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _map->addChild(_locator, 1, 0x20);
 
-    snakeSpeed = 0.35 - (level * 0.02);
+    snakeSpeed = 0.35;
     
     auto timer = TimerSprite::create();
     timer->setPosition(size.width - 64, size.height - 64);
     timer->setTag(TIMER_TAG);
     timer->setOnTimerEndCallback(CC_CALLBACK_0(SceneGame::onTimerEnd, this));
     addChild(timer);
-    
+        
     return true;
 }
 
@@ -429,7 +432,8 @@ void SceneGame::initBody()
 
 void SceneGame::closeScene(Ref* pSender)
 {
-    float target = getFoodTarget();
+    // if the player ate more than the target, we count it too.
+    float target = MAX(_foodAdded, getFoodTarget());
     _score.setAccuracy(_level, (float)(_foodEaten * 100.0 / target));
     _score.flush();
     SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
@@ -439,5 +443,5 @@ void SceneGame::closeScene(Ref* pSender)
 
 float SceneGame::getFoodTarget()
 {
-    return 8 + _level * 2;
+    return  4 + _level * 2;
 }
