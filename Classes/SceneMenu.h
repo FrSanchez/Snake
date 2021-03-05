@@ -11,6 +11,8 @@
 #include "Score.h"
 #include "cocos2d.h"
 #include "network/CCDownloader.h"
+#include "UnityAdsNativeAPI.h"
+#include "Chooser.h"
 
 class SceneMenu : public cocos2d::Scene
 {
@@ -23,6 +25,8 @@ private:
     float _dt;
     int highScore = -1;
 
+    Chooser* _chooser;
+    std::vector<std::string> _files;
     std::string _levelFile;
     long _file;
     std::vector<std::string> findLevels();
@@ -48,6 +52,10 @@ public:
     CREATE_FUNC(SceneMenu);
     
     void downloadLevel();
-
+    
+    // Unity Ads
+    void rewardPlayer(const char *placementId);
+    void initUnityAdsFunc();
+    void showUnityAdsFunc(Ref* pSender);
 };
 #endif /* SceneMenu_hpp */

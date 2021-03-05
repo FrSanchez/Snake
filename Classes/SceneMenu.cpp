@@ -49,8 +49,10 @@ bool SceneMenu::init()
         return false;
     }
     
+    initUnityAdsFunc();
+    
     auto size = Director::getInstance()->getVisibleSize();;
-    auto files = findLevels();
+    findLevels();
 
     auto bg = Sprite::create("background.png");
     bg->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
@@ -69,11 +71,10 @@ bool SceneMenu::init()
     label->setTextColor(Color4B::WHITE);
     
     _file = 0;
-    auto chooser = Chooser::create();
+    _chooser = Chooser::create();
     
     auto playItem = MenuItemLabel::create(label, [=](Ref *pSender){
-        auto level = chooser->getValue();
-        startGame(level, files.at(level - 1));
+        showUnityAdsFunc(pSender);
     });
     auto menuPlay = Menu::create(playItem, NULL);
     addChild(menuPlay);
@@ -142,14 +143,14 @@ bool SceneMenu::init()
         log("Can't play background music");
     }
     
-    _score.setMaxLevel((int)files.size());
-    chooser->setValue(1);
-    chooser->setMinValue(1);
-    chooser->setMaxValue(MIN(_score.getMaxLevel(), (int) files.size()));
+    _score.setMaxLevel((int)_files.size());
+    _chooser->setValue(1);
+    _chooser->setMinValue(1);
+    _chooser->setMaxValue(MIN(_score.getMaxLevel(), (int) _files.size()));
     
-    chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
-    chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
-    addChild(chooser);
+    _chooser->setPosition(Vec2(size.width / 2, size.height / 2 - 180));
+    _chooser->setOnValueChangeCallback(CC_CALLBACK_1(SceneMenu::onValueChange, this));
+    addChild(_chooser);
     _score.loadAllLevels();
     onValueChange(1);
     
@@ -221,16 +222,57 @@ std::vector<std::string> SceneMenu::findLevels()
 {
     auto sharedFileUtils = FileUtils::getInstance();
     int level = 0;
-    std::vector<std::string> files;
+    _files.clear();
     bool isExist = false;
     do {
         level++;
         auto levelFile = StringUtils::format("level%d.tmx", level);
         isExist = sharedFileUtils->isFileExist(levelFile);
         if (isExist) {
-            files.push_back(levelFile);
+            _files.push_back(levelFile);
         }
     } while(isExist);
     CCLOG("Max level: %d", level - 1);
-    return files;
+    return _files;
+}
+
+
+void SceneMenu::initUnityAdsFunc()
+{
+    const char* gameId = "4034261"; // for Android
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    gameId = "4034260";
+#endif
+    
+    UnityAdsInit(gameId, true);
+    log("[UnityAds cpp] version %s", UnityAdsGetVersion().c_str());
+}
+
+void SceneMenu::showUnityAdsFunc(Ref* pSender)
+{
+    const char* zoneString = "Interstitial_iOS";
+    AudioEngine::stopAll();
+    if(UnityAdsIsReady(zoneString)) {
+        UnityAdsShow(zoneString);
+//        rewardPlayer(zoneString);
+    } else {
+        CCLOG("[UnityAds cpp test] yet cannot show");
+    }
+}
+
+void SceneMenu::rewardPlayer(const char *placementId)
+{
+    CCLOG("[UnityAds cpp test] rewarded");
+    const char* targetStr = "Rewarded_iOS";
+    if(strcmp(placementId, targetStr) == 0){
+//        if(titleLabel){
+//            const char* text = "Congrats!";
+//            titleLabel->setString(text);
+//        }
+    }
+    if(strcmp(placementId, "Interstitial_iOS") == 0) {
+        auto level = _chooser->getValue();
+        startGame(level, _files.at(level - 1));
+    }
 }

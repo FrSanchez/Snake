@@ -95,14 +95,7 @@ bool SceneGame::init(int level, std::string levelFile)
     addChild(LevelOpened::create(level + 1));
         
     initBody();
-    
-    // creating a keyboard event listener
-    auto kbdLstnr = EventListenerKeyboard::create();
-    kbdLstnr->onKeyPressed = CC_CALLBACK_2(SceneGame::onKeyPressed, this);
-    kbdLstnr->onKeyReleased = CC_CALLBACK_2(SceneGame::onKeyReleased, this);
-
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(kbdLstnr, this);
-            
+       
     enableSwipe();
 
     schedule(CC_SCHEDULE_SELECTOR(SceneGame::scoreByLiving), 0.100f);
@@ -202,21 +195,6 @@ void SceneGame::onSwipe(SwipeGestureRecognizer* recognizer)
 void SceneGame::labelCallback(Label* label)
 {
     label->setVisible(false);
-}
-
-// Implementation of the keyboard event callback function prototype
-void SceneGame::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
-{
-}
-
-void SceneGame::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
-{
-    if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) {
-        snake.turnLeft();
-    }
-    if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) {
-        snake.turnRight();
-    }
 }
 
 void SceneGame::eat()

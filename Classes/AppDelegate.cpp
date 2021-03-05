@@ -87,6 +87,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     spritecache->addSpriteFramesWithFile("sprites.plist");
 
     auto scene = SceneMenu::createScene();
+//    auto scene = SnakeScene::create();
     director->runWithScene(scene);
     
     return true;
