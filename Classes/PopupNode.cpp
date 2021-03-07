@@ -27,9 +27,15 @@ void PopupNode::SetupUI()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     //////////////////////////////////////////////////////////////////////////
-    auto cover = Sprite::create("background.png");
-    cover->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(cover);
+    _cover = Sprite::createWithSpriteFrameName("popup");
+    _cover->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    Node::addChild(_cover);
+    setContentSize(_cover->getContentSize());
+}
+
+void PopupNode::addChild(Node * child)
+{
+    _cover->addChild(child);
 }
 
 void PopupNode::BlockPassingTouch()

@@ -16,9 +16,15 @@ public:
     CREATE_FUNC(PopupNode);
     virtual bool init();    // subclass should have access to call it
     void ClosePopup();
+    void addChild(Node * child);
+
 private:
     void BlockPassingTouch();
     void SetupUI();
+    
+protected:
+    cocos2d::Node* _cover;
+
 };
 
 #endif /* PopupNode_hpp */

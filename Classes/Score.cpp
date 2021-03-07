@@ -33,11 +33,15 @@ void Score::loadLevel(int level)
 {
     std::string key = StringUtils::format("level%d", level);
     Data data = UserDefault::getInstance()->getDataForKey(key.c_str());
-    if (data.getSize() > 0) {
-        memcpy(&_scoreByLevel[level], data.getBytes(), data.getSize());
+    if (!_scoreByLevel[level].loaded)
+    {
+        if (data.getSize() > 0) {
+            memcpy(&_scoreByLevel[level], data.getBytes(), data.getSize());
+            _scoreByLevel[level].loaded = true;
+        }
+        _scoreByLevel[level].points = 0;
+        CCLOG("loading %s, max: %d, accuracy: %f", key.c_str(), _scoreByLevel[level].max, _scoreByLevel[level].accuracy);
     }
-    _scoreByLevel[level].points = 0;
-    CCLOG("loading %s, max: %d, accuracy: %f", key.c_str(), _scoreByLevel[level].max, _scoreByLevel[level].accuracy);
 }
 
 void Score::loadAllLevels()
@@ -146,4 +150,39 @@ Score::ScoreData Score::getScoreData(int level)
 {
     setMaxLevel(_maxLevel);
     return _scoreByLevel[level];
+}
+
+void Score::setFoodEat(int level, int value)
+{
+    setLevel(level);
+    _scoreByLevel[level].foodEat = value;
+}
+void Score::setTarget(int level, int value)
+{
+    setLevel(level);
+    _scoreByLevel[level].target = value;
+}
+
+void Score::setSnakeLength(int level, int value)
+{
+    setLevel(level);
+    _scoreByLevel[level].snakeLength = value;
+}
+
+void Score::setTime(int level, float value)
+{
+    setLevel(level);
+    _scoreByLevel[level].time = value;
+}
+
+unsigned char Score::getStars(int level)
+{
+    setLevel(level);
+    return _scoreByLevel[level].stars;
+}
+
+void Score::setStars(int level, unsigned char mask)
+{
+    setLevel(level);
+    _scoreByLevel[level].stars |= mask;
 }

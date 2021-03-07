@@ -13,6 +13,7 @@
 #include "extensions/cocos-ext.h"
 #include "ui/CocosGUI.h"
 #include "ModalMessageBox.h"
+#include "TrophyModalBox.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -196,6 +197,7 @@ void SceneMenu::resetScores()
     alert->addButton("Cancel", 30,  [=](Ref* pSender) {
         alert->ClosePopup();
     });
+    
     addChild(alert);
 }
 
@@ -254,8 +256,8 @@ void SceneMenu::showUnityAdsFunc(Ref* pSender)
     const char* zoneString = "Interstitial_iOS";
     AudioEngine::stopAll();
     if(UnityAdsIsReady(zoneString)) {
-        UnityAdsShow(zoneString);
-//        rewardPlayer(zoneString);
+//        UnityAdsShow(zoneString);
+        rewardPlayer(zoneString);
     } else {
         CCLOG("[UnityAds cpp test] yet cannot show");
     }

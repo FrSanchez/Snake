@@ -16,30 +16,30 @@ bool ModalMessageBox::init()
     {
         return false;
     }
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Size visibleSize = getContentSize();
+    
 
     menu = Menu::create( );
     menu->setAnchorPoint(Vec2(0.5, 0.5));
     menu->alignItemsHorizontallyWithPadding(50);
-    menu->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y - 80));
+    menu->setPosition(Vec2(visibleSize.width/2 , visibleSize.height/2 - 80));
     
-    auto label = Label::createWithTTF("", "fonts/arial.ttf", 30);
+    TTFConfig ttfConfig("fonts/arial.ttf", 30);
+    auto label = Label::createWithTTF(ttfConfig, "", TextHAlignment::CENTER, getContentSize().width * 0.8);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setTextColor(Color4B::GRAY);
     label->enableOutline(Color4B::BLACK, 1);
     label->setTag(0x11);
-    label->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y + 50));
-    auto cover = Sprite::create("background.png");
-    label->setDimensions(cover->getContentSize().width - 200, 0);
+    label->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2 + 50));
 
-    addChild(menu, 1);
-    addChild(label, 1);
+    addChild(menu);
+    addChild(label);
     return true;
 }
 
 void ModalMessageBox::setString(const std::string& text)  {
-    Label* label = (Label*)getChildByTag(0x11);
+    Label* label = (Label*)_cover->getChildByTag(0x11);
+
     label->setString(text);
 }
 

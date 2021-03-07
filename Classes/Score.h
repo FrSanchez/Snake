@@ -16,8 +16,13 @@ private:
     typedef struct _sd {
         int points = 0;
         float accuracy = 0;
-        int stars = 0;
+        unsigned char stars = 0;
         int max = 0;
+        int foodEat;
+        int target;
+        int snakeLength;
+        float time;
+        bool loaded = false;
     } ScoreData;
     std::map<int, ScoreData> _scoreByLevel;
     int _level;
@@ -40,6 +45,12 @@ public:
     void loadLevel(int level);
     void loadAllLevels();
     void reset();
+    void setFoodEat(int level, int value);
+    void setTarget(int level, int value);
+    void setSnakeLength(int level, int value);
+    void setTime(int level, float value);
+    unsigned char getStars(int level);
+    void setStars(int level, unsigned char mask);
 };
 
 #endif /* Score_hpp */

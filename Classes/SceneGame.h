@@ -53,6 +53,7 @@ private:
     Score _score;
     int _foodEaten = 0;
     int _foodAdded = 0;
+    bool _active;
 
     void updateTimer(float dt);
     void scoreByLiving(float dt);

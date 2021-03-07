@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>512</int>
+            <int>1024</int>
             <key>height</key>
-            <int>512</int>
+            <int>1024</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -330,6 +330,36 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">popup.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>150,120,300,241</rect>
+                <key>scale9Paddings</key>
+                <rect>150,120,300,241</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">rays.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>118,118,235,235</rect>
+                <key>scale9Paddings</key>
+                <rect>118,118,235,235</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">star.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -342,6 +372,21 @@
                 <rect>16,16,33,33</rect>
                 <key>scale9Paddings</key>
                 <rect>16,16,33,33</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">trophy.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>80,111,160,221</rect>
+                <key>scale9Paddings</key>
+                <rect>80,111,160,221</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -366,6 +411,9 @@
             <filename>exit.png</filename>
             <filename>exit_pressed.png</filename>
             <filename>star.png</filename>
+            <filename>popup.png</filename>
+            <filename>rays.png</filename>
+            <filename>trophy.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

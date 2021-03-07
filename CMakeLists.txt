@@ -64,6 +64,11 @@ list(APPEND GAME_SOURCE
      Classes/SceneMenu.cpp
      Classes/ScoreLabel.cpp
      Classes/Score.cpp
+     Classes/LevelOpened.cpp
+     Classes/ModalMessageBox.cpp
+     Classes/PopupNode.cpp
+     Classec/TimerSprite.cpp
+     Classes/TrophyModalBox.cpp
      Classes/Gestures/GestureRecognizer.cpp
      Classes/Gestures/PinchGestureRecognizer.cpp 
      Classes/Gestures/GestureRecognizerUtils.cpp
@@ -81,6 +86,11 @@ list(APPEND GAME_HEADER
      Classes/SceneMenu.h
      Classes/ScoreLabel.h
      Classes/Score.h
+     Classes/LevelOpened.h
+     Classes/ModalMessageBox.h
+     Classes/PopupNode.h
+     Classec/TimerSprite.h
+     Classes/TrophyModalBox.h
      Classes/Gestures/GestureRecognizer.h
      Classes/Gestures/PinchGestureRecognizer.h
      Classes/Gestures/GestureRecognizerUtils.h 
@@ -115,6 +125,7 @@ elseif(APPLE)
         list(APPEND GAME_HEADER
              proj.ios_mac/ios/AppController.h
              proj.ios_mac/ios/RootViewController.h
+             proj.ios_mac/ios/UnityAdsBridge.h
              )
         set(APP_UI_RES
             proj.ios_mac/ios/LaunchScreen.storyboard
@@ -125,6 +136,7 @@ elseif(APPLE)
              proj.ios_mac/ios/main.m
              proj.ios_mac/ios/AppController.mm
              proj.ios_mac/ios/RootViewController.mm
+             proj.ios_mac/ios/UnityAdsBridge.mm
              proj.ios_mac/ios/Prefix.pch
              ${APP_UI_RES}
              )

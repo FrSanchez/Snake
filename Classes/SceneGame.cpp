@@ -12,6 +12,7 @@
 #include "TimerSprite.h"
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
+#include "TrophyModalBox.h"
 
 USING_NS_CC;
 
@@ -41,6 +42,7 @@ bool SceneGame::init(int level, std::string levelFile)
         return false;
     }
     
+    _active = true;
     _level = level;
     _score.setLevel(_level);
     
@@ -248,7 +250,8 @@ void SceneGame::collide()
     auto total = body.size();
        for(auto i=1; i < total; i++)
     {
-        body.at(i)->runAction(Blink::create(2, 10));
+        auto seq = Sequence::create(Blink::create(2, 10), FadeOut::create(0.5f), nullptr);
+        body.at(i)->runAction(seq);
     }
     if (_audioId != AudioEngine::INVALID_AUDIO_ID) {
         AudioEngine::stop(_audioId);
@@ -330,6 +333,9 @@ Vec2 SceneGame::calcViewPointCenter()
 
 void SceneGame::addFood(float dt)
 {
+    if (!_active) {
+        return;
+    }
     uint32_t gid;
     do {
         food = Vec2(arc4random() % snake.getWidth() , arc4random() % snake.getHeight() );
@@ -410,13 +416,35 @@ void SceneGame::initBody()
 
 void SceneGame::closeScene(Ref* pSender)
 {
+    _active = false;
     // if the player ate more than the target, we count it too.
-    float target = MAX(_foodAdded, getFoodTarget());
-    _score.setAccuracy(_level, (float)(_foodEaten * 100.0 / target));
+    float target = getFoodTarget();
+    float accuracy = (float)(_foodEaten * 100.0 / target);
+    _score.setAccuracy(_level, accuracy);
+    _score.setFoodEat(_level, _foodEaten);
+    _score.setTarget(_level, target);
+    _score.setSnakeLength(_level, snake.getLength());
+
+    if (snake.getLength() >= (target+4)) {
+        _score.setStars(_level, 0x1);
+    }
+    if (accuracy > 99) {
+        _score.setStars(_level, 0x2);
+    }
+    _score.setStars(_level, 0xf);
     _score.flush();
-    SceneMenu* scene = static_cast<SceneMenu*> (SceneMenu::createScene());
-    auto fade = TransitionFade::create(1, scene);
-    Director::getInstance()->replaceScene(fade);
+
+    unscheduleAllCallbacks();
+    
+    auto alert = TrophyModalBox::create();
+    alert->setLevel(_level);
+    alert->addButton("OK", 30, [=](Ref* pSender) {
+        alert->ClosePopup();
+        auto scene = SceneMenu::create();
+        auto fade = TransitionFade::create(1, scene);
+        Director::getInstance()->replaceScene(fade);
+    });
+    addChild(alert);
 }
 
 float SceneGame::getFoodTarget()
