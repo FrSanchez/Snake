@@ -19,7 +19,7 @@ class ModalMessageBox : public PopupNode
 private:
     std::vector<cocos2d::ui::Button*> buttons;
     cocos2d::Menu* menu;
-    std::function<void(const int)> callback;
+    std::function<void(const int)> dirCallback;
     
 public:
     bool init();
@@ -27,5 +27,6 @@ public:
     void buttonCall(Ref* sender);
     void setString(const std::string& text) ;
     CREATE_FUNC(ModalMessageBox);
+    
 };
 #endif /* ModalMessageBox_hpp */

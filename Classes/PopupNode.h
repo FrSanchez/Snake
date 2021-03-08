@@ -10,20 +10,18 @@
 
 #include "cocos2d.h"
 
-class PopupNode : public cocos2d::Node
+class PopupNode : public cocos2d::Sprite
 {
 public:
     CREATE_FUNC(PopupNode);
     virtual bool init();    // subclass should have access to call it
     void ClosePopup();
-    void addChild(Node * child);
 
 private:
     void BlockPassingTouch();
-    void SetupUI();
     
 protected:
-    cocos2d::Node* _cover;
+    virtual std::string getBackgroundFrameName();
 
 };
 

@@ -42,13 +42,29 @@ void Snake::setLayer(TMXLayer* value)
     layer = value;
 }
 
+bool Snake::canAdvance()
+{
+    Point head = body.at(0) + direction;
+    auto gid = layer->getTileGIDAt(head);
+    if (gid != SPACE_BLOCK) {
+        return false;
+    }
+    for(auto &link : body) {
+        if (link == head) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Snake::advance()
 {
     Point head = body.at(0) + direction;
-    Vec2 headPos = head; //Vec2(head.x, height - head.y);
-    auto gid = layer->getTileGIDAt(headPos);
-    if (gid != SPACE_BLOCK) {
-        CCLOG("(CRASH) Headpos: %.1f %.1f gid: %d", headPos.x, headPos.y, gid);
+    if (!canAdvance()) {
+//    auto gid = layer->getTileGIDAt(headPos);
+//    if (gid != SPACE_BLOCK) {
+        direction.x = 0;
+        direction.y = 0;
         return false;
     }
     Point temp = head;

@@ -28,7 +28,7 @@ Label* ScoreLabel::createPct()
 Label* ScoreLabel::_create(Vec2 pos, Vec2 anchorPoint, TextHAlignment alignment, const std::string& text)
 {
     auto size = Director::getInstance()->getVisibleSize();
-    auto label = Label::createWithTTF(text, "fonts/Arcade.ttf", 64, Size::ZERO, alignment);
+    auto label = Label::createWithTTF(text, "Arcade.ttf", 64, Size::ZERO, alignment);
     label->setAnchorPoint(anchorPoint);
     label->setPosition(pos);
     label->setTextColor(Color4B::WHITE);

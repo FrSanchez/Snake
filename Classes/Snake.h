@@ -18,6 +18,7 @@ public:
     Snake(int, int);
     
     bool advance();
+    bool canAdvance();
     void turnLeft();
     void turnRight();
     void turnUp();

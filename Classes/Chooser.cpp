@@ -11,7 +11,7 @@ USING_NS_CC;
 
 bool Chooser::init()
 {
-    auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 96);
+    auto numLabel = Label::createWithTTF("1", "Arcade.ttf", 96);
     numLabel->setTextColor(Color4B::WHITE);
     numLabel->enableOutline(Color4B::GRAY, 5);
     numLabel->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);

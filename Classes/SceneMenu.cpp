@@ -37,6 +37,7 @@ void SceneMenu::startGame(int level, std::string levelFile)
     
     auto scene = SceneGame::createWithFile(level, levelFile);
     auto fade = TransitionFade::create(2, scene);
+    Director::getInstance()->pushScene(this);
     Director::getInstance()->replaceScene(fade);
 }
 
@@ -60,10 +61,10 @@ bool SceneMenu::init()
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
     
-    auto numLabel = Label::createWithTTF("1", "fonts/Arcade.ttf", 96);
+    auto numLabel = Label::createWithTTF("1", "Arcade.ttf", 96);
 
 
-    label = Label::createWithTTF("Play", "fonts/Arcade.ttf", 180);
+    label = Label::createWithTTF("Play", "Arcade.ttf", 180);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setPosition(Vec2::ZERO);
     auto black = Color4B( Color4B::BLACK);

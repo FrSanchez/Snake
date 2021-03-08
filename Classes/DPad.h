@@ -10,11 +10,12 @@
 
 #include "cocos2d.h"
 
-typedef std::function<void(int direction)> padCallback;
 
 class CC_DLL DPad : public cocos2d::Node
 {
 public:
+    typedef std::function<void(int direction)> padCallback;
+
     DPad() ;
     void dpadCallback(cocos2d::Ref* sender);
     void setCallback(const padCallback& callback);

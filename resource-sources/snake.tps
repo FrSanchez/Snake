@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>1024</int>
+            <int>2048</int>
             <key>height</key>
-            <int>1024</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -345,6 +345,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">powerupbg.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>100,75,200,150</rect>
+                <key>scale9Paddings</key>
+                <rect>100,75,200,150</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">rays.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -361,6 +376,7 @@
                 <false/>
             </struct>
             <key type="filename">star.png</key>
+            <key type="filename">star_p.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -414,6 +430,8 @@
             <filename>popup.png</filename>
             <filename>rays.png</filename>
             <filename>trophy.png</filename>
+            <filename>star_p.png</filename>
+            <filename>powerupbg.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

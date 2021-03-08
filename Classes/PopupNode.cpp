@@ -11,31 +11,21 @@ USING_NS_CC;
 
 bool PopupNode::init()
 {
-    if ( !Node::init() )
+    if ( !Sprite::initWithSpriteFrameName(getBackgroundFrameName()) )
     {
         return false;
     }
-    //////////////////////////////////////////////////////////////////////////
-    BlockPassingTouch(); //CreateInvisibleBackgroundButton();
-    SetupUI();
-    //////////////////////////////////////////////////////////////////////////
+    BlockPassingTouch();
+    auto size = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    setPosition(Vec2(size.width/2, size.height/2) + origin);
+    setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     return true;
 }
 
-void PopupNode::SetupUI()
+std::string PopupNode::getBackgroundFrameName()
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    //////////////////////////////////////////////////////////////////////////
-    _cover = Sprite::createWithSpriteFrameName("popup");
-    _cover->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    Node::addChild(_cover);
-    setContentSize(_cover->getContentSize());
-}
-
-void PopupNode::addChild(Node * child)
-{
-    _cover->addChild(child);
+    return "popup";
 }
 
 void PopupNode::BlockPassingTouch()

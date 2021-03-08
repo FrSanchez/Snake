@@ -57,6 +57,7 @@ endif()
 # add cross-platforms source files and header files
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
+     Classes/BouncyPowerup.cpp
      Classes/Chooser.cpp
      Classes/Dpad.cpp
      Classes/SceneGame.cpp
@@ -67,7 +68,7 @@ list(APPEND GAME_SOURCE
      Classes/LevelOpened.cpp
      Classes/ModalMessageBox.cpp
      Classes/PopupNode.cpp
-     Classec/TimerSprite.cpp
+     Classes/TimerSprite.cpp
      Classes/TrophyModalBox.cpp
      Classes/Gestures/GestureRecognizer.cpp
      Classes/Gestures/PinchGestureRecognizer.cpp 
@@ -79,6 +80,7 @@ list(APPEND GAME_SOURCE
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
+     Classes/BouncyPowerup.h
      Classes/Chooser.h
      Classes/DPad.h
      Classes/SceneGame.h
@@ -89,7 +91,7 @@ list(APPEND GAME_HEADER
      Classes/LevelOpened.h
      Classes/ModalMessageBox.h
      Classes/PopupNode.h
-     Classec/TimerSprite.h
+     Classes/TimerSprite.h
      Classes/TrophyModalBox.h
      Classes/Gestures/GestureRecognizer.h
      Classes/Gestures/PinchGestureRecognizer.h

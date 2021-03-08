@@ -13,6 +13,7 @@
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
 #include "TrophyModalBox.h"
+#include "BouncyPowerup.h"
 
 USING_NS_CC;
 
@@ -78,16 +79,16 @@ bool SceneGame::init(int level, std::string levelFile)
     _map->addChild(apple, 10);
     
     auto levelstr = StringUtils::format("Level %d", level);
-    auto label = Label::createWithTTF(levelstr.c_str(), "fonts/Arcade.ttf", 64);
+    auto label = Label::createWithTTF(levelstr.c_str(), "Arcade.ttf", 64);
     label->setPosition(Vec2(size.width/2, size.height - 32));
     addChild(label);
     
-    auto pos = Label::createWithTTF("0, 0", "fonts/arial.ttf", 32);
+    auto pos = Label::createWithTTF("0, 0", "arial.ttf", 32);
     pos->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     pos->setPosition(Vec2(0, 0));
     addChild(pos, 10, 0x10);
 
-    scoreLabel = Label::createWithTTF("SCORE: 0", "fonts/Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
+    scoreLabel = Label::createWithTTF("SCORE: 0", "Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
     scoreLabel->setTextColor( Color4B::RED );
     scoreLabel->enableOutline(Color4B::YELLOW,3);
@@ -277,10 +278,28 @@ void SceneGame::updateTimer(float dt)
     if (snake.getPosAt(0) == food) {
         eat();
     }
-    if (!snake.advance()) {
-        collide();
+    if (!snake.canAdvance()) {
+        auto powerup = BouncyPowerup::create();
+        powerup->setOnCancel([&,powerup](Ref* pSender){
+            collide();
+            powerup->ClosePopup();
+            Director::getInstance()->resume();
+        });
+        powerup->setOnSelection([&,powerup](int dir){
+            log("change direction %d", dir);
+            onDpad(dir);
+            if (!snake.canAdvance()) {
+                return;
+            }
+            powerup->ClosePopup();
+            Director::getInstance()->resume();
+            schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+        });
+        addChild(powerup);
+        Director::getInstance()->pause();
         return;
     }
+    snake.advance();
     Vec2 headPos = snake.getPosAt(0);
     headPos.y = _map->getMapSize().height - headPos.y;
     auto gid = _map->getLayer("layer0")->getTileGIDAt(headPos);

@@ -86,6 +86,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto spritecache = SpriteFrameCache::getInstance();
     spritecache->addSpriteFramesWithFile("sprites.plist");
 
+    FileUtils::getInstance()->addSearchPath("fonts");
+    FileUtils::getInstance()->addSearchPath("audio");
+
     auto scene = SceneMenu::createScene();
 //    auto scene = SnakeScene::create();
     director->runWithScene(scene);

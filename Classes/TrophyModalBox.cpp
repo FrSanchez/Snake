@@ -39,7 +39,7 @@ bool TrophyModalBox::init()
     trophy->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     addChild(trophy);
     
-    TTFConfig ttfConfig("fonts/Marker Felt.ttf", 50);
+    TTFConfig ttfConfig("Marker Felt.ttf", 50);
     auto label = Label::createWithTTF(ttfConfig, "", TextHAlignment::CENTER, getContentSize().width * 0.8);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setTextColor(Color4B::RED);
@@ -71,7 +71,7 @@ void TrophyModalBox::addStar(int starNum)
 
 void TrophyModalBox::setLevel(int level)
 {
-    auto label = static_cast<Label*>( _cover->getChildByTag(0x11));
+    auto label = static_cast<Label*>(getChildByTag(0x11));
     label->setString(StringUtils::format("%d", level));
     Score score = Score();
     auto stars = score.getStars(level);
@@ -88,7 +88,7 @@ void TrophyModalBox::setLevel(int level)
 
 void TrophyModalBox::addButton(const std::string& text, float fontSize, const ccMenuCallback& callback) {
     
-    auto label = Label::createWithTTF(text, "fonts/arial.ttf", fontSize);
+    auto label = Label::createWithTTF(text, "Stick-Regular.ttf", fontSize);
     label->setAnchorPoint(Vec2(0.5, 0.5));
     label->setTextColor(Color4B::GRAY);
     label->enableOutline(Color4B::BLACK, 1);

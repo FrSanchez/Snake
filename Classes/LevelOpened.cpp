@@ -37,7 +37,7 @@ Label* LevelOpened::create(int level)
     auto score_str = StringUtils::format("LEVEL %d OPENED", level );
     auto ret = new (std::nothrow) LevelOpened();
 
-    if (ret && ret->initWithTTF(score_str, "fonts/Arcade.ttf", 64))
+    if (ret && ret->initWithTTF(score_str, "Arcade.ttf", 64))
     {
         ret->autorelease();
         return ret;
