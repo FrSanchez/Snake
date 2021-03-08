@@ -18,8 +18,8 @@ typedef std::function<void(const int)> boxCallback;
 class TrophyModalBox : public PopupNode
 {
 private:
-    constexpr static const float offX[] = { -64, 0, 64 };
-    constexpr static const float offY[] = { 128, 140, 128 };
+    constexpr static const float offX[] = { -100, 0, 100 };
+    constexpr static const float offY[] = { 172, 200, 172 };
 
     cocos2d::Menu* menu;
     std::function<void(const int)> callback;

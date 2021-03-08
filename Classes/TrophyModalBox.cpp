@@ -35,7 +35,7 @@ bool TrophyModalBox::init()
     addChild(menu);
     
     auto trophy = Sprite::createWithSpriteFrameName("trophy");
-    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 - 50));
+    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 - 30));
     trophy->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     addChild(trophy);
     
@@ -45,7 +45,7 @@ bool TrophyModalBox::init()
     label->setTextColor(Color4B::RED);
     label->enableOutline(Color4B::BLACK, 1);
     label->setTag(0x11);
-    label->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 10));
+    label->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 30));
     addChild(label);
     
     for (int i = 0; i < 3; i++) {
@@ -53,6 +53,9 @@ bool TrophyModalBox::init()
         star->setPosition(Vec2(_contentSize.width / 2 + offX[i], _contentSize.height / 2 + offY[i]));
         addChild(star);
     }
+    
+    setScale(0.5);
+    runAction(ScaleTo::create(0.2, 1));
     return true;
 }
 
