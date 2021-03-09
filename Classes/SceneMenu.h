@@ -13,6 +13,7 @@
 #include "network/CCDownloader.h"
 #include "UnityAdsNativeAPI.h"
 #include "Chooser.h"
+#include "Bank.h"
 
 class SceneMenu : public cocos2d::Scene
 {
@@ -31,6 +32,7 @@ private:
     long _file;
     std::vector<std::string> findLevels();
     Score _score;
+    Bank _bank;
     
     std::unique_ptr<cocos2d::network::Downloader> downloader;
     
@@ -52,6 +54,7 @@ public:
     CREATE_FUNC(SceneMenu);
     
     void downloadLevel();
+    void openStore(cocos2d::Ref* pSender);
     
     // Unity Ads
     void rewardPlayer(const char *placementId);

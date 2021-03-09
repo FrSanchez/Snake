@@ -457,6 +457,7 @@ void SceneGame::closeScene(Ref* pSender)
     
     auto alert = TrophyModalBox::create();
     alert->setLevel(_level);
+    alert->addFood(_foodEaten);
     alert->addButton("OK", 30, [=](Ref* pSender) {
         alert->ClosePopup();
         auto scene = SceneMenu::create();

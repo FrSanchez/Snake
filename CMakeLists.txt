@@ -57,19 +57,20 @@ endif()
 # add cross-platforms source files and header files
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
-     Classes/BouncyPowerup.cpp
-     Classes/Chooser.cpp
-     Classes/Dpad.cpp
-     Classes/SceneGame.cpp
-     Classes/Snake.cpp
-     Classes/SceneMenu.cpp
-     Classes/ScoreLabel.cpp
-     Classes/Score.cpp
-     Classes/LevelOpened.cpp
-     Classes/ModalMessageBox.cpp
-     Classes/PopupNode.cpp
-     Classes/TimerSprite.cpp
-     Classes/TrophyModalBox.cpp
+     Classes/Bank.cpp
+    Classes/BouncyPowerup.cpp
+    Classes/Chooser.cpp
+    Classes/DPad.cpp
+    Classes/LevelOpened.cpp
+    Classes/ModalMessageBox.cpp
+    Classes/PopupNode.cpp
+    Classes/SceneGame.cpp
+    Classes/SceneMenu.cpp
+    Classes/Score.cpp
+    Classes/ScoreLabel.cpp
+    Classes/Snake.cpp
+    Classes/TimerSprite.cpp
+    Classes/TrophyModalBox.cpp
      Classes/Gestures/GestureRecognizer.cpp
      Classes/Gestures/PinchGestureRecognizer.cpp 
      Classes/Gestures/GestureRecognizerUtils.cpp
@@ -79,22 +80,24 @@ list(APPEND GAME_SOURCE
      Classes/Gestures/PanGestureRecognizer.cpp
      )
 list(APPEND GAME_HEADER
-     Classes/AppDelegate.h
-     Classes/BouncyPowerup.h
-     Classes/Chooser.h
-     Classes/DPad.h
-     Classes/SceneGame.h
-     Classes/Snake.h
-     Classes/SceneMenu.h
-     Classes/ScoreLabel.h
-     Classes/Score.h
-     Classes/LevelOpened.h
-     Classes/ModalMessageBox.h
-     Classes/PopupNode.h
-     Classes/TimerSprite.h
-     Classes/TrophyModalBox.h
-     Classes/Gestures/GestureRecognizer.h
-     Classes/Gestures/PinchGestureRecognizer.h
+    Classes/AppDelegate.h
+    Classes/BouncyPowerup.h
+        Classes/Bank.h
+        Classes/Chooser.h
+    Classes/DPad.h
+    Classes/LevelOpened.h
+    Classes/ModalMessageBox.h
+    Classes/PopupNode.h
+    Classes/SceneGame.h
+    Classes/SceneMenu.h
+    Classes/Score.h
+    Classes/ScoreLabel.h
+    Classes/Snake.h
+    Classes/TimerSprite.h
+    Classes/TrophyModalBox.h
+    Classes/UnityAdsNativeAPI.h
+    Classes/Gestures/GestureRecognizer.h
+    Classes/Gestures/PinchGestureRecognizer.h
      Classes/Gestures/GestureRecognizerUtils.h 
      Classes/Gestures/SwipeGestureRecognizer.h
      Classes/Gestures/LongPressGestureRecognizer.h  
@@ -163,6 +166,7 @@ set(all_code_files
     )
 if(NOT ANDROID)
     add_executable(${APP_NAME} ${all_code_files})
+    target_link_libraries(program "-framework UnityAds")
 else()
     add_library(${APP_NAME} SHARED ${all_code_files})
     add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos/platform/android ${ENGINE_BINARY_PATH}/cocos/platform)

@@ -14,6 +14,7 @@
 #include "ui/CocosGUI.h"
 #include "ModalMessageBox.h"
 #include "TrophyModalBox.h"
+#include "StoreScene.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -34,10 +35,9 @@ void SceneMenu::startGame(int level, std::string levelFile)
         AudioEngine::stop(_audioID);
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
-    
+    _bank.save();
     auto scene = SceneGame::createWithFile(level, levelFile);
     auto fade = TransitionFade::create(2, scene);
-    Director::getInstance()->pushScene(this);
     Director::getInstance()->replaceScene(fade);
 }
 
@@ -53,7 +53,7 @@ bool SceneMenu::init()
     
     initUnityAdsFunc();
     
-    auto size = Director::getInstance()->getVisibleSize();;
+    auto size = Director::getInstance()->getVisibleSize();
     findLevels();
 
     auto bg = Sprite::create("background.png");
@@ -114,17 +114,24 @@ bool SceneMenu::init()
     }
     else
     {
-        closeItem->setScale(2.0f);
+        closeItem->setScale(1.5f);
         float x = size.width - closeItem->getContentSize().width ;
         float y = closeItem->getContentSize().height;
         closeItem->setPosition(Vec2(x,y));
     }
 
     // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
+    auto menu = Menu::create(closeItem, nullptr);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-
+    
+    normal = Sprite::createWithSpriteFrameName("star");
+    select = Sprite::createWithSpriteFrameName("star_p");
+    auto storeItem = MenuItemSprite::create(normal, select, CC_CALLBACK_1(SceneMenu::openStore, this));
+    menu = Menu::create(storeItem, nullptr);
+    menu->setPosition(Vec2(size.width /2, 48));
+    addChild(menu);
+    
     _dt = 0;
     schedule([&](float time){
         _dt += time;
@@ -157,8 +164,19 @@ bool SceneMenu::init()
     onValueChange(1);
     
     downloadLevel();
+    
+    int food = _bank.getFood();
+    int bPU = _bank.getBouncyPW();
+    CCLOG("Food: %d Bouncy: %d", food, bPU);
 
     return true;
+}
+
+void SceneMenu::openStore(cocos2d::Ref* pSender)
+{
+    auto scene = StoreScene::create();
+    auto transition = TransitionFlipX::create(1, scene, TransitionScene::Orientation::LEFT_OVER);
+    Director::getInstance()->replaceScene(transition);
 }
 
 void SceneMenu::downloadLevel()

@@ -9,6 +9,7 @@
 #define TrophyModalBox_hpp
 
 #include "PopupNode.h"
+#include "Bank.h"
 #include "Score.h"
 #include "ui/CocosGUI.h"
 #include <string>
@@ -29,6 +30,7 @@ public:
     void addButton(const std::string& text, float fontSize, const cocos2d::ccMenuCallback& callback);
     void setLevel(int level);
     void addStar(int star);
+    void addFood(int qty = 0);
     CREATE_FUNC(TrophyModalBox);
 };
 

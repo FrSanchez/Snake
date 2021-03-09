@@ -93,11 +93,26 @@ void TrophyModalBox::addButton(const std::string& text, float fontSize, const cc
     
     auto label = Label::createWithTTF(text, "Stick-Regular.ttf", fontSize);
     label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setTextColor(Color4B::GRAY);
-    label->enableOutline(Color4B::BLACK, 1);
+    label->setTextColor(Color4B::WHITE);
+    label->enableOutline(Color4B::GRAY, 1);
     
     auto item = MenuItemLabel::create(label, callback);
     item->setTag((int)menu->getChildrenCount());
     menu->addChild(item);
     menu->alignItemsHorizontallyWithPadding(20);
+}
+
+void TrophyModalBox::addFood(int qty)
+{
+    if (qty > 0) {
+        Bank bank;
+        bank.alterfood(qty);
+        
+        auto label = Label::createWithTTF(StringUtils::format("Food banked: %d", qty).c_str(), "Stick-Regular.ttf", 32);
+        label->setTextColor(Color4B::WHITE);
+        label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        label->setPosition(Vec2(_contentSize.width/2, 16));
+        addChild(label);
+    }
+    
 }
