@@ -12,7 +12,8 @@
 #include "cocos2d.h"
 #include "network/CCDownloader.h"
 #include "UnityAdsNativeAPI.h"
-#include "Chooser.h"
+#include "UI/Chooser.h"
+#include "SelfSavingClass.h"
 #include "Bank.h"
 
 class SceneMenu : public cocos2d::Scene
@@ -32,7 +33,7 @@ private:
     long _file;
     std::vector<std::string> findLevels();
     Score _score;
-    Bank _bank;
+    SelfSavingClass<Bank> _bank;
     
     std::unique_ptr<cocos2d::network::Downloader> downloader;
     

@@ -56,21 +56,27 @@ endif()
 
 # add cross-platforms source files and header files
 list(APPEND GAME_SOURCE
-     Classes/AppDelegate.cpp
-     Classes/Bank.cpp
-    Classes/BouncyPowerup.cpp
-    Classes/Chooser.cpp
-    Classes/DPad.cpp
+    Classes/AppDelegate.cpp
+    Classes/Bank.cpp
+    Classes/Config.cpp
     Classes/LevelOpened.cpp
-    Classes/ModalMessageBox.cpp
-    Classes/PopupNode.cpp
-    Classes/SceneGame.cpp
-    Classes/SceneMenu.cpp
     Classes/Score.cpp
-    Classes/ScoreLabel.cpp
     Classes/Snake.cpp
-    Classes/TimerSprite.cpp
-    Classes/TrophyModalBox.cpp
+    Classes/Store.cpp
+    Classes/Scenes/SceneGame.cpp
+    Classes/Scenes/SceneMenu.cpp
+    Classes/Scenes/StoreScene.cpp
+    Classes/UI/BouncyPowerup.cpp
+    Classes/UI/Chooser.cpp
+    Classes/UI/DPad.cpp
+    Classes/UI/ModalMessageBox.cpp
+    Classes/UI/PopupNode.cpp
+    Classes/UI/PowerUpIcon.cpp
+    Classes/UI/ScoreLabel.cpp
+    Classes/UI/TimerSprite.cpp
+    Classes/UI/TrophyModalBox.cpp
+    Classes/UI/WalletSprite.cpp
+    Classes/UI/YesNoDialog.cpp
      Classes/Gestures/GestureRecognizer.cpp
      Classes/Gestures/PinchGestureRecognizer.cpp 
      Classes/Gestures/GestureRecognizerUtils.cpp
@@ -81,21 +87,27 @@ list(APPEND GAME_SOURCE
      )
 list(APPEND GAME_HEADER
     Classes/AppDelegate.h
-    Classes/BouncyPowerup.h
-        Classes/Bank.h
-        Classes/Chooser.h
-    Classes/DPad.h
+    Classes/Bank.h
+    Classes/Config.h
     Classes/LevelOpened.h
-    Classes/ModalMessageBox.h
-    Classes/PopupNode.h
-    Classes/SceneGame.h
-    Classes/SceneMenu.h
     Classes/Score.h
-    Classes/ScoreLabel.h
     Classes/Snake.h
-    Classes/TimerSprite.h
-    Classes/TrophyModalBox.h
+    Classes/Store.h
     Classes/UnityAdsNativeAPI.h
+    Classes/Scenes/SceneGame.h
+    Classes/Scenes/SceneMenu.h
+    Classes/Scenes/StoreScene.h
+    Classes/UI/BouncyPowerup.h
+    Classes/UI/Chooser.h
+    Classes/UI/DPad.h
+    Classes/UI/ModalMessageBox.h
+    Classes/UI/PopupNode.h
+    Classes/UI/PowerUpIcon.h
+    Classes/UI/ScoreLabel.h
+    Classes/UI/TimerSprite.h
+    Classes/UI/TrophyModalBox.h
+    Classes/UI/WalletSprite.h
+    Classes/UI/YesNoDialog.h
     Classes/Gestures/GestureRecognizer.h
     Classes/Gestures/PinchGestureRecognizer.h
      Classes/Gestures/GestureRecognizerUtils.h 

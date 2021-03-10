@@ -7,13 +7,13 @@
 
 #include "SceneMenu.h"
 #include "SceneGame.h"
-#include "ScoreLabel.h"
-#include "Chooser.h"
+#include "UI/ScoreLabel.h"
+#include "UI/Chooser.h"
 #include "audio/include/AudioEngine.h"
 #include "extensions/cocos-ext.h"
 #include "ui/CocosGUI.h"
-#include "ModalMessageBox.h"
-#include "TrophyModalBox.h"
+#include "UI/ModalMessageBox.h"
+#include "UI/TrophyModalBox.h"
 #include "StoreScene.h"
 
 USING_NS_CC;
@@ -165,17 +165,16 @@ bool SceneMenu::init()
     
     downloadLevel();
     
-    int food = _bank.getFood();
-    int bPU = _bank.getBouncyPW();
-    CCLOG("Food: %d Bouncy: %d", food, bPU);
-
+//    _bank.getData()->alterfood(50);
+//    _bank.getData()->alterstars(20);
+//    _bank.save();
     return true;
 }
 
 void SceneMenu::openStore(cocos2d::Ref* pSender)
 {
     auto scene = StoreScene::create();
-    auto transition = TransitionFlipX::create(1, scene, TransitionScene::Orientation::LEFT_OVER);
+    auto transition = TransitionSlideInL::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }
 
@@ -216,6 +215,8 @@ void SceneMenu::resetScores()
     alert->addButton("Cancel", 30,  [=](Ref* pSender) {
         alert->ClosePopup();
     });
+    SelfSavingClass<Bank> bank;
+    bank.getData()->reset();
     
     addChild(alert);
 }

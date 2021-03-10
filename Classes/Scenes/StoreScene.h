@@ -17,6 +17,7 @@ private:
     Store* _store;
 public:
     bool init();
+    void doPurchase(Ref* pSender);
     CREATE_FUNC(StoreScene);
 };
 

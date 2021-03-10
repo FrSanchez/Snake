@@ -314,6 +314,51 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">fruit-store.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>17,19,33,38</rect>
+                <key>scale9Paddings</key>
+                <rect>17,19,33,38</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">helmet.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>29,24,57,48</rect>
+                <key>scale9Paddings</key>
+                <rect>29,24,57,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">labelbg.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>150,25,300,49</rect>
+                <key>scale9Paddings</key>
+                <rect>150,25,300,49</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">left.png</key>
             <key type="filename">right.png</key>
             <struct type="IndividualSpriteSettings">
@@ -432,6 +477,9 @@
             <filename>trophy.png</filename>
             <filename>star_p.png</filename>
             <filename>powerupbg.png</filename>
+            <filename>fruit-store.png</filename>
+            <filename>labelbg.png</filename>
+            <filename>helmet.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

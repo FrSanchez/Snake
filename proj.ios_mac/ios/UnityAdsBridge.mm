@@ -9,7 +9,7 @@
 #import "UnityAdsNativeAPI.h"
 #import "UnityAdsBridge.h"
 #import "AppController.h"
-#import "SceneMenu.h"
+#import "Scenes/SceneMenu.h"
 
 @implementation UnityAdsBridge
 

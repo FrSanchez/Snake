@@ -12,6 +12,12 @@
 #include <string>
 #include <vector>
 
+typedef struct _result {
+    bool success;
+    int purchased;
+    float paid;
+} PurchaseResult;
+
 class Store
 {
 public:
@@ -27,7 +33,7 @@ public:
     Store();
     ~Store();
     std::vector<StoreItem> getItems() { return _items; }
-    bool purchase(int itemId);
+    PurchaseResult purchase(int itemId);
 
 private:
     std::vector<StoreItem> _items;

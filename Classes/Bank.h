@@ -8,14 +8,8 @@
 #ifndef Bank_hpp
 #define Bank_hpp
 
+#include "SelfSavingClass.h"
 #include "cocos2d.h"
-
-#define ALTER(__variable__) bool alter__variable__(int qty) { \
-int newValue = __variable__ + qty; \
-if (newValue < 0) { return false;} \
-__variable__ = newValue; \
-return true; \
-    }
 
 #define CREATE_ALTER(__VAR__) \
 bool alter##__VAR__(int qty) \
@@ -29,26 +23,22 @@ bool alter##__VAR__(int qty) \
     return true; \
 }
 
-class Bank {
+class Bank
+{
 private:
-    int _bouncyPowerup;
     int _food;
     int _stars;
-    bool _dirty;
-    
-    void load();
-    
+    int _bouncyPowerup;
+       
 public:
-    Bank();
-    ~Bank();
     int getFood() { return _food; }
     int getBouncyPW() { return _bouncyPowerup; }
     int getStars() { return _stars; }
+    void reset();
 
     CREATE_ALTER(food);
     CREATE_ALTER(bouncyPowerup);
     CREATE_ALTER(stars);
-    void save();
 };
 
 #endif /* Bank_hpp */

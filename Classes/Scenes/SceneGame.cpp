@@ -7,13 +7,13 @@
 
 #include "SceneGame.h"
 #include "SceneMenu.h"
-#include "DPad.h"
+#include "UI/DPad.h"
 #include "LevelOpened.h"
-#include "TimerSprite.h"
+#include "UI/TimerSprite.h"
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
-#include "TrophyModalBox.h"
-#include "BouncyPowerup.h"
+#include "UI/TrophyModalBox.h"
+#include "UI/BouncyPowerup.h"
 
 USING_NS_CC;
 

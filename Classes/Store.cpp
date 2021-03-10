@@ -6,6 +6,7 @@
 //
 
 #include "Store.h"
+#include "SelfSavingClass.h"
 
 Store::Store()
 {
@@ -14,24 +15,36 @@ Store::Store()
     _items.push_back(StoreItem(1, 75, "extrabouncy", "Bouncy PowerUp 4pk"));
 }
 
-bool Store::purchase(int itemId)
+PurchaseResult Store::purchase(int itemId)
 {
-    Bank bank;
+    PurchaseResult result;
+    result.success = false;
+    SelfSavingClass<Bank> bank;
     auto item = _items.at(itemId);
-    if (bank.getFood() >= item.price)
+    if (bank.getData()->getFood() >= item.price)
     {
-        if (!bank.alterfood(item.price)) {
+        if (!bank.getData()->alterfood(-item.price)) {
             CCLOG("Not enough funds!");
-            return false;
+            return result;
         }
         switch(item.id) {
             case 0:
-                return bank.alterbouncyPowerup(1);
+                result.success = bank.getData()->alterbouncyPowerup(1);
+                if (result.success) {
+                    result.paid = item.price;
+                    result.purchased = 1;
+                }
+                break;
             case 1:
-                return bank.alterbouncyPowerup(4);
+                result.success = bank.getData()->alterbouncyPowerup(4);
+                if (result.success) {
+                    result.paid = item.price;
+                    result.purchased = 4;
+                }
         }
-        return true;
+        bank.save();
+        return result;
     }
     CCLOG("Not enough funds!");
-    return false;
+    return result;
 }
