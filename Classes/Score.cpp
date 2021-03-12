@@ -35,6 +35,7 @@ void Score::loadLevel(int level)
     Data data = UserDefault::getInstance()->getDataForKey(key.c_str());
     if (!_scoreByLevel[level].loaded)
     {
+        memset(&_scoreByLevel[level], 0, sizeof(ScoreData));
         if (data.getSize() > 0) {
             memcpy(&_scoreByLevel[level], data.getBytes(), data.getSize());
             _scoreByLevel[level].loaded = true;
@@ -184,5 +185,11 @@ unsigned char Score::getStars(int level)
 void Score::setStars(int level, unsigned char mask)
 {
     setLevel(level);
-    _scoreByLevel[level].stars |= mask;
+    auto stars = _scoreByLevel[level].stars;
+    stars |= mask;
+    if (stars != _scoreByLevel[level].stars)
+    {
+        _scoreByLevel[level].earnedStars++;
+    }
+    _scoreByLevel[level].stars = stars;
 }

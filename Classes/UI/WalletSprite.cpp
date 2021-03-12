@@ -33,10 +33,9 @@ bool WalletSprite::init()
     star->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     addChild(star);
     
-    SelfSavingClass<Bank> bank;
-    _food = bank.getData()->getFood();
-    _stars = bank.getData()->getStars();
-    auto str = StringUtils::format(": %d", bank.getData()->getFood());
+    _food = Bank::getInstance()->getFood();
+    _stars = Bank::getInstance()->getStars();
+    auto str = StringUtils::format(": %d", _food);
     
     auto label = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 50, Size::ZERO, TextHAlignment::LEFT);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
@@ -46,7 +45,7 @@ bool WalletSprite::init()
     label->setTag(0x80);
     addChild(label);
     
-    str = StringUtils::format(": %d", bank.getData()->getStars());
+    str = StringUtils::format(": %d", _stars);
     label = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 50, Size::ZERO, TextHAlignment::LEFT);
     label->setPosition(lblSize.width * 5/8 + star->getContentSize().width / 3 , lblSize.height/2 + 10);
     label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);

@@ -32,8 +32,8 @@ bool PowerUpIcon::initWithSpriteFrame(SpriteFrame *spriteFrame)
     if (!Sprite::initWithSpriteFrame(spriteFrame)) {
         return false;
     }
-    SelfSavingClass<Bank> bank;
-    _count = bank.getData()->getBouncyPW();
+    _count = Bank::getInstance()->getBouncyPW();
+    
     std::string str = StringUtils::format("%d", _count);
     auto  label = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 40 );
     label->setPosition(Vec2(getContentSize().width/ 2, 0));
@@ -48,14 +48,20 @@ bool PowerUpIcon::initWithSpriteFrame(SpriteFrame *spriteFrame)
 
 void PowerUpIcon::setCount(int count)
 {
-    int delta = count - _count;
+    int delta =  count - _count;
     if (delta > 1) {
         scheduleOnce([&,count](float dt) {
             setCount(count);
         }, 0.3, "setCount");
     }
-    if (delta < 1) { return; }
-    this->_count++;
+    if (delta == 0) { return; }
+    if (delta > 0) {
+        this->_count++;
+    }
+    if (delta < 0) {
+        this->_count--;
+    }
+
     auto label = (Label*)getChildByTag(0x11);
     if (label != nullptr)
     {

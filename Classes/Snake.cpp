@@ -122,7 +122,8 @@ Vec2 Snake::getPosAt(int at)
 
 void Snake::turnRight()
 {
-    if (direction.x == 0) {
+//    if (direction.x == 0)
+    {
         direction.y = 0;
         direction.x = 1;
     }
@@ -130,7 +131,8 @@ void Snake::turnRight()
 
 void Snake::turnLeft()
 {
-    if (direction.x == 0) {
+//    if (direction.x == 0)
+    {
         direction.y = 0;
         direction.x = -1;
     }
@@ -138,7 +140,8 @@ void Snake::turnLeft()
 
 void Snake::turnDown()
 {
-    if (direction.y == 0) {
+//    if (direction.y == 0)
+    {
         direction.x = 0;
         direction.y = 1;
     }
@@ -146,7 +149,8 @@ void Snake::turnDown()
 
 void Snake::turnUp()
 {
-    if (direction.y == 0) {
+//    if (direction.y == 0)
+    {
         direction.x = 0;
         direction.y = -1;
     }

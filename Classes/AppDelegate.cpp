@@ -24,6 +24,8 @@
 
 #include "AppDelegate.h"
 #include "Scenes/SceneMenu.h"
+#include "Bank.h"
+#include "Config.h"
 
 // #define USE_AUDIO_ENGINE 1
 
@@ -98,6 +100,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
+    Bank::getInstance()->save();
+    Config::getInstance()->save();
     Director::getInstance()->stopAnimation();
 
     AudioEngine::pauseAll();

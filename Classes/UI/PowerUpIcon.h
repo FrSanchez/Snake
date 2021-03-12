@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 
+#define HELMET_TAG 0xB1
+
 class PowerUpIcon : public cocos2d::Sprite
 {
 private:

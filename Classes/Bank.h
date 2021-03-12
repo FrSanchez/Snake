@@ -8,7 +8,7 @@
 #ifndef Bank_hpp
 #define Bank_hpp
 
-#include "SelfSavingClass.h"
+#include "BaseAutoSave.h"
 #include "cocos2d.h"
 
 #define CREATE_ALTER(__VAR__) \
@@ -19,22 +19,25 @@ bool alter##__VAR__(int qty) \
     { \
         return false; \
     } \
+    setDirty(); \
     _##__VAR__ = value;\
     return true; \
 }
 
-class Bank
+class Bank : public BaseAutoSave
 {
 private:
-    int _food;
-    int _stars;
-    int _bouncyPowerup;
-       
+    int _food=0;
+    int _stars=0;
+    int _bouncyPowerup=0;
+    Bank();
+
 public:
     int getFood() { return _food; }
     int getBouncyPW() { return _bouncyPowerup; }
     int getStars() { return _stars; }
-    void reset();
+    
+    static Bank* getInstance();
 
     CREATE_ALTER(food);
     CREATE_ALTER(bouncyPowerup);

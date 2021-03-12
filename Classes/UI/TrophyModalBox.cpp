@@ -105,13 +105,11 @@ void TrophyModalBox::addButton(const std::string& text, float fontSize, const cc
 void TrophyModalBox::addFood(int qty)
 {
     if (qty > 0) {
-        SelfSavingClass<Bank> bank;
-        bank.getData()->alterfood(qty);
-        
+        Bank::getInstance()->alterfood(qty);
         auto label = Label::createWithTTF(StringUtils::format("Food banked: %d", qty).c_str(), "Stick-Regular.ttf", 32);
         label->setTextColor(Color4B::WHITE);
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        label->setPosition(Vec2(_contentSize.width/2, 16));
+        label->setPosition(Vec2(_contentSize.width/2, 24));
         addChild(label);
     }
     

@@ -9,9 +9,21 @@
 
 USING_NS_CC;
 
-void Bank::reset()
+static Bank *s_SharedBank = nullptr;
+
+Bank::Bank() : BaseAutoSave("bank", this, sizeof(Bank))
 {
-    _food = 0;
-    _bouncyPowerup = 0;
-    _stars = 0;
+    
+}
+
+Bank* Bank::getInstance()
+{
+    if (!s_SharedBank)
+    {
+        s_SharedBank = new (std::nothrow) Bank;
+        CCASSERT(s_SharedBank, "FATAL: Not enough memory");
+        s_SharedBank->init();
+    }
+
+    return s_SharedBank;
 }

@@ -9,6 +9,7 @@
 #define YesNoDialog_hpp
 
 #include "PopupNode.h"
+#include "ui/CocosGUI.h"
 
 class YesNoDialog : public PopupNode
 {

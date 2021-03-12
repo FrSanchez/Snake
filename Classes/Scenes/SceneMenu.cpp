@@ -15,6 +15,7 @@
 #include "UI/ModalMessageBox.h"
 #include "UI/TrophyModalBox.h"
 #include "StoreScene.h"
+#include "Config.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -35,7 +36,6 @@ void SceneMenu::startGame(int level, std::string levelFile)
         AudioEngine::stop(_audioID);
         _audioID = AudioEngine::INVALID_AUDIO_ID;
     }
-    _bank.save();
     auto scene = SceneGame::createWithFile(level, levelFile);
     auto fade = TransitionFade::create(2, scene);
     Director::getInstance()->replaceScene(fade);
@@ -105,28 +105,19 @@ bool SceneMenu::init()
 #endif
     });
 
-    if (closeItem == nullptr ||
-        closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0)
-    {
-        log("'CloseNormal.png' and 'CloseSelected.png'");
-        return false;
-    }
-    else
-    {
-        closeItem->setScale(1.5f);
-        float x = size.width - closeItem->getContentSize().width ;
-        float y = closeItem->getContentSize().height;
-        closeItem->setPosition(Vec2(x,y));
-    }
+   
+    closeItem->setScale(1.5f);
+    float x = size.width - closeItem->getContentSize().width ;
+    float y = closeItem->getContentSize().height;
+    closeItem->setPosition(Vec2(x,y));
 
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, nullptr);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
     
-    normal = Sprite::createWithSpriteFrameName("star");
-    select = Sprite::createWithSpriteFrameName("star_p");
+    normal = Sprite::createWithSpriteFrameName("tent");
+    select = Sprite::createWithSpriteFrameName("tent");
     auto storeItem = MenuItemSprite::create(normal, select, CC_CALLBACK_1(SceneMenu::openStore, this));
     menu = Menu::create(storeItem, nullptr);
     menu->setPosition(Vec2(size.width /2, 48));
@@ -165,14 +156,15 @@ bool SceneMenu::init()
     
     downloadLevel();
     
-//    _bank.getData()->alterfood(50);
-//    _bank.getData()->alterstars(20);
-//    _bank.save();
+    Bank::getInstance()->alterfood(50);
+    Bank::getInstance()->alterstars(20);
+
     return true;
 }
 
 void SceneMenu::openStore(cocos2d::Ref* pSender)
 {
+    AudioEngine::stopAll();
     auto scene = StoreScene::create();
     auto transition = TransitionSlideInL::create(1, scene);
     Director::getInstance()->replaceScene(transition);
@@ -215,8 +207,8 @@ void SceneMenu::resetScores()
     alert->addButton("Cancel", 30,  [=](Ref* pSender) {
         alert->ClosePopup();
     });
-    SelfSavingClass<Bank> bank;
-    bank.getData()->reset();
+    Bank::getInstance()->reset();
+    Config::getInstance()->reset();
     
     addChild(alert);
 }

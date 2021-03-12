@@ -14,6 +14,13 @@
 
 class Snake
 {
+private:
+    std::vector<cocos2d::Point> body;
+    cocos2d::Vec2 direction;
+    int width;
+    int height;
+    cocos2d::TMXLayer* layer;
+
 public:
     Snake(int, int);
     
@@ -26,17 +33,11 @@ public:
     int getLength();
     cocos2d::Vec2 getPosAt(int);
     void grow();
+    cocos2d::Vec2 getDirection() { return direction; }
     int getWidth() { return width; }
     int getHeight() { return height; }
     void setLayer(cocos2d::TMXLayer*);
     bool isOccupying(cocos2d::Vec2 position);
-    
-private:
-    std::vector<cocos2d::Point> body;
-    cocos2d::Vec2 direction;
-    int width;
-    int height;
-    cocos2d::TMXLayer* layer;
 };
 
 #endif /* Snake_hpp */

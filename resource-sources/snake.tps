@@ -265,6 +265,26 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">audioOff.png</key>
+            <key type="filename">audioOn.png</key>
+            <key type="filename">movie.png</key>
+            <key type="filename">musicOff.png</key>
+            <key type="filename">musicOn.png</key>
+            <key type="filename">pause.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9Paddings</key>
+                <rect>25,25,50,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">body.png</key>
             <key type="filename">fruit.png</key>
             <key type="filename">head.png</key>
@@ -279,6 +299,26 @@
                 <rect>8,8,16,16</rect>
                 <key>scale9Paddings</key>
                 <rect>8,8,16,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">check_box_active.png</key>
+            <key type="filename">check_box_active_disable.png</key>
+            <key type="filename">check_box_active_press.png</key>
+            <key type="filename">check_box_normal.png</key>
+            <key type="filename">check_box_normal_disable.png</key>
+            <key type="filename">check_box_normal_press.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,14,28,28</rect>
+                <key>scale9Paddings</key>
+                <rect>14,14,28,28</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -375,6 +415,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">pause-press.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,16,28,33</rect>
+                <key>scale9Paddings</key>
+                <rect>14,16,28,33</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">popup.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -420,6 +475,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">rewind-press.png</key>
+            <key type="filename">rewind.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>19,16,38,32</rect>
+                <key>scale9Paddings</key>
+                <rect>19,16,38,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">star.png</key>
             <key type="filename">star_p.png</key>
             <struct type="IndividualSpriteSettings">
@@ -433,6 +504,21 @@
                 <rect>16,16,33,33</rect>
                 <key>scale9Paddings</key>
                 <rect>16,16,33,33</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">tent.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>23,19,46,37</rect>
+                <key>scale9Paddings</key>
+                <rect>23,19,46,37</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -480,6 +566,22 @@
             <filename>fruit-store.png</filename>
             <filename>labelbg.png</filename>
             <filename>helmet.png</filename>
+            <filename>tent.png</filename>
+            <filename>check_box_active.png</filename>
+            <filename>check_box_active_disable.png</filename>
+            <filename>check_box_active_press.png</filename>
+            <filename>check_box_normal.png</filename>
+            <filename>check_box_normal_disable.png</filename>
+            <filename>check_box_normal_press.png</filename>
+            <filename>pause.png</filename>
+            <filename>rewind.png</filename>
+            <filename>movie.png</filename>
+            <filename>musicOff.png</filename>
+            <filename>musicOn.png</filename>
+            <filename>audioOff.png</filename>
+            <filename>audioOn.png</filename>
+            <filename>pause-press.png</filename>
+            <filename>rewind-press.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

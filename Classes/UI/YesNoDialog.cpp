@@ -6,6 +6,7 @@
 //
 
 #include "YesNoDialog.h"
+#include "Config.h"
 
 USING_NS_CC;
 
@@ -36,15 +37,15 @@ bool YesNoDialog::initWithTitle(const std::string &title, const std::string &tex
         return false;
     }
     if (title.length() > 0) {
-        auto label = Label::createWithTTF(title, "Stick-Regular.ttf", 40);
+        auto label = Label::createWithTTF(title, "Stick-Regular.ttf", 38);
         label->setPosition(Vec2(getContentSize().width /2, getContentSize().height - 32));
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         addChild(label);
     }
     if (text.length() > 0) {
-        TTFConfig ttfConfig("Stick-Regular.ttf", 30);
+        TTFConfig ttfConfig("Stick-Regular.ttf", 28);
         auto label = Label::createWithTTF(ttfConfig, text, TextHAlignment::CENTER, getContentSize().width * 0.8);
-        label->setPosition(Vec2(getContentSize().width / 2, getContentSize().height / 2));
+        label->setPosition(Vec2(getContentSize().width / 2, getContentSize().height * 2 / 3));
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         addChild(label);
     }
@@ -67,6 +68,32 @@ bool YesNoDialog::initWithTitle(const std::string &title, const std::string &tex
         ClosePopup();
     });
     
+    auto checkbox = cocos2d::ui::CheckBox::create("check_box_normal",
+                                                  "check_box_normal_press",
+                                                  "check_box_active",
+                                                  "check_box_normal_disable",
+                                                  "check_box_active_disable", cocos2d::ui::AbstractCheckButton::TextureResType::PLIST);
+    checkbox->setSelected(true);
+
+    auto label = Label::createWithTTF("Don't show this again", "Stick-Regular.ttf", 26);
+    label->setPosition(Vec2(getContentSize().width / 2 + checkbox->getContentSize().width / 2, getContentSize().height / 3));
+    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    addChild(label);
+    
+    checkbox->setPosition(Vec2(-checkbox->getContentSize().width, checkbox->getContentSize().height / 2 - 6));
+    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    label->addChild(checkbox);
+
+    checkbox->addEventListener([=](Ref* ref, cocos2d::ui::CheckBox::EventType event){
+        if (event == cocos2d::ui::CheckBox::EventType::SELECTED) {
+            Config::getInstance()->setShowPurchase(true);
+            log("Enabled");
+        }else{
+            Config::getInstance()->setShowPurchase(false);
+            log("Disabled");
+        }
+    });
+
     return true;
 }
 

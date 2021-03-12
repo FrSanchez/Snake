@@ -19,6 +19,8 @@
 #include "Gestures/SwipeGestureRecognizer.h"
 #include "Gestures/LongPressGestureRecognizer.h"
 #include "Gestures/PanGestureRecognizer.h"
+#include "UI/PowerUpIcon.h"
+#include "Bank.h"
 
 #include <string>
 

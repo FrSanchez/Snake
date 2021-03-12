@@ -14,6 +14,7 @@
 #include "Gestures/GestureRecognizerUtils.h"
 #include "UI/TrophyModalBox.h"
 #include "UI/BouncyPowerup.h"
+#include "UI/PauseButton.h"
 
 USING_NS_CC;
 
@@ -132,7 +133,16 @@ bool SceneGame::init(int level, std::string levelFile)
     timer->setTag(TIMER_TAG);
     timer->setOnTimerEndCallback(CC_CALLBACK_0(SceneGame::onTimerEnd, this));
     addChild(timer);
-        
+    
+    auto bouncy = PowerUpIcon::createWithImage("helmet");
+    bouncy->setPosition(Vec2(128, 128));
+    bouncy->setTag(HELMET_TAG);
+    addChild(bouncy);
+    
+    auto pause = PauseButton::create();
+    pause->setPosition(Vec2(size.width - pause->getContentSize().width, pause->getContentSize().height));
+    addChild(pause);
+
     return true;
 }
 
@@ -241,6 +251,7 @@ void SceneGame::checkForOpenLevel()
             auto label = static_cast<LevelOpened*>(getChildByTag(LEVEL_OPENED_TAG));
             label->display();
             _score.setMaxLevel(nextLevel);
+            _score.setStars(_level, 0x1);
         }
     }
 }
@@ -279,25 +290,33 @@ void SceneGame::updateTimer(float dt)
         eat();
     }
     if (!snake.canAdvance()) {
-        auto powerup = BouncyPowerup::create();
-        powerup->setOnCancel([&,powerup](Ref* pSender){
+        auto bouncy = (PowerUpIcon*)getChildByTag(HELMET_TAG);
+        if (bouncy->getCount() > 0) {
+            auto powerup = BouncyPowerup::create();
+            powerup->setOnCancel([&,powerup](Ref* pSender){
+                collide();
+                powerup->ClosePopup();
+                Director::getInstance()->resume();
+            });
+            powerup->setOnSelection([&,powerup, bouncy](int dir){
+                log("change direction %d", dir);
+                onDpad(dir);
+                if (!snake.canAdvance()) {
+                    return;
+                }
+                powerup->ClosePopup();
+                bouncy->setCount(bouncy->getCount() - 1);
+                Bank::getInstance()->alterbouncyPowerup(-1);
+                Director::getInstance()->resume();
+                schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+            });
+            addChild(powerup);
+            Director::getInstance()->pause();
+            return;
+        } else {
+            log("No powerup");
             collide();
-            powerup->ClosePopup();
-            Director::getInstance()->resume();
-        });
-        powerup->setOnSelection([&,powerup](int dir){
-            log("change direction %d", dir);
-            onDpad(dir);
-            if (!snake.canAdvance()) {
-                return;
-            }
-            powerup->ClosePopup();
-            Director::getInstance()->resume();
-            schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
-        });
-        addChild(powerup);
-        Director::getInstance()->pause();
-        return;
+        }
     }
     snake.advance();
     Vec2 headPos = snake.getPosAt(0);
@@ -445,12 +464,11 @@ void SceneGame::closeScene(Ref* pSender)
     _score.setSnakeLength(_level, snake.getLength());
 
     if (snake.getLength() >= (target+4)) {
-        _score.setStars(_level, 0x1);
-    }
-    if (accuracy > 99) {
         _score.setStars(_level, 0x2);
     }
-    _score.setStars(_level, 0xf);
+    if (accuracy > 99) {
+        _score.setStars(_level, 0x4);
+    }
     _score.flush();
 
     unscheduleAllCallbacks();

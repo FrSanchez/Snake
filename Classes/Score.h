@@ -23,6 +23,7 @@ private:
         int snakeLength;
         float time;
         bool loaded = false;
+        unsigned char earnedStars = 0;
     } ScoreData;
     std::map<int, ScoreData> _scoreByLevel;
     int _level;

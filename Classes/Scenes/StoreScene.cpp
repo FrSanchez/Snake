@@ -11,6 +11,7 @@
 #include "UI/WalletSprite.h"
 #include "UI/YesNoDialog.h"
 #include "UI/PowerUpIcon.h"
+#include "Config.h"
 
 USING_NS_CC;
 
@@ -62,9 +63,14 @@ bool StoreScene::init()
         auto label = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 46);
         label->setTextColor(Color4B::ORANGE);
         auto mItem = MenuItemLabel::create(label, [&, item](Ref* s){
-            auto dialog = YesNoDialog::createWithTitle("Purchase powerup", "All sales are final, are you sure?", CC_CALLBACK_1(StoreScene::doPurchase, this), nullptr);
-            dialog->setTag(item.id);
-            addChild(dialog);
+            if (Config::getInstance()->getShowPurchase())
+            {
+                auto dialog = YesNoDialog::createWithTitle("Purchase powerup", "All sales are final, are you sure?", CC_CALLBACK_1(StoreScene::doPurchase, this), nullptr);
+                dialog->setTag(item.id);
+                addChild(dialog);
+            } else {
+                doPurchase(s);
+            }
         });
         mItem->setTag(item.id);
         menu->addChild(mItem);
