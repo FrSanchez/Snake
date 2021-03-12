@@ -21,6 +21,8 @@ bool TrophyModalBox::init()
     rays->setPosition(Vec2(_contentSize.width / 2, _contentSize.height - 32));
     rays->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     rays->setLocalZOrder(-1);
+    rays->setTag(0xf00);
+    rays->setVisible(false);
     addChild(rays);
     
     auto rot1 = RotateBy::create(30, 360*2.0f);
@@ -35,7 +37,7 @@ bool TrophyModalBox::init()
     addChild(menu);
     
     auto trophy = Sprite::createWithSpriteFrameName("trophy");
-    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 - 30));
+    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2));
     trophy->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     addChild(trophy);
     
@@ -62,6 +64,8 @@ bool TrophyModalBox::init()
 void TrophyModalBox::addStar(int starNum)
 {
     if (starNum >= 0 & starNum < 3) {
+        auto rays = (Sprite*)getChildByTag(0xf00);
+        rays->setVisible(true);
         scheduleOnce([&, starNum](float dt) {
                 auto star = Sprite::createWithSpriteFrameName("star");
                 star->setPosition(Vec2(_contentSize.width / 2 + offX[starNum], _contentSize.height / 2 + offY[starNum]));
@@ -106,10 +110,10 @@ void TrophyModalBox::addFood(int qty)
 {
     if (qty > 0) {
         Bank::getInstance()->alterfood(qty);
-        auto label = Label::createWithTTF(StringUtils::format("Food banked: %d", qty).c_str(), "Stick-Regular.ttf", 32);
+        auto label = Label::createWithTTF(StringUtils::format("Food earned: %d", qty).c_str(), "Stick-Regular.ttf", 32);
         label->setTextColor(Color4B::WHITE);
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        label->setPosition(Vec2(_contentSize.width/2, 24));
+        label->setPosition(Vec2(_contentSize.width/2, 36));
         addChild(label);
     }
     

@@ -15,6 +15,7 @@
 #include "UI/TrophyModalBox.h"
 #include "UI/BouncyPowerup.h"
 #include "UI/PauseButton.h"
+#include "Config.h"
 
 USING_NS_CC;
 
@@ -108,11 +109,12 @@ bool SceneGame::init(int level, std::string levelFile)
     lastFood = arc4random() % 5 + 1;
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
 
-    _audioId = AudioEngine::play2d("Arcade-Puzzler.mp3", true, 0.7f);
-    
-    if(_audioId != AudioEngine::INVALID_AUDIO_ID) {
-        log("Can't play background music");
-    }
+    if (Config::getInstance()->getAudio()) {
+        _audioId = AudioEngine::play2d("Arcade-Puzzler.mp3", true, 0.7f);
+        if(_audioId != AudioEngine::INVALID_AUDIO_ID) {
+            log("Can't play background music");
+        }
+    }    
     
     auto dpad = new DPad();
     dpad->setPosition(Vec2(240, 32));
@@ -233,13 +235,20 @@ void SceneGame::eat()
     _map->addChild(sprite, 0);
     snakeSpeed *= 0.95f;
     _score.addScore(_level, 10);
-    AudioEngine::play2d("munch.wav", false, 1.0f);
+    playEffect("munch.wav");
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
     checkForOpenLevel();
     
     auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
     timer->stop();
 
+}
+
+void SceneGame::playEffect(const std::string &effect)
+{
+    if (Config::getInstance()->getEffects()) {
+        AudioEngine::play2d(effect, false, 1.0f);
+    }
 }
 
 void SceneGame::checkForOpenLevel()
@@ -269,7 +278,7 @@ void SceneGame::collide()
         AudioEngine::stop(_audioId);
         _audioId = AudioEngine::INVALID_AUDIO_ID;
     }
-    AudioEngine::play2d("crash.wav", false, 1.0f);
+    playEffect("crash.wav");
 
     if (apple != nullptr && food != Vec2::ZERO) {
         auto fadeOut = FadeOut::create(1.0f);
