@@ -25,6 +25,7 @@ private:
     void setMusicIcon();
     void setEffectsIcon();
     void setWarnIcon();
+    void onEULA(Ref* s);
 
 public:
     bool init();

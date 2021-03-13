@@ -8,8 +8,10 @@
 #include "SettingsScene.h"
 #include "SceneMenu.h"
 #include "audio/include/AudioEngine.h"
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
+using namespace cocos2d::ui;
 
 bool SettingsScene::init()
 {
@@ -31,12 +33,13 @@ bool SettingsScene::init()
     effects->setTag(0xa01);
     auto warn = IconButton::createWithIconAndText("gear", "Warn on Purchase", CC_CALLBACK_1(SettingsScene::onCheckbox, this));
     warn->setTag(0xa02);
+    auto eula = IconButton::createWithIconAndText("information", "License Agreement", CC_CALLBACK_1(SettingsScene::onEULA, this));
 //    auto rate;
 //    auto gameplay;
 //    auto theme;
 //    auto contactUs;
     
-    auto menu = Menu::create(music, effects, warn, nullptr);
+    auto menu = Menu::create(music, effects, warn, eula, nullptr);
     menu->setTag(0x100);
     addChild(menu);
     menu->alignItemsVertically();
@@ -62,7 +65,7 @@ bool SettingsScene::init()
     setMusicIcon();
     setEffectsIcon();
     setWarnIcon();
-
+    
     return true;
 }
 
@@ -85,6 +88,12 @@ void SettingsScene::setWarnIcon()
     auto icon = Config::getInstance()->getShowPurchase()? "check_box_active" : "check_box_normal";
     auto button = dynamic_cast<IconButton*>((Node*)getChildByTag(0x100)->getChildByTag(0xa02));
     button->setIcon(icon);
+}
+
+
+void SettingsScene::onEULA(Ref *s)
+{
+    Application::getInstance()->openURL("https://sanchezparralabs.com/eula.html");
 }
 
 
