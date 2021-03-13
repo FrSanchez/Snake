@@ -9,19 +9,22 @@
 #include "SceneGame.h"
 #include "UI/ScoreLabel.h"
 #include "UI/Chooser.h"
-#include "audio/include/AudioEngine.h"
 #include "extensions/cocos-ext.h"
 #include "ui/CocosGUI.h"
 #include "UI/ModalMessageBox.h"
 #include "UI/TrophyModalBox.h"
 #include "StoreScene.h"
 #include "Config.h"
+#include "SettingsScene.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
 
 SceneMenu::SceneMenu()
 {
+    _audioProfile.name = "Music";
+    _audioProfile.maxInstances = 1;
+    _audioProfile.minDelay = 1.0;
     downloader.reset(new network::Downloader());
 }
 
@@ -116,10 +119,15 @@ bool SceneMenu::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
     
-    normal = Sprite::createWithSpriteFrameName("tent");
-    select = Sprite::createWithSpriteFrameName("tent");
+    normal = Sprite::createWithSpriteFrameName("shoppingCart");
+    select = Sprite::createWithSpriteFrameName("shoppingCart-pressed");
     auto storeItem = MenuItemSprite::create(normal, select, CC_CALLBACK_1(SceneMenu::openStore, this));
-    menu = Menu::create(storeItem, nullptr);
+    
+    auto gear = Sprite::createWithSpriteFrameName("gear");
+    auto gearp = Sprite::createWithSpriteFrameName("gear-pressed");
+    auto settingsItem = MenuItemSprite::create(gear, gearp, CC_CALLBACK_1(SceneMenu::openSettings, this));
+    menu = Menu::create(storeItem, settingsItem, nullptr);
+    menu->alignItemsHorizontally();
     menu->setPosition(Vec2(size.width /2, 48));
     addChild(menu);
     
@@ -137,7 +145,9 @@ bool SceneMenu::init()
         label->enableShadow(grey, Size(offset.x, offset.y), 50);
     }, "shadow");
         
-    _audioID = AudioEngine::play2d("Bonkers-for-Arcades.mp3", true, 0.7f);
+    if (Config::getInstance()->getAudio()) {
+        _audioID = AudioEngine::play2d("Bonkers-for-Arcades.mp3", true, 1, &_audioProfile);
+    }
     
     if(_audioID != AudioEngine::INVALID_AUDIO_ID) {
         log("Can't play background music");
@@ -162,9 +172,16 @@ bool SceneMenu::init()
     return true;
 }
 
+void SceneMenu::openSettings(cocos2d::Ref* pSender)
+{
+    auto scene = SettingsScene::create();
+    auto transition = TransitionSlideInL::create(1, scene);
+    Director::getInstance()->replaceScene(transition);
+}
+
 void SceneMenu::openStore(cocos2d::Ref* pSender)
 {
-    AudioEngine::stopAll();
+//    AudioEngine::stopAll();
     auto scene = StoreScene::create();
     auto transition = TransitionSlideInL::create(1, scene);
     Director::getInstance()->replaceScene(transition);

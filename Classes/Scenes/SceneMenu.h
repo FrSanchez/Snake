@@ -14,6 +14,7 @@
 #include "UnityAdsNativeAPI.h"
 #include "UI/Chooser.h"
 #include "Bank.h"
+#include "audio/include/AudioEngine.h"
 
 class SceneMenu : public cocos2d::Scene
 {
@@ -32,6 +33,7 @@ private:
     long _file;
     std::vector<std::string> findLevels();
     Score _score;
+    cocos2d::AudioProfile _audioProfile;
     
     std::unique_ptr<cocos2d::network::Downloader> downloader;
     
@@ -54,6 +56,7 @@ public:
     
     void downloadLevel();
     void openStore(cocos2d::Ref* pSender);
+    void openSettings(cocos2d::Ref* pSender);    
     
     // Unity Ads
     void rewardPlayer(const char *placementId);

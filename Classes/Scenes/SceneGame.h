@@ -36,6 +36,7 @@ public:
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
     static cocos2d::Scene* createWithFile(int, std::string);
+    void playEffect(const std::string &effect);
     
 private:
     Snake snake = Snake(0,0);

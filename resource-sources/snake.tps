@@ -267,6 +267,7 @@
             </struct>
             <key type="filename">audioOff.png</key>
             <key type="filename">audioOn.png</key>
+            <key type="filename">gear.png</key>
             <key type="filename">movie.png</key>
             <key type="filename">musicOff.png</key>
             <key type="filename">musicOn.png</key>
@@ -299,6 +300,22 @@
                 <rect>8,8,16,16</rect>
                 <key>scale9Paddings</key>
                 <rect>8,8,16,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">button-pressed.png</key>
+            <key type="filename">button.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>150,32,300,64</rect>
+                <key>scale9Paddings</key>
+                <rect>150,32,300,64</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -366,6 +383,22 @@
                 <rect>17,19,33,38</rect>
                 <key>scale9Paddings</key>
                 <rect>17,19,33,38</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">gear-pressed.png</key>
+            <key type="filename">shoppingCart-pressed.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>28,28,56,56</rect>
+                <key>scale9Paddings</key>
+                <rect>28,28,56,56</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -491,6 +524,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">shoppingCart.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>28,28,56,55</rect>
+                <key>scale9Paddings</key>
+                <rect>28,28,56,55</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">star.png</key>
             <key type="filename">star_p.png</key>
             <struct type="IndividualSpriteSettings">
@@ -582,6 +630,12 @@
             <filename>audioOn.png</filename>
             <filename>pause-press.png</filename>
             <filename>rewind-press.png</filename>
+            <filename>button-pressed.png</filename>
+            <filename>button.png</filename>
+            <filename>gear.png</filename>
+            <filename>shoppingCart-pressed.png</filename>
+            <filename>shoppingCart.png</filename>
+            <filename>gear-pressed.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
