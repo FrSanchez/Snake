@@ -22,13 +22,15 @@ private:
 
 public:
     bool getShowPurchase() { return _showPurchase; }
-    void setShowPurchase(bool value);
     bool getAudio() { return _audio; }
     bool getEffects() { return _effects; }
-    void setAudio(bool audio) { _audio = audio; }
-    void setEffects(bool effects) { _effects = effects; }
     time_t getNextAd() { return nextAd; }
-    void setNextAd(time_t value) { nextAd = value; }
+
+    void setShowPurchase(bool value);
+    void setAudio(bool audio) { _audio = audio; setDirty(); }
+    void setEffects(bool effects) { _effects = effects; setDirty(); }
+    void setNextAd(time_t value) { nextAd = value; setDirty(); }
+
     static Config* getInstance();
 };
 

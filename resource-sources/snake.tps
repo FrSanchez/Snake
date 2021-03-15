@@ -574,6 +574,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">sliderProgress.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>63,3,125,7</rect>
+                <key>scale9Paddings</key>
+                <rect>63,3,125,7</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">star.png</key>
             <key type="filename">star_p.png</key>
             <struct type="IndividualSpriteSettings">
@@ -678,6 +693,7 @@
             <filename>repeat_pressed.png</filename>
             <filename>repeat-bt-pressed.png</filename>
             <filename>repeat-normal.png</filename>
+            <filename>sliderProgress.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -39,6 +39,7 @@ bool TrophyModalBox::init()
     auto trophy = Sprite::createWithSpriteFrameName("trophy");
     trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 32));
     trophy->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    trophy->setName("trophy");
     addChild(trophy);
     
     // level label on trophy
@@ -127,8 +128,11 @@ void TrophyModalBox::start()
     auto pct = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 32);
     pct->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     pct->setPosition(Vec2(label->getContentSize().width, 0));
-    label->setPosition(Vec2(_contentSize.width / 2 - pct->getContentSize().width / 2, _contentSize.height / 2 - 120));
+    
+    auto trophy = getChildByName("trophy");
+    label->setPosition(Vec2(_contentSize.width / 2 - pct->getContentSize().width / 2, trophy->getPosition().y - trophy->getContentSize().height / 2 - 20 ));
     label->addChild(pct);
+    
     auto stars = _score.getStars(_level);
     addStar(0);
     schedule((SEL_SCHEDULE)&TrophyModalBox::showPct);

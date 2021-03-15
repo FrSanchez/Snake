@@ -52,6 +52,7 @@ bool SettingsScene::init()
         auto scene = SceneMenu::create();
         auto transition = TransitionSlideInR::create(1, scene);
         Director::getInstance()->replaceScene(transition);
+        Config::getInstance()->save();
     });
     
     float x = size.width - closeItem->getContentSize().width ;

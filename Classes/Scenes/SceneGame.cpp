@@ -97,17 +97,17 @@ bool SceneGame::init(int level, std::string levelFile)
 //    auto label = Label::createWithTTF(levelstr.c_str(), "Arcade.ttf", 64);
 //    label->setPosition(Vec2(size.width/2, size.height - 32));
 //    addChild(label);
-    
-    auto pos = Label::createWithTTF("0, 0", "arial.ttf", 32);
-    pos->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
-    pos->setPosition(Vec2(0, 0));
-    addChild(pos, 10, 0x10);
 
     scoreLabel = Label::createWithTTF("SCORE: 0", "Arcade.ttf", 64, Size::ZERO, TextHAlignment::CENTER);
     scoreLabel->setPosition(Vec2(size.width / 2, size.height - scoreLabel->getContentSize().height));
-    scoreLabel->setTextColor( Color4B::RED );
-    scoreLabel->enableOutline(Color4B::YELLOW,3);
-    scoreLabel->enableShadow(Color4B::GREEN);
+    // Analogous colors - Ground: #c0f228
+    scoreLabel->setTextColor ( Color4B(0xF2, 0xBF, 0x28, 0xFF) );
+//    scoreLabel->enableShadow (Color4B(0x5B, 0xF2, 0x28, 0xFF));
+
+    // Analogous - Border: #5ccf30
+//    scoreLabel->enableShadow( Color4B(0x30, 0x5C, 0xCF, 0xFF) );
+//    scoreLabel->setTextColor(Color4B(0xcf, 0x30, 0x5c, 0xFF));
+
     addChild(scoreLabel, 10);
     
     addChild(LevelOpened::create(level + 1));
@@ -392,30 +392,41 @@ void SceneGame::updateTimer(float dt)
     auto gid = _map->getLayer("layer0")->getTileGIDAt(headPos);
     for(auto i = 0; i < snake.getLength(); i++) {
         auto moveTo = MoveTo::create(snakeSpeed, Vec2(snake.getPosAt(i).x, snake.getHeight() - snake.getPosAt(i).y) * tileSize.width);
-        body.at(i)->runAction(moveTo);
-    }
-    {
-//        auto array = PointArray::create(5);
-//        auto pos = body.at(0)->getPosition();
-//        auto posF =Vec2(snake.getPosAt(0).x, snake.getHeight() - snake.getPosAt(0).y) * tileSize.width;
-//        array->addControlPoint(pos);
-//        array->addControlPoint(Vec2((pos.x + posF.x) / 4, (pos.y + posF.y)/2 ));
-//        array->addControlPoint(posF);
-//        auto action = CardinalSplineTo::create(snakeSpeed, array, 0);
-//        auto end = MoveTo::create(0, posF);
-//        auto seq = Sequence::create(action, end, nullptr);
-//        body.at(0)->runAction(seq);
-    }
-    auto label = getChildByTag<Label*>(0x10);
-    if (label != nullptr) {
-        auto posStr = StringUtils::format("%.1f,%.1f : %d", headPos.x, headPos.y, layer->getTileGIDAt(headPos));
-        label->setString(posStr);
+        body.at(i)->runAction(calcSnakeMove(i));
     }
     auto pos = snake.getPosAt(0);
     auto moveBy = calcViewPointCenter();
     _map->runAction(MoveTo::create(snakeSpeed, moveBy));
 
     schedule(CC_SCHEDULE_SELECTOR(SceneGame::updateTimer), snakeSpeed, 0, 0);
+}
+
+Action* SceneGame::calcSnakeMove(int link)
+{
+    auto posF = Vec2(snake.getPosAt(link).x, snake.getHeight() - snake.getPosAt(link).y) * tileSize.width;
+    Vec2 pos = body.at(link)->getPosition();
+    auto delta = posF - pos;
+    float dx = (link % 2) ? -1 : 1;
+    MoveBy* mb;
+    if(snake.getDirection().x == 0) {
+        if (fmod(snake.getPosAt(link).y, 2) >= 1) {
+            dx = -dx;;
+        }
+        dx *= tileSize.width / 4;
+        mb = MoveBy::create(snakeSpeed / 2, Vec2(dx, 0));
+    } else {
+        if (fmod(snake.getPosAt(link).x, 2) >= 1) {
+            dx = -dx;
+        }
+        dx *= tileSize.width / 4;
+        mb = MoveBy::create(snakeSpeed /2 , Vec2(0, dx));
+    }
+    auto seq = Sequence::create(mb, mb->reverse(), nullptr);
+
+    auto move = MyMoveTo::create(snakeSpeed, posF);
+    if ( !(link%2)) return move;
+    auto spawn = Spawn::createWithTwoActions(seq, move);
+    return spawn;
 }
 
 void SceneGame::scoreByLiving(float dt)

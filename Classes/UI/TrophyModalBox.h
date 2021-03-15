@@ -20,7 +20,7 @@ class TrophyModalBox : public PopupNode
 {
 private:
     constexpr static const float offX[] = { -100, 0, 100 };
-    constexpr static const float offY[] = { 172, 200, 172 };
+    constexpr static const float offY[] = { 125, 150, 125 };
 
     cocos2d::Menu* menu;
     std::function<void(const int)> callback;

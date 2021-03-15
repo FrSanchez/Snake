@@ -21,6 +21,7 @@
 #include "Gestures/PanGestureRecognizer.h"
 #include "UI/PowerUpIcon.h"
 #include "Bank.h"
+#include "MyMoveTo.h"
 
 #include <string>
 
@@ -63,7 +64,7 @@ private:
     void scoreByLiving(float dt);
     
     void initBody();
-    
+    cocos2d::Action* calcSnakeMove(int link);
     void addFood(float dt);
     void eat();
     void collide();
