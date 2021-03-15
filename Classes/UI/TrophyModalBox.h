@@ -24,13 +24,23 @@ private:
 
     cocos2d::Menu* menu;
     std::function<void(const int)> callback;
+    int _target = 0;
+    int _eaten = 0;
+    Score _score;
+    int _level;
+    float _pctValue;
     
 public:
     bool init();
-    void addButton(const std::string& text, float fontSize, const cocos2d::ccMenuCallback& callback);
+    void addButton(const std::string& text, const std::string &pressed, float fontSize, const cocos2d::ccMenuCallback& callback);
     void setLevel(int level);
     void addStar(int star);
     void addFood(int qty = 0);
+    void setTarget(int value) { _target = value; }
+    void setEaten(int value) { _eaten = value; }
+    void start();
+    void setScore(Score score) { _score = score; }
+    void showPct(float dt);
     CREATE_FUNC(TrophyModalBox);
 };
 

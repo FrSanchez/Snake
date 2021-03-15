@@ -21,6 +21,7 @@ bool alter##__VAR__(int qty) \
     } \
     setDirty(); \
     _##__VAR__ = value;\
+    save(); \
     return true; \
 }
 

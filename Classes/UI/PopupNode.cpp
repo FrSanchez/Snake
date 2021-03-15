@@ -25,7 +25,7 @@ bool PopupNode::init()
 
 std::string PopupNode::getBackgroundFrameName()
 {
-    return "popup";
+    return "powerupbg";
 }
 
 void PopupNode::BlockPassingTouch()

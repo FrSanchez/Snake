@@ -19,10 +19,13 @@ More sounds:
 * https://freesound.org/people/likeclockwork/sounds/168313/
 
 ## TODO
-[ ] Add red icon to go home from trophy instead of OK
-[ ] Remove trophy when not won any stars
+[x] Add red icon to go home from trophy instead of OK
+[x] Remove trophy when not won any stars
 [ ] Add stats like food eaten and time instead of trophy - to show how to earn stars
 [ ] Change purchase menu to use IconButton - and change images to show different menu
 [ ] Add an exit to home button in GameScene
 [ ] Add a level chooser to show number of stars in the level
+[ ] Fix trophy dialog that shows overlapped strings
+[ ] Get a better image for the progress bar
+[ ] animate the progress bar
 

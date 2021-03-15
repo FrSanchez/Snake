@@ -33,28 +33,23 @@ bool TrophyModalBox::init()
     menu = Menu::create( );
     menu->setAnchorPoint(Vec2(0.5, 0.5));
     menu->alignItemsHorizontallyWithPadding(50);
-    menu->setPosition(Vec2(_contentSize.width/4 , _contentSize.height/3 ));
+    menu->setPosition(Vec2(_contentSize.width/2 , _contentSize.height/2 ));
     addChild(menu);
     
     auto trophy = Sprite::createWithSpriteFrameName("trophy");
-    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2));
+    trophy->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 32));
     trophy->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     addChild(trophy);
     
-    TTFConfig ttfConfig("Marker Felt.ttf", 50);
-    auto label = Label::createWithTTF(ttfConfig, "", TextHAlignment::CENTER, getContentSize().width * 0.8);
-    label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setTextColor(Color4B::RED);
-    label->enableOutline(Color4B::BLACK, 1);
-    label->setTag(0x11);
-    label->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 30));
-    addChild(label);
-    
-    for (int i = 0; i < 3; i++) {
-        auto star = Sprite::createWithSpriteFrameName("star_p");
-        star->setPosition(Vec2(_contentSize.width / 2 + offX[i], _contentSize.height / 2 + offY[i]));
-        addChild(star);
-    }
+    // level label on trophy
+//    TTFConfig ttfConfig("Marker Felt.ttf", 50);
+//    auto label = Label::createWithTTF(ttfConfig, "", TextHAlignment::CENTER, getContentSize().width * 0.8);
+//    label->setAnchorPoint(Vec2(0.5, 0.5));
+//    label->setTextColor(Color4B::RED);
+//    label->enableOutline(Color4B::BLACK, 1);
+//    label->setTag(0x11);
+//    label->setPosition(Vec2(_contentSize.width/2, _contentSize.height/2 + 30));
+//    addChild(label);
     
     setScale(0.5);
     runAction(ScaleTo::create(0.2, 1));
@@ -78,32 +73,20 @@ void TrophyModalBox::addStar(int starNum)
 
 void TrophyModalBox::setLevel(int level)
 {
-    auto label = static_cast<Label*>(getChildByTag(0x11));
-    label->setString(StringUtils::format("%d", level));
-    Score score = Score();
-    auto stars = score.getStars(level);
-    if (stars & 0x1) {
-        addStar(0);
-    }
-    if (stars & 0x2) {
-        addStar(1);
-    }
-    if (stars & 0x4) {
-        addStar(2);
-    }
+    _level = level;
+//    auto label = static_cast<Label*>(getChildByTag(0x11));
+//    label->setString(StringUtils::format("%d", _level));
 }
 
-void TrophyModalBox::addButton(const std::string& text, float fontSize, const ccMenuCallback& callback) {
-    
-    auto label = Label::createWithTTF(text, "Stick-Regular.ttf", fontSize);
-    label->setAnchorPoint(Vec2(0.5, 0.5));
-    label->setTextColor(Color4B::WHITE);
-    label->enableOutline(Color4B::GRAY, 1);
-    
-    auto item = MenuItemLabel::create(label, callback);
-    item->setTag((int)menu->getChildrenCount());
+void TrophyModalBox::addButton(const std::string& normal, const std::string &pressed, float fontSize, const ccMenuCallback& callback) {
+    auto b = Sprite::createWithSpriteFrameName(normal);
+    auto bp = Sprite::createWithSpriteFrameName(pressed);
+    auto item = MenuItemSprite::create(b, bp, callback);
+    if (fontSize < 10) {
+        item->setVisible(false);
+    }
     menu->addChild(item);
-    menu->alignItemsHorizontallyWithPadding(20);
+    menu->alignItemsHorizontally();
 }
 
 void TrophyModalBox::addFood(int qty)
@@ -116,5 +99,44 @@ void TrophyModalBox::addFood(int qty)
         label->setPosition(Vec2(_contentSize.width/2, 36));
         addChild(label);
     }
-    
+}
+
+void TrophyModalBox::showPct(float dt)
+{
+    Node::update(dt);
+    auto pct = (Label*)getChildByTag(0xa01)->getChildren().front();
+    float top = (float)_eaten / (float)_target;
+    if (pct != nullptr && _pctValue < top) {
+        _pctValue += dt / 2;
+        _pctValue = clampf(_pctValue, 0.25, top);
+        auto str = StringUtils::format("%.0f%%", _pctValue * 100);
+        pct->setString(str.c_str());
+    }
+}
+
+void TrophyModalBox::start()
+{
+    auto label = Label::createWithTTF("ACCURACY: ", "Stick-Regular.ttf", 32);
+    label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    label->setTag(0xa01);
+    addChild(label);
+
+    _pctValue = MIN(0.25, (float)_eaten / _target);
+    auto str = StringUtils::format("%.0f%%", _pctValue * 100);
+
+    auto pct = Label::createWithTTF(str.c_str(), "Stick-Regular.ttf", 32);
+    pct->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    pct->setPosition(Vec2(label->getContentSize().width, 0));
+    label->setPosition(Vec2(_contentSize.width / 2 - pct->getContentSize().width / 2, _contentSize.height / 2 - 120));
+    label->addChild(pct);
+    auto stars = _score.getStars(_level);
+    addStar(0);
+    schedule((SEL_SCHEDULE)&TrophyModalBox::showPct);
+
+    if (stars & 0x2) {
+        addStar(1);
+    }
+    if (stars & 0x4) {
+        addStar(2);
+    }
 }

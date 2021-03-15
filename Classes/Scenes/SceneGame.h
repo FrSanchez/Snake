@@ -39,6 +39,7 @@ public:
     void playEffect(const std::string &effect);
     
 private:
+    std::string _levelFile;
     Snake snake = Snake(0,0);
     cocos2d::Size tileSize;
     cocos2d::Sprite* apple;
@@ -70,7 +71,7 @@ private:
     void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
     void onDpad(int);
     cocos2d::Vec2 calcViewPointCenter();
-    void checkForOpenLevel();
+    void checkForWinLevel();
     void showFoodLocator(cocos2d::Vec2 foodPosition);
     void onTimerEnd();
     float getAngleDegrees(cocos2d::Vec2 from, cocos2d::Vec2 to);

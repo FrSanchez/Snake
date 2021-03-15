@@ -193,3 +193,10 @@ void Score::setStars(int level, unsigned char mask)
     }
     _scoreByLevel[level].stars = stars;
 }
+
+void Score::startLevel(int level)
+{
+    setLevel(level);
+    _scoreByLevel[level].earnedStars = 0;
+    _scoreByLevel[level].points = 0;
+}

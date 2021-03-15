@@ -47,7 +47,7 @@ void IconButton::setIcon(const std::string &iconName)
     } else {
         icon = Sprite::createWithSpriteFrameName(iconName);
         icon->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        icon->setPosition(Vec2(icon->getContentSize().width / 2, getContentSize().height/2));
+        icon->setPosition(Vec2(70, getContentSize().height/2));
         icon->setTag(ICON_TAG);
         addChild(icon);
     }
@@ -57,10 +57,11 @@ void IconButton::setText(const std::string &text)
 {
     auto label = (Label*)getChildByTag(LABEL_TAG);
     if (label == nullptr) {
-        TTFConfig ttfConfig("Stick-Regular.ttf", 42);
+        auto sz = getContentSize().height * 0.375;
+        TTFConfig ttfConfig("Stick-Regular.ttf", sz);
         label = Label::createWithTTF(ttfConfig, text, TextHAlignment::CENTER, getContentSize().width * 0.8);
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        label->setPosition(Vec2(getContentSize().width / 2, getContentSize().height / 2));
+        label->setPosition(Vec2(getContentSize().width / 2 + 25, getContentSize().height / 2));
         label->setTag(LABEL_TAG);
         addChild(label);
     } else {

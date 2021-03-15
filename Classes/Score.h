@@ -33,6 +33,7 @@ public:
     Score();
     void flush();
     void setLevel(int level);
+    void startLevel(int level);
     void setMaxLevel(int maxLevel);
     void setScore(int score);
     void setScoreByLevel(int level, int score);

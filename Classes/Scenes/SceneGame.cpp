@@ -16,8 +16,11 @@
 #include "UI/BouncyPowerup.h"
 #include "UI/PauseButton.h"
 #include "Config.h"
+#include "UI/LostModalBox.h"
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
+using namespace cocos2d::ui;
 
 Scene* SceneGame::createWithFile(int level, std::string levelFile)
 {
@@ -47,12 +50,14 @@ bool SceneGame::init(int level, std::string levelFile)
     
     _active = true;
     _level = level;
-    _score.setLevel(_level);
+    _score.startLevel(_level);
     
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
     srand(time(NULL));
 #endif
         
+    _levelFile = levelFile;
+    
     auto size = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
@@ -63,6 +68,14 @@ bool SceneGame::init(int level, std::string levelFile)
     layer = _map->getLayer("layer0");
     auto s = layer->getLayerSize();
     tileSize = _map->getTileSize();
+    
+    auto loadingBar = LoadingBar::create("sliderProgress",  cocos2d::ui::CheckBox::TextureResType::PLIST);
+
+    loadingBar->setPosition(Vec2(size.width/2, size.height - loadingBar->getContentSize().height));
+    loadingBar->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    loadingBar->setTag(0xa11);
+    addChild(loadingBar);
+    
     
     SpriteBatchNode* child = nullptr;
     auto& children = _map->getChildren();
@@ -80,10 +93,10 @@ bool SceneGame::init(int level, std::string levelFile)
     apple->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
     _map->addChild(apple, 10);
     
-    auto levelstr = StringUtils::format("Level %d", level);
-    auto label = Label::createWithTTF(levelstr.c_str(), "Arcade.ttf", 64);
-    label->setPosition(Vec2(size.width/2, size.height - 32));
-    addChild(label);
+//    auto levelstr = StringUtils::format("Level %d", level);
+//    auto label = Label::createWithTTF(levelstr.c_str(), "Arcade.ttf", 64);
+//    label->setPosition(Vec2(size.width/2, size.height - 32));
+//    addChild(label);
     
     auto pos = Label::createWithTTF("0, 0", "arial.ttf", 32);
     pos->setAnchorPoint(Vec2::ANCHOR_TOP_LEFT);
@@ -222,6 +235,12 @@ void SceneGame::eat()
         auto score_str = StringUtils::format("SCORE: %d", score );
         scoreLabel->setString(score_str);
         apple->setVisible(false);
+        
+        auto bar = (cocos2d::ui::LoadingBar*)getChildByTag(0xa11);
+        if (bar) {
+            bar->setPercent((float)_foodEaten * 100.0f / getFoodTarget());
+        }
+
     }), nullptr);
     apple->runAction(seq);
     lastFood = arc4random() % 10 + 1;
@@ -237,8 +256,8 @@ void SceneGame::eat()
     _score.addScore(_level, 10);
     playEffect("munch.wav");
     scheduleOnce(CC_SCHEDULE_SELECTOR(SceneGame::addFood), lastFood);
-    checkForOpenLevel();
-    
+    checkForWinLevel();
+        
     auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
     timer->stop();
 
@@ -251,17 +270,57 @@ void SceneGame::playEffect(const std::string &effect)
     }
 }
 
-void SceneGame::checkForOpenLevel()
+void SceneGame::checkForWinLevel()
 {
     _foodEaten++;
     if (_foodEaten == getFoodTarget()) {
         int nextLevel = _level + 1;
         if (nextLevel >= _score.getMaxLevel()) {
-            auto label = static_cast<LevelOpened*>(getChildByTag(LEVEL_OPENED_TAG));
-            label->display();
             _score.setMaxLevel(nextLevel);
-            _score.setStars(_level, 0x1);
         }
+        
+        unscheduleAllCallbacks();
+        
+        _active = false;
+        _score.setStars(_level, 0x1); // one star for completing the level
+        // if the player ate more than the target, we count it too.
+        float target = getFoodTarget();
+        float accuracy = (float)(_foodEaten * 100.0 / MAX(_foodAdded, target));
+        _score.setAccuracy(_level, accuracy);
+        _score.setFoodEat(_level, _foodEaten);
+        _score.setTarget(_level, target);
+        _score.setSnakeLength(_level, snake.getLength());
+
+        if (accuracy >= 85) { // one star for 85% accuracy
+            _score.setStars(_level, 0x2);
+        }
+        if (accuracy >= 99) { // one star for 99% accuracy
+            _score.setStars(_level, 0x4);
+        }
+        _score.flush();
+        
+        auto alert = TrophyModalBox::create();
+        alert->setTarget(MAX(getFoodTarget(), _foodAdded));
+        alert->setEaten(_foodEaten);
+        alert->setLevel(_level);
+        alert->addFood(_foodEaten);
+        alert->setScore(_score);
+        alert->addButton("home-sm", "home-sm-pressed", 30, [=](Ref* s) {
+            alert->ClosePopup();
+            auto scene = SceneMenu::create();
+            auto fade = TransitionFade::create(1, scene);
+            Director::getInstance()->replaceScene(fade);
+        });
+        alert->addButton("home-sm", "home-sm-pressed", 0, [=](Ref* s) {});
+        alert->addButton("home-sm", "home-sm-pressed", 0, [=](Ref* s) {});
+        alert->addButton("repeat-normal", "repeat-bt-pressed", 38, [=](Ref*s) {
+            alert->ClosePopup();
+            auto scene = SceneGame::createWithFile(_level, _levelFile);
+            auto fade = TransitionFade::create(1, scene);
+            Director::getInstance()->replaceScene(fade);
+        });
+        alert->start();
+        addChild(alert);
     }
 }
 
@@ -335,6 +394,18 @@ void SceneGame::updateTimer(float dt)
         auto moveTo = MoveTo::create(snakeSpeed, Vec2(snake.getPosAt(i).x, snake.getHeight() - snake.getPosAt(i).y) * tileSize.width);
         body.at(i)->runAction(moveTo);
     }
+    {
+//        auto array = PointArray::create(5);
+//        auto pos = body.at(0)->getPosition();
+//        auto posF =Vec2(snake.getPosAt(0).x, snake.getHeight() - snake.getPosAt(0).y) * tileSize.width;
+//        array->addControlPoint(pos);
+//        array->addControlPoint(Vec2((pos.x + posF.x) / 4, (pos.y + posF.y)/2 ));
+//        array->addControlPoint(posF);
+//        auto action = CardinalSplineTo::create(snakeSpeed, array, 0);
+//        auto end = MoveTo::create(0, posF);
+//        auto seq = Sequence::create(action, end, nullptr);
+//        body.at(0)->runAction(seq);
+    }
     auto label = getChildByTag<Label*>(0x10);
     if (label != nullptr) {
         auto posStr = StringUtils::format("%.1f,%.1f : %d", headPos.x, headPos.y, layer->getTileGIDAt(headPos));
@@ -366,7 +437,7 @@ Vec2 SceneGame::calcViewPointCenter()
     auto cSz = _map->getContentSize();
     auto headPos = Vec2(snake.getPosAt(0).x * tileSize.width , snake.getPosAt(0).y * tileSize.height);
     auto x = winSize.width / 2;
-    auto y = winSize.height / 2 + 64;;
+    auto y = winSize.height / 2 ;
 
     auto dx = cSz.width / 2 - headPos.x;
     auto lmt = cSz.width/2 - winSize.width/2;
@@ -464,37 +535,27 @@ void SceneGame::initBody()
 void SceneGame::closeScene(Ref* pSender)
 {
     _active = false;
-    // if the player ate more than the target, we count it too.
-    float target = getFoodTarget();
-    float accuracy = (float)(_foodEaten * 100.0 / target);
-    _score.setAccuracy(_level, accuracy);
-    _score.setFoodEat(_level, _foodEaten);
-    _score.setTarget(_level, target);
-    _score.setSnakeLength(_level, snake.getLength());
-
-    if (snake.getLength() >= (target+4)) {
-        _score.setStars(_level, 0x2);
-    }
-    if (accuracy > 99) {
-        _score.setStars(_level, 0x4);
-    }
-    _score.flush();
 
     unscheduleAllCallbacks();
     
-    auto alert = TrophyModalBox::create();
-    alert->setLevel(_level);
-    alert->addFood(_foodEaten);
-    alert->addButton("OK", 30, [=](Ref* pSender) {
-        alert->ClosePopup();
+    auto lost = LostModalBox::create();
+    lost->setOnHome([&, lost](Ref* s){
+        lost->ClosePopup();
         auto scene = SceneMenu::create();
         auto fade = TransitionFade::create(1, scene);
         Director::getInstance()->replaceScene(fade);
     });
-    addChild(alert);
+    lost->setOnRepeat([&, lost](Ref *s){
+        lost->ClosePopup();
+        auto scene = SceneGame::createWithFile(_level, _levelFile);
+        auto fade = TransitionFade::create(2, scene);
+        Director::getInstance()->replaceScene(fade);
+    });
+    addChild(lost);
 }
 
 float SceneGame::getFoodTarget()
 {
+    return 1;
     return  4 + _level * 2;
 }

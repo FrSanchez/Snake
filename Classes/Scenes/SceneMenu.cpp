@@ -128,7 +128,7 @@ bool SceneMenu::init()
     auto settingsItem = MenuItemSprite::create(gear, gearp, CC_CALLBACK_1(SceneMenu::openSettings, this));
     menu = Menu::create(storeItem, settingsItem, nullptr);
     menu->alignItemsHorizontally();
-    menu->setPosition(Vec2(size.width /2, 48));
+    menu->setPosition(Vec2(size.width /2, closeItem->getContentSize().height));
     addChild(menu);
     
     _dt = 0;
@@ -166,9 +166,10 @@ bool SceneMenu::init()
     
     downloadLevel();
     
+#ifdef CHEAT
     Bank::getInstance()->alterfood(50);
     Bank::getInstance()->alterstars(20);
-
+#endif
     return true;
 }
 
@@ -220,12 +221,12 @@ void SceneMenu::resetScores()
     alert->addButton("OK", 30, [=](Ref* pSender) {
         alert->ClosePopup();
         _score.reset();
+        Bank::getInstance()->reset();
+        Config::getInstance()->reset();
     });
     alert->addButton("Cancel", 30,  [=](Ref* pSender) {
         alert->ClosePopup();
     });
-    Bank::getInstance()->reset();
-    Config::getInstance()->reset();
     
     addChild(alert);
 }

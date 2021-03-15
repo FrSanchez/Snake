@@ -268,6 +268,7 @@
             <key type="filename">audioOff.png</key>
             <key type="filename">audioOn.png</key>
             <key type="filename">gear.png</key>
+            <key type="filename">information.png</key>
             <key type="filename">movie.png</key>
             <key type="filename">musicOff.png</key>
             <key type="filename">musicOn.png</key>
@@ -341,6 +342,8 @@
             </struct>
             <key type="filename">clock.png</key>
             <key type="filename">print.png</key>
+            <key type="filename">repeat.png</key>
+            <key type="filename">repeat_pressed.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -414,6 +417,38 @@
                 <rect>29,24,57,48</rect>
                 <key>scale9Paddings</key>
                 <rect>29,24,57,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">home-sm-pressed.png</key>
+            <key type="filename">repeat-bt-pressed.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>20,20,40,40</rect>
+                <key>scale9Paddings</key>
+                <rect>20,20,40,40</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">home-sm.png</key>
+            <key type="filename">repeat-normal.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>20,20,40,39</rect>
+                <key>scale9Paddings</key>
+                <rect>20,20,40,39</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -636,6 +671,13 @@
             <filename>shoppingCart-pressed.png</filename>
             <filename>shoppingCart.png</filename>
             <filename>gear-pressed.png</filename>
+            <filename>information.png</filename>
+            <filename>home-sm-pressed.png</filename>
+            <filename>home-sm.png</filename>
+            <filename>repeat.png</filename>
+            <filename>repeat_pressed.png</filename>
+            <filename>repeat-bt-pressed.png</filename>
+            <filename>repeat-normal.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

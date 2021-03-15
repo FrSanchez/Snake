@@ -49,7 +49,8 @@ void BaseAutoSave::reset()
 {
     auto temp = malloc(sizeof(BaseAutoSave));
     memcpy(temp, this, sizeof(BaseAutoSave));
-    memset(this, 0, _size);
+    memset(_data, 0, _size);
     memcpy(this, temp, sizeof(BaseAutoSave));
     free(temp);
+    save();
 }

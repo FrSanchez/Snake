@@ -46,8 +46,8 @@ bool SettingsScene::init()
     menu->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     menu->setPosition(Vec2(size.width/2, size.height/2));
     
-    auto normal = Sprite::createWithSpriteFrameName("exit");
-    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
+    auto normal = Sprite::createWithSpriteFrameName("repeat");
+    auto select = Sprite::createWithSpriteFrameName("repeat_pressed");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {
         auto scene = SceneMenu::create();
         auto transition = TransitionSlideInR::create(1, scene);

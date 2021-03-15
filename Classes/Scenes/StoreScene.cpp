@@ -29,8 +29,8 @@ bool StoreScene::init()
     bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
     this->addChild(bg);
 
-    auto normal = Sprite::createWithSpriteFrameName("exit");
-    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
+    auto normal = Sprite::createWithSpriteFrameName("repeat");
+    auto select = Sprite::createWithSpriteFrameName("repeat_pressed");
     auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {        
         auto scene = SceneMenu::create();
         auto transition = TransitionSlideInR::create(1, scene);
