@@ -327,6 +327,8 @@ void SceneGame::checkForWinLevel()
 void SceneGame::collide()
 {
     unscheduleAllCallbacks();
+    auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
+    timer->stop();
     auto total = body.size();
        for(auto i=1; i < total; i++)
     {

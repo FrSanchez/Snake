@@ -15,7 +15,7 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{32,32}}</string>
+                <string>{{0,0},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{32,32}</string>
                 <key>textureRect</key>
-                <string>{{35,1},{32,32}}</string>
+                <string>{{32,0},{32,32}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -46,9 +46,9 @@
             <key>realTextureFileName</key>
             <string>ground.png</string>
             <key>size</key>
-            <string>{68,34}</string>
+            <string>{64,32}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d2578440344700e1df5f6156501a6310:e5a2604a3b67345799c0a677c93fe8cd:16aee92c76fe9b774da8adeacfa7d805$</string>
+            <string>$TexturePacker:SmartUpdate:51716b8472e61235f9250f8ef31215e7:e5a2604a3b67345799c0a677c93fe8cd:16aee92c76fe9b774da8adeacfa7d805$</string>
             <key>textureFileName</key>
             <string>ground.png</string>
         </dict>

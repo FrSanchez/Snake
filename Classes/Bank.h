@@ -30,7 +30,7 @@ class Bank : public BaseAutoSave
 private:
     int _food=0;
     int _stars=0;
-    int _bouncyPowerup=0;
+    int _bouncyPowerup=1;
     Bank();
 
 public:
