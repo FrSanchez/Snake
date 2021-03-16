@@ -267,6 +267,7 @@
             </struct>
             <key type="filename">audioOff.png</key>
             <key type="filename">audioOn.png</key>
+            <key type="filename">fastForward.png</key>
             <key type="filename">gear.png</key>
             <key type="filename">information.png</key>
             <key type="filename">movie.png</key>
@@ -694,6 +695,7 @@
             <filename>repeat-bt-pressed.png</filename>
             <filename>repeat-normal.png</filename>
             <filename>sliderProgress.png</filename>
+            <filename>fastForward.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

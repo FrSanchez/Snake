@@ -9,12 +9,34 @@
 
 USING_NS_CC;
 
+Head::Head() :
+_speed(100.0f),
+_angle(90),
+_minDistance( 0.1),
+_tLim( 0.5f),
+_dir(Vec2(0,1))
+{
+    
+}
+
+Head::~Head()
+{
+    
+    bodyParts.clear();
+}
+
 bool Head::init()
 {
     if (!Sprite::initWithSpriteFrameName("head"))
     {
         return false;
     }
+
+    auto pb = PhysicsBody::createCircle(getContentSize().height / 2);
+    pb->setDynamic(false);
+    pb->setCategoryBitmask(0x02);
+    pb->setContactTestBitmask(0x0f);
+    addComponent(pb);
     return true;
 }
 
@@ -27,30 +49,46 @@ void Head::setAngle(float angle)
 void Head::update(float dt)
 {
     Vec2 pos = getPosition();
+    Vec2 tail = bodyParts.back()->getPosition();
         
     setRotation(_angle);
     Vec2 t = Vec2::forAngle(CC_DEGREES_TO_RADIANS(_angle));
     pos += t * dt * _speed;
-    if (pos.x > 660) {
-        pos.x = 0;
+    Vec2 deltaBody = Vec2(0,0);
+    
+    // jump to the other side of the screen
+    if (tail.y <= 0 && _angle == 270) {
+        deltaBody.y = 1200 - pos.y;
     }
-    if (pos.x < 0) {
-        pos.x = 660;
+    if (tail.x <= 0 && _angle == 180) {
+        deltaBody.x = 680 - pos.x;
     }
-    setPosition(pos);
+    if (tail.x > 680 && _angle == 0) {
+        deltaBody.x = -pos.x;
+    }
+    if (tail.y > 1200 && _angle == 90) {
+        deltaBody.y = -pos.y;
+    }
+    // endjump
+
+
+    setPosition(pos + deltaBody);
     float angle = _angle;
     
     Sprite* prevBodyPart = this;
+    int i = 0;
     for(const auto curBodyPart : bodyParts)
     {
+        curBodyPart->setPosition(curBodyPart->getPosition() + deltaBody);
         auto currentPos = curBodyPart->getPosition();
+
         auto dist = pos.getDistance(currentPos);
         float angle = curBodyPart->getRotation();
     
-        Vec2 newPos = pos;
+        Vec2 newPos = prevBodyPart->getPosition();
         
         float T = dt * dist / _minDistance * _speed;
-        if (T > 0.5) { T= 0.5f; }
+        if (T > _tLim) { T = _tLim; }
         currentPos.smooth(newPos, dt, T);
         
         curBodyPart->setPosition(currentPos);
@@ -59,6 +97,11 @@ void Head::update(float dt)
         
         pos = curBodyPart->getPosition();
         prevBodyPart = curBodyPart;
+        
+        i++;
+        if (i == 6) {
+            curBodyPart->getPhysicsBody()->setContactTestBitmask(0x02);
+        }
     }
 }
 
@@ -106,16 +149,19 @@ void Head::update(float dt)
 
 void Head::addBodyPart()
 {
-    auto newPart = Sprite::createWithSpriteFrameName("body");
+    auto newBodyLink = Sprite::createWithSpriteFrameName("body");
     Vec2 pos = getPosition();
     float angle = _angle;
-    if (bodyParts.size() > 0) {
-        pos = bodyParts.back()->getPosition();
-        angle = bodyParts.back()->getRotation();
-    }
-    getParent()->addChild(newPart);
-    newPart->setPosition(pos);
-    newPart->setRotation(angle);
-    newPart->setTag(0x11);
-    bodyParts.pushBack(newPart);
+    
+    getParent()->addChild(newBodyLink);
+    newBodyLink->setPosition(pos);
+    newBodyLink->setRotation(angle);
+    newBodyLink->setTag(0x11);
+    bodyParts.insert(0, newBodyLink);
+    
+    auto pb = PhysicsBody::createCircle(newBodyLink->getContentSize().height / 2);
+    pb->setDynamic(false);
+    pb->setCategoryBitmask(0x04);
+    pb->setContactTestBitmask(0x00);
+    newBodyLink->addComponent(pb);
 }

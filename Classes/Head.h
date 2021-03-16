@@ -13,12 +13,15 @@
 class Head : public cocos2d::Sprite
 {
 private:
-    cocos2d::Vec2 _dir = cocos2d::Vec2(0,1);
-    float _speed = 50;
-    float _angle = 90;
-    float _minDistance = 0.1;
+    cocos2d::Vec2 _dir;
+    float _speed;
+    float _angle;
+    float _minDistance;
+    float _tLim;
     cocos2d::Vector<cocos2d::Sprite*> bodyParts;
 public:
+    Head();
+    ~Head();
     bool init();
     float getSpeed() { return _speed; }
     cocos2d::Vec2 getDir() { return _dir; }
@@ -28,6 +31,10 @@ public:
     void addBodyPart();
     float getAngle() { return _angle; }
     void setAngle(float value) ;
+    float getMindDistance() { return _minDistance; }
+    void setMinDistance(float value) { _minDistance = value; }
+    float getTLim() { return _tLim; }
+    void setTLim(float value) { _tLim = value; }
     CREATE_FUNC(Head);
 };
 

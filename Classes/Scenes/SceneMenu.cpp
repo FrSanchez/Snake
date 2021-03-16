@@ -126,8 +126,9 @@ bool SceneMenu::init()
     auto settingsItem = MenuItemSprite::create(gear, gearp, CC_CALLBACK_1(SceneMenu::openSettings, this));
     
     normal = Sprite::createWithSpriteFrameName("pi-button");
-    normal = Sprite::createWithSpriteFrameName("pi-pressed");
-    auto piItem = MenuItemSprite::create(normal, normal, [=](Ref* s) {
+    select = Sprite::createWithSpriteFrameName("pi-pressed");
+    auto piItem = MenuItemSprite::create(normal, select, [=](Ref* s) {
+        AudioEngine::stopAll();
         auto scene = AltScene::create();
         auto transition = TransitionSlideInB::create(1, scene);
         Director::getInstance()->replaceScene(transition);
