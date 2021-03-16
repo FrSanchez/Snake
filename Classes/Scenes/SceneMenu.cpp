@@ -16,6 +16,7 @@
 #include "StoreScene.h"
 #include "Config.h"
 #include "SettingsScene.h"
+#include "AltScene.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -102,12 +103,9 @@ bool SceneMenu::init()
 
     auto normal = Sprite::createWithSpriteFrameName("exit");
     auto select = Sprite::createWithSpriteFrameName("exit_pressed");
-    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  { Director::getInstance()->end();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//    exit(0);
-#endif
+    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {
+        Director::getInstance()->end();
     });
-
    
     closeItem->setScale(1.5f);
     float x = size.width - closeItem->getContentSize().width ;
@@ -126,7 +124,16 @@ bool SceneMenu::init()
     auto gear = Sprite::createWithSpriteFrameName("gear");
     auto gearp = Sprite::createWithSpriteFrameName("gear-pressed");
     auto settingsItem = MenuItemSprite::create(gear, gearp, CC_CALLBACK_1(SceneMenu::openSettings, this));
-    menu = Menu::create(storeItem, settingsItem, nullptr);
+    
+    normal = Sprite::createWithSpriteFrameName("pi-button");
+    normal = Sprite::createWithSpriteFrameName("pi-pressed");
+    auto piItem = MenuItemSprite::create(normal, normal, [=](Ref* s) {
+        auto scene = AltScene::create();
+        auto transition = TransitionSlideInB::create(1, scene);
+        Director::getInstance()->replaceScene(transition);
+    });
+    
+    menu = Menu::create(piItem, storeItem, settingsItem, nullptr);
     menu->alignItemsHorizontally();
     menu->setPosition(Vec2(size.width /2, closeItem->getContentSize().height));
     addChild(menu);
