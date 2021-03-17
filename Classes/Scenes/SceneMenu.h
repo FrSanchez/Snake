@@ -15,8 +15,9 @@
 #include "UI/Chooser.h"
 #include "Bank.h"
 #include "audio/include/AudioEngine.h"
+#include "UnityReward.h"
 
-class SceneMenu : public cocos2d::Scene
+class SceneMenu : public cocos2d::Scene, public UnityReward
 {
 private:
     float _extent = 20;

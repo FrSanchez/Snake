@@ -572,3 +572,8 @@ float SceneGame::getFoodTarget()
     return 1;
     return  4 + _level * 2;
 }
+
+void SceneGame::rewardPlayer(const char *placementId)
+{
+    log("*** Reward player not implemented!");
+}

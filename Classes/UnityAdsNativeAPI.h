@@ -42,7 +42,8 @@ extern "C" {
         void UnityAdsInit (const char *parameter, bool testMode);
         bool UnityAdsIsReady (const char *parameter);
         void UnityAdsShow (const char *parameter);
-    
+
+        void UnityAdsShowBanner(const char *parameter);
         // Unity Ads assist methods
         bool UnityAdsGetDebugMode();
         std::string UnityAdsGetPlacementState(const char* parameter);
@@ -50,6 +51,7 @@ extern "C" {
         bool UnityAdsIsInitialized();
         bool UnityAdsIsSupported();
         void UnityAdsSetDebugMode(bool debugMode);
+        
     #endif
 
 #ifdef __cplusplus

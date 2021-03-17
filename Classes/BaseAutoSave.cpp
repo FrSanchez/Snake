@@ -54,3 +54,9 @@ void BaseAutoSave::reset()
     free(temp);
     save();
 }
+
+void BaseAutoSave::setDirty()
+{
+    _dirty = true;
+    save();
+}

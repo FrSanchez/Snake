@@ -19,7 +19,7 @@ private:
     ssize_t _size;
     
 protected:
-    void setDirty() { _dirty = true; }
+    void setDirty();
     
 public:
     BaseAutoSave(const char* key, void * data, ssize_t size);

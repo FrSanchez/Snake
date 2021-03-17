@@ -9,7 +9,7 @@
 #import "UnityAdsNativeAPI.h"
 #import "UnityAdsBridge.h"
 #import "AppController.h"
-#import "Scenes/SceneMenu.h"
+#import "UnityReward.h"
 
 @implementation UnityAdsBridge
 
@@ -40,17 +40,40 @@
           withFinishState:(UnityAdsFinishState)state{
     if(state == kUnityAdsFinishStateCompleted) {
         auto scene = cocos2d::Director::getInstance()->getRunningScene();
-        if (typeid(*scene) == typeid(SceneMenu)) {
-            SceneMenu* gameScene = static_cast<SceneMenu*>(scene);
+        UnityReward* gameScene = dynamic_cast<UnityReward*>(scene);
+        if (gameScene) {
             const char *placementIdC = [placementId UTF8String];
             gameScene->rewardPlayer(placementIdC);
         }
     }
 }
 
+#pragma mark -
+#pragma mark UADSBannerViewDelegate
+
+UnityAdsBridge* s_bridge;
+
+- (void)bannerViewDidLoad:(UADSBannerView *)bannerView {
+    // Called when the banner view object finishes loading an ad.
+    NSLog(@"Banner loaded for Ad Unit or Placement: %@", bannerView.placementId);
+    [bannerView bringSubviewToFront:bannerView];
+}
+
+- (void)bannerViewDidClick:(UADSBannerView *)bannerView {
+    // Called when the banner is clicked.
+    NSLog(@"Banner was clicked for Ad Unit or Placement: %@", bannerView.placementId);
+}
+
+- (void)bannerViewDidLeaveApplication:(UADSBannerView *)bannerView {
+    // Called when the banner links out of the application.
+}
+
+- (void)bannerViewDidError:(UADSBannerView *)bannerView error:(UADSBannerError *)error{
+    // Called when an error occurs showing the banner view object.
+    NSLog(@"Banner encountered an error for Ad Unit or Placement: %@ with error message %@", bannerView.placementId, [error localizedDescription]);
+    // Note that the UADSBannerError can indicate no fill (see API documentation).
+}
 @end
-
-
 
 #pragma mark -
 #pragma mark Unity Ads Native API Implementation
@@ -59,10 +82,37 @@ void UnityAdsInit (const char *gameIdParameter, bool testMode) {
     
     NSLog(@"[UnityAds] UnityAdsInit");
     
-    UnityAdsBridge* bridge = [UnityAdsBridge new];
+    s_bridge = [UnityAdsBridge new];
     NSString* gameId = [NSString stringWithFormat:@"%s", gameIdParameter];
     [UnityAds initialize:gameId testMode:testMode];
-    [UnityAds addDelegate:bridge];
+    [UnityAds addDelegate:s_bridge];
+}
+
+void UnityAdsShowBanner(const char *parameter) {
+    NSString* placementId = [NSString stringWithFormat:@"%s", parameter];
+    UADSBannerView* bottomBannerView = [[UADSBannerView alloc] initWithPlacementId:placementId size: CGSizeMake(400, 50)];
+    bottomBannerView.delegate = s_bridge;
+    bottomBannerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [s_bridge.view addSubview:s_bridge.bottomBannerView ];
+    [s_bridge.view addConstraints:@[
+                                   [NSLayoutConstraint constraintWithItem:bottomBannerView
+                                                                attribute:NSLayoutAttributeBottom
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:s_bridge.bottomLayoutGuide
+                                                                attribute:NSLayoutAttributeTop
+                                                               multiplier:1
+                                                                 constant:0],
+                                   [NSLayoutConstraint constraintWithItem:bottomBannerView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:s_bridge.view
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1
+                                                                 constant:0]
+                                   ]];
+
+    [bottomBannerView load];
+    [s_bridge.view bringSubviewToFront:bottomBannerView];
 }
 
 bool UnityAdsIsReady (const char *parameter){
@@ -118,3 +168,4 @@ void UnityAdsSetDebugMode(bool debugMode) {
     NSLog(@"[UnityAds] UnityAdsSetDebugMode");
     [UnityAds setDebugMode:debugMode];
 }
+

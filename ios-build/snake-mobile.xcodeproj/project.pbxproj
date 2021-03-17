@@ -407,6 +407,7 @@
 		8CB1357425FBDE81008C94C3 /* SettingsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1357225FBDE81008C94C3 /* SettingsScene.cpp */; };
 		8CB1359525FC0C90008C94C3 /* IconButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1359325FC0C90008C94C3 /* IconButton.cpp */; };
 		8CB135B625FDE3A1008C94C3 /* LostModalBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CB135B425FDE3A1008C94C3 /* LostModalBox.cpp */; };
+		8CCC456D26027DBC00D85077 /* UnityReward.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CCC456B26027DBC00D85077 /* UnityReward.cpp */; };
 		8CEBD0BD971C4AB6B20F0A68 /* CCPUDoFreezeEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71A9EDCE58FF4EF2B140E66F /* CCPUDoFreezeEventHandler.cpp */; };
 		8CFB3D8EDA5D440EAEC80A9B /* CCSkinNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B651C553E0244EDA69EAD0F /* CCSkinNode.cpp */; };
 		8D02C50186A84885B96A4977 /* CCArmatureDefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB3B757E3E97430396B220AF /* CCArmatureDefine.cpp */; };
@@ -1829,6 +1830,8 @@
 		8CB1359425FC0C90008C94C3 /* IconButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IconButton.h; path = Classes/UI/IconButton.h; sourceTree = "<group>"; };
 		8CB135B425FDE3A1008C94C3 /* LostModalBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LostModalBox.cpp; path = Classes/UI/LostModalBox.cpp; sourceTree = "<group>"; };
 		8CB135B525FDE3A1008C94C3 /* LostModalBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LostModalBox.h; path = Classes/UI/LostModalBox.h; sourceTree = "<group>"; };
+		8CCC456B26027DBC00D85077 /* UnityReward.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UnityReward.cpp; path = Classes/UnityReward.cpp; sourceTree = "<group>"; };
+		8CCC456C26027DBC00D85077 /* UnityReward.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UnityReward.h; path = Classes/UnityReward.h; sourceTree = "<group>"; };
 		8CD28DAA94794FFDB7E28890 /* ObjectFactory.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ObjectFactory.cpp; path = cocos2d/cocos/base/ObjectFactory.cpp; sourceTree = SOURCE_ROOT; };
 		8CE09DC0006A414F8801331A /* CCProgressTimer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CCProgressTimer.cpp; path = cocos2d/cocos/2d/CCProgressTimer.cpp; sourceTree = SOURCE_ROOT; };
 		8D040E024D6D4A6381775A8D /* CCPUEventHandlerTranslator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CCPUEventHandlerTranslator.h; path = cocos2d/extensions/Particle3D/PU/CCPUEventHandlerTranslator.h; sourceTree = SOURCE_ROOT; };
@@ -2981,6 +2984,8 @@
 				8C5C721025FFD63E00296F9E /* MyMoveTo.h */,
 				8C5C72CB26003A6400296F9E /* Head.cpp */,
 				8C5C72CC26003A6400296F9E /* Head.h */,
+				8CCC456B26027DBC00D85077 /* UnityReward.cpp */,
+				8CCC456C26027DBC00D85077 /* UnityReward.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -5230,6 +5235,7 @@
 				8CB1357425FBDE81008C94C3 /* SettingsScene.cpp in Sources */,
 				8C32504625F9772200282CDD /* BouncyPowerup.cpp in Sources */,
 				8C32502B25F9771500282CDD /* StoreScene.cpp in Sources */,
+				8CCC456D26027DBC00D85077 /* UnityReward.cpp in Sources */,
 				C3B40EDF594A4B6D9D507E47 /* UnityAdsBridge.mm in Sources */,
 				6231EE62E18D4745BCEB124E /* main.m in Sources */,
 			);
@@ -6154,7 +6160,7 @@
 		0B3EBA77CBF64E729FB002D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/ios-build/build";
@@ -7338,7 +7344,7 @@
 		8E5D4F25C6EB4D0CB57A10D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/ios-build/build";
@@ -7349,7 +7355,7 @@
 		91C2FC7AB44A447D9AEB649F /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/ios-build/build";
@@ -7479,7 +7485,7 @@
 		9F18073E9EA741AD94430360 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SYMROOT = "/Users/francisco.sanchez/Development/games/snake-mobile/ios-build/build";

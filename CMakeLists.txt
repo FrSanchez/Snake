@@ -31,7 +31,7 @@ project(${APP_NAME})
 
 if(XCODE)
     if(NOT DEFINED CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET)
-        SET (CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 10.0)
+        SET (CMAKE_XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET 11.0)
     endif()
 endif()
 
@@ -56,65 +56,81 @@ endif()
 
 # add cross-platforms source files and header files
 list(APPEND GAME_SOURCE
-    Classes/AppDelegate.cpp
-    Classes/Bank.cpp
-    Classes/Config.cpp
-    Classes/LevelOpened.cpp
-    Classes/Score.cpp
-    Classes/Snake.cpp
-    Classes/Store.cpp
-    Classes/Scenes/SceneGame.cpp
-    Classes/Scenes/SceneMenu.cpp
-    Classes/Scenes/StoreScene.cpp
-    Classes/UI/BouncyPowerup.cpp
-    Classes/UI/Chooser.cpp
-    Classes/UI/DPad.cpp
-    Classes/UI/ModalMessageBox.cpp
-    Classes/UI/PopupNode.cpp
-    Classes/UI/PowerUpIcon.cpp
-    Classes/UI/ScoreLabel.cpp
-    Classes/UI/TimerSprite.cpp
-    Classes/UI/TrophyModalBox.cpp
-    Classes/UI/WalletSprite.cpp
-    Classes/UI/YesNoDialog.cpp
-     Classes/Gestures/GestureRecognizer.cpp
-     Classes/Gestures/PinchGestureRecognizer.cpp 
-     Classes/Gestures/GestureRecognizerUtils.cpp
-     Classes/Gestures/SwipeGestureRecognizer.cpp
-     Classes/Gestures/LongPressGestureRecognizer.cpp
-     Classes/Gestures/TapGestureRecognizer.cpp
-     Classes/Gestures/PanGestureRecognizer.cpp
+        Classes/AppDelegate.cpp
+        Classes/Bank.cpp
+        Classes/BaseAutoSave.cpp
+        Classes/Config.cpp
+        Classes/Gestures/GestureRecognizer.cpp
+        Classes/Gestures/GestureRecognizerUtils.cpp
+        Classes/Gestures/LongPressGestureRecognizer.cpp
+        Classes/Gestures/PanGestureRecognizer.cpp
+        Classes/Gestures/PinchGestureRecognizer.cpp
+        Classes/Gestures/SwipeGestureRecognizer.cpp
+        Classes/Gestures/TapGestureRecognizer.cpp
+        Classes/Head.cpp
+        Classes/LevelOpened.cpp
+        Classes/MyMoveTo.cpp
+        Classes/Scenes/AltScene.cpp
+        Classes/Scenes/SceneGame.cpp
+        Classes/Scenes/SceneMenu.cpp
+        Classes/Scenes/SettingsScene.cpp
+        Classes/Scenes/StoreScene.cpp
+        Classes/Score.cpp
+        Classes/Snake.cpp
+        Classes/Store.cpp
+        Classes/UI/BouncyPowerup.cpp
+        Classes/UI/Chooser.cpp
+        Classes/UI/DPad.cpp
+        Classes/UI/IconButton.cpp
+        Classes/UI/LostModalBox.cpp
+        Classes/UI/ModalMessageBox.cpp
+        Classes/UI/PauseButton.cpp
+        Classes/UI/PopupNode.cpp
+        Classes/UI/PowerUpIcon.cpp
+        Classes/UI/ScoreLabel.cpp
+        Classes/UI/TimerSprite.cpp
+        Classes/UI/TrophyModalBox.cpp
+        Classes/UI/WalletSprite.cpp
+        Classes/UI/YesNoDialog.cpp
      )
 list(APPEND GAME_HEADER
-    Classes/AppDelegate.h
-    Classes/Bank.h
-    Classes/Config.h
-    Classes/LevelOpened.h
-    Classes/Score.h
-    Classes/Snake.h
-    Classes/Store.h
-    Classes/UnityAdsNativeAPI.h
-    Classes/Scenes/SceneGame.h
-    Classes/Scenes/SceneMenu.h
-    Classes/Scenes/StoreScene.h
-    Classes/UI/BouncyPowerup.h
-    Classes/UI/Chooser.h
-    Classes/UI/DPad.h
-    Classes/UI/ModalMessageBox.h
-    Classes/UI/PopupNode.h
-    Classes/UI/PowerUpIcon.h
-    Classes/UI/ScoreLabel.h
-    Classes/UI/TimerSprite.h
-    Classes/UI/TrophyModalBox.h
-    Classes/UI/WalletSprite.h
-    Classes/UI/YesNoDialog.h
-    Classes/Gestures/GestureRecognizer.h
-    Classes/Gestures/PinchGestureRecognizer.h
-     Classes/Gestures/GestureRecognizerUtils.h 
-     Classes/Gestures/SwipeGestureRecognizer.h
-     Classes/Gestures/LongPressGestureRecognizer.h  
-     Classes/Gestures/TapGestureRecognizer.h
-     Classes/Gestures/PanGestureRecognizer.h
+        Classes/AppDelegate.h
+        Classes/Bank.h
+        Classes/BaseAutoSave.h
+        Classes/Config.h
+        Classes/Gestures/GestureRecognizer.h
+        Classes/Gestures/GestureRecognizerUtils.h
+        Classes/Gestures/LongPressGestureRecognizer.h
+        Classes/Gestures/PanGestureRecognizer.h
+        Classes/Gestures/PinchGestureRecognizer.h
+        Classes/Gestures/SwipeGestureRecognizer.h
+        Classes/Gestures/TapGestureRecognizer.h
+        Classes/Head.h
+        Classes/LevelOpened.h
+        Classes/MyMoveTo.h
+        Classes/Scenes/AltScene.h
+        Classes/Scenes/SceneGame.h
+        Classes/Scenes/SceneMenu.h
+        Classes/Scenes/SettingsScene.h
+        Classes/Scenes/StoreScene.h
+        Classes/Score.h
+        Classes/Snake.h
+        Classes/Store.h
+        Classes/UI/BouncyPowerup.h
+        Classes/UI/Chooser.h
+        Classes/UI/DPad.h
+        Classes/UI/IconButton.h
+        Classes/UI/LostModalBox.h
+        Classes/UI/ModalMessageBox.h
+        Classes/UI/PauseButton.h
+        Classes/UI/PopupNode.h
+        Classes/UI/PowerUpIcon.h
+        Classes/UI/ScoreLabel.h
+        Classes/UI/TimerSprite.h
+        Classes/UI/TrophyModalBox.h
+        Classes/UI/WalletSprite.h
+        Classes/UI/YesNoDialog.h
+        Classes/UnityAdsNativeAPI.h
      )
 
 if(ANDROID)

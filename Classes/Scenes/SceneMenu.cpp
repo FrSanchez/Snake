@@ -287,18 +287,33 @@ void SceneMenu::initUnityAdsFunc()
     
     UnityAdsInit(gameId, true);
     log("[UnityAds cpp] version %s", UnityAdsGetVersion().c_str());
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    scheduleOnce([=](float dt){
+        UnityAdsShowBanner("Banner_iOS");
+    }, 0.5, "initBanner");
+#endif
 }
 
 void SceneMenu::showUnityAdsFunc(Ref* pSender)
 {
     const char* zoneString = "Interstitial_iOS";
     AudioEngine::stopAll();
-    if(UnityAdsIsReady(zoneString)) {
-//        UnityAdsShow(zoneString);
-        rewardPlayer(zoneString);
+    auto ad = Config::getInstance()->getNextAd();
+    time_t now = time(nullptr);
+    if (now > ad)
+    {
+        ad = now + 30 * 60;
+        Config::getInstance()->setNextAd(ad);
+        if(UnityAdsIsReady(zoneString)) {
+            UnityAdsShow(zoneString);
+            //        rewardPlayer(zoneString);
+        } else {
+            CCLOG("[UnityAds cpp test] yet cannot show");
+        }
     } else {
-        CCLOG("[UnityAds cpp test] yet cannot show");
+        rewardPlayer(zoneString);
     }
+    log("*** Next ad showing %ld %s", ad, ctime(&ad));
 }
 
 void SceneMenu::rewardPlayer(const char *placementId)

@@ -19,15 +19,18 @@
 #include "Gestures/SwipeGestureRecognizer.h"
 #include "Gestures/LongPressGestureRecognizer.h"
 #include "Gestures/PanGestureRecognizer.h"
+
+
 #include "UI/PowerUpIcon.h"
 #include "Bank.h"
 #include "MyMoveTo.h"
+#include "UnityReward.h"
 
 #include <string>
 
 static cocos2d::Size boardSize = cocos2d::Size(40, 30);
 
-class SceneGame : public cocos2d::Scene
+class SceneGame : public cocos2d::Scene, public UnityReward
 {
 public:
     virtual bool init(int, std::string);
@@ -38,6 +41,7 @@ public:
     // implement the "static create()" method manually
     static cocos2d::Scene* createWithFile(int, std::string);
     void playEffect(const std::string &effect);
+    void rewardPlayer(const char *placementId);
     
 private:
     std::string _levelFile;
