@@ -35,7 +35,7 @@ class SceneGame : public cocos2d::Scene, public UnityReward
 public:
     virtual bool init(int, std::string);
     
-    void closeScene(cocos2d::Ref* pSender);
+    void lostLevel(cocos2d::Ref* pSender);
 
     void labelCallback(cocos2d::Label* label);
     // implement the "static create()" method manually
@@ -81,6 +81,7 @@ private:
     void onTimerEnd();
     float getAngleDegrees(cocos2d::Vec2 from, cocos2d::Vec2 to);
     float getFoodTarget();
+    void closeScene(cocos2d::Ref* pSender = nullptr);
 };
 
 #endif /* SceneGame_hpp */

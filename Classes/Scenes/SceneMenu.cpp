@@ -7,16 +7,14 @@
 
 #include "SceneMenu.h"
 #include "SceneGame.h"
-#include "UI/ScoreLabel.h"
-#include "UI/Chooser.h"
-#include "extensions/cocos-ext.h"
-#include "ui/CocosGUI.h"
-#include "UI/ModalMessageBox.h"
-#include "UI/TrophyModalBox.h"
 #include "StoreScene.h"
-#include "Config.h"
 #include "SettingsScene.h"
 #include "AltScene.h"
+
+#include "UI/ScoreLabel.h"
+#include "extensions/cocos-ext.h"
+#include "UI/ModalMessageBox.h"
+#include "UI/TrophyModalBox.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -27,11 +25,6 @@ SceneMenu::SceneMenu()
     _audioProfile.maxInstances = 1;
     _audioProfile.minDelay = 1.0;
     downloader.reset(new network::Downloader());
-}
-
-Scene* SceneMenu::createScene()
-{
-    return SceneMenu::create();
 }
 
 void SceneMenu::startGame(int level, std::string levelFile)
@@ -50,20 +43,18 @@ bool SceneMenu::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Scene::init() )
+    if ( !BaseScene::init("background.png") )
     {
         return false;
     }
     
-    initUnityAdsFunc();
-    
     auto size = Director::getInstance()->getVisibleSize();
-    findLevels();
 
-    auto bg = Sprite::create("background.png");
-    bg->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
-    this->addChild(bg);
+    scheduleOnce([&](float dt){
+        initUnityAdsFunc();
+    }, 0, "initUnityAds");
+    
+    findLevels();
     
     auto numLabel = Label::createWithTTF("1", "Arcade.ttf", 96);
 
@@ -101,24 +92,24 @@ bool SceneMenu::init()
     
 
 
-    auto normal = Sprite::createWithSpriteFrameName("exit");
-    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
-    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {
-        Director::getInstance()->end();
-    });
-   
-    closeItem->setScale(1.5f);
-    float x = size.width - closeItem->getContentSize().width ;
-    float y = closeItem->getContentSize().height;
-    closeItem->setPosition(Vec2(x,y));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, nullptr);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
+//    auto normal = Sprite::createWithSpriteFrameName("exit");
+//    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
+//    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {
+//        Director::getInstance()->end();
+//    });
+//
+//    closeItem->setScale(1.5f);
+//    float x = size.width - closeItem->getContentSize().width ;
+//    float y = closeItem->getContentSize().height;
+//    closeItem->setPosition(Vec2(x,y));
+//
+//    // create menu, it's an autorelease object
+//    auto menu = Menu::create(closeItem, nullptr);
+//    menu->setPosition(Vec2::ZERO);
+//    this->addChild(menu, 1);
     
-    normal = Sprite::createWithSpriteFrameName("shoppingCart");
-    select = Sprite::createWithSpriteFrameName("shoppingCart-pressed");
+    auto normal = Sprite::createWithSpriteFrameName("shoppingCart");
+    auto select = Sprite::createWithSpriteFrameName("shoppingCart-pressed");
     auto storeItem = MenuItemSprite::create(normal, select, CC_CALLBACK_1(SceneMenu::openStore, this));
     
     auto gear = Sprite::createWithSpriteFrameName("gear");
@@ -134,9 +125,9 @@ bool SceneMenu::init()
         Director::getInstance()->replaceScene(transition);
     });
     
-    menu = Menu::create(piItem, storeItem, settingsItem, nullptr);
+    auto menu = Menu::create(piItem, storeItem, settingsItem, nullptr);
     menu->alignItemsHorizontally();
-    menu->setPosition(Vec2(size.width /2, closeItem->getContentSize().height));
+    menu->setPosition(Vec2(size.width /2, piItem->getContentSize().height));
     addChild(menu);
     
     _dt = 0;
@@ -289,7 +280,11 @@ void SceneMenu::initUnityAdsFunc()
     log("[UnityAds cpp] version %s", UnityAdsGetVersion().c_str());
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     scheduleOnce([=](float dt){
-        UnityAdsShowBanner("Banner_iOS");
+        try {
+            UnityAdsShowBanner("Banner_iOS");
+        } catch(...) {
+            log("Can't show unity ads banner");
+        }
     }, 0.5, "initBanner");
 #endif
 }

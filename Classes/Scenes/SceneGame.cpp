@@ -18,6 +18,7 @@
 #include "Config.h"
 #include "UI/LostModalBox.h"
 #include "ui/CocosGUI.h"
+#include "MoveBarBy.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -157,6 +158,22 @@ bool SceneGame::init(int level, std::string levelFile)
     auto pause = PauseButton::create();
     pause->setPosition(Vec2(size.width - pause->getContentSize().width, pause->getContentSize().height));
     addChild(pause);
+    
+    auto homeButton = Button::create("home-sm", "home-sm-pressed", "home-sm", cocos2d::ui::AbstractCheckButton::TextureResType::PLIST);
+    homeButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        switch (type)
+        {
+            case ui::Widget::TouchEventType::BEGAN:
+                break;
+            case ui::Widget::TouchEventType::ENDED:
+                closeScene(sender);
+                break;
+            default:
+                break;
+        }
+    });
+    homeButton->setPosition(Vec2(size.width - pause->getContentSize().width - homeButton->getContentSize().width, pause->getContentSize().height));
+    addChild(homeButton);
 
     return true;
 }
@@ -238,7 +255,9 @@ void SceneGame::eat()
         
         auto bar = (cocos2d::ui::LoadingBar*)getChildByTag(0xa11);
         if (bar) {
-            bar->setPercent((float)_foodEaten * 100.0f / getFoodTarget());
+            float pct = (float)_foodEaten * 100.0f / getFoodTarget();
+            float delta = pct - bar->getPercent();
+            bar->runAction(MoveBarBy::create(0.5, delta));
         }
 
     }), nullptr);
@@ -307,9 +326,7 @@ void SceneGame::checkForWinLevel()
         alert->setScore(_score);
         alert->addButton("home-sm", "home-sm-pressed", 30, [=](Ref* s) {
             alert->ClosePopup();
-            auto scene = SceneMenu::create();
-            auto fade = TransitionFade::create(1, scene);
-            Director::getInstance()->replaceScene(fade);
+            closeScene();
         });
         alert->addButton("home-sm", "home-sm-pressed", 0, [=](Ref* s) {});
         alert->addButton("home-sm", "home-sm-pressed", 0, [=](Ref* s) {});
@@ -322,6 +339,14 @@ void SceneGame::checkForWinLevel()
         alert->start();
         addChild(alert);
     }
+}
+
+void SceneGame::closeScene(cocos2d::Ref* pSender)
+{
+    AudioEngine::stopAll();
+    auto scene = SceneMenu::create();
+    auto fade = TransitionFade::create(1, scene);
+    Director::getInstance()->replaceScene(fade);
 }
 
 void SceneGame::collide()
@@ -346,7 +371,7 @@ void SceneGame::collide()
         apple->runAction(fadeOut);
     }
     auto end = CallFunc::create([=]() {
-        closeScene(this);
+        lostLevel(this);
     });
     auto fadeOut = FadeOut::create(1.0f);
     auto seq = Sequence::create(fadeOut, end, nullptr);
@@ -545,7 +570,7 @@ void SceneGame::initBody()
        }
 }
 
-void SceneGame::closeScene(Ref* pSender)
+void SceneGame::lostLevel(Ref* pSender)
 {
     _active = false;
 
@@ -569,7 +594,7 @@ void SceneGame::closeScene(Ref* pSender)
 
 float SceneGame::getFoodTarget()
 {
-    return 1;
+    return 3;
     return  4 + _level * 2;
 }
 

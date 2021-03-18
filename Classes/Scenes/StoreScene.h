@@ -9,9 +9,11 @@
 #define StoreScene_hpp
 
 #include "Store.h"
+#include "BaseScene.h"
+#include "SceneMenu.h"
 #include <cocos2d.h>
 
-class StoreScene : public cocos2d::Scene
+class StoreScene : public BaseScene
 {
 private:
     Store* _store;
@@ -19,6 +21,7 @@ public:
     bool init();
     void doPurchase(Ref* pSender);
     CREATE_FUNC(StoreScene);
+    cocos2d::Scene* getNextScene() { SceneMenu::create(); }
 };
 
 #endif /* StoreScene_hpp */

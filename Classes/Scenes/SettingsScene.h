@@ -8,11 +8,10 @@
 #ifndef SettingsScene_hpp
 #define SettingsScene_hpp
 
-#include "Config.h"
-#include "UI/IconButton.h"
-#include "cocos2d.h"
+#include "BaseScene.h"
+#include "SceneMenu.h"
 
-class SettingsScene : public cocos2d::Scene
+class SettingsScene : public BaseScene
 {
 private:
     void onMusic(Ref* s);
@@ -30,6 +29,7 @@ private:
 public:
     bool init();
     CREATE_FUNC(SettingsScene);
+    cocos2d::Scene* getNextScene() { SceneMenu::create(); }
 };
 
 #endif /* SettingsScene_hpp */

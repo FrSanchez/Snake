@@ -8,16 +8,15 @@
 #ifndef SceneMenu_hpp
 #define SceneMenu_hpp
 
-#include "Score.h"
-#include "cocos2d.h"
+
+#include "BaseScene.h"
 #include "network/CCDownloader.h"
-#include "UnityAdsNativeAPI.h"
 #include "UI/Chooser.h"
 #include "Bank.h"
-#include "audio/include/AudioEngine.h"
 #include "UnityReward.h"
+#include "SceneMenu.h"
 
-class SceneMenu : public cocos2d::Scene, public UnityReward
+class SceneMenu : public BaseScene
 {
 private:
     float _extent = 20;
@@ -43,7 +42,6 @@ private:
 
 public:
     SceneMenu();
-    static cocos2d::Scene* createScene();
 
     virtual bool init();
     
@@ -52,16 +50,17 @@ public:
 
     void startGame(int level, std::string levelFile);
 
-    // implement the "static create()" method manually
     CREATE_FUNC(SceneMenu);
     
     void downloadLevel();
     void openStore(cocos2d::Ref* pSender);
-    void openSettings(cocos2d::Ref* pSender);    
+    void openSettings(cocos2d::Ref* pSender);   
+    const std::string getExitButtonName() {  return "exit"; }
+    const std::string getExitPressedButtonName() {  return "exit_pressed"; }
     
     // Unity Ads
     void rewardPlayer(const char *placementId);
     void initUnityAdsFunc();
-    void showUnityAdsFunc(Ref* pSender);
+    void showUnityAdsFunc(cocos2d::Ref* pSender);
 };
 #endif /* SceneMenu_hpp */

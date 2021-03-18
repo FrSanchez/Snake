@@ -21,7 +21,7 @@ bool PauseButton::init()
     _pause->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _pause->setPosition(Vec2(_pause->getContentSize().width / 2, _pause->getContentSize().height / 2));
     
-    _resume =Button::create("rewind", "rewind-press", "rewind", cocos2d::ui::Button::TextureResType::PLIST);
+    _resume =Button::create("play", "play-press", "rewind", cocos2d::ui::Button::TextureResType::PLIST);
     _resume->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     _resume->setPosition(Vec2(_pause->getContentSize().width / 2, _pause->getContentSize().height / 2));
     

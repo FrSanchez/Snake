@@ -19,8 +19,9 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "extensions/cocos-ext.h"
+#include "BaseScene.h"
 
-class AltScene : public cocos2d::Scene
+class AltScene : public cocos2d::Scene, public UnityReward
 {
 private:
     Head* _head;
@@ -34,8 +35,8 @@ private:
 public:
     void update(float dt);
     bool init();
+    void rewardPlayer(const char *placementId);
     CREATE_FUNC(AltScene);
-    
 };
 
 #endif /* AltScene_hpp */

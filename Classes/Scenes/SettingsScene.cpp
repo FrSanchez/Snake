@@ -15,17 +15,12 @@ using namespace cocos2d::ui;
 
 bool SettingsScene::init()
 {
-    if (!Scene::init())
+    if (!BaseScene::init("storebg.png"))
     {
         return false;
     }
     
-    auto size = Director::getInstance()->getVisibleSize();;
-    
-    auto bg = Sprite::create("storebg.png");
-    bg->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    bg->setPosition(Vec2(0.5 * size.width, 0.5 * size.height));
-    this->addChild(bg);
+    auto size = Director::getInstance()->getVisibleSize();
     
     auto music = IconButton::createWithIconAndText("gear", "Music", CC_CALLBACK_1(SettingsScene::onMusic, this));
     music->setTag(0xa00);
@@ -34,10 +29,6 @@ bool SettingsScene::init()
     auto warn = IconButton::createWithIconAndText("gear", "Warn on Purchase", CC_CALLBACK_1(SettingsScene::onCheckbox, this));
     warn->setTag(0xa02);
     auto eula = IconButton::createWithIconAndText("information", "License Agreement", CC_CALLBACK_1(SettingsScene::onEULA, this));
-//    auto rate;
-//    auto gameplay;
-//    auto theme;
-//    auto contactUs;
     
     auto menu = Menu::create(music, effects, warn, eula, nullptr);
     menu->setTag(0x100);
@@ -45,23 +36,6 @@ bool SettingsScene::init()
     menu->alignItemsVertically();
     menu->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     menu->setPosition(Vec2(size.width/2, size.height/2));
-    
-    auto normal = Sprite::createWithSpriteFrameName("repeat");
-    auto select = Sprite::createWithSpriteFrameName("repeat_pressed");
-    auto closeItem = MenuItemSprite::create(normal, select, [=](Ref *pSender)  {
-        auto scene = SceneMenu::create();
-        auto transition = TransitionSlideInR::create(1, scene);
-        Director::getInstance()->replaceScene(transition);
-        Config::getInstance()->save();
-    });
-    
-    float x = size.width - closeItem->getContentSize().width ;
-    float y = closeItem->getContentSize().height;
-    closeItem->setPosition(Vec2(x,y));
-
-    menu = Menu::create(closeItem, nullptr);
-    menu->setPosition(Vec2::ZERO);
-    addChild(menu);
     
     setMusicIcon();
     setEffectsIcon();

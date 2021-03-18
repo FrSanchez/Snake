@@ -177,3 +177,8 @@ void AltScene::onSwipe(SwipeGestureRecognizer* recognizer)
         }
     }
 }
+
+void AltScene::rewardPlayer(const char *placementId)
+{
+    log("BaseScene: uninmplemented rewardPlayer for %s", placementId);
+}

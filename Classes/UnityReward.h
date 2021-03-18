@@ -8,6 +8,8 @@
 #ifndef UnityReward_hpp
 #define UnityReward_hpp
 
+#include "UnityAdsNativeAPI.h"
+
 class UnityReward
 {
 public:
