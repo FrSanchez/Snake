@@ -1,15 +1,15 @@
 //
-//  Head.cpp
+//  SnakeHead.cpp
 //  snake-mobile
 //
 //  Created by Francisco Sanchez on 3/15/21.
 //
 
-#include "Head.h"
+#include "SnakeHead.h"
 
 USING_NS_CC;
 
-Head::Head() :
+SnakeHead::SnakeHead() :
 _speed(100.0f),
 _angle(90),
 _minDistance( 0.1),
@@ -19,13 +19,13 @@ _dir(Vec2(0,1))
     
 }
 
-Head::~Head()
+SnakeHead::~SnakeHead()
 {
     
     bodyParts.clear();
 }
 
-bool Head::init()
+bool SnakeHead::init()
 {
     if (!Sprite::initWithSpriteFrameName("head"))
     {
@@ -37,17 +37,21 @@ bool Head::init()
     pb->setCategoryBitmask(0x02);
     pb->setContactTestBitmask(0x0f);
     addComponent(pb);
+    scheduleUpdate();
     return true;
 }
 
-void Head::setAngle(float angle)
+void SnakeHead::setAngle(float angle)
 {
     _angle = angle;
-    log("Angle: %f ", _angle);
 }
 
-void Head::update(float dt)
+void SnakeHead::update(float dt)
 {
+    static int split = 0;
+    if (split > bodyParts.size()) {
+        split = 0;
+    }
     Vec2 pos = getPosition();
     Vec2 tail = bodyParts.back()->getPosition();
         
@@ -59,15 +63,19 @@ void Head::update(float dt)
     // jump to the other side of the screen
     if (tail.y <= 0 && _angle == 270) {
         deltaBody.y = 1200 - pos.y;
+        split = 1;
     }
     if (tail.x <= 0 && _angle == 180) {
         deltaBody.x = 680 - pos.x;
+        split = 1;
     }
     if (tail.x > 680 && _angle == 0) {
         deltaBody.x = -pos.x;
+        split = 1;
     }
     if (tail.y > 1200 && _angle == 90) {
         deltaBody.y = -pos.y;
+        split = 1;
     }
     // endjump
 
@@ -147,7 +155,7 @@ void Head::update(float dt)
      }
  */
 
-void Head::addBodyPart()
+void SnakeHead::addBodyPart()
 {
     auto newBodyLink = Sprite::createWithSpriteFrameName("body");
     Vec2 pos = getPosition();
@@ -164,4 +172,39 @@ void Head::addBodyPart()
     pb->setCategoryBitmask(0x04);
     pb->setContactTestBitmask(0x00);
     newBodyLink->addComponent(pb);
+}
+
+void SnakeHead::grow(int size)
+{
+    for (int delta = size - getSize(); delta >0; delta--)
+    {
+        addBodyPart();
+    }
+}
+
+void SnakeHead::die(const std::function<void()>& callback)
+{
+    auto shrink = ResizeTo::create(0.5, Size(10, 10));
+    unscheduleUpdate();
+    
+    for(const auto curBodyPart : bodyParts)
+    {
+        auto remove = CallFunc::create([&, curBodyPart](){
+            curBodyPart->removeFromParentAndCleanup(true);
+        });
+
+        auto seq = Sequence::create(shrink->clone(), remove, nullptr);
+        curBodyPart->runAction(seq);
+    }
+    
+    auto remove = CallFunc::create([&, callback](){
+        this->removeFromParentAndCleanup(true);
+        if (callback != nullptr)
+        {
+            callback();
+        }
+    });
+    
+    runAction(Sequence::create(shrink, remove, nullptr));
+
 }

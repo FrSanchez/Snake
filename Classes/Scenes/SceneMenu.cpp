@@ -47,6 +47,9 @@ bool SceneMenu::init()
     {
         return false;
     }
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
+    srand(time(NULL));
+#endif
     
     auto size = Director::getInstance()->getVisibleSize();
 

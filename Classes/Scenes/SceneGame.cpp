@@ -9,7 +9,7 @@
 #include "SceneMenu.h"
 #include "UI/DPad.h"
 #include "LevelOpened.h"
-#include "UI/TimerSprite.h"
+#include "GameElements/TimerSprite.h"
 #include "audio/include/AudioEngine.h"
 #include "Gestures/GestureRecognizerUtils.h"
 #include "UI/TrophyModalBox.h"
@@ -52,10 +52,6 @@ bool SceneGame::init(int level, std::string levelFile)
     _active = true;
     _level = level;
     _score.startLevel(_level);
-    
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_IOS)
-    srand(time(NULL));
-#endif
         
     _levelFile = levelFile;
     
@@ -439,13 +435,13 @@ Action* SceneGame::calcSnakeMove(int link)
         if (fmod(snake.getPosAt(link).y, 2) >= 1) {
             dx = -dx;;
         }
-        dx *= tileSize.width / 4;
+        dx *= tileSize.width / 5;
         mb = MoveBy::create(snakeSpeed / 2, Vec2(dx, 0));
     } else {
         if (fmod(snake.getPosAt(link).x, 2) >= 1) {
             dx = -dx;
         }
-        dx *= tileSize.width / 4;
+        dx *= tileSize.width / 5;
         mb = MoveBy::create(snakeSpeed /2 , Vec2(0, dx));
     }
     auto seq = Sequence::create(mb, mb->reverse(), nullptr);

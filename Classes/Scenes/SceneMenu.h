@@ -9,7 +9,7 @@
 #define SceneMenu_hpp
 
 
-#include "BaseScene.h"
+#include "Scenes/BaseScene.h"
 #include "network/CCDownloader.h"
 #include "UI/Chooser.h"
 #include "Bank.h"

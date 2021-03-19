@@ -96,3 +96,13 @@ void StoreScene::doPurchase(Ref* s)
         });
     }
 }
+
+void StoreScene::closeScene(Ref* s)
+{
+    auto scene = SceneMenu::create();
+    if (scene != nullptr) {
+        auto transition = TransitionSlideInR::create(1, scene);
+        Director::getInstance()->replaceScene(transition);
+        Config::getInstance()->save();
+    }
+}

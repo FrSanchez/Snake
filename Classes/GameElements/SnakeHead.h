@@ -1,16 +1,16 @@
 //
-//  Head.hpp
+//  SnakeHead.hpp
 //  snake-mobile
 //
 //  Created by Francisco Sanchez on 3/15/21.
 //
 
-#ifndef Head_hpp
-#define Head_hpp
+#ifndef SnakeHead_hpp
+#define SnakeHead_hpp
 
 #include "cocos2d.h"
 
-class Head : public cocos2d::Sprite
+class SnakeHead : public cocos2d::Sprite
 {
 private:
     cocos2d::Vec2 _dir;
@@ -20,8 +20,8 @@ private:
     float _tLim;
     cocos2d::Vector<cocos2d::Sprite*> bodyParts;
 public:
-    Head();
-    ~Head();
+    SnakeHead();
+    ~SnakeHead();
     bool init();
     float getSpeed() { return _speed; }
     cocos2d::Vec2 getDir() { return _dir; }
@@ -35,7 +35,10 @@ public:
     void setMinDistance(float value) { _minDistance = value; }
     float getTLim() { return _tLim; }
     void setTLim(float value) { _tLim = value; }
-    CREATE_FUNC(Head);
+    void die(const std::function<void()>& callback);
+    CREATE_FUNC(SnakeHead);
+    int getSize() { return (int) bodyParts.size(); }
+    void grow(int);
 };
 
-#endif /* Head_hpp */
+#endif /* SnakeHead_hpp */

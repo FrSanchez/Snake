@@ -8,7 +8,6 @@
 #ifndef AltScene_hpp
 #define AltScene_hpp
 
-#include "Head.h"
 #include "Gestures/GestureRecognizer.h"
 #include "Gestures/PinchGestureRecognizer.h"
 #include "Gestures/TapGestureRecognizer.h"
@@ -16,16 +15,23 @@
 #include "Gestures/LongPressGestureRecognizer.h"
 #include "Gestures/PanGestureRecognizer.h"
 
+#include "GameElements/SnakeHead.h"
+
+#include "GameElements/Fruit.h"
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "extensions/cocos-ext.h"
-#include "BaseScene.h"
+#include "UnityReward.h"
+#include "GrowByAction.h"
+#include "GameElements/GameScoreLabel.h"
 
 class AltScene : public cocos2d::Scene, public UnityReward
 {
 private:
-    Head* _head;
+    SnakeHead* _head;
     bool _debugDraw = false;
+    int _foodAdded;
+    int _foodEaten;
 
     void enableSwipe();
     void onSwipe(cocos2d::SwipeGestureRecognizer* recognizer);
@@ -33,9 +39,15 @@ private:
     bool onContactBegin(cocos2d::PhysicsContact& contact);
     
 public:
-    void update(float dt);
     bool init();
     void rewardPlayer(const char *placementId);
+    void closeScene(cocos2d::Ref *pSender = nullptr);
+    void addFruit(float dt);
+    cocos2d::Node* findNode(cocos2d::Node* a, cocos2d::Node* b, int tag);
+    void eat(Fruit* fruit);
+    void crash();
+    void isDead();
+    
     CREATE_FUNC(AltScene);
 };
 

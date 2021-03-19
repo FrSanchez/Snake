@@ -91,8 +91,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("fonts");
     FileUtils::getInstance()->addSearchPath("audio");
 
-    auto scene = SceneMenu::createScene();
-//    auto scene = SnakeScene::create();
+    auto scene = SceneMenu::create();
     director->runWithScene(scene);
     
     return true;

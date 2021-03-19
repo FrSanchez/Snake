@@ -22,6 +22,7 @@ public:
     void doPurchase(Ref* pSender);
     CREATE_FUNC(StoreScene);
     cocos2d::Scene* getNextScene() { SceneMenu::create(); }
+    void closeScene(cocos2d::Ref *pSender = nullptr);
 };
 
 #endif /* StoreScene_hpp */

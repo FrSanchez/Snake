@@ -97,3 +97,13 @@ void SettingsScene::onCheckbox(Ref* s)
     Config::getInstance()->setShowPurchase(!check);
     setWarnIcon();
 }
+
+void SettingsScene::closeScene(Ref* s)
+{
+    auto scene = SceneMenu::create();
+    if (scene != nullptr) {
+        auto transition = TransitionSlideInR::create(1, scene);
+        Director::getInstance()->replaceScene(transition);
+        Config::getInstance()->save();
+    }
+}

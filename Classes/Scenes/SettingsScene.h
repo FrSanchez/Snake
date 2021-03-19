@@ -30,6 +30,7 @@ public:
     bool init();
     CREATE_FUNC(SettingsScene);
     cocos2d::Scene* getNextScene() { SceneMenu::create(); }
+    void closeScene(cocos2d::Ref *pSender = nullptr);
 };
 
 #endif /* SettingsScene_hpp */
