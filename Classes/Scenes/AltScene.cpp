@@ -141,6 +141,7 @@ void AltScene::eat(Fruit *fruit)
     }
     _head->setSpeed(_head->getSpeed() + 20);
     _head->runAction(GrowByAction::create(0.2, 5, CC_CALLBACK_0(SnakeHead::getSize, _head), CC_CALLBACK_1(SnakeHead::grow, _head)));
+    _head->setTLim(_head->getTLim() * 0.9);
     log("Current tLim: %f", _head->getTLim());
     auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
     timer->stop();

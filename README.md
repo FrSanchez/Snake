@@ -30,3 +30,4 @@ More sounds:
 * [ ] animate the progress bar
 * [ ] set maxlevel to the one opened by the player
 * [ ] write max level opened by user - and load up to that level from level chooser
+* [ ] modify head->tLim every time it grows and goes faster
