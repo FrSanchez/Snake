@@ -24,6 +24,7 @@
 #include "UnityReward.h"
 #include "GrowByAction.h"
 #include "GameElements/GameScoreLabel.h"
+#include "GameElements/Arena.h"
 
 class AltScene : public cocos2d::Scene, public UnityReward
 {

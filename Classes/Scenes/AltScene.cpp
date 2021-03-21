@@ -9,6 +9,8 @@
 #include "SceneMenu.h"
 #include "audio/include/AudioEngine.h"
 #include "GameElements/TimerSprite.h"
+#include "UI/LostModalBox.h"
+#include "UI/PauseButton.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -22,6 +24,8 @@ bool AltScene::init()
     }
     auto size = Director::getInstance()->getVisibleSize();
     
+    addChild(Arena::create());
+    
     _foodAdded = 0;
     _foodEaten = 0;
     MenuItemFont::setFontSize(64);
@@ -32,40 +36,27 @@ bool AltScene::init()
     auto menuDebug = Menu::create(item, nullptr);
     this->addChild(menuDebug);
     menuDebug->setPosition(Vec2(size.width - item->getContentSize().width / 2 - 10, size.height - item->getContentSize().height / 2 - 10));
+        
+    auto pause = PauseButton::create();
+    pause->setPosition(Vec2(size.width - pause->getContentSize().width, pause->getContentSize().height / 2));
+    addChild(pause);
     
-    _head = SnakeHead::create();
-    _head->setPosition(size.width /2 , size.height/2);
-    _head->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    _head->setTag(0xf00);
-    addChild(_head);
-    for(int i =0; i < 4; i++) { _head->addBodyPart(); }
-    
-    auto normal = Sprite::createWithSpriteFrameName("exit");
-    auto select = Sprite::createWithSpriteFrameName("exit_pressed");
-    auto closeItem = MenuItemSprite::create(normal, select, CC_CALLBACK_1(AltScene::closeScene, this));
-    
-    auto menu = Menu::create(closeItem, nullptr);
-    
-    menu->setPosition(Vec2(size.width / 2, 32));
-    menu->alignItemsHorizontally();
-    this->addChild(menu, 1);
+    auto homeButton = Button::create("home-sm", "home-sm-pressed", "home-sm", cocos2d::ui::AbstractCheckButton::TextureResType::PLIST);
+    homeButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){
+        switch (type)
+        {
+            case ui::Widget::TouchEventType::BEGAN:
+                break;
+            case ui::Widget::TouchEventType::ENDED:
+                closeScene(sender);
+                break;
+            default:
+                break;
+        }
+    });
+    homeButton->setPosition(Vec2(size.width - pause->getContentSize().width - homeButton->getContentSize().width, pause->getContentSize().height / 2));
+    addChild(homeButton);
 
-    
-//    auto slider = ui::Slider::create();
-//    slider->setTag(2);
-//    slider->setTouchEnabled(true);
-//    slider->loadBarTexture("sliderTrack.png");
-//    slider->loadSlidBallTextures("sliderThumb.png", "sliderThumb.png", "");
-//    slider->loadProgressBarTexture("sliderProgress.png");
-//    slider->setPosition(Vec2(size.width / 2, size.height * 0.1f + slider->getContentSize().height * 2.0f));
-//    slider->setPercent(30);
-//    slider->addEventListener(CC_CALLBACK_2(AltScene::sliderEvent, this));
-//    addChild(slider, 999);
-//
-//    sliderEvent(slider, Slider::EventType::ON_PERCENTAGE_CHANGED);
-    _head->setTLim(30 / 100.0f);
-    
-    //adds contact event listener
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(AltScene::onContactBegin, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
@@ -79,7 +70,15 @@ bool AltScene::init()
     timer->setTag(TIMER_TAG);
 //    timer->setOnTimerEndCallback(CC_CALLBACK_0(SceneGame::onTimerEnd, this));
     addChild(timer);
-    
+     
+    _head = SnakeHead::create();
+    _head->setPosition(size.width /2 , size.height/2 - 64);
+    _head->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    _head->setTag(0xf00);
+    _head->setTLim(30 / 100.0f);
+    addChild(_head);
+    for(int i =0; i < 4; i++) { _head->addBodyPart(); }
+
     enableSwipe();
     
 
@@ -100,7 +99,7 @@ void AltScene::addFruit(float dt)
     timer->activate(duration);
 
     
-    scheduleOnce((SEL_SCHEDULE)&AltScene::addFruit, CCRANDOM_0_1() * 5 + 5);
+    scheduleOnce((SEL_SCHEDULE)&AltScene::addFruit, CCRANDOM_0_1() * 5 + duration);
 }
 
 cocos2d::Node* AltScene::findNode(cocos2d::Node* a, cocos2d::Node* b, int tag)
@@ -134,33 +133,31 @@ bool AltScene::onContactBegin(PhysicsContact& contact)
 
 void AltScene::eat(Fruit *fruit)
 {
-    log("eat");
+    int points = fruit->getOpacity() * 100 / 255;
+
     if (fruit)
     {
         fruit->removeFromParentAndCleanup(true);
     }
     _head->setSpeed(_head->getSpeed() + 20);
-    _head->runAction(GrowByAction::create(0.2, 5, CC_CALLBACK_0(SnakeHead::getSize, _head), CC_CALLBACK_1(SnakeHead::grow, _head)));
+    _head->runAction(GrowByAction::create(0.2, 3, CC_CALLBACK_0(SnakeHead::getSize, _head), CC_CALLBACK_1(SnakeHead::grow, _head)));
     _head->setTLim(_head->getTLim() * 0.9);
     log("Current tLim: %f", _head->getTLim());
     auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
     timer->stop();
 
     if (Config::getInstance()->getEffects()) {
-        AudioEngine::play2d("impactMetal_light_004.ogg", false, 1.0f);
+        AudioEngine::play2d("impactMetal_light_004.mp3", false, 1.0f);
     }
     auto scorelbl = dynamic_cast<GameScoreLabel*>(getChildByTag(SCORE_TAG));
     if (scorelbl) {
-        scorelbl->runAction(GrowByAction::create(0.2, 10, CC_CALLBACK_0(GameScoreLabel::getValue, scorelbl), CC_CALLBACK_1(GameScoreLabel::setValue, scorelbl)));
+        scorelbl->runAction(GrowByAction::create(0.2, points, CC_CALLBACK_0(GameScoreLabel::getValue, scorelbl), CC_CALLBACK_1(GameScoreLabel::setValue, scorelbl)));
     }
     _foodEaten ++;
 }
 
 void AltScene::isDead()
 {
-    if (Config::getInstance()->getEffects()) {
-        AudioEngine::play2d("impactPlate_medium_001.ogg", false, 1.0f);
-    }
     auto timer = static_cast<TimerSprite*>( getChildByTag(TIMER_TAG) );
     timer->stop();
 
@@ -169,10 +166,25 @@ void AltScene::isDead()
 
 void AltScene::crash()
 {
+    unscheduleAllCallbacks();
     if (Config::getInstance()->getEffects()) {
-        AudioEngine::play2d("impactPlate_medium_001.ogg", false, 1.0f);
+        AudioEngine::play2d("impactPlate_medium_001.mp3", false, 1.0f);
     }
     _head->die(CC_CALLBACK_0(AltScene::isDead, this));
+    
+    auto lost = LostModalBox::create();
+    lost->setOnHome([&, lost](Ref* s){
+        lost->ClosePopup();
+        closeScene();
+    });
+    lost->setOnRepeat([&, lost](Ref *s){
+        lost->ClosePopup();
+        auto scene = AltScene::create();
+        auto fade = TransitionFade::create(1, scene);
+        Director::getInstance()->replaceScene(fade);
+    });
+    addChild(lost);
+
 }
 
 void AltScene::sliderEvent(Ref *pSender, ui::Slider::EventType type)

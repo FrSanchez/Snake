@@ -34,6 +34,9 @@ bool LostModalBox::init()
     menu->setPosition(Vec2(_contentSize.width / 2, _contentSize.height / 3));
     menu->alignItemsHorizontally();
     
+    setScale(0.5);
+    runAction(ScaleTo::create(0.2, 1.1));
+    
     return true;
 }
 

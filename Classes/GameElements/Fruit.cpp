@@ -27,7 +27,7 @@ bool Fruit::init()
 
 void Fruit::setDuration(float duration)
 {
-    auto fade = FadeOut::create(duration);
+    auto fade = FadeTo::create(duration, 64);
     auto remove = CallFunc::create([&](){
         removeFruit();
     });
@@ -40,7 +40,7 @@ void Fruit::setParent( Node* parent)
     if (parent != nullptr) {
         auto size = parent->getContentSize();
         
-        setPosition(Vec2(CCRANDOM_0_1() * (size.width - 128) + 64, CCRANDOM_0_1() * (size.height - 128) + 64));
+        setPosition(Vec2(CCRANDOM_0_1() * (size.width - 128) + 64, CCRANDOM_0_1() * (size.height - 160) + 96));
     }
 }
 
@@ -50,6 +50,12 @@ void Fruit::removeFruit(float dt)
     auto parent = getParent();
     if (parent != nullptr)
     {
+        auto _emitter = ParticleSystemQuad::create("particles/ExplodingRing.plist");
+        _emitter->retain();
+        _emitter->setPosition(getPosition());
+        _emitter->setAutoRemoveOnFinish(true);
+        parent->addChild(_emitter, 10);
+
         removeFromParentAndCleanup(true);
     }
 }
